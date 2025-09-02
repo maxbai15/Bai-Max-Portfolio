@@ -1,12 +1,12 @@
 # Bai-Max-Portfolio
 # Honors Engineering/CS Portfolio — Max Bai
 This repository hosts my Honors Engineering/Computer Science portfolio for
-[2025-2026] at [Charlotte Latin School].
+2025-2026 at Charlotte Latin School.
 - **Live site (GitHub Pages):** &lt;https://github.com/maxbai15/Bai-Max-Portfolio&gt;
-- **Instructor access:** [Tom Dubick] added as collaborator.
+- **Instructor access:** Tom Dubick added as collaborator.
 ## About Me
-I am **Max Bai**, a [Senior] student focusing on [computer science and engineering].
-I enjoy [playing soccer] and plan to pursue [computer science/mathematics in the future].
+I am **Max Bai**, a Senior student focusing on computer science and engineering.
+I enjoy playing soccer and plan to pursue computer science/mathematics in the future.
 ## Contents
 - `/index.md` — Website landing page
 - `/ap-csa.md` — AP Computer Science A portfolio
