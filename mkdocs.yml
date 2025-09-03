@@ -8,7 +8,7 @@ nav:
   - Classes:
       - AP Networking:
           - Overview: ap-networking/index.md
-          - Project 1: ap-networking/project1.md
+          - Component Cards: classes/ap-networking/202509component-cards.md
           - Project 2: ap-networking/project2.md
       - Senior Engineering:
           - Overview: senior-engineering/index.md
