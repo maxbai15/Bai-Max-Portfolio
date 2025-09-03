@@ -1,17 +1,15 @@
-# Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+# Home
+![Max Bai](headshot.jpg)
+## About Me
+I am **Max Bai**, a Senior student in the Honors
+Engineering/Computer Science program at Charlotte Latin. I am especially
+interested in math and icomputer science. Outside of class, I participate in
+soccer. My favorite hobbies are skiing and sleeping. In the
+future, I hope to continue studying computer science and mathematics in the future.
+## Portfolio Navigation
+- [AP Computer Science A](ap-csa.md)
+- [AP Computer Science Principles](ap-csp.md)
+- [AP Networking](ap-networking.md)
+- [Game Design](game-design.md)
+- [Engineering Projects](engineering-projects.md)
+- [Extracurriculars](extracurriculars.md)
