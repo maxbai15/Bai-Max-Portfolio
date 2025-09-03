@@ -1,0 +1,17 @@
+site_name: "My Digital Portfolio"
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - About me: about.md
+  - Classes:
+      - AP Networking:
+          - Overview: ap-networking/index.md
+          - Project 1: ap-networking/project1.md
+          - Project 2: ap-networking/project2.md
+      - Senior Engineering:
+          - Overview: senior-engineering/index.md
+          - Project 1: senior-engineering/project1.md
+          - Project 2: senior-engineering/project2.md
+
