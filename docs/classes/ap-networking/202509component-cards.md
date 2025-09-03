@@ -69,6 +69,7 @@ Understand the main hardware and software components of a computer, their purpos
 - Test: Download and print document using arranged software layers  
 - Sequence for software layers only:  Application —> libraries/runtimes —> OS —> Device Drivers —> Firmware
 - Sequence for software and hardware layers: Application —> libraries/runtimes —> OS —> Device Drivers —> Firmware —> RAM —> CPU —> Storage —> I/O Device
+- ![Software Sequence](../../images/IMG_2246.jpeg)
 
 **Build-A-PC Challenge:**  
 - **Test:** Built PC for gaming purpose  
