@@ -58,6 +58,12 @@ Understand the main hardware and software components of a computer, their purpos
 
 ## 4. Testing & Evaluation
 
+**Silent Signaling**
+For Silent Signaling I didn't do it completely right since I gestured by using tapping. I whould have done it better using binary, like white represent 0 and blue represent 1. The image below shows a better solution
+- [silent signaling image]()
+**Component Song**
+- [Link to song:](https://drive.google.com/file/d/15TanhWVbyvlMI-ih7Zn8LublkD8w12EC/view?usp=drivesdk)
+- [link to lyrics](https://docs.google.com/document/d/1o1_s2QQ1E2vst_Qb9m--0Vt4YqF_GQpGtD0vehaWBiI/edit?usp=drivesdk)
 **Hardware:**  
 - Test: Type a sentence and save file  
 - Sequence: Had to think through the hardware component used for typing a sentence and saving them. Thought about it starting at the power all the way to the I/O Devices
