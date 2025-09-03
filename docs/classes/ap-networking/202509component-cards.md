@@ -61,7 +61,7 @@ Understand the main hardware and software components of a computer, their purpos
 **Hardware:**  
 - Test: Type a sentence and save file  
 - Sequence: Had to think through the hardware component used for typing a sentence and saving them. Thought about it starting at the power all the way to the I/O Devices
-- Image: [Hardware Flow Chart](../../images/hardware-flowchart.jpg)
+- ![Hardware Flow Chart](../../images/hardware-flowchart.jpg)
 - Bugs: When sharing different people's boards with the entire class, everyone discovered different parts where they could have improved. In mine the motherboard wasn't  connecting directly to components like the GPU and SSD.
 
 **Software:**  
