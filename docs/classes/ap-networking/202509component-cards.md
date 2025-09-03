@@ -20,6 +20,14 @@ Understand the main hardware and software components of a computer, their purpos
 
 ## 2. Design & Planning
 
+**Silent Signaling**
+- we were given a tab with a blue side and a white side
+- we had to answer questions using only the tab, no gesturing
+
+**Component Song**
+- We had to create a song about hardware component
+- Could use ai to do the lyrics and song
+
 **Hardware Activities:**  
 - Arrange hardware cards to show the data path when typing a sentence and saving it  
 - Materials: CPU, RAM, Storage, GPU, Motherboard, PSU, NIC, Cooling System, I/O Devices  
@@ -60,7 +68,7 @@ Understand the main hardware and software components of a computer, their purpos
 
 **Silent Signaling**
 For Silent Signaling I didn't do it completely right since I gestured by using tapping. I whould have done it better using binary, like white represent 0 and blue represent 1. The image below shows a better solution
-- [silent signaling image]()
+- [silent signaling image]((../../images/2249.png))
 **Component Song**
 - [Link to song:](https://drive.google.com/file/d/15TanhWVbyvlMI-ih7Zn8LublkD8w12EC/view?usp=drivesdk)
 - [link to lyrics](https://docs.google.com/document/d/1o1_s2QQ1E2vst_Qb9m--0Vt4YqF_GQpGtD0vehaWBiI/edit?usp=drivesdk)
