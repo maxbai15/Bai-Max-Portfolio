@@ -9,7 +9,7 @@ nav:
       - AP Networking:
           - Overview: ap-networking/index.md
           - Component Cards: classes/ap-networking/202509component-cards.md
-          - Project 2: ap-networking/project2.md
+          - Command Line Interface: classes/ap-networking/202509CLI.md
       - Senior Engineering:
           - Overview: senior-engineering/index.md
           - Project 1: senior-engineering/project1.md
