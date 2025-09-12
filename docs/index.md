@@ -1,5 +1,5 @@
 # Home
-![Max Bai](headshot.jpg)
+
 ## About Me
 I am **Max Bai**, a Senior student in the Honors
 Engineering/Computer Science program at Charlotte Latin. I am especially
