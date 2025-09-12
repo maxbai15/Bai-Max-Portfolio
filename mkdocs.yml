@@ -7,11 +7,8 @@ nav:
   - About me: about.md
   - Classes:
       - AP Networking:
-          - Overview: ap-networking/index.md
           - Component Cards: classes/ap-networking/202509component-cards.md
           - Command Line Interface: classes/ap-networking/202509CLI.md
       - Senior Engineering:
-          - Overview: senior-engineering/index.md
-          - Project 1: senior-engineering/project1.md
-          - Project 2: senior-engineering/project2.md
+
 
