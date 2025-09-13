@@ -1,12 +1,14 @@
-site_name: Bai Max Portfolio
+site_name: "My Digital Portfolio"
+theme:
+  name: material
 
 nav:
   - Home: index.md
-  - Contact: contact.md
+  - About me: about.md
   - Classes:
       - AP Networking:
-          - CLI Project: classes/ap-networking/202509CLI.md
-          - Hardware & Software: classes/ap-networking/hardware-software.md
-      - Senior Engineering:
-          - Project 1: classes/senior-engineering/project1.md
-          - Project 2: classes/senior-engineering/project2.md
+          - Component Cards: classes/ap-networking/202509component-cards.md
+          - Command Line Interface: classes/ap-networking/202509CLI.md
+
+
+
