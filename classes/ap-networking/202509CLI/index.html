@@ -1,805 +1,194 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-      
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
-    
-    
-      
-        <title>Command Line Interface (CLI) - My Digital Portfolio</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
-      
-      
-
-
-    
-    
-      
-    
-    
-      
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    <body dir="ltr">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
         
-        <a href="#command-line-interface-cli" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>CLI Project - Bai Max Portfolio</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
 
-  
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Bai Max Portfolio</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-<header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Digital Portfolio" class="md-header__button md-logo" aria-label="My Digital Portfolio" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            My Digital Portfolio
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../contact/" class="nav-link">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Classes</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">AP Networking</a>
+    <ul class="dropdown-menu">
             
-              Command Line Interface (CLI)
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
-    
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Digital Portfolio" class="md-nav__button md-logo" aria-label="My Digital Portfolio" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
-    My Digital Portfolio
-  </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../about/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    About me
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Classes
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Classes
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    AP Networking
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            AP Networking
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../ap-networking/index.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../202509component-cards/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Component Cards
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../ap-networking/project2.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Project 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Senior Engineering
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            Senior Engineering
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../senior-engineering/index.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../senior-engineering/project1.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Project 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../senior-engineering/project2.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Project 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-project-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Project Overview
-    </span>
-  </a>
-  
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">CLI Project</a>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#2-design-planning-map-the-maze-i-ubuntu-tutorial" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Design &amp; Planning – Map the Maze I &amp; Ubuntu Tutorial
-    </span>
-  </a>
-  
+            
+<li>
+    <a href="../hardware-software.md" class="dropdown-item">Hardware & Software</a>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-technical-development-map-the-maze-ii" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Technical Development – Map the Maze II
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-testing-evaluation-house-activity" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Testing &amp; Evaluation – House Activity
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Senior Engineering</a>
+    <ul class="dropdown-menu">
             
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
+<li>
+    <a href="../../senior-engineering/project1.md" class="dropdown-item">Project 1</a>
+</li>
+            
+<li>
+    <a href="../../senior-engineering/project2.md" class="dropdown-item">Project 2</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
 
-
-
-<h1 id="command-line-interface-cli">Command Line Interface (CLI)</h1>
-<h2 id="1-project-overview">1. Project Overview</h2>
-<p><strong>Problem Statement:</strong><br />
-Learn to navigate and manage a Linux system through the command line, practicing foundational Ubuntu commands while applying them in structured challenges.  </p>
-<p><strong>Objectives:</strong><br />
-- Navigate the file system with commands like <code>pwd</code>, <code>cd</code>, and <code>ls</code>.<br />
-- Manage files and directories using <code>mkdir</code>, <code>touch</code>, <code>cp</code>, <code>rm</code>.<br />
-- Apply advanced commands for hidden files, editing, and system checks.<br />
-- Complete Map the Maze I &amp; II activities and the House activity to demonstrate mastery.  </p>
-<p><strong>Success Criteria:</strong><br />
-- Correct use of CLI commands to solve navigation and file management tasks.<br />
-- Completion of activities with correct sequences.<br />
-- Evidence of working tests (screenshots, logs, or tables).<br />
-- Clear explanation of what was learned and real-world relevance.  </p>
-<hr />
-<h2 id="2-design-planning-map-the-maze-i-ubuntu-tutorial">2. Design &amp; Planning – Map the Maze I &amp; Ubuntu Tutorial</h2>
-<p>The <strong>design and planning stage</strong> focused on building a foundation for working in the Ubuntu command line. I began with <strong>Map the Maze I</strong>, which introduced me to the most basic commands like <code>pwd</code> (to check my current directory), <code>cd</code> (to move into another directory), and <code>ls</code> (to see the contents of a folder). The activity acted like a puzzle that forced me to think step-by-step about where I was and where I needed to go. This helped me understand that the CLI requires precision: a mistyped command or wrong directory name will not work.  </p>
-<p>At the same time, I followed the <strong>Ubuntu tutorial</strong>, which gave me a broader context for why these commands matter. It covered file creation (<code>mkdir</code>, <code>touch</code>), file editing (<code>nano</code>), and system commands like <code>chmod</code> (to change permissions) or <code>top</code> (to monitor running processes). This tutorial complemented Map the Maze I by showing real-world uses of the same basic skills I was practicing.  </p>
-<p>Together, Map the Maze I and the tutorial gave me the tools I needed for the next phases of the project. They also served as my “plan,” since I now had a clear set of commands I could apply to more complex tasks.  </p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Purpose</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pwd</code></td>
-<td>Show current directory</td>
-<td><code>/home/student</code></td>
-</tr>
-<tr>
-<td><code>ls</code></td>
-<td>List files and folders</td>
-<td><code>ls -a</code></td>
-</tr>
-<tr>
-<td><code>cd</code></td>
-<td>Change directory</td>
-<td><code>cd Documents</code></td>
-</tr>
-<tr>
-<td><code>mkdir</code></td>
-<td>Create directory</td>
-<td><code>mkdir Maze</code></td>
-</tr>
-<tr>
-<td><code>touch</code></td>
-<td>Create file</td>
-<td><code>touch clue.txt</code></td>
-</tr>
-<tr>
-<td><code>nano</code></td>
-<td>Edit a file</td>
-<td><code>nano clue.txt</code></td>
-</tr>
-</tbody>
-</table>
-<p><img alt="Map the Maze I Screenshot" src="../images/maze1.png" />  </p>
-<hr />
-<h2 id="3-technical-development-map-the-maze-ii">3. Technical Development – Map the Maze II</h2>
-<p>In the <strong>technical development stage</strong>, I worked through <strong>Map the Maze II</strong>, which expanded on the basics from Maze I. This activity required me not just to move around directories, but also to create, edit, copy, and discover hidden files. For example, I used <code>touch</code> to create files, <code>nano</code> to edit their contents, and <code>cp</code> to duplicate them. One of the biggest lessons was using <code>ls -a</code> to reveal hidden files, which showed me that sometimes information is present but not visible without the right command.  </p>
-<p>This activity also gave me practice in versioning: each step built on the last. At first, I simply navigated and confirmed my location. Then I began creating and editing files. Finally, I put it all together by managing multiple files and finding hidden clues.  </p>
-<table>
-<thead>
-<tr>
-<th>Task</th>
-<th>Command(s) Used</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Navigate directories</td>
-<td><code>cd</code>, <code>pwd</code></td>
-<td>Used constantly to stay oriented</td>
-</tr>
-<tr>
-<td>Create folder</td>
-<td><code>mkdir maze2</code></td>
-<td>Built a workspace</td>
-</tr>
-<tr>
-<td>Create file</td>
-<td><code>touch secret.txt</code></td>
-<td>Added clue file</td>
-</tr>
-<tr>
-<td>Edit file</td>
-<td><code>nano secret.txt</code></td>
-<td>Inserted instructions</td>
-</tr>
-<tr>
-<td>Copy file</td>
-<td><code>cp secret.txt copy.txt</code></td>
-<td>Practiced duplication</td>
-</tr>
-<tr>
-<td>Show hidden files</td>
-<td><code>ls -a</code></td>
-<td>Discovered hidden messages</td>
-</tr>
-</tbody>
-</table>
-<p><img alt="Map the Maze II Screenshot" src="../images/maze2.png" />  </p>
-<p>By the end of Map the Maze II, I could confidently use multiple commands together to solve more complex tasks.  </p>
-<hr />
-<h2 id="4-testing-evaluation-house-activity">4. Testing &amp; Evaluation – House Activity</h2>
-<p>The <strong>testing and evaluation stage</strong> was the <strong>House Activity</strong>, which acted as the ultimate test of whether I could apply all the commands I had learned. Instead of being a linear maze, the House required me to move through rooms, inspect items, and complete tasks. This tested not only my command knowledge but also my ability to adapt and think logically.  </p>
-<p>For example, I started in the “hallway” and used <code>pwd</code> to confirm my location. I used <code>cd</code> to enter specific rooms like the Kitchen and <code>ls</code> to check what was inside. Some rooms required me to clean up files, so I practiced deleting with <code>rm</code>. I also created notes using <code>nano</code> and found hidden items by remembering to use <code>ls -a</code>.  </p>
-<table>
-<thead>
-<tr>
-<th>Step</th>
-<th>Action</th>
-<th>Command(s)</th>
-<th>Evaluation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Locate self</td>
-<td>Check starting directory</td>
-<td><code>pwd</code></td>
-<td>Correct path displayed</td>
-</tr>
-<tr>
-<td>Move to room</td>
-<td>Enter Kitchen</td>
-<td><code>cd Kitchen</code></td>
-<td>Successful navigation</td>
-</tr>
-<tr>
-<td>Inspect room</td>
-<td>List files</td>
-<td><code>ls</code></td>
-<td>Saw visible items</td>
-</tr>
-<tr>
-<td>Clean up</td>
-<td>Delete file</td>
-<td><code>rm trash.txt</code></td>
-<td>Removed unnecessary file</td>
-</tr>
-<tr>
-<td>Create note</td>
-<td>Add message</td>
-<td><code>nano note.txt</code></td>
-<td>Wrote instructions</td>
-</tr>
-<tr>
-<td>Reveal hidden</td>
-<td>Show hidden items</td>
-<td><code>ls -a</code></td>
-<td>Found secret files</td>
-</tr>
-</tbody>
-</table>
-<p><img alt="House Activity Screenshot" src="../images/house.png" />  </p>
-<p><strong>Bugs &amp; Fixes:</strong><br />
-- I initially forgot to use <code>ls -a</code> and missed hidden files. This was fixed after I retraced my steps.<br />
-- I once used the wrong capitalization in a directory name (<code>cd kitchen</code> instead of <code>cd Kitchen</code>), which didn’t work until I corrected it. This taught me that Linux is case-sensitive.<br />
-- Accidentally removed the wrong file using <code>rm</code>, which reinforced the importance of double-checking filenames.  </p>
-<p>This activity confirmed that I could take the structured skills from Maze I and II and apply them in an open-ended environment.  </p>
-<hr />
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../../contact/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
             </div>
-          
-          
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
 </div>
-      
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
     </div>
-  </div>
-</footer>
-      
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
     </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    
-      
-      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
-      
-    
-  </body>
+</div>
+
+    </body>
 </html>
