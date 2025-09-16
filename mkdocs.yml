@@ -1,6 +1,6 @@
 site_name: "My Digital Portfolio"
 theme:
-  name: material
+  name: dracula
 
 nav:
   - Home: index.md
