@@ -1,1 +1,0 @@
-Today I setup my yearbook folder on github and tried to setup an env for my landing.ai key.
