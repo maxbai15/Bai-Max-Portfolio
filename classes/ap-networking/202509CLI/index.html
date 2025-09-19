@@ -205,10 +205,15 @@ Learn to navigate and manage a Linux system through the command line, practicing
 - Completion of activities with correct sequences.<br />
 - Evidence of working tests (screenshots, logs, or tables).  </p>
 <hr />
-<h2 id="2-design-planning-map-the-maze-i-ubuntu-tutorial">2. Design &amp; Planning – Map the Maze I &amp; Ubuntu Tutorial</h2>
+<h2 id="2-design-planning-map-the-maze-i-ubuntu-tutorial-and-troubleshooting-networks">2. Design &amp; Planning – Map the Maze I, Ubuntu Tutorial, and Troubleshooting Networks</h2>
 <p>The <strong>design and planning stage</strong> focused on building a foundation for understanding the file tree system, working in the Ubuntu command line, and learning the necessary skills to navigate through the command line. Starting with <strong>Map the Maze I</strong>, it introduced me first to the different terminology for understanding file paths and how they work, such as what a parent directory is vs a root directory. After that, Map the Maze I taught me about many basic commands like <code>pwd</code> (to check my current directory), <code>cd</code> (to move into another directory), and <code>ls</code> (to see the contents of a folder). This helped me understand that the CLI requires precision: a mistyped command or wrong directory name will not work.  </p>
 <p>At the same time, I followed the <strong>Ubuntu tutorial</strong>, which gave me a broader context for why these commands matter. It covered file creation (<code>mkdir</code>, <code>touch</code>) and file editing (<code>nano</code>). This tutorial complemented Map the Maze I by showing real-world uses of the same basic skills I was practicing.  </p>
 <p>Together, Map the Maze I and the tutorial gave me the tools I needed for the next phases of the project. They also served as my “plan,” since I now had a clear set of commands I could apply to more complex tasks.  </p>
+<p>Additionally, we began learning about troubleshooting networks, learning about the methods to and different termonlogy. Below is the four steps to check connection:
+1. Check whether your device is connected. 
+2. Verify if it has an IP address. 
+3. Test whether it can reach the internet at all. 
+4. Confirm if it can look up website names. </p>
 <h3 id="file-tree-system-terminology">File Tree System Terminology</h3>
 <table>
 <thead>
@@ -288,7 +293,7 @@ Learn to navigate and manage a Linux system through the command line, practicing
 </table>
 <p><strong>Example Text Version of My File System Tree I Drew:</strong>
 <img alt="Example Text Version of My File System Tree I Drew" src="../../../images/file_tree.png" /></p>
-<h3 id="network-troubleshooting">Network Troubleshooting</h3>
+<h1 id="troubleshooting-network-terms">Troubleshooting Network Terms</h1>
 <table>
 <thead>
 <tr>
@@ -298,35 +303,45 @@ Learn to navigate and manage a Linux system through the command line, practicing
 </thead>
 <tbody>
 <tr>
-<td><code>Wi-Fi / Ethernet</code></td>
-<td>Signal carrier - ways your computer connect to internet</td>
+<td>Wi-Fi / Ethernet</td>
+<td>Signal carrier - ways your computer connects to the internet</td>
 </tr>
 <tr>
-<td><code>IP address</code></td>
+<td>IP address</td>
 <td>Internet Protocol - Identifiable address given to a device</td>
 </tr>
 <tr>
-<td><code>Default gateway (router)</code></td>
+<td>Default gateway (router)</td>
 <td>Device to connect local network to the internet</td>
 </tr>
 <tr>
-<td><code>DNS (Domain Name System)</code></td>
-<td>Like the internet’s “phonebook” translating user friendly domain names( like google.com) into ip addresses</td>
+<td>DNS (Domain Name System)</td>
+<td>Like the internet’s “phonebook” translating user-friendly domain names (like google.com) into IP addresses</td>
 </tr>
 <tr>
-<td><code>Ping</code></td>
-<td>Method used to test connectivity between two devices (Ex. ping -c 4 8.8.8.8)</td>
+<td>Ping</td>
+<td>Method used to test connectivity between two devices (Ex. <code>ping -c 4 8.8.8.8</code>)</td>
 </tr>
 <tr>
-<td><code>NAT / Shared networking (UTM)</code></td>
-<td>Network Function to pool all devices on a private network into one public IP Address before sending to external networks</td>
+<td>NAT / Shared networking (UTM)</td>
+<td>Network function to pool all devices on a private network into one public IP Address before sending to external networks</td>
 </tr>
 <tr>
-<td><code>Bridged networking (UTM)</code></td>
+<td>Bridged networking (UTM)</td>
 <td>VM acts like a completely separate computer</td>
 </tr>
 </tbody>
 </table>
+<p>To test our knowledge of the terms and connection testing steps, we completed a slideshow with different problems and steps to check connection in the wrong order. Our goal was to put the different steps in the right order. Below is photos showing the before and after for each scenario:</p>
+<p><strong>Scenario 1(before vs after):</strong>
+<img alt="Scenario 1(before vs after)" src="../../../images/scene1_before.png" />
+<img alt="Scenario 1(before vs after)" src="../../../images/scene1_after.png" /></p>
+<p><strong>Scenario 2(before vs after)::</strong>
+<img alt="Scenario 2(before vs after)" src="../../../images/scene2_before.png" />
+<img alt="Scenario 1(before vs after)" src="../../../images/scene2_after.png" /></p>
+<p><strong>Scenario 3(before vs after):</strong>
+<img alt="Scenario 3(before vs after)" src="../../../images/scene3_before.png" />
+<img alt="Scenario 1(before vs after)" src="../../../images/scene3_after.png" /></p>
 <hr />
 <h2 id="3-technical-development-map-the-maze-ii">3. Technical Development – Map the Maze II</h2>
 <p>In the <strong>technical development stage</strong>, I worked through <strong>Map the Maze II</strong>, which expanded on the basics from Maze I. This activity required me not just to move around directories, but also to create, edit, copy, and discover hidden files. For example, I used touch to create files, nano to edit their contents, and cp to duplicate them. One of the biggest lessons was using ls -a to reveal hidden files, which showed me that sometimes information is present but not visible without the right command. This activity also gave me practice in versioning: each step built on the last. At first, I simply navigated and confirmed my location. Then I began creating and editing files. Finally, I put it all together by managing multiple files and finding/creating my own hidden clues.</p>
