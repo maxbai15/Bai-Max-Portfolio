@@ -1,1 +1,4 @@
+9/18:
 Today I setup my yearbook folder on github and tried to setup an env for my landing.ai key.
+9/24:
+Start installing claude code on my computer and learning about cline.
