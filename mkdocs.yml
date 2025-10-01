@@ -9,6 +9,8 @@ nav:
       - AP Networking:
           - Component Cards: classes/ap-networking/202509component-cards.md
           - Command Line Interface: classes/ap-networking/202509CLI.md
+          - Determining Security Controls for Devices: classes/ap-networking/202509SecurityControls.md
+          
 
 
 
