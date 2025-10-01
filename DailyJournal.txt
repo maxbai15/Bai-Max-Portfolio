@@ -28,3 +28,5 @@ Start on owl project. First practiced soldering on a practice board with 3 resis
 Began soldering on all the LED's and the Type-C interface.
 9/30:
 Finish soldering LED's and surface mount the integrated circuits. Finished the owl!
+10/1:
+Fix daily journals and then research about agents and orchestration techniques in Python
