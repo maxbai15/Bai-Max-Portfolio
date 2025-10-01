@@ -7,14 +7,14 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 
 **Objectives:**  
 - Use Mac and Ubuntu CLI tools (`ifconfig`, `ip addr`, `ping`, `netstat`, `ufw`) to test connectivity
-- Apply the 4-step troubleshooting flow
-- Identify and evaluate open network ports/services on a VM
-- Enable firewall rules (UFW) and explore encryption basics
+- Apply the 4-step troubleshooting flow  
+- Identify and evaluate open network ports/services on a VM  
+- Enable firewall rules (UFW) and explore encryption basics  
 
 **Success Criteria:**  
-- Correctly perform network checks on Mac and Ubuntu VMs
-- Identify security risks (extra ports, unencrypted disks)
-- Enable and test a firewall/encryptions in Ubuntu
+- Correctly perform network checks on Mac and Ubuntu VMs  
+- Identify security risks (extra ports, unencrypted disks)  
+- Enable and test a firewall/encryptions in Ubuntu  
 
 
 ## 2. Design & Planning - Troubleshooting Flow & Vocabulary
