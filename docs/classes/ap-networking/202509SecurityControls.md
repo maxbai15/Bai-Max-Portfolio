@@ -107,6 +107,7 @@ I also began applying cybersecurity practices by checking for open ports with `n
 The **testing & evaluation** phase taught us about outdated software and potential risks. In the VM, we would use different commands to install certain softwares and test to see what verion they were. After finding out the version, the goal was to compare the version on the VM to the most updated version. In my case, most of the VM softwares was not up to date. We also had to determine the risks for the software not being up to date.
 
 | Software | Command Used | VM Version | Why It Matters (Risk) |
+|---------|-------------|----------|-----------------------|
 | OpenSSL | `openssl version` | Outdated | Encrypts data on websites could be leaked |
 | Firefox | `firefox --version` | Outdated | Supports open web and user privacy, web services not up to date |
 | LibreOffice | `libreoffice --version` | Outdated | Alternative to commercial office suits |
