@@ -42,8 +42,8 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 ### Common Device Vulnerabilities
 - **Outdated operating systems** - missing security updates.  
 - **Unencrypted data** - easier for attackers to read if stolen.  
-- **Weak passwords** - can be cracked; use strong/random generation.  
-- **Open ports** - entry points like “doors/windows”; necessary for services but must be managed.  
+- **Weak passwords** - can be cracked - use strong/random generation.  
+- **Open ports** - entry points like “doors/windows" - necessary for services but must be managed.  
   - Examples:  
     - 80 (HTTP – old websites)  
     - 443 (HTTPS – secure websites)  
@@ -63,9 +63,9 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 
 In the **technical development stage**, moved from theory into practical work by testing networks on both Mac and Ubuntu and applying cybersecurity measures. On Mac, began with `ifconfig` to identify my IP address. The result showed a valid private address (`10.x.x.x`), confirming that my device was connected to the school’s network. When toggling WIFI on and off, the IP disappeared and then reappeared.
 
-Next, tested connectivity by pinging public servers. Using `ping -c 4 8.8.8.8` (Google DNS) gave a fast average response time of about 7 ms. Pinging Cloudflare (`1.1.1.1`) worked as well, but slightly slower at 8 ms. To compare, pinged the school’s default gateway (`10.32.0.1`) and found it responded even faster (~0.9 ms) since it was local. Finally, I confirmed DNS resolution with `ping google.com`, proving that my device could translate names to IP addresses.  
+Next, tested connectivity by pinging public servers. Using `ping -c 4 8.8.8.8` (google DNS) gave a fast average response time of about 7 ms. Pinging Cloudflare (`1.1.1.1`) worked as well, but slightly slower at 8 ms. To compare, pinged the school’s default gateway (`10.32.0.1`) and found it responded even faster (0.9 ms) since it was local. Finally, I confirmed DNS resolution with `ping google.com`, proving that my device could translate names to IP addresses.  
 
-On Ubuntu, I used `ip addr` to check IP addresses in both Shared (NAT) and Bridged modes. Shared gave me a `192.168.x.x` address, meaning the VM was hidden behind my Mac, while Bridged gave me a `10.x.x.x` address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (Shared mode) and realism (Bridged mode).  
+On Ubuntu, I used `ip addr` to check IP addresses in both Shared (NAT) and Bridged modes. Shared gave me a `192.168.x.x` address, meaning the VM was hidden behind my Mac, while Bridged gave me a `10.x.x.x` address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (shared mode) and realism (bridged mode).  
 
 I also began applying cybersecurity practices by checking for open ports with `netstat -tuln`. Ports like 22 (SSH) and 53 (DNS) were expected, but I also saw port 631 for printing, which wasn’t needed. To improve security, I enabled Ubuntu’s firewall using `sudo ufw enable` and blocked Telnet on port 23 with `sudo ufw deny 23/tcp`. 
 
@@ -77,7 +77,7 @@ I also began applying cybersecurity practices by checking for open ports with `n
 | Disconnect/reconnect Wi-Fi | `ifconfig` | Observed IP disappearing/reappearing when Wi-Fi toggled |
 | Ping Google (8.8.8.8) | `ping -c 4 8.8.8.8` | Success, avg 7.237 ms |
 | Ping Cloudflare (1.1.1.1) | `ping -c 4 1.1.1.1` | Success, avg 8.717 ms (slower than Google) |
-| Find default gateway | `route -n get default` (Mac) / `ip route` (Ubuntu) | Mac: `10.32.0.1`, Ubuntu: `192.168.62.1` |
+| Find default gateway | `route -n get default`(mac) / `ip route`(ubuntu) | Mac: `10.32.0.1`, Ubuntu: `192.168.62.1` |
 | Ping router | `ping -c 4 <gateway>` | Very fast response (0.963 ms), faster than public servers |
 | Test DNS | `ping -c 4 google.com` | Successful – showed DNS was resolving correctly |
 | Check IP on Ubuntu (Shared) | `ip addr` | IP: `192.168.64.2/24` (hidden behind Mac) |
