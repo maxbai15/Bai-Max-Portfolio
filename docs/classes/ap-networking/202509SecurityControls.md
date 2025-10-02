@@ -31,7 +31,7 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 - **Default gateway:** router connecting local network to the internet  
 - **DNS:** translates names (google.com) to IP addresses  
 - **Ping:** tests connectivity between devices  
-- **NAT (Shared):** VM hides behind host device  
+- **NAT (shared):** VM hides behind host device  
 - **Bridged networking:** VM acts like its own device  
 
 ### Cybersecurity Fundamentals – CIA Triad
@@ -65,7 +65,7 @@ In the **technical development stage**, moved from theory into practical work by
 
 Next, tested connectivity by pinging public servers. Using `ping -c 4 8.8.8.8` (google DNS) gave a fast average response time of about 7 ms. Pinging Cloudflare (`1.1.1.1`) worked as well, but slightly slower at 8 ms. To compare, pinged the school’s default gateway (`10.32.0.1`) and found it responded even faster (0.9 ms) since it was local. Finally, I confirmed DNS resolution with `ping google.com`, proving that my device could translate names to IP addresses.  
 
-On Ubuntu, I used `ip addr` to check IP addresses in both Shared (NAT) and Bridged modes. Shared gave me a `192.168.x.x` address, meaning the VM was hidden behind my Mac, while Bridged gave me a `10.x.x.x` address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (shared mode) and realism (bridged mode).  
+On Ubuntu, I used `ip addr` to check IP addresses in both shared (NAT) and bridged modes. Shared gave me a `192.168.x.x` address, meaning the VM was hidden behind my Mac, while bridged gave me a `10.x.x.x` address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (shared mode) and realism (bridged mode).  
 
 I also began applying cybersecurity practices by checking for open ports with `netstat -tuln`. Ports like 22 (SSH) and 53 (DNS) were expected, but I also saw port 631 for printing, which wasn’t needed. To improve security, I enabled Ubuntu’s firewall using `sudo ufw enable` and blocked Telnet on port 23 with `sudo ufw deny 23/tcp`. 
 
@@ -80,8 +80,8 @@ I also began applying cybersecurity practices by checking for open ports with `n
 | Find default gateway | `route -n get default`(mac) / `ip route`(ubuntu) | Mac: `10.32.0.1`, Ubuntu: `192.168.62.1` |
 | Ping router | `ping -c 4 <gateway>` | Very fast response (0.963 ms), faster than public servers |
 | Test DNS | `ping -c 4 google.com` | Successful – showed DNS was resolving correctly |
-| Check IP on Ubuntu (Shared) | `ip addr` | IP: `192.168.64.2/24` (hidden behind Mac) |
-| Check IP on Ubuntu (Bridged) | `ip addr` | IP: `10.32.1.33/23` (acts like its own device) |
+| Check IP on Ubuntu (shared) | `ip addr` | IP: `192.168.64.2/24` (hidden behind Mac) |
+| Check IP on Ubuntu (bridged) | `ip addr` | IP: `10.32.1.33/23` (acts like its own device) |
 | Scan open ports| `netstat -tuln`| Found SSH, DNS, and unnecessary ports|
 | Enable firewall| `sudo ufw enable`| Activated UFW protection|
 | Block insecure service| `sudo ufw deny 23/tcp`| Closed Telnet port|
@@ -123,4 +123,4 @@ The **testing & evaluation** phase taught us about outdated software and potenti
 
 ## 5. Reflection  
 
-Completing these networking and cybersecurity activities gave me a much deeper understanding of both troubleshooting and defending systems. I learned that network issues can’t be just guessed at. Instead, you need to follow the steps in order: check the connection, verify IP, test reachability, and finally confirm DNS. Skipping a step could easily cause confusion and result in you not discovering the network issue. I also gained hands-on experience comparing Shared and Bridged networking in Ubuntu. At first, I didn’t realize how different they were, but testing made it clear: Shared hides the VM behind the host, while Bridged exposes it as a separate device. This helped me understand how virtualization is used differently in classrooms vs real-world IT environments. The cybersecurity labs showed me the importance of protecting systems before they are attacked. Seeing open ports as “doors” into my VM made the risks very real. Enabling the firewall and blocking Telnet taught me a way to counteract potential attacks. Checking for encryption also made me appreciate how important it is to protect data at rest, especially on personal laptops or servers. I now see how the **CIA Triad**( Confidentiality, Integrity, and Availability) fits into everything we did. Encryption and firewalls protect confidentiality. Software patches and checks protect integrity. DNS and connectivity tests ensure availability. These three principles guided every step, from troubleshooting networks to protecting systems.
+Completing these networking and cybersecurity activities gave me a much deeper understanding of both troubleshooting and defending systems. I learned that network issues can’t be just guessed at. Instead, you need to follow the steps in order: check the connection, verify IP, test reachability, and finally confirm DNS. Skipping a step could easily cause confusion and result in you not discovering the network issue. I also gained hands-on experience comparing shared and bridged networking in Ubuntu. At first, I didn’t realize how different they were, but testing made it clear: shared hides the VM behind the host, while bridged exposes it as a separate device. This helped me understand how virtualization is used differently in classrooms vs real-world IT environments. The cybersecurity labs showed me the importance of protecting systems before they are attacked. Seeing open ports as “doors” into my VM made the risks very real. Enabling the firewall and blocking Telnet taught me a way to counteract potential attacks. Checking for encryption also made me appreciate how important it is to protect data at rest, especially on personal laptops or servers. I now see how the **CIA Triad**( confidentiality, integrity, and availability) fits into everything we did. Encryption and firewalls protect confidentiality. Software patches and checks protect integrity. DNS and connectivity tests ensure availability. These three principles guided every step, from troubleshooting networks to protecting systems.
