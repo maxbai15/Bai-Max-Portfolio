@@ -227,7 +227,7 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 <li><strong>Default gateway:</strong> router connecting local network to the internet  </li>
 <li><strong>DNS:</strong> translates names (google.com) to IP addresses  </li>
 <li><strong>Ping:</strong> tests connectivity between devices  </li>
-<li><strong>NAT (Shared):</strong> VM hides behind host device  </li>
+<li><strong>NAT (shared):</strong> VM hides behind host device  </li>
 <li><strong>Bridged networking:</strong> VM acts like its own device  </li>
 </ul>
 <h3 id="cybersecurity-fundamentals-cia-triad">Cybersecurity Fundamentals – CIA Triad</h3>
@@ -260,7 +260,7 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 <h2 id="3-technical-development-network-testing-and-cybersecurity-labs">3. Technical Development – Network Testing and Cybersecurity Labs</h2>
 <p>In the <strong>technical development stage</strong>, moved from theory into practical work by testing networks on both Mac and Ubuntu and applying cybersecurity measures. On Mac, began with <code>ifconfig</code> to identify my IP address. The result showed a valid private address (<code>10.x.x.x</code>), confirming that my device was connected to the school’s network. When toggling WIFI on and off, the IP disappeared and then reappeared.</p>
 <p>Next, tested connectivity by pinging public servers. Using <code>ping -c 4 8.8.8.8</code> (google DNS) gave a fast average response time of about 7 ms. Pinging Cloudflare (<code>1.1.1.1</code>) worked as well, but slightly slower at 8 ms. To compare, pinged the school’s default gateway (<code>10.32.0.1</code>) and found it responded even faster (0.9 ms) since it was local. Finally, I confirmed DNS resolution with <code>ping google.com</code>, proving that my device could translate names to IP addresses.  </p>
-<p>On Ubuntu, I used <code>ip addr</code> to check IP addresses in both Shared (NAT) and Bridged modes. Shared gave me a <code>192.168.x.x</code> address, meaning the VM was hidden behind my Mac, while Bridged gave me a <code>10.x.x.x</code> address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (shared mode) and realism (bridged mode).  </p>
+<p>On Ubuntu, I used <code>ip addr</code> to check IP addresses in both shared (NAT) and bridged modes. Shared gave me a <code>192.168.x.x</code> address, meaning the VM was hidden behind my Mac, while bridged gave me a <code>10.x.x.x</code> address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (shared mode) and realism (bridged mode).  </p>
 <p>I also began applying cybersecurity practices by checking for open ports with <code>netstat -tuln</code>. Ports like 22 (SSH) and 53 (DNS) were expected, but I also saw port 631 for printing, which wasn’t needed. To improve security, I enabled Ubuntu’s firewall using <code>sudo ufw enable</code> and blocked Telnet on port 23 with <code>sudo ufw deny 23/tcp</code>. </p>
 <h4 id="key-tasks-and-results">Key Tasks and Results</h4>
 <table>
@@ -308,12 +308,12 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 <td>Successful – showed DNS was resolving correctly</td>
 </tr>
 <tr>
-<td>Check IP on Ubuntu (Shared)</td>
+<td>Check IP on Ubuntu (shared)</td>
 <td><code>ip addr</code></td>
 <td>IP: <code>192.168.64.2/24</code> (hidden behind Mac)</td>
 </tr>
 <tr>
-<td>Check IP on Ubuntu (Bridged)</td>
+<td>Check IP on Ubuntu (bridged)</td>
 <td><code>ip addr</code></td>
 <td>IP: <code>10.32.1.33/23</code> (acts like its own device)</td>
 </tr>
@@ -410,7 +410,7 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 <p><strong>Example Installing and Checking Version(Firefox):</strong>
 <img alt="tcp port" src="../../../images/firefox.png" /></p>
 <h2 id="5-reflection">5. Reflection</h2>
-<p>Completing these networking and cybersecurity activities gave me a much deeper understanding of both troubleshooting and defending systems. I learned that network issues can’t be just guessed at. Instead, you need to follow the steps in order: check the connection, verify IP, test reachability, and finally confirm DNS. Skipping a step could easily cause confusion and result in you not discovering the network issue. I also gained hands-on experience comparing Shared and Bridged networking in Ubuntu. At first, I didn’t realize how different they were, but testing made it clear: Shared hides the VM behind the host, while Bridged exposes it as a separate device. This helped me understand how virtualization is used differently in classrooms vs real-world IT environments. The cybersecurity labs showed me the importance of protecting systems before they are attacked. Seeing open ports as “doors” into my VM made the risks very real. Enabling the firewall and blocking Telnet taught me a way to counteract potential attacks. Checking for encryption also made me appreciate how important it is to protect data at rest, especially on personal laptops or servers. I now see how the <strong>CIA Triad</strong>( Confidentiality, Integrity, and Availability) fits into everything we did. Encryption and firewalls protect confidentiality. Software patches and checks protect integrity. DNS and connectivity tests ensure availability. These three principles guided every step, from troubleshooting networks to protecting systems.</p></p>
+<p>Completing these networking and cybersecurity activities gave me a much deeper understanding of both troubleshooting and defending systems. I learned that network issues can’t be just guessed at. Instead, you need to follow the steps in order: check the connection, verify IP, test reachability, and finally confirm DNS. Skipping a step could easily cause confusion and result in you not discovering the network issue. I also gained hands-on experience comparing shared and bridged networking in Ubuntu. At first, I didn’t realize how different they were, but testing made it clear: shared hides the VM behind the host, while bridged exposes it as a separate device. This helped me understand how virtualization is used differently in classrooms vs real-world IT environments. The cybersecurity labs showed me the importance of protecting systems before they are attacked. Seeing open ports as “doors” into my VM made the risks very real. Enabling the firewall and blocking Telnet taught me a way to counteract potential attacks. Checking for encryption also made me appreciate how important it is to protect data at rest, especially on personal laptops or servers. I now see how the <strong>CIA Triad</strong>( confidentiality, integrity, and availability) fits into everything we did. Encryption and firewalls protect confidentiality. Software patches and checks protect integrity. DNS and connectivity tests ensure availability. These three principles guided every step, from troubleshooting networks to protecting systems.</p></p>
     </article>
 </section>
             <!-- endblock -->
