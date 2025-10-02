@@ -240,8 +240,8 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 <ul>
 <li><strong>Outdated operating systems</strong> - missing security updates.  </li>
 <li><strong>Unencrypted data</strong> - easier for attackers to read if stolen.  </li>
-<li><strong>Weak passwords</strong> - can be cracked; use strong/random generation.  </li>
-<li><strong>Open ports</strong> - entry points like “doors/windows”; necessary for services but must be managed.  </li>
+<li><strong>Weak passwords</strong> - can be cracked - use strong/random generation.  </li>
+<li><strong>Open ports</strong> - entry points like “doors/windows" - necessary for services but must be managed.  </li>
 <li>Examples:  <ul>
 <li>80 (HTTP – old websites)  </li>
 <li>443 (HTTPS – secure websites)  </li>
@@ -259,8 +259,8 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 <img alt="Example Text Version of My File System Tree I Drew" src="../../../images/CIA_image.png" /></p>
 <h2 id="3-technical-development-network-testing-and-cybersecurity-labs">3. Technical Development – Network Testing and Cybersecurity Labs</h2>
 <p>In the <strong>technical development stage</strong>, moved from theory into practical work by testing networks on both Mac and Ubuntu and applying cybersecurity measures. On Mac, began with <code>ifconfig</code> to identify my IP address. The result showed a valid private address (<code>10.x.x.x</code>), confirming that my device was connected to the school’s network. When toggling WIFI on and off, the IP disappeared and then reappeared.</p>
-<p>Next, tested connectivity by pinging public servers. Using <code>ping -c 4 8.8.8.8</code> (Google DNS) gave a fast average response time of about 7 ms. Pinging Cloudflare (<code>1.1.1.1</code>) worked as well, but slightly slower at 8 ms. To compare, pinged the school’s default gateway (<code>10.32.0.1</code>) and found it responded even faster (~0.9 ms) since it was local. Finally, I confirmed DNS resolution with <code>ping google.com</code>, proving that my device could translate names to IP addresses.  </p>
-<p>On Ubuntu, I used <code>ip addr</code> to check IP addresses in both Shared (NAT) and Bridged modes. Shared gave me a <code>192.168.x.x</code> address, meaning the VM was hidden behind my Mac, while Bridged gave me a <code>10.x.x.x</code> address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (Shared mode) and realism (Bridged mode).  </p>
+<p>Next, tested connectivity by pinging public servers. Using <code>ping -c 4 8.8.8.8</code> (google DNS) gave a fast average response time of about 7 ms. Pinging Cloudflare (<code>1.1.1.1</code>) worked as well, but slightly slower at 8 ms. To compare, pinged the school’s default gateway (<code>10.32.0.1</code>) and found it responded even faster (0.9 ms) since it was local. Finally, I confirmed DNS resolution with <code>ping google.com</code>, proving that my device could translate names to IP addresses.  </p>
+<p>On Ubuntu, I used <code>ip addr</code> to check IP addresses in both Shared (NAT) and Bridged modes. Shared gave me a <code>192.168.x.x</code> address, meaning the VM was hidden behind my Mac, while Bridged gave me a <code>10.x.x.x</code> address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (shared mode) and realism (bridged mode).  </p>
 <p>I also began applying cybersecurity practices by checking for open ports with <code>netstat -tuln</code>. Ports like 22 (SSH) and 53 (DNS) were expected, but I also saw port 631 for printing, which wasn’t needed. To improve security, I enabled Ubuntu’s firewall using <code>sudo ufw enable</code> and blocked Telnet on port 23 with <code>sudo ufw deny 23/tcp</code>. </p>
 <h4 id="key-tasks-and-results">Key Tasks and Results</h4>
 <table>
@@ -294,7 +294,7 @@ Learn how devices connect to the internet, diagnose network issues using the 4-s
 </tr>
 <tr>
 <td>Find default gateway</td>
-<td><code>route -n get default</code> (Mac) / <code>ip route</code> (Ubuntu)</td>
+<td><code>route -n get default</code>(mac) / <code>ip route</code>(ubuntu)</td>
 <td>Mac: <code>10.32.0.1</code>, Ubuntu: <code>192.168.62.1</code></td>
 </tr>
 <tr>
