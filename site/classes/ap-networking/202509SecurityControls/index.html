@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Determining Security Controls for Devices - My Digital Portfolio</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">My Digital Portfolio</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../about/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    About me
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#classes-collapse" aria-expanded="false">
+                    Classes
+                </a>
+                <div class="collapse" id="classes-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#ap-networking-collapse" aria-expanded="false">
+            AP Networking
+        </a>
+
+        <div class="collapse" id="ap-networking-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509component-cards/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Component Cards
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509CLI/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Command Line Interface
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Determining Security Controls for Devices
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../202509CLI/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="command-line-interface-cli">Command Line Interface (CLI)</h1>
+<h2 id="1-project-overview">1. Project Overview</h2>
+<p><strong>Problem Statement:</strong><br />
+Learn how devices connect to the internet, diagnose network issues using the 4-step troubleshooting flow, and apply/discover cybersecurity strategies and systems.</p>
+<p><strong>Objectives:</strong><br />
+- Use Mac and Ubuntu CLI tools (<code>ifconfig</code>, <code>ip addr</code>, <code>ping</code>, <code>netstat</code>, <code>ufw</code>) to test connectivity
+- Apply the 4-step troubleshooting flow<br />
+- Identify and evaluate open network ports/services on a VM<br />
+- Enable firewall rules (UFW) and explore encryption basics  </p>
+<p><strong>Success Criteria:</strong><br />
+- Correctly perform network checks on Mac and Ubuntu VMs<br />
+- Identify security risks (extra ports, unencrypted disks)<br />
+- Enable and test a firewall/encryptions in Ubuntu  </p>
+<h2 id="2-design-planning-troubleshooting-flow-vocabulary">2. Design &amp; Planning - Troubleshooting Flow &amp; Vocabulary</h2>
+<h3 id="troubleshooting-flow-learned-to-always-start-at-the-endpoint-device-and-test-systematically">Troubleshooting Flow: Learned to always start at the endpoint device and test systematically:</h3>
+<ol>
+<li>Check connection (Wi-Fi/Ethernet, VM mode).  </li>
+<li>Verify IP address.  </li>
+<li>Test reachability with ping.  </li>
+<li>Confirm DNS lookups.  </li>
+</ol>
+<h3 id="networking-vocabulary">Networking Vocabulary</h3>
+<ul>
+<li><strong>Wi-Fi/Ethernet:</strong> ways devices connect to the internet  </li>
+<li><strong>IP address:</strong> unique identifier for a device on the network  </li>
+<li><strong>Default gateway:</strong> router connecting local network to the internet  </li>
+<li><strong>DNS:</strong> translates names (google.com) to IP addresses  </li>
+<li><strong>Ping:</strong> tests connectivity between devices  </li>
+<li><strong>NAT (Shared):</strong> VM hides behind host device  </li>
+<li><strong>Bridged networking:</strong> VM acts like its own device  </li>
+</ul>
+<h3 id="cybersecurity-fundamentals-cia-triad">Cybersecurity Fundamentals – CIA Triad</h3>
+<ul>
+<li><strong>Confidentiality:</strong> keeping information secret from unauthorized users (e.g., encryption).  </li>
+<li><strong>Integrity:</strong> ensuring data remains accurate, uncorrupted, and trustworthy.  </li>
+<li><strong>Availability:</strong> making sure information and systems are accessible when needed.  </li>
+</ul>
+<h3 id="common-device-vulnerabilities">Common Device Vulnerabilities</h3>
+<ul>
+<li><strong>Outdated operating systems</strong> - missing security updates.  </li>
+<li><strong>Unencrypted data</strong> - easier for attackers to read if stolen.  </li>
+<li><strong>Weak passwords</strong> - can be cracked - use strong/random generation.  </li>
+<li><strong>Open ports</strong> - entry points like “doors/windows" - necessary for services but must be managed.  </li>
+<li>Examples:  <ul>
+<li>80 (HTTP – old websites)  </li>
+<li>443 (HTTPS – secure websites)  </li>
+<li>22 (SSH – remote login)  </li>
+<li>25 (SMTP – email transfer)  </li>
+<li>110 (POP3)  </li>
+<li>143 (IMAP)  </li>
+<li>3389 (RDP – remote desktop)  </li>
+<li>53 (DNS – domain lookups)  </li>
+</ul>
+</li>
+<li><strong>Unpatched software</strong> - vulnerabilities fixed by updates/patches (Windows “Patch Tuesday,” browser updates, mobile app patches).  </li>
+</ul>
+<p><strong>Tree Diagram of Termonology:</strong>
+<img alt="Example Text Version of My File System Tree I Drew" src="../../../images/CIA_image.png" /></p>
+<h2 id="3-technical-development-network-testing-and-cybersecurity-labs">3. Technical Development – Network Testing and Cybersecurity Labs</h2>
+<p>In the <strong>technical development stage</strong>, moved from theory into practical work by testing networks on both Mac and Ubuntu and applying cybersecurity measures. On Mac, began with <code>ifconfig</code> to identify my IP address. The result showed a valid private address (<code>10.x.x.x</code>), confirming that my device was connected to the school’s network. When toggling WIFI on and off, the IP disappeared and then reappeared.</p>
+<p>Next, tested connectivity by pinging public servers. Using <code>ping -c 4 8.8.8.8</code> (google DNS) gave a fast average response time of about 7 ms. Pinging Cloudflare (<code>1.1.1.1</code>) worked as well, but slightly slower at 8 ms. To compare, pinged the school’s default gateway (<code>10.32.0.1</code>) and found it responded even faster (0.9 ms) since it was local. Finally, I confirmed DNS resolution with <code>ping google.com</code>, proving that my device could translate names to IP addresses.  </p>
+<p>On Ubuntu, I used <code>ip addr</code> to check IP addresses in both Shared (NAT) and Bridged modes. Shared gave me a <code>192.168.x.x</code> address, meaning the VM was hidden behind my Mac, while Bridged gave me a <code>10.x.x.x</code> address, showing the VM could act like its own device. This side-by-side testing taught me the trade-offs between convenience (shared mode) and realism (bridged mode).  </p>
+<p>I also began applying cybersecurity practices by checking for open ports with <code>netstat -tuln</code>. Ports like 22 (SSH) and 53 (DNS) were expected, but I also saw port 631 for printing, which wasn’t needed. To improve security, I enabled Ubuntu’s firewall using <code>sudo ufw enable</code> and blocked Telnet on port 23 with <code>sudo ufw deny 23/tcp</code>. </p>
+<h4 id="key-tasks-and-results">Key Tasks and Results</h4>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command(s) Used</th>
+<th>Findings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check IP on Mac</td>
+<td><code>ifconfig</code></td>
+<td>Found private IP: <code>10.12.17.223</code> (valid 10.x.x.x range)</td>
+</tr>
+<tr>
+<td>Disconnect/reconnect Wi-Fi</td>
+<td><code>ifconfig</code></td>
+<td>Observed IP disappearing/reappearing when Wi-Fi toggled</td>
+</tr>
+<tr>
+<td>Ping Google (8.8.8.8)</td>
+<td><code>ping -c 4 8.8.8.8</code></td>
+<td>Success, avg 7.237 ms</td>
+</tr>
+<tr>
+<td>Ping Cloudflare (1.1.1.1)</td>
+<td><code>ping -c 4 1.1.1.1</code></td>
+<td>Success, avg 8.717 ms (slower than Google)</td>
+</tr>
+<tr>
+<td>Find default gateway</td>
+<td><code>route -n get default</code>(mac) / <code>ip route</code>(ubuntu)</td>
+<td>Mac: <code>10.32.0.1</code>, Ubuntu: <code>192.168.62.1</code></td>
+</tr>
+<tr>
+<td>Ping router</td>
+<td><code>ping -c 4 &lt;gateway&gt;</code></td>
+<td>Very fast response (0.963 ms), faster than public servers</td>
+</tr>
+<tr>
+<td>Test DNS</td>
+<td><code>ping -c 4 google.com</code></td>
+<td>Successful – showed DNS was resolving correctly</td>
+</tr>
+<tr>
+<td>Check IP on Ubuntu (Shared)</td>
+<td><code>ip addr</code></td>
+<td>IP: <code>192.168.64.2/24</code> (hidden behind Mac)</td>
+</tr>
+<tr>
+<td>Check IP on Ubuntu (Bridged)</td>
+<td><code>ip addr</code></td>
+<td>IP: <code>10.32.1.33/23</code> (acts like its own device)</td>
+</tr>
+<tr>
+<td>Scan open ports</td>
+<td><code>netstat -tuln</code></td>
+<td>Found SSH, DNS, and unnecessary ports</td>
+</tr>
+<tr>
+<td>Enable firewall</td>
+<td><code>sudo ufw enable</code></td>
+<td>Activated UFW protection</td>
+</tr>
+<tr>
+<td>Block insecure service</td>
+<td><code>sudo ufw deny 23/tcp</code></td>
+<td>Closed Telnet port</td>
+</tr>
+</tbody>
+</table>
+<p><strong>IP address info on Ubuntu shared mode:</strong>
+- Red is adapter name
+- Blue is the IP address
+- Green is MAC address
+<img alt="IP address info on Ubuntu shared mode" src="../../../images/shared_ip.png" /></p>
+<p><strong>Finding the ports:</strong>
+<img alt="netstat" src="../../../images/netstat.png" /></p>
+<p><strong>Enable Firewall:</strong>
+<img alt="firewall" src="../../../images/firewall1.png" /></p>
+<p><strong>Closed TCP Port:</strong>
+<img alt="tcp port" src="../../../images/tcp_port.png" /></p>
+<h2 id="4-testing-evaluation-outdated-software">4. Testing &amp; Evaluation – Outdated Software</h2>
+<p>The <strong>testing &amp; evaluation</strong> phase taught us about outdated software and potential risks. In the VM, we would use different commands to install certain softwares and test to see what verion they were. After finding out the version, the goal was to compare the version on the VM to the most updated version. In my case, most of the VM softwares was not up to date. We also had to determine the risks for the software not being up to date.</p>
+<table>
+<thead>
+<tr>
+<th>Software</th>
+<th>Command Used</th>
+<th>VM Version</th>
+<th>Why It Matters (Risk)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenSSL</td>
+<td><code>openssl version</code></td>
+<td>Outdated</td>
+<td>Encrypts data on websites could be leaked</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td><code>firefox --version</code></td>
+<td>Outdated</td>
+<td>Supports open web and user privacy, web services not up to date</td>
+</tr>
+<tr>
+<td>LibreOffice</td>
+<td><code>libreoffice --version</code></td>
+<td>Outdated</td>
+<td>Alternative to commercial office suits</td>
+</tr>
+<tr>
+<td>Python</td>
+<td><code>python3 --version</code></td>
+<td>Outdated</td>
+<td>Coding languages lots of libraries built off of</td>
+</tr>
+<tr>
+<td>Apache HTTP Server</td>
+<td><code>apache2 -v</code></td>
+<td>Up to Date</td>
+<td>Web infrastructure, sites could fail</td>
+</tr>
+<tr>
+<td>GIMP</td>
+<td><code>gimp --version</code></td>
+<td>Outdated</td>
+<td>Digital editing, limited user interface</td>
+</tr>
+<tr>
+<td>Java</td>
+<td><code>java -version</code></td>
+<td>Outdated</td>
+<td>Code might not run properly</td>
+</tr>
+<tr>
+<td>OpenSSH</td>
+<td><code>ssh -V</code></td>
+<td>Outdated</td>
+<td>Secure connections to remote servers</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example Installing and Checking Version(Firefox):</strong>
+<img alt="tcp port" src="../../../images/firefox.png" /></p>
+<h2 id="5-reflection">5. Reflection</h2>
+<p>Completing these networking and cybersecurity activities gave me a much deeper understanding of both troubleshooting and defending systems. I learned that network issues can’t be just guessed at. Instead, you need to follow the steps in order: check the connection, verify IP, test reachability, and finally confirm DNS. Skipping a step could easily cause confusion and result in you not discovering the network issue. I also gained hands-on experience comparing Shared and Bridged networking in Ubuntu. At first, I didn’t realize how different they were, but testing made it clear: Shared hides the VM behind the host, while Bridged exposes it as a separate device. This helped me understand how virtualization is used differently in classrooms vs real-world IT environments. The cybersecurity labs showed me the importance of protecting systems before they are attacked. Seeing open ports as “doors” into my VM made the risks very real. Enabling the firewall and blocking Telnet taught me a way to counteract potential attacks. Checking for encryption also made me appreciate how important it is to protect data at rest, especially on personal laptops or servers. I now see how the <strong>CIA Triad</strong>( Confidentiality, Integrity, and Availability) fits into everything we did. Encryption and firewalls protect confidentiality. Software patches and checks protect integrity. DNS and connectivity tests ensure availability. These three principles guided every step, from troubleshooting networks to protecting systems.</p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../..';</script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../assets/js/mkdocs.js"></script>
+			<script src="../../../search/main.js" defer></script>
+
+</body>
+
+</html>

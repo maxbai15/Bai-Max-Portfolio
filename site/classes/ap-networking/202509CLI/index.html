@@ -1,604 +1,263 @@
-
 <!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-      
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
-    
-    
-      
-        <title>Command Line Interface (CLI) - My Digital Portfolio</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
-      
-      
+<html lang="en">
 
+<head>
+        <title>Command Line Interface - My Digital Portfolio</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
-    
-      
-    
-    
-      
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    <body dir="ltr">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
         
-        <a href="#command-line-interface-cli" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
 
-  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../../assets/css/darcula-highlight.min.css">
 
-<header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Digital Portfolio" class="md-header__button md-logo" aria-label="My Digital Portfolio" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../../assets/css/mkdocs.min.css">
 
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            My Digital Portfolio
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Command Line Interface (CLI)
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
         </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
-      
-    
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
+
+    <div class="p-4">
         
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
+
+        <div class="drac-text-center">
             
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Digital Portfolio" class="md-nav__button md-logo" aria-label="My Digital Portfolio" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
-    My Digital Portfolio
-  </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../about/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    About me
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="drac-text drac-line-height drac-text-white">My Digital Portfolio</span>
             
-  
-  
-  <span class="md-ellipsis">
-    Classes
-    
-  </span>
-  
+        </div>
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Classes
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    AP Networking
-    
-  </span>
-  
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../about/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    About me
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#classes-collapse" aria-expanded="false">
+                    Classes
+                </a>
+                <div class="collapse" id="classes-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#ap-networking-collapse" aria-expanded="false">
             AP Networking
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../ap-networking/index.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
+        </a>
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../202509component-cards/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Component Cards
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../ap-networking/project2.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Project 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Senior Engineering
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            Senior Engineering
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../senior-engineering/index.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../senior-engineering/project1.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Project 1
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../senior-engineering/project2.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Project 2
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
+        <div class="collapse" id="ap-networking-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
                     
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-project-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Project Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-design-planning-map-the-maze-i-ubuntu-tutorial" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Design &amp; Planning – Map the Maze I &amp; Ubuntu Tutorial
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-technical-development-map-the-maze-ii" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Technical Development – Map the Maze II
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-testing-evaluation-house-activity" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Testing &amp; Evaluation – House Activity
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
+    <li class="drac-box-ternary">
+        <a href="../202509component-cards/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Component Cards
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Command Line Interface
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509SecurityControls/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Determining Security Controls for Devices
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
                 </div>
-              </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
             
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
 
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../202509component-cards/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../202509SecurityControls/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
 
-<h1 id="command-line-interface-cli">Command Line Interface (CLI)</h1>
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="command-line-interface-cli">Command Line Interface (CLI)</h1>
 <h2 id="1-project-overview">1. Project Overview</h2>
 <p><strong>Problem Statement:</strong><br />
 Learn to navigate and manage a Linux system through the command line, practicing foundational Ubuntu commands while applying them in structured challenges.  </p>
 <p><strong>Objectives:</strong><br />
-- Navigate the file system with commands like <code>pwd</code>, <code>cd</code>, and <code>ls</code>.<br />
+- Navigate file systems with commands like <code>pwd</code>, <code>cd</code>, and <code>ls</code>.<br />
 - Manage files and directories using <code>mkdir</code>, <code>touch</code>, <code>cp</code>, <code>rm</code>.<br />
 - Apply advanced commands for hidden files, editing, and system checks.<br />
 - Complete Map the Maze I &amp; II activities and the House activity to demonstrate mastery.  </p>
 <p><strong>Success Criteria:</strong><br />
 - Correct use of CLI commands to solve navigation and file management tasks.<br />
 - Completion of activities with correct sequences.<br />
-- Evidence of working tests (screenshots, logs, or tables).<br />
-- Clear explanation of what was learned and real-world relevance.  </p>
+- Evidence of working tests (screenshots, logs, or tables).  </p>
 <hr />
-<h2 id="2-design-planning-map-the-maze-i-ubuntu-tutorial">2. Design &amp; Planning – Map the Maze I &amp; Ubuntu Tutorial</h2>
-<p>The <strong>design and planning stage</strong> focused on building a foundation for working in the Ubuntu command line. I began with <strong>Map the Maze I</strong>, which introduced me to the most basic commands like <code>pwd</code> (to check my current directory), <code>cd</code> (to move into another directory), and <code>ls</code> (to see the contents of a folder). The activity acted like a puzzle that forced me to think step-by-step about where I was and where I needed to go. This helped me understand that the CLI requires precision: a mistyped command or wrong directory name will not work.  </p>
-<p>At the same time, I followed the <strong>Ubuntu tutorial</strong>, which gave me a broader context for why these commands matter. It covered file creation (<code>mkdir</code>, <code>touch</code>), file editing (<code>nano</code>), and system commands like <code>chmod</code> (to change permissions) or <code>top</code> (to monitor running processes). This tutorial complemented Map the Maze I by showing real-world uses of the same basic skills I was practicing.  </p>
+<h2 id="2-design-planning-map-the-maze-i-ubuntu-tutorial-and-troubleshooting-networks">2. Design &amp; Planning – Map the Maze I, Ubuntu Tutorial, and Troubleshooting Networks</h2>
+<p>The <strong>design and planning stage</strong> focused on building a foundation for understanding the file tree system, working in the Ubuntu command line, and learning the necessary skills to navigate through the command line. Starting with <strong>Map the Maze I</strong>, it introduced me first to the different terminology for understanding file paths and how they work, such as what a parent directory is vs a root directory. After that, Map the Maze I taught me about many basic commands like <code>pwd</code> (to check my current directory), <code>cd</code> (to move into another directory), and <code>ls</code> (to see the contents of a folder). This helped me understand that the CLI requires precision: a mistyped command or wrong directory name will not work.  </p>
+<p>At the same time, I followed the <strong>Ubuntu tutorial</strong>, which gave me a broader context for why these commands matter. It covered file creation (<code>mkdir</code>, <code>touch</code>) and file editing (<code>nano</code>). This tutorial complemented Map the Maze I by showing real-world uses of the same basic skills I was practicing.  </p>
 <p>Together, Map the Maze I and the tutorial gave me the tools I needed for the next phases of the project. They also served as my “plan,” since I now had a clear set of commands I could apply to more complex tasks.  </p>
+<p>Additionally, we began learning about troubleshooting networks, learning about the methods to and different termonlogy. Below is the four steps to check connection:
+1. Check whether your device is connected. 
+2. Verify if it has an IP address. 
+3. Test whether it can reach the internet at all. 
+4. Confirm if it can look up website names. </p>
+<h3 id="file-tree-system-terminology">File Tree System Terminology</h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition / Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Root Directory (/ or C:)</td>
+<td>Very top of the file system tree. On Mac/Linux, it’s represented as a single slash <code>/</code>. On Windows, it usually starts with a drive letter, such as <code>C:\</code>. All folders and files branch downward from this starting point, like branches from the trunk of a tree. <strong>Example:</strong> On Windows, <code>C:\Users\John\Documents\essay.docx</code> begins at <code>C:\</code> (the root). On Mac, <code>/Users/John/Documents/essay.docx</code> begins at <code>/</code> (the root).</td>
+</tr>
+<tr>
+<td>Folder (Directory)</td>
+<td>A folder, also called a directory, is a container used to organize files and other folders. Helps organize related files. <strong>Example:</strong> A folder named <code>Documents</code> might contain files like <code>essay.docx</code> and <code>budget.xlsx</code> and a subfolder named <code>School</code>.</td>
+</tr>
+<tr>
+<td>File</td>
+<td>A file is a single digital object that holds data, such as text, images, video, or code. <strong>Example:</strong> <code>notes.txt</code> is a text file, <code>photo.jpg</code> is an image file.</td>
+</tr>
+<tr>
+<td>Path</td>
+<td>A path is the “address” of a file or folder, showing its location inside the file system. Path written as a sequence of folder names separated by slashes (<code>/</code>) on Mac/Linux or backslashes (<code>\</code>) on Windows. <strong>Example:</strong> Mac/Linux: <code>/Users/John/Documents/essay.docx</code> ; Windows: <code>C:\Users\John\Documents\essay.docx</code>.</td>
+</tr>
+<tr>
+<td>Absolute Path</td>
+<td>Absolute path gives the complete address of a file, starting at the root directory. <strong>Example:</strong> Mac/Linux: <code>/Users/John/Documents/essay.docx</code> ; Windows: <code>C:\Users\John\Documents\essay.docx</code>.</td>
+</tr>
+<tr>
+<td>Relative Path</td>
+<td>A relative path shows the location of a file or folder starting from your current working directory (where you are right now). <strong>Example:</strong> If your current folder is <code>/Users/John</code>, the relative path to <code>essay.docx</code> in <code>Documents</code> is <code>Documents/essay.docx</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cli-commands">CLI Commands</h3>
 <table>
 <thead>
 <tr>
@@ -640,11 +299,61 @@ Learn to navigate and manage a Linux system through the command line, practicing
 </tr>
 </tbody>
 </table>
-<p><img alt="Map the Maze I Screenshot" src="../images/maze1.png" />  </p>
+<p><strong>Example Text Version of My File System Tree I Drew:</strong>
+<img alt="Example Text Version of My File System Tree I Drew" src="../../../images/file_tree.png" /></p>
+<h1 id="troubleshooting-network-terms">Troubleshooting Network Terms</h1>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wi-Fi / Ethernet</td>
+<td>Signal carrier - ways your computer connects to the internet</td>
+</tr>
+<tr>
+<td>IP address</td>
+<td>Internet Protocol - Identifiable address given to a device</td>
+</tr>
+<tr>
+<td>Default gateway (router)</td>
+<td>Device to connect local network to the internet</td>
+</tr>
+<tr>
+<td>DNS (Domain Name System)</td>
+<td>Like the internet’s “phonebook” translating user-friendly domain names (like google.com) into IP addresses</td>
+</tr>
+<tr>
+<td>Ping</td>
+<td>Method used to test connectivity between two devices (Ex. <code>ping -c 4 8.8.8.8</code>)</td>
+</tr>
+<tr>
+<td>NAT / Shared networking (UTM)</td>
+<td>Network function to pool all devices on a private network into one public IP Address before sending to external networks</td>
+</tr>
+<tr>
+<td>Bridged networking (UTM)</td>
+<td>VM acts like a completely separate computer</td>
+</tr>
+</tbody>
+</table>
+<p>To test our knowledge of the terms and connection testing steps, we completed a slideshow with different problems and steps to check connection in the wrong order. Our goal was to put the different steps in the right order. Below is photos showing the before and after for each scenario:</p>
+<p><strong>Scenario 1(before vs after):</strong>
+<img alt="Scenario 1(before vs after)" src="../../../images/scene1_before.png" />
+<img alt="Scenario 1(before vs after)" src="../../../images/scene1_after.png" /></p>
+<p><strong>Scenario 2(before vs after)::</strong>
+<img alt="Scenario 2(before vs after)" src="../../../images/scene2_before.png" />
+<img alt="Scenario 1(before vs after)" src="../../../images/scene2_after.png" /></p>
+<p><strong>Scenario 3(before vs after):</strong>
+<img alt="Scenario 3(before vs after)" src="../../../images/scene3_before.png" />
+<img alt="Scenario 1(before vs after)" src="../../../images/scene3_after.png" /></p>
 <hr />
-<h2 id="3-technical-development-map-the-maze-ii">3. Technical Development – Map the Maze II</h2>
-<p>In the <strong>technical development stage</strong>, I worked through <strong>Map the Maze II</strong>, which expanded on the basics from Maze I. This activity required me not just to move around directories, but also to create, edit, copy, and discover hidden files. For example, I used <code>touch</code> to create files, <code>nano</code> to edit their contents, and <code>cp</code> to duplicate them. One of the biggest lessons was using <code>ls -a</code> to reveal hidden files, which showed me that sometimes information is present but not visible without the right command.  </p>
-<p>This activity also gave me practice in versioning: each step built on the last. At first, I simply navigated and confirmed my location. Then I began creating and editing files. Finally, I put it all together by managing multiple files and finding hidden clues.  </p>
+<h2 id="3-technical-development-map-the-maze-ii-and-troubleshooting-network-activity">3. Technical Development – Map the Maze II and Troubleshooting Network Activity</h2>
+<p>In the <strong>technical development stage</strong>, I worked through <strong>Map the Maze II</strong>, which expanded on the basics from Maze I. This activity required me not just to move around directories, but also to create, edit, copy, and discover hidden files. For example, I used touch to create files, nano to edit their contents, and cp to duplicate them. One of the biggest lessons was using ls -a to reveal hidden files, which showed me that sometimes information is present but not visible without the right command. This activity also gave me practice in versioning: each step built on the last. At first, I simply navigated and confirmed my location. Then I began creating and editing files. Finally, I put it all together by managing multiple files and finding/creating my own hidden clues.</p>
+<h4 id="some-commands-used-and-why">Some Commands Used and Why</h4>
 <table>
 <thead>
 <tr>
@@ -661,37 +370,110 @@ Learn to navigate and manage a Linux system through the command line, practicing
 </tr>
 <tr>
 <td>Create folder</td>
-<td><code>mkdir maze2</code></td>
+<td><code>mkdir MazeGame</code></td>
 <td>Built a workspace</td>
 </tr>
 <tr>
 <td>Create file</td>
-<td><code>touch secret.txt</code></td>
+<td><code>touch clue1.txt</code></td>
 <td>Added clue file</td>
 </tr>
 <tr>
 <td>Edit file</td>
-<td><code>nano secret.txt</code></td>
+<td><code>nano clue1.txt</code></td>
 <td>Inserted instructions</td>
 </tr>
 <tr>
-<td>Copy file</td>
-<td><code>cp secret.txt copy.txt</code></td>
-<td>Practiced duplication</td>
+<td>Mount PC</td>
+<td><code>sudo mount -t davfs http://127.0.0.1:9843/ ~/hostshare/</code></td>
+<td>Allow sharing file from Mac to virtual Machine</td>
 </tr>
 <tr>
 <td>Show hidden files</td>
 <td><code>ls -a</code></td>
-<td>Discovered hidden messages</td>
+<td>Discovered hidden files in Maze Game</td>
 </tr>
 </tbody>
 </table>
-<p><img alt="Map the Maze II Screenshot" src="../images/maze2.png" />  </p>
-<p>By the end of Map the Maze II, I could confidently use multiple commands together to solve more complex tasks.  </p>
+<p><strong>Editing clue1 and reading what was inside:</strong>
+<img alt="Editing clue1 and reading what was inside" src="../../../images/clue1.png" /></p>
+<p><strong>Sharing Clue1 onto hostshare so both mac and ubuntu can access:</strong>
+<img alt="Sharing Clue1 onto hostshare so both mac and ubuntu can access" src="../../../images/hostshare.png" /></p>
+<p>By the end of Map the Maze II, I could confidently use multiple commands together to solve more complex tasks.</p>
+<h3 id="troubleshooting-network-issues">Troubleshooting Network Issues</h3>
+<p>In addition to Map the Maze II, I also completed the <strong>Troubleshooting Network Issues</strong> assignment, which focused on diagnosing and fixing internet connectivity problems in both Mac and Ubuntu environments. This assignment tied directly into the four key troubleshooting steps we learned earlier:  </p>
+<ol>
+<li>Check whether the device is connected.  </li>
+<li>Verify if it has an IP address.  </li>
+<li>Test whether it can reach the internet at all.  </li>
+<li>Confirm if it can look up website names (DNS).  </li>
+</ol>
+<h4 id="key-tasks-and-results">Key Tasks and Results</h4>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command(s) Used</th>
+<th>Findings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check IP on Mac</td>
+<td><code>ifconfig</code></td>
+<td>Found private IP: <code>10.12.17.223</code> (valid 10.x.x.x range)</td>
+</tr>
+<tr>
+<td>Disconnect/reconnect Wi-Fi</td>
+<td><code>ifconfig</code></td>
+<td>Observed IP disappearing/reappearing when Wi-Fi toggled</td>
+</tr>
+<tr>
+<td>Ping Google (8.8.8.8)</td>
+<td><code>ping -c 4 8.8.8.8</code></td>
+<td>Success, avg 7.237 ms</td>
+</tr>
+<tr>
+<td>Ping Cloudflare (1.1.1.1)</td>
+<td><code>ping -c 4 1.1.1.1</code></td>
+<td>Success, avg 8.717 ms (slower than Google)</td>
+</tr>
+<tr>
+<td>Find default gateway</td>
+<td><code>route -n get default</code> (Mac) / <code>ip route</code> (Ubuntu)</td>
+<td>Mac: <code>10.32.0.1</code>, Ubuntu: <code>192.168.62.1</code></td>
+</tr>
+<tr>
+<td>Ping router</td>
+<td><code>ping -c 4 &lt;gateway&gt;</code></td>
+<td>Very fast response (0.963 ms), faster than public servers</td>
+</tr>
+<tr>
+<td>Test DNS</td>
+<td><code>ping -c 4 google.com</code></td>
+<td>Successful – showed DNS was resolving correctly</td>
+</tr>
+<tr>
+<td>Check IP on Ubuntu (Shared)</td>
+<td><code>ip addr</code></td>
+<td>IP: <code>192.168.64.2/24</code> (hidden behind Mac)</td>
+</tr>
+<tr>
+<td>Check IP on Ubuntu (Bridged)</td>
+<td><code>ip addr</code></td>
+<td>IP: <code>10.32.1.33/23</code> (acts like its own device)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>IP address info on Ubuntu shared mode:</strong>
+- Red is adapter name
+- Blue is the IP address
+- Green is MAC address</p>
+<p><img alt="IP address info on Ubuntu shared mode" src="../../../images/shared_ip.png" /></p>
 <hr />
 <h2 id="4-testing-evaluation-house-activity">4. Testing &amp; Evaluation – House Activity</h2>
-<p>The <strong>testing and evaluation stage</strong> was the <strong>House Activity</strong>, which acted as the ultimate test of whether I could apply all the commands I had learned. Instead of being a linear maze, the House required me to move through rooms, inspect items, and complete tasks. This tested not only my command knowledge but also my ability to adapt and think logically.  </p>
-<p>For example, I started in the “hallway” and used <code>pwd</code> to confirm my location. I used <code>cd</code> to enter specific rooms like the Kitchen and <code>ls</code> to check what was inside. Some rooms required me to clean up files, so I practiced deleting with <code>rm</code>. I also created notes using <code>nano</code> and found hidden items by remembering to use <code>ls -a</code>.  </p>
+<p>The <strong>testing and evaluation stage</strong> was the <strong>House Activity</strong>, which acted as the ultimate test of whether I could apply all the commands I had learned. Instead of being a linear maze, the House required me to move through rooms, inspect items, and complete tasks. This activity was a file system directory simulated as a house that I was required to navigate through. This tested not only my command knowledge but also my ability to adapt and think logically to navigate throught the different directories and find out information and even remove/edit information. For example, starting in the “hallway”, you would have to use pwd to confirm your location, then use cd to enter specific rooms like the Kitchen and ls to check what was inside. Some rooms required cleaning up files and even discovering trash(hidden files in the garage directory), so you had to be sharp and disocver hiddden files and delete with rm. Also, some tasks required creating notes using nano and leaving messages for the owner.</p>
+<h4 id="some-commands-used-and-why_1">Some Commands Used and Why</h4>
 <table>
 <thead>
 <tr>
@@ -712,94 +494,69 @@ Learn to navigate and manage a Linux system through the command line, practicing
 <td>Move to room</td>
 <td>Enter Kitchen</td>
 <td><code>cd Kitchen</code></td>
-<td>Successful navigation</td>
+<td>Successful navigation to different areas of the house</td>
 </tr>
 <tr>
 <td>Inspect room</td>
 <td>List files</td>
 <td><code>ls</code></td>
-<td>Saw visible items</td>
+<td>Saw visible items like food (files)</td>
 </tr>
 <tr>
 <td>Clean up</td>
 <td>Delete file</td>
 <td><code>rm trash.txt</code></td>
-<td>Removed unnecessary file</td>
+<td>Removed unnecessary files like garbage</td>
 </tr>
 <tr>
 <td>Create note</td>
 <td>Add message</td>
 <td><code>nano note.txt</code></td>
-<td>Wrote instructions</td>
+<td>Left messages for the house owner</td>
 </tr>
 <tr>
 <td>Reveal hidden</td>
 <td>Show hidden items</td>
 <td><code>ls -a</code></td>
-<td>Found secret files</td>
+<td>Found secret files (hidden garbage in the garage)</td>
 </tr>
 </tbody>
 </table>
-<p><img alt="House Activity Screenshot" src="../images/house.png" />  </p>
+<p><strong>Navigating through the kitchen directory, taking out fruit and getting rid of rotten fruit:</strong>
+<img alt="Navigating through the kitchen directory, taking out fruit and getting rid of rotten fruit" src="../../../images/house_kitchen.png" /></p>
+<p><strong>Navigating through the garage directory, finding hidden trash and removing it:</strong>
+<img alt="Navigating through the garage directory, finding hidden trash and removing it" src="../../../images/house_garage.png" /></p>
 <p><strong>Bugs &amp; Fixes:</strong><br />
-- I initially forgot to use <code>ls -a</code> and missed hidden files. This was fixed after I retraced my steps.<br />
-- I once used the wrong capitalization in a directory name (<code>cd kitchen</code> instead of <code>cd Kitchen</code>), which didn’t work until I corrected it. This taught me that Linux is case-sensitive.<br />
-- Accidentally removed the wrong file using <code>rm</code>, which reinforced the importance of double-checking filenames.  </p>
-<p>This activity confirmed that I could take the structured skills from Maze I and II and apply them in an open-ended environment.  </p>
-<hr />
+- Initially forgot to use <code>ls -a</code> and missed hidden files; fixed after retracing steps.<br />
+- Used wrong capitalization (<code>cd kitchen</code> instead of <code>cd Kitchen</code>); corrected to work.  </p>
+<p>This activity served as the final test combining skills from the Ubuntu tutorial and both Map the Maze parts.</p>
+<h2 id="5-reflection">5. Reflection</h2>
+<p>Completing the CLI assignments gave me a deeper understanding of how to navigate the command line and file tree system. Through Map the Maze I &amp; II and the House Activity, I learned that precision and attention to detail are critical: even small mistakes, like a wrong directory name or missed hidden file, can prevent progress. I also recognized the importance of planning and iteration. By breaking each activity into smaller steps, testing commands, and observing their effects, I troubleshoot and find hidden files or find the files I needed to change. The project reinforced the value of combining foundational skills with real-world application, such as mounting shared directories or managing multiple files simultaneously.
+Finally, this project helped to improve my problem-solving skills and adaptability. Navigating the simulated house and discovering hidden files required logical thinking and making sure the right files were removed/editied and hidden files were found. Along with that, I am beginning to develop skills to troubleshoot networks by searching connectivity to the wifi, ip addresses over the network, and confirming through Domain Same Server(DNS). Overall, I now feel more competent in using the Linux command line and troubleshooting through networks, and I understand how these skills will support future technical challenges.</p></p>
+    </article>
+</section>
+            <!-- endblock -->
 
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
     </div>
-  </div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    
-      
-      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
-      
-    
-  </body>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../..';</script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../assets/js/mkdocs.js"></script>
+			<script src="../../../search/main.js" defer></script>
+
+</body>
+
 </html>
