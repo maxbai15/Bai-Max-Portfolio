@@ -30,3 +30,6 @@ Began soldering on all the LED's and the Type-C interface.
 Finish soldering LED's and surface mount the integrated circuits. Finished the owl!
 10/1:
 Fix daily journals and then research about agents and orchestration techniques in Python
+10/6:
+Worked with Mr.Dubick to understand the workflow. Went through the 1975 yearbook to check page numbers for sports and activites. Also recoreded the different activities
+and sports and the page numbers they are on.
