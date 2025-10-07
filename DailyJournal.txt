@@ -33,3 +33,5 @@ Fix daily journals and then research about agents and orchestration techniques i
 10/6:
 Worked with Mr.Dubick to understand the workflow. Went through the 1975 yearbook to check page numbers for sports and activites. Also recoreded the different activities
 and sports and the page numbers they are on.
+10/7:
+Get page numbers for 1976 yearbook YAML.
