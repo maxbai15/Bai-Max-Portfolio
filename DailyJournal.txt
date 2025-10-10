@@ -38,4 +38,4 @@ Get page numbers for 1976 yearbook YAML.
 10/9:
 Get team landing.ai code and test it on grades 6-11 extraction.
 10/10:
-Practice 3d printing and laser cutting with both auto-focus and focus.
+I practiced 3d printing by printing a joy fidget toy and laser cutting with both auto-focus and regular focus.
