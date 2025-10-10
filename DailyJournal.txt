@@ -35,3 +35,7 @@ Worked with Mr.Dubick to understand the workflow. Went through the 1975 yearbook
 and sports and the page numbers they are on.
 10/7:
 Get page numbers for 1976 yearbook YAML.
+10/9:
+Get team landing.ai code and test it on grades 6-11 extraction.
+10/10:
+Practice 3d printing and laser cutting with both auto-focus and focus.
