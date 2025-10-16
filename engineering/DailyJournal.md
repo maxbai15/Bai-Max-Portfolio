@@ -1,40 +1,49 @@
 8/28:
-laser cut and assemble personal box to hold my materials:
+Laser cut and assembled a personal box to hold my materials.
 
 ## Pen Turning Project
 
 **Timeline:**
 
 9/1:
-started wood pen project by choosing wood and cutting
+Started the wood pen project by selecting the wood and cutting it using the wood-cutting machine.
 
 9/3:
-Finish cutting wood and glue wood pieces together
+Finished cutting the wood and glued the pieces together.
 
 9/4:
-cut hole through wooden peieces and glue metal shaft inside the hole
+Drilled a hole through the wooden pieces and glued the metal shaft inside.
 
 9/5:
-start turning the pen, but one of the wood pices broke in the proccess. As a result, I had to 
-restart one of the pieces of wood and pick a new one.
+Began turning the pen, but one of the wooden pieces broke during the process. I planned to remake that piece the next day.
 
 9/8:
-cut the new piece of wood and glued the pieces of wood together.
+Cut a new piece of wood and glued the pieces together again.
 
 9/9:
-put metal shaft inside hole and try to login to github
+Inserted the metal shaft into the hole and attempted to log in to GitHub.
 
 9/10:
-turned the new piece of wood and sanded both pieces of wood
+Turned the new wooden piece and sanded both sections of the pen.
 
 9/12:
-Finish the pen by assembling all the pieces together with the pen press tool.
+Completed the pen by assembling all the pieces together.
 
 **Pen Pressing:**
 ![screenshot](IMG_2269.jpg)
 
 **Final Product of Pen:**
 ![screenshot](IMG_2357.jpg)
+
+## Github
+
+**Timeline:**
+
+9/15:
+Started the GitHub video tutorial. Logged into GitHub Desktop, created a new repository, and learned how to create files, commit changes, and push updates locally and to the cloud.
+
+9/16:
+Reviewed the GitHub tutorial and learned how to perform a pull request. Also learned how to share repositories with collaborators.
 
 ## Owl Soldering Project
 
@@ -68,17 +77,20 @@ So far in my capstone project, I have made steady progress toward digitizing pas
 **Timeline:**
 
 10/1:
-Fix daily journals and then research about agents and orchestration techniques in Python
+Revised and updated daily journals. Researched agents and orchestration techniques in Python.
 
 10/6:
-Worked with Mr.Dubick to understand the workflow. Went through the 1975 yearbook to check page numbers for sports and activites. Also recoreded the different activities
-and sports and the page numbers they are on.
+Worked with Mr. Dubick to understand the yearbook workflow. Reviewed the 1975 yearbook to record page numbers for sports and activities, organizing them into a list.
 
 10/7:
-Get page numbers for 1976 yearbook YAML.
+Collected and recorded page numbers for the 1976 yearbook YAML file.
 
 10/9:
-Get team landing.ai code and test it on grades 6-11 extraction.
+Tested the team Landing.ai code for grade extraction across grades 6–11.
 
 10/10:
-I practiced 3d printing by printing a joy fidget toy and laser cutting with both auto-focus and regular focus.
+Practiced 3D printing by printing a joy fidget toy. Also practiced laser cutting using both auto-focus and manual focus settings.
+
+
+
+
