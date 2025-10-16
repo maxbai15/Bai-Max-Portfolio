@@ -59,7 +59,7 @@ Start on owl project. First practiced soldering on a practice board with 3 resis
 Began soldering on all the LED's and the Type-C interface.
 
 **Sautering Type-C interface on owl:**
-![screenshot](IMG_2354.jpeg)
+![screenshot](IMG_2359.jpeg)
 
 9/30:
 Finish soldering LED's and surface mount the integrated circuits. At first, the surface mount didn't work since the solder was touching, but I as able to fix it by using a solder sucker  and resoldering. 
