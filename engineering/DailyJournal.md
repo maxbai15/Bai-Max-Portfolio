@@ -38,12 +38,21 @@ Start installing claude code on my computer and learning about cline.
 
 9/28:
 Start on owl project. First practiced soldering on a practice board with 3 resistors. Then began soldering resisters, capacitors, and transistors.
+**Practice Soldering:**
+![screenshot](IMG_2354.jpeg)
 
 9/29:
 Began soldering on all the LED's and the Type-C interface.
+**Sautering Type-C interface on owl:**
+![screenshot](IMG_2354.jpeg)
 
 9/30:
-Finish soldering LED's and surface mount the integrated circuits. Finished the owl!
+Finish soldering LED's and surface mount the integrated circuits. At first, the surface mount didn't work since the solder was touching, but I as able to fix it by using a solder sucker  and resoldering. 
+Finished the owl!
+**Image of Finished Owl:**
+![screenshot](IMG_2354.jpeg)
+![screenshot](IMG_2354.jpeg)
+![screenshot](IMG_2354.jpeg)
 
 10/1:
 Fix daily journals and then research about agents and orchestration techniques in Python
