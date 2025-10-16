@@ -1,5 +1,6 @@
 8/28:
 laser cut and assemble personal box to hold my materials:
+
 9/1:
 started wood pen project by choosing wood and cutting
 
