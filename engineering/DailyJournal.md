@@ -24,7 +24,8 @@ put metal shaft inside hole and try to login to github
 turned the new piece of wood and sanded both pieces of wood
 
 9/12:
-Finish the pen by assembling all the pieces together
+Finish the pen by assembling all the pieces together with the pen press tool.
+![screenshot](engineering/IMG_2357.jpg)
 
 9/18:
 Today I setup my yearbook folder on github and tried to setup an env for my landing.ai key.
