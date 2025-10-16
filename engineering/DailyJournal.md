@@ -64,7 +64,7 @@ Start on owl project. First practiced soldering on a practice board with 3 resis
 9/29:
 Began soldering on all the LED's and the Type-C interface.
 
-**Sautering Type-C interface on owl:**
+**Soldering Type-C interface on owl:**
 ![screenshot](IMG_2359.jpeg)
 
 9/30:
