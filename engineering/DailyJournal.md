@@ -1,6 +1,8 @@
 8/28:
 laser cut and assemble personal box to hold my materials:
 
+## Pen Turning Project
+
 9/1:
 started wood pen project by choosing wood and cutting
 
@@ -32,11 +34,7 @@ Finish the pen by assembling all the pieces together with the pen press tool.
 **Final Product of Pen:**
 ![screenshot](IMG_2357.jpg)
 
-9/18:
-Today I setup my yearbook folder on github and tried to setup an env for my landing.ai key.
-
-9/24:
-Start installing claude code on my computer and learning about cline.
+## Owl Soldering Project
 
 9/28:
 Start on owl project. First practiced soldering on a practice board with 3 resistors. Then began soldering resisters, capacitors, and transistors.
@@ -58,6 +56,8 @@ Finished the owl!
 ![screenshot](IMG_2327.jpg)
 ![screenshot](IMG_2328.jpg)
 ![screenshot](IMG_2329.jpg)
+
+## Capstone Project - Yearbook Digitization
 
 10/1:
 Fix daily journals and then research about agents and orchestration techniques in Python
