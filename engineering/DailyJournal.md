@@ -25,7 +25,9 @@ turned the new piece of wood and sanded both pieces of wood
 
 9/12:
 Finish the pen by assembling all the pieces together with the pen press tool.
+**Pen Pressing:**
 ![screenshot](IMG_2269.jpg)
+**Final Product of Pen:**
 ![screenshot](IMG_2357.jpg)
 
 9/18:
