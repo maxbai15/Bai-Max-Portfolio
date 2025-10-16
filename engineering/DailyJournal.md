@@ -1,9 +1,12 @@
+## Pen Turning Project and Laser Cutting Box
+
+**Timeline:**
+
 8/28:
 Laser cut and assembled a personal box to hold my materials.
 
-## Pen Turning Project
-
-**Timeline:**
+**Image of Assembled  Box:**
+![screenshot](IMG_2362.jpg)
 
 9/1:
 Started the wood pen project by selecting the wood and cutting it using the wood-cutting machine.
