@@ -46,7 +46,7 @@ Started the GitHub video tutorial. Logged into GitHub Desktop, created a new rep
 Reviewed the GitHub tutorial and learned how to perform a pull request. Also learned how to share repositories with collaborators.
 
 **Screenshot of Shared Repo with Mr.Dubick:**
-![screenshot](Screenshot 2025-10-16 111107.png)
+![screenshot](Shared_repo.png)
 
 ## Owl Soldering Project
 
