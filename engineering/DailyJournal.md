@@ -97,6 +97,9 @@ Tested the team Landing.ai code for grade extraction across grades 6–11.
 10/10:
 Practiced 3D printing by printing a joy fidget toy. Also practiced laser cutting using both auto-focus and manual focus settings.
 
+10/17:
+Mr.Dubick taught us about setting up Github pages.
+
 
 
 
