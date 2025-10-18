@@ -128,10 +128,10 @@ Software patching was performed to fix vulnerabilities and ensure up-to-date sec
 | Software | Command Used |Findings | 
 |----------|-------------|----------|
 | Check for updates | `sudo apt update` | 26 available updates found | 
-| Install updates | `sudo apt upgrade` | 11 packages updated successfully | 
+| Install updates | `sudo apt upgrade` | Packages updated successfully | 
 | Review update history | `cat /var/log/apt/history.log` | Listed dates, versions, and installed packages |
-| Count installation events | `grep "Install:" /var/log/apt/history.log` | 15 installations events| 
-| Identify recent updates | `grep -A 2 "Start-Date"` | Latest update: October 5, 2025| 
+| Count installation events | `grep "Install:" /var/log/apt/history.log` | Installation events| 
+| Identify recent updates | `grep -A 2 "Start-Date"` | Latest update: October 13, 2025| 
 | Check specific packages | `grep "nano", grep "firefox"` | Found last updates for each program | 
 | Inspect recent log | `tail -n 20 /var/log/apt/history.log` | Confirmed most recent patching session | 
 
