@@ -25,7 +25,7 @@ Strong passwords rely on three core factors: length, complexity, and unpredictab
 
 Common threats include brute force, dictionary attacks, and credential stuffing, all of which can be mitigated by using random password generation and MFA.
 
-To strengthen authentication, industry standards such as **NIST** (National Institute of Standards and Technology) and **OWASP** (Open Worldwide Application Security Project) emphasize:
+To strengthen authentication, industry standards such as **NIST** (National Institute of Standards and Technology) and **OWASP** (Open Worldwide Application Security Project) emphasize:  
 - Favoring length over forced compelxity  
 - Enabling multi-factor authentication  
 - Blocking weak or reused passwords  
@@ -36,6 +36,7 @@ The below demonstrates how different authentication methods work together:
 1. Password Algorithm - ensures unpredictability  
 2. MFA - adds verification beyond password  
 3. Patching - protects system from known exploits  
+
 
 ### Designed Password Algorithm
 
