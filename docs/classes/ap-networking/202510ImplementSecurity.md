@@ -27,11 +27,15 @@ Common threats include brute force, dictionary attacks, and credential stuffing,
 
 To strengthen authentication, industry standards such as **NIST** (National Institute of Standards and Technology) and **OWASP** (Open Worldwide Application Security Project) emphasize:
 
+- Favoring length over forced compelxity
+- Enabling multi-factor authentication
+- Blocking weak or reused passwords
+
 - Favoring length over forced complexity  
 - Enabling multi-factor authentication  
 - Blocking weak or reused passwords  
 
-### Tree Diagram – Password Security Layers
+The below demonstrates how different authentication methods work together:  
 
 1. Password Algorithm - ensures unpredictability  
 2. MFA - adds verification beyond password  
@@ -75,10 +79,10 @@ Using the Ubuntu terminal, the command `passwd` was executed to replace the defa
 **New password set:** Used password alogrithm above to generate a complex password  
 **Verification:** Successful authentication tested with `sudo ls /root`, confirming that the new password functioned with administrative privileges.
 
-Additional user management commands enhanced overall security:
-- `sudo adduser <username>` – Created a new personal account  
-- `sudo usermod -aG sudo <username>` – Granted administrative permissions  
-- `sudo passwd -l ubuntu` – Locked the default user account to prevent unauthorized access  
+Additional user management commands enhanced overall security:  
+- `sudo adduser <username>` – Create a new personal account  
+- `sudo usermod -aG sudo <username>` – Grant administrative permissions  
+- `sudo passwd -l ubuntu` – Lock the default user account to prevent unauthorized access  
 
 
 **Changing Password:**
