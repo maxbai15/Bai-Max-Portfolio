@@ -6,16 +6,16 @@
 Understand how to strengthen device authentication and system security by designing secure passwords, enabling multi-factor authentication (MFA), and maintaining system integrity through regular software patching and updates.
 
 **Objectives:**  
-- Design a strong password algorithm that meets NIST and OWASP guidelines
-- Change the default Ubuntu password using an algorithm-generated strong password
-- Install and configure MFA (pam_google_authenticator) for secure SSH logins
-- Perform and verify system patching using Ubuntu’s update and log tools
+- Design a strong password algorithm that meets NIST and OWASP guidelines  
+- Change the default Ubuntu password using an algorithm-generated strong password  
+- Install and configure MFA (pam_google_authenticator) for secure SSH logins  
+- Perform and verify system patching using Ubuntu’s update and log tools  
 
 **Success Criteria:**  
-- Password algorithm demonstrates length, complexity, and unpredictability
-- MFA setup confirmed with working verification code and SSH login test
-- System logs show successful patching activity and current updates applied
-- Reflection connects password policies, MFA, and patching to better security
+- Password algorithm demonstrates length, complexity, and unpredictability  
+- MFA setup confirmed with working verification code and SSH login test  
+- System logs show successful patching activity and current updates applied  
+- Reflection connects password policies, MFA, and patching to better security  
 
 ## 2. Design & Planning – Authentication Concepts & Password Algorithm
 
@@ -27,15 +27,15 @@ Common threats include brute force, dictionary attacks, and credential stuffing,
 
 To strengthen authentication, industry standards such as **NIST** (National Institute of Standards and Technology) and **OWASP** (Open Worldwide Application Security Project) emphasize:
 
-- Favoring length over forced complexity
-- Enabling multi-factor authentication
-- Blocking weak or reused passwords
+- Favoring length over forced complexity  
+- Enabling multi-factor authentication  
+- Blocking weak or reused passwords  
 
 ### Tree Diagram – Password Security Layers
 
-1. Password Algorithm - ensures unpredictability
-2. MFA - adds verification beyond password
-3. Patching - protects system from known exploits
+1. Password Algorithm - ensures unpredictability  
+2. MFA - adds verification beyond password  
+3. Patching - protects system from known exploits  
 
 ### Designed Password Algorithm
 
@@ -82,10 +82,10 @@ Additional user management commands enhanced overall security:
 - `sudo passwd -l ubuntu` – Locked the default user account to prevent unauthorized access.
 
 **Changing Password:**
-![Screenshot](../../images/passwordSuccess.png)
+![Screenshot](../../images/passwordSuccess.png)  
 
 **Successful Password Change:**
-![Screenshot](../../images/password.png)
+![Screenshot](../../images/password.png)  
 
 
 ### Enabling Multi-Factor Authentication (MFA)
@@ -93,25 +93,25 @@ Additional user management commands enhanced overall security:
 MFA was implemented using Google Authenticator through the following process:
 
 **Installation**
-- `sudo apt update`
-- `sudo apt install libpam-google-authenticator -y`
+- `sudo apt update`  
+- `sudo apt install libpam-google-authenticator -y`  
 
 **Setup**
-- `google-authenticator` generated a QR code and secret key for time-based codes (TOTP).
+- `google-authenticator` generated a QR code and secret key for time-based codes (TOTP).  
 
 **MFA QR Code:**
-![Screenshot](../../images/MFAqr.png)
+![Screenshot](../../images/MFAqr.png)  
 
 **Configuration**
-- SSH configuration edited to enable MFA in /etc/ssh/sshd_config.
-- PAM stack modified by adding auth required pam_google_authenticator.so in /etc/pam.d/sshd.
+- SSH configuration edited to enable MFA in /etc/ssh/sshd_config.  
+- PAM stack modified by adding auth required pam_google_authenticator.so in /etc/pam.d/sshd.  
 
 **Testing**
-- MFA verified using simulated TOTP code from https://totp.danhersam.com.
-- SSH login prompted for both password and 6-digit verification code.
+- MFA verified using simulated TOTP code from https://totp.danhersam.com.  
+- SSH login prompted for both password and 6-digit verification code.  
 
 **MFA Success:**
-![Screenshot](../../images/MFAsuccess.png)
+![Screenshot](../../images/MFAsuccess.png)  
 
 ### System Patching and Updates
 
@@ -128,10 +128,10 @@ Software patching was performed to fix vulnerabilities and ensure up-to-date sec
 | Inspect recent log | `tail -n 20 /var/log/apt/history.log` | Confirmed most recent patching session | 
 
 **Recent Patch Updates:**
-![Screenshot](../../images/patchRecent.png)
+![Screenshot](../../images/patchRecent.png)  
 
 **Firefox Patch Update:**
-![Screenshot](../../images/firefoxPatch.png)
+![Screenshot](../../images/firefoxPatch.png)  
 
 
 ## 4. Testing & Evaluation – Outdated Software 
@@ -146,7 +146,7 @@ All implemented security measures were tested for proper operation.
 | Automatic Updates | `ls -l /var/lib/apt/periodic/` | Displays schedule of files automatically updated| 
 
 **Check Automatic Updates:**
-![Screenshot](../../images/automaticUpdates.png)
+![Screenshot](../../images/automaticUpdates.png)  
 
 ### Why Patching Matters/Outdaded Software:
 
