@@ -44,21 +44,28 @@ The password generation method created for this unit used random selections of l
 
 **Algorithm Steps:**
 
-1. Pick a random lowercase letter
-2. Pick two random digits (0–9)
-3. Pick one random uppercase letter
-4. Pick three random lowercase letters
-5. Pick two random digits (0–9)
-6. Pick one random symbol (!, @, #, $, %, &, *, _)
-7. Pick one random digit
-8. Pick one random uppercase letter
-9. Pick one lowercase letter
-10. Pick one random digit
-11. Pick one random uppercase letter
-12. Pick one lowercase letter
-13. Pick one random digit
-14. Pick one random symbol (!, @, #, $, %, &, *, _)
-15. Pick two random digits
+1. Pick a random letter (lowercase)
+2. Pick a random number (0–9)
+3. Pick a random number (0–9)
+4. Pick a random letter (lowercase)
+5. Pick a random letter (lowercase)
+6. Pick a random letter (lowercase)
+7. Pick a random letter (lowercase)
+8. Pick a random number (0–9)
+9. Pick a random number (0–9)
+10. Pick a random symbol(!, @, #, $, %, &, *, _)
+11. Pick a random number (0–9)
+12. Pick a random letter (lowercase)
+13. Pick a random number (0–9)
+14. Pick a random letter (uppercase)
+15. Pick a random number (0–9)
+16. Pick a random letter (uppercase)
+17. Pick a random letter (uppercase)
+18. Pick a random number (0–9)
+19. Pick a random symbol(!, @, #, $, %, &, *, _)
+20. Pick a random symbol(!, @, #, $, %, &, *, _)
+21. Pick a random number (0–9)
+22. Pick a random number (0–9)
 
 **Example Output:**  
 `u95zjjw72#2q6O4Yl3*_38`
