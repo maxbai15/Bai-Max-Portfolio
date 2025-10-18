@@ -76,10 +76,10 @@ Using the Ubuntu terminal, the command `passwd` was executed to replace the defa
 **Verification:** Successful authentication tested with `sudo ls /root`, confirming that the new password functioned with administrative privileges.
 
 Additional user management commands enhanced overall security:
+- `sudo adduser <username>` – Created a new personal account  
+- `sudo usermod -aG sudo <username>` – Granted administrative permissions  
+- `sudo passwd -l ubuntu` – Locked the default user account to prevent unauthorized access  
 
-- `sudo adduser <username>` – Created a new personal account.
-- `sudo usermod -aG sudo <username>` – Granted administrative permissions.
-- `sudo passwd -l ubuntu` – Locked the default user account to prevent unauthorized access.
 
 **Changing Password:**
 ![Screenshot](../../images/passwordSuccess.png)  
@@ -92,25 +92,25 @@ Additional user management commands enhanced overall security:
 
 MFA was implemented using Google Authenticator through the following process:
 
-**Installation**
+**Installation**  
 - `sudo apt update`  
 - `sudo apt install libpam-google-authenticator -y`  
 
-**Setup**
-- `google-authenticator` generated a QR code and secret key for time-based codes (TOTP).  
+**Setup**  
+- `google-authenticator` generated a QR code and secret key for time-based codes (TOTP)  
 
-**MFA QR Code:**
+**MFA QR Code:**  
 ![Screenshot](../../images/MFAqr.png)  
 
-**Configuration**
-- SSH configuration edited to enable MFA in /etc/ssh/sshd_config.  
-- PAM stack modified by adding auth required pam_google_authenticator.so in /etc/pam.d/sshd.  
+**Configuration**  
+- SSH configuration edited to enable MFA in /etc/ssh/sshd_config  
+- PAM stack modified by adding auth required pam_google_authenticator.so in /etc/pam.d/sshd  
 
-**Testing**
-- MFA verified using simulated TOTP code from https://totp.danhersam.com.  
-- SSH login prompted for both password and 6-digit verification code.  
+**Testing**  
+- MFA verified using simulated TOTP code from https://totp.danhersam.com  
+- SSH login prompted for both password and 6-digit verification code  
 
-**MFA Success:**
+**MFA Success:**  
 ![Screenshot](../../images/MFAsuccess.png)  
 
 ### System Patching and Updates
