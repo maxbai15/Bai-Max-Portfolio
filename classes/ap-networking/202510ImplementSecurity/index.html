@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Implementing Security for Devices - My Digital Portfolio</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">My Digital Portfolio</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../about/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    About me
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#classes-collapse" aria-expanded="false">
+                    Classes
+                </a>
+                <div class="collapse" id="classes-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#ap-networking-collapse" aria-expanded="false">
+            AP Networking
+        </a>
+
+        <div class="collapse" id="ap-networking-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509component-cards/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Component Cards
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509CLI/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Command Line Interface
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509SecurityControls/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Determining Security Controls for Devices
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Implementing Security for Devices
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../202509SecurityControls/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="implementing-security-for-devices">Implementing Security for Devices</h1>
+<h2 id="1-project-overview">1. Project Overview</h2>
+<p><strong>Problem Statement:</strong><br />
+Understand how to strengthen device authentication and system security by designing secure passwords, enabling multi-factor authentication (MFA), and maintaining system integrity through regular software patching and updates.</p>
+<p><strong>Objectives:</strong><br />
+- Design a strong password algorithm that meets NIST and OWASP guidelines<br />
+- Change the default Ubuntu password using an algorithm-generated strong password<br />
+- Install and configure MFA (pam_google_authenticator) for secure SSH logins<br />
+- Perform and verify system patching using Ubuntu’s update and log tools  </p>
+<p><strong>Success Criteria:</strong><br />
+- Password algorithm demonstrates length, complexity, and unpredictability<br />
+- MFA setup confirmed with working verification code and SSH login test<br />
+- System logs show successful patching activity and current updates applied<br />
+- Reflection connects password policies, MFA, and patching to better security  </p>
+<h2 id="2-design-planning-authentication-concepts-password-algorithm">2. Design &amp; Planning – Authentication Concepts &amp; Password Algorithm</h2>
+<h3 id="password-security-foundations">Password Security Foundations</h3>
+<p>Strong passwords rely on three core factors: length, complexity, and unpredictability. Longer passwords increase combinations an attacker must guess, complexity adds varied character types (uppercase, lowercase, numbers, symbols), and unpredictability prevents attackers from using known patterns or personal information.</p>
+<p>Common threats include brute force, dictionary attacks, and credential stuffing, all of which can be mitigated by using random password generation and MFA.</p>
+<p>To strengthen authentication, industry standards such as <strong>NIST</strong> (National Institute of Standards and Technology) and <strong>OWASP</strong> (Open Worldwide Application Security Project) emphasize:<br />
+- Favoring length over forced compelxity<br />
+- Enabling multi-factor authentication<br />
+- Blocking weak or reused passwords  </p>
+<p>The below demonstrates how different authentication methods work together:  </p>
+<ol>
+<li>Password Algorithm - ensures unpredictability  </li>
+<li>MFA - adds verification beyond password  </li>
+<li>Patching - protects system from known exploits  </li>
+</ol>
+<h3 id="designed-password-algorithm">Designed Password Algorithm</h3>
+<p>The password generation method created for this unit used random selections of letters, numbers, and symbols to ensure unpredictability and security.</p>
+<p><strong>Algorithm Steps:</strong></p>
+<ol>
+<li>Pick a random lowercase letter</li>
+<li>Pick two random digits (0–9)</li>
+<li>Pick one random uppercase letter</li>
+<li>Pick three random lowercase letters</li>
+<li>Pick two random digits (0–9)</li>
+<li>Pick one random symbol (!, @, #, $, %, &amp;, *, _)</li>
+<li>Pick one random digit</li>
+<li>Pick one random uppercase letter</li>
+<li>Pick one lowercase letter</li>
+<li>Pick one random digit</li>
+<li>Pick one random uppercase letter</li>
+<li>Pick one lowercase letter</li>
+<li>Pick one random digit</li>
+<li>Pick one random symbol (!, @, #, $, %, &amp;, *, _)</li>
+<li>Pick two random digits</li>
+</ol>
+<p><strong>Example Output:</strong><br />
+<code>u95zjjw72#2q6O4Yl3*_38</code></p>
+<h2 id="3-technical-development-implementing-authentication-security">3. Technical Development – Implementing Authentication &amp; Security</h2>
+<p>This phase focused on applying and verifying authentication controls in Ubuntu, including password updates, MFA setup, and patching through CLI commands.</p>
+<h3 id="changing-default-password">Changing Default Password</h3>
+<p>Using the Ubuntu terminal, the command <code>passwd</code> was executed to replace the default ubuntu password with a new one generated by the algorithm.</p>
+<p><strong>Command used:</strong> <code>passwd</code><br />
+<strong>New password set:</strong> Used password alogrithm above to generate a complex password<br />
+<strong>Verification:</strong> Successful authentication tested with <code>sudo ls /root</code>, confirming that the new password functioned with administrative privileges.</p>
+<p>Additional user management commands enhanced overall security:<br />
+- <code>sudo adduser &lt;username&gt;</code> – Create a new personal account<br />
+- <code>sudo usermod -aG sudo &lt;username&gt;</code> – Grant administrative permissions<br />
+- <code>sudo passwd -l ubuntu</code> – Lock the default user account to prevent unauthorized access  </p>
+<p><strong>Changing Password:</strong>
+<img alt="Screenshot" src="../../../images/passwordSuccess.png" />  </p>
+<p><strong>Successful Password Change:</strong>
+<img alt="Screenshot" src="../../../images/password.png" />  </p>
+<h3 id="enabling-multi-factor-authentication-mfa">Enabling Multi-Factor Authentication (MFA)</h3>
+<p>MFA was implemented using Google Authenticator through the following process:</p>
+<p><strong>Installation</strong><br />
+- <code>sudo apt update</code><br />
+- <code>sudo apt install libpam-google-authenticator -y</code>  </p>
+<p><strong>Setup</strong><br />
+- <code>google-authenticator</code> generated a QR code and secret key for time-based codes (TOTP)  </p>
+<p><strong>MFA QR Code:</strong><br />
+<img alt="Screenshot" src="../../../images/MFAqr.png" />  </p>
+<p><strong>Configuration</strong><br />
+- SSH configuration edited to enable MFA in /etc/ssh/sshd_config<br />
+- PAM stack modified by adding auth required pam_google_authenticator.so in /etc/pam.d/sshd  </p>
+<p><strong>Testing</strong><br />
+- MFA verified using simulated TOTP code from https://totp.danhersam.com<br />
+- SSH login prompted for both password and 6-digit verification code  </p>
+<p><strong>MFA Success:</strong><br />
+<img alt="Screenshot" src="../../../images/MFAsuccess.png" />  </p>
+<h3 id="system-patching-and-updates">System Patching and Updates</h3>
+<p>Software patching was performed to fix vulnerabilities and ensure up-to-date security protection.</p>
+<table>
+<thead>
+<tr>
+<th>Software</th>
+<th>Command Used</th>
+<th>Findings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check for updates</td>
+<td><code>sudo apt update</code></td>
+<td>26 available updates found</td>
+</tr>
+<tr>
+<td>Install updates</td>
+<td><code>sudo apt upgrade</code></td>
+<td>11 packages updated successfully</td>
+</tr>
+<tr>
+<td>Review update history</td>
+<td><code>cat /var/log/apt/history.log</code></td>
+<td>Listed dates, versions, and installed packages</td>
+</tr>
+<tr>
+<td>Count installation events</td>
+<td><code>grep "Install:" /var/log/apt/history.log</code></td>
+<td>15 installations events</td>
+</tr>
+<tr>
+<td>Identify recent updates</td>
+<td><code>grep -A 2 "Start-Date"</code></td>
+<td>Latest update: October 5, 2025</td>
+</tr>
+<tr>
+<td>Check specific packages</td>
+<td><code>grep "nano", grep "firefox"</code></td>
+<td>Found last updates for each program</td>
+</tr>
+<tr>
+<td>Inspect recent log</td>
+<td><code>tail -n 20 /var/log/apt/history.log</code></td>
+<td>Confirmed most recent patching session</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recent Patch Updates:</strong>
+<img alt="Screenshot" src="../../../images/patchRecent.png" />  </p>
+<p><strong>Firefox Patch Update:</strong>
+<img alt="Screenshot" src="../../../images/firefoxPatch.png" />  </p>
+<h2 id="4-testing-evaluation-outdated-software">4. Testing &amp; Evaluation – Outdated Software</h2>
+<p>All implemented security measures were tested for proper operation.</p>
+<table>
+<thead>
+<tr>
+<th>Security Feature</th>
+<th>Test Performed</th>
+<th>Verification Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Password Strength</td>
+<td><code>sudo ls /root</code> (with new password)</td>
+<td>Access granted, confirming correct password update and admin rights</td>
+</tr>
+<tr>
+<td>MFA Authentication</td>
+<td>SSH login prompt for verification code</td>
+<td>Both password and generated 6-digit code required</td>
+</tr>
+<tr>
+<td>Patch Confirmation</td>
+<td><code>/var/log/apt/history.log</code></td>
+<td>Show updates installed</td>
+</tr>
+<tr>
+<td>Automatic Updates</td>
+<td><code>ls -l /var/lib/apt/periodic/</code></td>
+<td>Displays schedule of files automatically updated</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Check Automatic Updates:</strong>
+<img alt="Screenshot" src="../../../images/automaticUpdates.png" />  </p>
+<h3 id="why-patching-mattersoutdaded-software">Why Patching Matters/Outdaded Software:</h3>
+<p>System patching is important because hackers can exploit known vulnerabilities that have already been patched in other systems using exploits in the wild. These unpatched systems could easily allow in data leaks and breaches through many different doors. Additionally, there may be zero-day vulnerabilities, security flaws that aren’t recognized by the user, therefore no patches available. If hackers are able to find these zero-day vulnerabilities they could easily enter the system and the fix would take a while depending on if the user even found the leak. To ensure that patching happens, you could always try to use automatic updates so the computer always stays patched and up to date.</p>
+<h2 id="5-reflection">5. Reflection</h2>
+<p>Through implementing layered security controls, this unit demonstrated the practical relationship between authentication, authorization, and system maintenance. Secure passwords protect confidentiality and MFA safeguards protect integrity by ensuring that access is verified. Additionally,  consistent patching preserves availability by maintaining a functional and resilient system to both bugs and attacks.</p>
+<p>These activities reinforced the principle that cybersecurity requires defense in depth—multiple layers working together rather than relying on a single control. The Ubuntu password algorithm exercise showed how unpredictability and length drastically reduce guessing risk. MFA through Google Authenticator demonstrated real-world two-factor authentication methods used by major organizations, adding an essential safeguard against stolen credentials and hackers.</p>
+<p>Patching the VM provided insight into how software vulnerabilities are discovered and fixed, highlighting the importance of staying updated against known and zero-day exploits. Regular updates also prevent attackers from using exploits in the wild that target unpatched systems. Patching helps to protect against "open doors" in systems for hackers to break there way into.</p>
+<p>Overall, this unit illustrated the importance of proactive protection to ensure cyber attacks don't happen and data isn't lost.</p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../..';</script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../assets/js/mkdocs.js"></script>
+			<script src="../../../search/main.js" defer></script>
+
+</body>
+
+</html>
