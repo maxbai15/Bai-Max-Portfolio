@@ -93,20 +93,24 @@ Additional user management commands enhanced overall security:
 MFA was implemented using Google Authenticator through the following process:
 
 1. **Installation**
+
 - `sudo apt update`
 - `sudo apt install libpam-google-authenticator -y`
 
 2. **Setup**
+
 - `google-authenticator` generated a QR code and secret key for time-based codes (TOTP).
 
 **MFA QR Code:**
 ![Screenshot](../../images/MFAqr.png)
 
 3. **Configuration**
+
 - SSH configuration edited to enable MFA in /etc/ssh/sshd_config.
 - PAM stack modified by adding auth required pam_google_authenticator.so in /etc/pam.d/sshd.
 
 4. **Testing**
+
 - MFA verified using simulated TOTP code from https://totp.danhersam.com.
 - SSH login prompted for both password and 6-digit verification code.
 
@@ -146,7 +150,7 @@ All implemented security measures were tested for proper operation.
 | Automatic Updates | `ls -l /var/lib/apt/periodic/` | Displays schedule of files automatically updated| 
 
 **Check Automatic Updates:**
-![Screenshot](../../images/automaticUpdate.png)
+![Screenshot](../../images/automaticUpdates.png)
 
 ### Why Patching Matters/Outdaded Software:
 
