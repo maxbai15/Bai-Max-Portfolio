@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Data Movement and Types of Networks - My Digital Portfolio</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">My Digital Portfolio</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../about/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    About me
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#classes-collapse" aria-expanded="false">
+                    Classes
+                </a>
+                <div class="collapse" id="classes-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#ap-networking-collapse" aria-expanded="false">
+            AP Networking
+        </a>
+
+        <div class="collapse" id="ap-networking-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509component-cards/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Component Cards
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509CLI/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Command Line Interface
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509SecurityControls/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Determining Security Controls for Devices
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202510ImplementSecurity/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Implementing Security for Devices
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Data Movement and Types of Networks
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../202510ImplementSecurity/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="data-movement-and-types-of-networks">Data Movement and Types of Networks</h1>
+<h2 id="1-project-overview">1. Project Overview</h2>
+<p><strong>Problem Statement:</strong><br />
+Understand how data moves across networks by exploring LAN components, the OSI and TCP/IP models, and binary/hexadecimal conversions.</p>
+<p><strong>Objectives:</strong><br />
+- Identify and understand the role of LAN components (hosts, switches, routers, packets)<br />
+- Figure out OSI layer model and TCP/IP model<br />
+- Convert between binary, decimal, and hexadecimal <br />
+- Use Ubuntu networking tools (ifconfig, ping, traceroute, ipcalc, netstat, nc) to analyze network data movement  </p>
+<p><strong>Success Criteria:</strong><br />
+- Clear understanding of LAN analogy and component roles demonstrated through notes and diagrams<br />
+- Can do binary/decimal/hexadecimal conversions <br />
+- Complete documentation of all Ubuntu lab activities <br />
+- OSI and TCP/IP layer mapping showing protocol alignment    </p>
+<h2 id="2-design-planning-lan-components-networking-models">2. Design &amp; Planning – LAN Components &amp; Networking Models</h2>
+<h3 id="understanding-local-area-networks-lan">Understanding Local Area Networks (LAN)</h3>
+<p>Think of a Local Area Network (LAN) like a city. Every device, cable, and signal has a job, just like parts of a real city!</p>
+<p><strong>Key LAN Components:</strong></p>
+<p><strong>Computers = Houses</strong>
+- Every house has a mailbox number - ip address
+- Must have a return address and a destination address</p>
+<p><strong>Ethernet Cables and Wi-Fi = Roads</strong>
+- Connect devices and the roads connect all houses
+- Roads let them send/receive information
+- Have to have roads or there is isolation</p>
+<p><strong>Switch = Traffic Roundabout</strong>
+- Sits at center of neighborhood
+- Guides traffic - making sure data only goes to correct destination
+- It learns the MAC address (unique hardware address) of each device plugged in
+- Data comes in - switch forwards it only to device that should get it</p>
+<p><strong>Router = Post Office</strong>
+- On edge of town
+- Decides which mail should stay local (within LAN) and which needs to go out to the internet (Internet = big world beyond city)
+- Uses IP addresses to make these decisions</p>
+<p><strong>Data = Packages or Letters</strong>
+- Travels in small packages
+- Each packet has:
+  - Destination address (receiver's IP address)
+  - Return address (sender's IP address)
+  - Message = data itself</p>
+<p><strong>Key Terms:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key Terms</th>
+<th>Definition</th>
+<th>Additional Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAN (Local Area Network)</td>
+<td>A network that connects computers and devices within 1 building or campus</td>
+<td>Let devices share printers, files, and internet connections efficiently</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>Any device (computer, phone, printer, tablet, server) that can send or receive data</td>
+<td>Each host has a unique IP address</td>
+</tr>
+<tr>
+<td>Switch</td>
+<td>Connects multiple devices inside the LAN</td>
+<td>Learns MAC addresses and forwards data only to correct device</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Connects the LAN to other networks - including the Internet</td>
+<td>Uses IP addresses to decide destination</td>
+</tr>
+<tr>
+<td>Packet</td>
+<td>Data doesn't travel all at once - travels in chunks, called packets</td>
+<td>Each packet has sender's IP, receiver's IP, and the payload (actual msg)</td>
+</tr>
+<tr>
+<td>IP Address</td>
+<td>Identifies each device on a network</td>
+<td>Example: 192.168.1.25</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Device Connections Within a LAN Activity:</strong>
+<img width="673" height="394" alt="Screenshot 2025-11-06 at 6 52 41 PM" src="https://github.com/user-attachments/assets/15ee9ac3-5e1b-4dad-90fc-d85a396d47b6" /></p>
+<h3 id="the-osi-model-seven-layers-of-networking">The OSI Model – Seven Layers of Networking</h3>
+<p>OSI(Open Systems Interconnection) - a conceptual framework that breaks down network communication.</p>
+<p><strong>Phrase to Help Remeber: "Please Do Not Throw Sausage Pizza Away"</strong></p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>Application</td>
+<td>Your email or browser (final stage, human-computer interaction layer)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Presentation</td>
+<td>Translates data (encryption, compression) - ensures data in a usable form</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Session</td>
+<td>Manages connection - maintains connections responsible for controlling parts and sessions</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Transport</td>
+<td>Breaks data into segments - transmits data using transmission protocols including TCP and UDP</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Network</td>
+<td>Routes packets using IP - decides which physical path the data will take</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data Link</td>
+<td>Transfers frames via MAC (media access control) - defines the format of data on the network</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Physical</td>
+<td>Wires, signals, wi-fi - transmits raw bit streams over physical medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>OSI Cards Diagram:</strong>
+<img alt="Screenshot" src="../../../images/IMG_2414.jpg" /></p>
+<h3 id="osi-vs-tcpip-model">OSI vs. TCP/IP Model</h3>
+<table>
+<thead>
+<tr>
+<th>TCP/IP Layer</th>
+<th>Corresponding OSI Layers</th>
+<th>Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>5-7</td>
+<td>Apps, HTTP, FTP</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>4</td>
+<td>TCP/UDP, segmentation</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>3</td>
+<td>IP addressing, routing</td>
+</tr>
+<tr>
+<td>Network Access</td>
+<td>1-2</td>
+<td>Physical &amp; data link</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-technical-development-ubuntu-networking-activities">3. Technical Development – Ubuntu Networking Activities</h2>
+<p>This phase focused on applying and verifying networking concepts in Ubuntu through command line tools.</p>
+<h3 id="installing-network-tools-and-viewing-ip-configuration">Installing Network Tools and Viewing IP Configuration</h3>
+<p><strong>Installation Commands:</strong></p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install net-tools -y
+</code></pre>
+<p><strong>Viewing Network Configuration:</strong></p>
+<pre><code class="language-bash">ifconfig
+</code></pre>
+<p><strong>Understanding the Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inet</td>
+<td>The IPv4 address assigned to the computer</td>
+<td>It identifies the computer on the network</td>
+<td>192.168.64.6 — computer's unique address within your local network</td>
+</tr>
+<tr>
+<td>netmask</td>
+<td>Defines which portion of the IP address identifies the network and which part identifies the device</td>
+<td>Helps devices know who is on the same network and who is outside it</td>
+<td>255.255.255.0 - the first three sets of numbers (192.168.64) identify the network, the last number (.6) identifies the specific device</td>
+</tr>
+<tr>
+<td>broadcast</td>
+<td>The broadcast address is used to send messages to all devices on the same local network</td>
+<td>used by computers to find each other</td>
+<td>192.168.64.255 sends data to all devices in the 192.168.64 network</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Network Configuration Screenshot:</strong>
+<img width="602" height="326" alt="Screenshot 2025-11-06 at 6 45 33 PM" src="https://github.com/user-attachments/assets/9190b727-5210-4d4e-bb98-5b52bba47508" /></p>
+<h3 id="testing-connectivity-with-ping">Testing Connectivity with Ping</h3>
+<p><strong>Installation:</strong></p>
+<pre><code class="language-bash">sudo apt install iputils-ping -y
+</code></pre>
+<p><strong>Testing Commands:</strong></p>
+<pre><code class="language-bash">ping google.com
+ping 8.8.8.8 -c 3
+</code></pre>
+<p><strong>Quick Explanation:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ifconfig</td>
+<td>Shows your computer's network address</td>
+<td>192.168.64.6</td>
+</tr>
+<tr>
+<td>ping</td>
+<td>Tests if another computer or website is reachable</td>
+<td>64 bytes from google.com</td>
+</tr>
+<tr>
+<td>traceroute</td>
+<td>Shows the route data takes to reach a destination</td>
+<td>192.168.64.1 --&gt; 10.0.0.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ping Test Results:</strong>
+<img width="595" height="312" alt="Screenshot 2025-11-06 at 6 45 50 PM" src="https://github.com/user-attachments/assets/bc0534d1-9a65-4445-9b41-66a79f2b4ebe" /></p>
+<h3 id="tracing-network-routes-with-traceroute">Tracing Network Routes with Traceroute</h3>
+<p><strong>Installation:</strong></p>
+<pre><code class="language-bash">sudo apt install traceroute -y
+</code></pre>
+<p><strong>Testing:</strong></p>
+<pre><code class="language-bash">traceroute google.com
+</code></pre>
+<p><strong>My Results:</strong>
+- <strong>How many hops:</strong> 23
+- <strong>How long did it take:</strong> 3 seconds</p>
+<p><strong>Understanding traceroute Results:</strong></p>
+<p>When you type <code>traceroute google.com</code>, the computer sends test packets of data toward Google's servers and keeps track of every "hop"  that those packets pass through. Each hop is like a checkpoint between your computer and the destination. The data might travel through many routers, like the school network and city network, before it finally reaches Google.</p>
+<p><strong>Traceroute Results:</strong>
+<img width="645" height="332" alt="Screenshot 2025-11-06 at 6 46 07 PM" src="https://github.com/user-attachments/assets/73d12c17-014e-4307-9c4f-65be26012939" /></p>
+<h3 id="binary-decimal-and-hexadecimal-conversions">Binary, Decimal, and Hexadecimal Conversions</h3>
+<p><strong>Why Binary:</strong>
+- All digital data is stored + transmitted with binary (base 2)
+- Computers have signals -&gt; "1 is on" or "0 is off"
+- Use on/off to store:
+  - IP addresses
+  - MAC addresses (unique identifier for hardware)
+  - Packets</p>
+<p><strong>Number Systems:</strong></p>
+<p><strong>Decimal or "denary"</strong> - humans
+- 10 digits -&gt; 0 to 9
+- Ones (10^0), tens (10^1), hundred (10^2),...
+- 345 = 3(10^2) + 4(10^1) + 5(10^0)</p>
+<p><strong>Binary</strong>
+- Each binary digit is a bit
+- 8 bits = 1 byte
+- 4 bits = nibble
+- Example: 192.168.1.1 = 11000000.10101000.00000001.00000001</p>
+<p><strong>Hexadecimal</strong> - base 16
+- Example: 11000000101010000000000100000001 in hex is C0A80101
+- Each hex digit = 4 bits</p>
+<p><strong>Binary to Hex to Denary Practice:</strong>
+<img width="723" height="209" alt="Screenshot 2025-11-06 at 6 47 04 PM" src="https://github.com/user-attachments/assets/7b5f51df-7e4c-4cf6-b2a2-bd6ca1043672" /></p>
+<h3 id="ip-address-analysis-with-ipcalc">IP Address Analysis with ipcalc</h3>
+<p><strong>Checking My IP Address:</strong></p>
+<pre><code class="language-bash">ip a
+</code></pre>
+<p><strong>My IP Address:</strong> 192.168.64.2/24</p>
+<p>The IP address you see is shown in decimal form so humans can read it easily. However, your computer stores and processes it in binary, like this: 192.168.64.6 -&gt; 11000000.10101000.01000000.00000110. Every device on the network communicates using these 1s and 0s, not the decimal numbers you see on the screen. Additionally, the /24 is called the subnet mask and it tells you how many of the 32 bits in the IP address belong to the network portion. Hexadecimal is also often used because it allows for the compression of binary numbers.</p>
+<p><strong>Ipcalc:</strong></p>
+<pre><code class="language-bash">sudo apt install ipcalc -y
+ipcalc 192.168.64.6/24
+</code></pre>
+<p><strong>Ipcalc Output Screenshot:</strong>
+<img width="673" height="196" alt="Screenshot 2025-11-06 at 6 47 31 PM" src="https://github.com/user-attachments/assets/4b1b292d-6df0-44c3-b2a1-1b39c8493cc2" /></p>
+<h3 id="lab-6-viewing-ip-in-hexadecimal">Lab 6: Viewing IP in Hexadecimal</h3>
+<p><strong>Converting to Hex:</strong></p>
+<pre><code class="language-bash">printf '%02X%02X%02X%02X\n' 192 168 64 6
+</code></pre>
+<p>Output: <code>C0A84006</code></p>
+<p>Each pair of hex digits represents one section (octet) of the IP address:
+- A8 = 168
+- 40 = 64
+- 06 = 6</p>
+<p><strong>Hexadecimal IP Screenshot:</strong>
+<img width="585" height="54" alt="Screenshot 2025-11-06 at 6 48 03 PM" src="https://github.com/user-attachments/assets/783a3825-fc49-4053-ba36-34bf5af0ebee" /></p>
+<h3 id="vm-to-vm-network-communication">VM to VM Network Communication</h3>
+<p>Understand how data travels between two computers on the same LAN using real network tools.</p>
+<p><strong>Identify Your IP Address</strong>
+Same commands as above, but both VM's need to find networking information.</p>
+<p>Commands used:</p>
+<pre><code class="language-bash">ifconfig
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">ip a
+</code></pre>
+<p>Example output:</p>
+<pre><code>inet 192.168.64.6 netmask 255.255.255.0 broadcast 192.168.64.255
+</code></pre>
+<p>This is your IP address and it's how devices identify each other on a local network. Each VM will have a different IP address and need both to communicate.</p>
+<p><strong>Test Connectivity with Ping (Layer 3 – Network Layer)</strong></p>
+<p>Ping the partner VM IP address to test if connection between both VM's is stable.</p>
+<p>Command:</p>
+<pre><code class="language-bash">ping &lt;VM2_IP&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">ping 192.168.64.7
+</code></pre>
+<p>Ping uses the ICMP protocol at the Network Layer to check if another device is reachable. Each "reply" means data successfully traveled to your partner's VM and back.</p>
+<p><strong>Ping Between VMs Screenshot:</strong>
+<img width="551" height="243" alt="Screenshot 2025-11-06 at 6 49 10 PM" src="https://github.com/user-attachments/assets/c626ac16-51a0-46cb-a37e-c1959778ea3a" /></p>
+<p><strong>View Active Network Connections</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">netstat -a
+</code></pre>
+<p>or if netstat isn't found:</p>
+<pre><code class="language-bash">sudo apt install net-tools -y
+</code></pre>
+<p>The netstat command displays transport layer information (Layer 4). It shows which ports are open and which protocols are being used for communication between both VM's.</p>
+<p><strong>Netstat Screenshot:</strong>
+<img width="640" height="345" alt="Screenshot 2025-11-06 at 6 49 28 PM" src="https://github.com/user-attachments/assets/b4558091-571a-444f-bc5c-ce1b082f09bf" /></p>
+<p>After connecting, the two VM's can communicate with each other using <code>netcat</code>.</p>
+<p><strong>VM to VM Communication::</strong>
+<img width="347" height="123" alt="Screenshot 2025-11-06 at 6 50 15 PM" src="https://github.com/user-attachments/assets/4cf6f74b-e208-460b-abb2-3156eff8e447" /></p>
+<h2 id="4-testing-evaluation-network-verification">4. Testing &amp; Evaluation – Network Verification</h2>
+<p>All implemented networking concepts were tested for proper operation.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Test Performed</th>
+<th>Verification Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP Configuration</td>
+<td><code>ifconfig</code> command</td>
+<td>Successfully identified inet (IP), netmask, and broadcast addresses</td>
+</tr>
+<tr>
+<td>Network Connectivity</td>
+<td><code>ping google.com</code> and <code>ping 8.8.8.8</code></td>
+<td>All packets received with 22ms latency, 0% packet loss</td>
+</tr>
+<tr>
+<td>Route Tracing</td>
+<td><code>traceroute google.com</code></td>
+<td>Mapped 23 hops from local gateway to Google servers in 3 seconds</td>
+</tr>
+<tr>
+<td>Binary Conversion</td>
+<td>Manual calculation verified with <code>bc</code></td>
+<td>All conversions accurate (e.g., 10101000 = 168)</td>
+</tr>
+<tr>
+<td>Hexadecimal Analysis</td>
+<td><code>printf</code> command and <code>ipcalc</code></td>
+<td>IP address correctly displayed as C0A84002</td>
+</tr>
+<tr>
+<td>Open Ports</td>
+<td><code>netstat</code></td>
+<td>Identified open ports between 2 VM's</td>
+</tr>
+<tr>
+<td>VM Communication</td>
+<td><code>ping</code> between VMs</td>
+<td>Successful connectivity with low latency</td>
+</tr>
+<tr>
+<td>Message Transfer</td>
+<td><code>netcat</code> between VMs</td>
+<td>Text message delivered reliably using TCP</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-reflection">5. Reflection</h2>
+<p>Through these networking labs, I gained a practical understanding of how data moves across networks and how the OSI and TCP/IP models apply in the transmission of data across devices and networks. The LAN city analogy helped make complex ideas more. Additionally, the binary, decimal, and hexadecimal conversion exercises showed why computers use binary and how hexadecimal provides a human readable shortcut for long binary values.</p>
+<p>Using ipcalc, ping, traceroute, and netcat helped to demonstrate the real world applications of the OSI layers. The traceroute activity showed the real world jumps between networks as it showed 23 hops my data took to reach Google’s servers and how the latency varied between them. The VM to VM activity tied everything together as it ensured I knew how to make sure two different devices where connect and could transport data between each other.</p>
+<p>Understanding both OSI and TCP/IP clarified how each layer depends on the one below and serves the one above, an essential principle to teh success of the OSI layer and the transportation of data. Overall, these labs transformed networking from abstract theory into practical skills as I can now interpret network configurations, test connectivity, trace routes, and understand how data actually travels across the internet.</p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../..';</script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../assets/js/mkdocs.js"></script>
+			<script src="../../../search/main.js" defer></script>
+
+</body>
+
+</html>
