@@ -534,7 +534,7 @@ ipcalc 192.168.64.6/24
 </code></pre>
 <p><strong>Ipcalc Output Screenshot:</strong>
 <img width="673" height="196" alt="Screenshot 2025-11-06 at 6 47 31 PM" src="https://github.com/user-attachments/assets/4b1b292d-6df0-44c3-b2a1-1b39c8493cc2" /></p>
-<h3 id="lab-6-viewing-ip-in-hexadecimal">Lab 6: Viewing IP in Hexadecimal</h3>
+<h3 id="viewing-ip-in-hexadecimal">Viewing IP in Hexadecimal</h3>
 <p><strong>Converting to Hex:</strong></p>
 <pre><code class="language-bash">printf '%02X%02X%02X%02X\n' 192 168 64 6
 </code></pre>
@@ -557,10 +557,7 @@ Same commands as above, but both VM's need to find networking information.</p>
 <p>or</p>
 <pre><code class="language-bash">ip a
 </code></pre>
-<p>Example output:</p>
-<pre><code>inet 192.168.64.6 netmask 255.255.255.0 broadcast 192.168.64.255
-</code></pre>
-<p>This is your IP address and it's how devices identify each other on a local network. Each VM will have a different IP address and need both to communicate.</p>
+<p>The IP addresses are how devices identify each other on a local network. Each VM will have a different IP address and devices need both to communicate.</p>
 <p><strong>Test Connectivity with Ping (Layer 3 – Network Layer)</strong></p>
 <p>Ping the partner VM IP address to test if connection between both VM's is stable.</p>
 <p>Command:</p>
