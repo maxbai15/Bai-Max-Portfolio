@@ -219,42 +219,55 @@
 <h2 id="1-project-overview">1. Project Overview</h2>
 <p><strong>Problem Statement:</strong><br />
 Understand how data moves across networks by exploring LAN components, the OSI and TCP/IP models, and binary/hexadecimal conversions.</p>
-<p><strong>Objectives:</strong><br />
-- Identify and understand the role of LAN components (hosts, switches, routers, packets)<br />
-- Figure out OSI layer model and TCP/IP model<br />
-- Convert between binary, decimal, and hexadecimal <br />
-- Use Ubuntu networking tools (ifconfig, ping, traceroute, ipcalc, netstat, nc) to analyze network data movement  </p>
-<p><strong>Success Criteria:</strong><br />
-- Clear understanding of LAN analogy and component roles demonstrated through notes and diagrams<br />
-- Can do binary/decimal/hexadecimal conversions <br />
-- Complete documentation of all Ubuntu lab activities <br />
-- OSI and TCP/IP layer mapping showing protocol alignment    </p>
+<p><strong>Objectives:</strong>  </p>
+<ul>
+<li>Identify and understand the role of LAN components (hosts, switches, routers, packets)  </li>
+<li>Figure out OSI layer model and TCP/IP model  </li>
+<li>Convert between binary, decimal, and hexadecimal   </li>
+<li>Use Ubuntu networking tools (ifconfig, ping, traceroute, ipcalc, netstat, nc) to analyze network data movement  </li>
+</ul>
+<p><strong>Success Criteria:</strong>  </p>
+<ul>
+<li>Clear understanding of LAN analogy and component roles demonstrated through notes and diagrams  </li>
+<li>Can do binary/decimal/hexadecimal conversions   </li>
+<li>Complete documentation of all Ubuntu lab activities   </li>
+</ul>
 <h2 id="2-design-planning-lan-components-networking-models">2. Design &amp; Planning – LAN Components &amp; Networking Models</h2>
 <h3 id="understanding-local-area-networks-lan">Understanding Local Area Networks (LAN)</h3>
 <p>Think of a Local Area Network (LAN) like a city. Every device, cable, and signal has a job, just like parts of a real city!</p>
 <p><strong>Key LAN Components:</strong></p>
-<p><strong>Computers = Houses</strong>
-- Every house has a mailbox number - ip address
-- Must have a return address and a destination address</p>
-<p><strong>Ethernet Cables and Wi-Fi = Roads</strong>
-- Connect devices and the roads connect all houses
-- Roads let them send/receive information
-- Have to have roads or there is isolation</p>
-<p><strong>Switch = Traffic Roundabout</strong>
-- Sits at center of neighborhood
-- Guides traffic - making sure data only goes to correct destination
-- It learns the MAC address (unique hardware address) of each device plugged in
-- Data comes in - switch forwards it only to device that should get it</p>
-<p><strong>Router = Post Office</strong>
-- On edge of town
-- Decides which mail should stay local (within LAN) and which needs to go out to the internet (Internet = big world beyond city)
-- Uses IP addresses to make these decisions</p>
-<p><strong>Data = Packages or Letters</strong>
-- Travels in small packages
-- Each packet has:
-  - Destination address (receiver's IP address)
-  - Return address (sender's IP address)
-  - Message = data itself</p>
+<p><strong>Computers = Houses</strong></p>
+<ul>
+<li>Every house has a mailbox number - ip address</li>
+<li>Must have a return address and a destination address</li>
+</ul>
+<p><strong>Ethernet Cables and Wi-Fi = Roads</strong></p>
+<ul>
+<li>Connect devices and the roads connect all houses</li>
+<li>Roads let them send/receive information</li>
+<li>Have to have roads or there is isolation</li>
+</ul>
+<p><strong>Switch = Traffic Roundabout</strong></p>
+<ul>
+<li>Sits at center of neighborhood</li>
+<li>Guides traffic - making sure data only goes to correct destination</li>
+<li>It learns the MAC address (unique hardware address) of each device plugged in</li>
+<li>Data comes in - switch forwards it only to device that should get it</li>
+</ul>
+<p><strong>Router = Post Office</strong></p>
+<ul>
+<li>On edge of town</li>
+<li>Decides which mail should stay local (within LAN) and which needs to go out to the internet (Internet = big world beyond city)</li>
+<li>Uses IP addresses to make these decisions</li>
+</ul>
+<p><strong>Data = Packages or Letters</strong></p>
+<ul>
+<li>Travels in small packages</li>
+<li>Each packet has:</li>
+<li>Destination address (receiver's IP address)</li>
+<li>Return address (sender's IP address)</li>
+<li>Message = data itself</li>
+</ul>
 <p><strong>Key Terms:</strong></p>
 <table>
 <thead>
@@ -469,34 +482,44 @@ ping 8.8.8.8 -c 3
 <p><strong>Testing:</strong></p>
 <pre><code class="language-bash">traceroute google.com
 </code></pre>
-<p><strong>My Results:</strong>
-- <strong>How many hops:</strong> 23
-- <strong>How long did it take:</strong> 3 seconds</p>
+<p><strong>My Results:</strong></p>
+<ul>
+<li><strong>How many hops:</strong> 23 </li>
+<li><strong>How long did it take:</strong> 3 seconds </li>
+</ul>
 <p><strong>Understanding traceroute Results:</strong></p>
 <p>When you type <code>traceroute google.com</code>, the computer sends test packets of data toward Google's servers and keeps track of every "hop"  that those packets pass through. Each hop is like a checkpoint between your computer and the destination. The data might travel through many routers, like the school network and city network, before it finally reaches Google.</p>
 <p><strong>Traceroute Results:</strong>
 <img width="645" height="332" alt="Screenshot 2025-11-06 at 6 46 07 PM" src="https://github.com/user-attachments/assets/73d12c17-014e-4307-9c4f-65be26012939" /></p>
 <h3 id="binary-decimal-and-hexadecimal-conversions">Binary, Decimal, and Hexadecimal Conversions</h3>
-<p><strong>Why Binary:</strong>
-- All digital data is stored + transmitted with binary (base 2)
-- Computers have signals -&gt; "1 is on" or "0 is off"
-- Use on/off to store:
-  - IP addresses
-  - MAC addresses (unique identifier for hardware)
-  - Packets</p>
+<p><strong>Why Binary:</strong></p>
+<ul>
+<li>All digital data is stored + transmitted with binary (base 2) </li>
+<li>Computers have signals -&gt; "1 is on" or "0 is off" </li>
+<li>Use on/off to store: </li>
+<li>IP addresses </li>
+<li>MAC addresses (unique identifier for hardware) </li>
+<li>Packets </li>
+</ul>
 <p><strong>Number Systems:</strong></p>
-<p><strong>Decimal or "denary"</strong> - humans
-- 10 digits -&gt; 0 to 9
-- Ones (10^0), tens (10^1), hundred (10^2),...
-- 345 = 3(10^2) + 4(10^1) + 5(10^0)</p>
-<p><strong>Binary</strong>
-- Each binary digit is a bit
-- 8 bits = 1 byte
-- 4 bits = nibble
-- Example: 192.168.1.1 = 11000000.10101000.00000001.00000001</p>
-<p><strong>Hexadecimal</strong> - base 16
-- Example: 11000000101010000000000100000001 in hex is C0A80101
-- Each hex digit = 4 bits</p>
+<p><strong>Decimal or "denary"</strong> - humans</p>
+<ul>
+<li>10 digits -&gt; 0 to 9 </li>
+<li>Ones (10^0), tens (10^1), hundred (10^2),... </li>
+<li>345 = 3(10^2) + 4(10^1) + 5(10^0) </li>
+</ul>
+<p><strong>Binary</strong> - base 2 </p>
+<ul>
+<li>Each binary digit is a bit </li>
+<li>8 bits = 1 byte </li>
+<li>4 bits = nibble </li>
+<li>Example: 192.168.1.1 = 11000000.10101000.00000001.00000001 </li>
+</ul>
+<p><strong>Hexadecimal</strong> - base 16 </p>
+<ul>
+<li>Example: 11000000101010000000000100000001 in hex is C0A80101 </li>
+<li>Each hex digit = 4 bits </li>
+</ul>
 <p><strong>Binary to Hex to Denary Practice:</strong>
 <img width="723" height="209" alt="Screenshot 2025-11-06 at 6 47 04 PM" src="https://github.com/user-attachments/assets/7b5f51df-7e4c-4cf6-b2a2-bd6ca1043672" /></p>
 <h3 id="ip-address-analysis-with-ipcalc">IP Address Analysis with ipcalc</h3>
@@ -516,10 +539,12 @@ ipcalc 192.168.64.6/24
 <pre><code class="language-bash">printf '%02X%02X%02X%02X\n' 192 168 64 6
 </code></pre>
 <p>Output: <code>C0A84006</code></p>
-<p>Each pair of hex digits represents one section (octet) of the IP address:
-- A8 = 168
-- 40 = 64
-- 06 = 6</p>
+<p>Each pair of hex digits represents one section (octet) of the IP address: </p>
+<ul>
+<li>A8 = 168 </li>
+<li>40 = 64 </li>
+<li>06 = 6 </li>
+</ul>
 <p><strong>Hexadecimal IP Screenshot:</strong>
 <img width="585" height="54" alt="Screenshot 2025-11-06 at 6 48 03 PM" src="https://github.com/user-attachments/assets/783a3825-fc49-4053-ba36-34bf5af0ebee" /></p>
 <h3 id="vm-to-vm-network-communication">VM to VM Network Communication</h3>
