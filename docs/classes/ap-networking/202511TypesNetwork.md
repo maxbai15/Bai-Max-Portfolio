@@ -439,7 +439,7 @@ Enabling a firewall protects the system by only allowing trusted data to pass th
 
 
 **Active Firewall Screenshot:**
-<img width="878" height="876" alt="Screenshot 2025-11-14 at 8 31 47 AM" src="https://github.com/user-attachments/assets/c602da6b-852b-4f12-9f09-0b68a3cae64e" />
+<img width="561" height="138" alt="Screenshot 2025-11-14 201848" src="https://github.com/user-attachments/assets/f51f8fd4-f14e-4f78-ae5b-d3d446e3a94b" />
 
 
 **Step 5: Simple Web Server (Application Layer)**
