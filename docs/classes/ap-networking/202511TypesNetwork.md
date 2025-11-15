@@ -207,9 +207,8 @@ The RJ45 connector was inserted into the crimping slot of the Solsop tool and th
 
 
 **Stripping Demonstration Video:**
+<iframe width="560" height="315" src="https://drive.google.com/file/d/1-tTdKACN1vwTsymJvSr26JxXThnXaDwM/view?usp=drive_link" frameborder="0" allowfullscreen></iframe>
 
-
-https://github.com/user-attachments/assets/a34cf7ec-77b1-4a1e-8dba-7a709c5b30c7
 
 
 
