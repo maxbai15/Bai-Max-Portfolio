@@ -205,11 +205,8 @@ The RJ45 connector was inserted into the crimping slot of the Solsop tool and th
 **Crimped Cable:**
 ![IMG_2445](https://github.com/user-attachments/assets/9ef6ca98-8fe0-44b1-a9a2-2c7de94fb05e)
 
-
 **Stripping Demonstration Video:**
-<iframe width="560" height="315" src="https://drive.google.com/file/d/1-tTdKACN1vwTsymJvSr26JxXThnXaDwM/view?usp=drive_link" frameborder="0" allowfullscreen></iframe>
-
-
+<iframe src="https://drive.google.com/file/d/1-tTdKACN1vwTsymJvSr26JxXThnXaDwM/preview" width="560" height="315" frameborder="0" allowfullscreen></iframe>
 
 
 **Testing the Cable**
