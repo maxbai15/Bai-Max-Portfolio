@@ -95,10 +95,7 @@ Each network scales up and connects with both larger and smaller ones.
 **Sorted Devices in Networks:**
 ![Screenshot](../../images/FourNetworks.png)  
 
-**Successful Password Change:**
-![Screenshot](../../images/password.png)  
-
-### Lab 1: Exploring OSI Layers 1 & 2
+### Exploring OSI Layers 1 & 2
 
 **Step 1: Identify Network Interface**
 
@@ -110,7 +107,7 @@ ip link show
 This command shows all network devices on the VM. The active interface (for example, enp0s1 or eth0) was identified along with:
 
 - Interface name: enp0s1
-- MAC address: (looks something like 1a:63:23:39:a4:2c)
+- MAC address: 1a:63:23:39:a4:2c
 - Broadcast address: ff:ff:ff:ff:ff:ff
 
 The MAC address is a unique hardware identifier that identifies the computer on the local network, while the broadcast address sends messages to every device on the network.
@@ -128,7 +125,8 @@ arp -n
 ARP connects IP addresses (Layer 3) to MAC addresses (Layer 2) so that the computer knows where to send data physically. The output shows IP addresses and MAC addresses of devices the VM has communicated with on the local network.
 
 **arp -n Screenshot:**
-![Screenshot](../../images/arp-n.png)
+<img width="655" height="274" alt="Screenshot 2025-11-14 194316" src="https://github.com/user-attachments/assets/8d00cb9b-b3ae-4466-82a8-e737ef4851a0" />
+
 
 **Step 3: View Network Traffic Statistics**
 
@@ -140,27 +138,9 @@ ip -s link
 This command shows RX packets (received), TX packets (transmitted), and any errors. The data shows how much information has been sent and received by the VM's network interface, indicating the level of activity on the network.
 
 **ip -s link Screenshot:**
-![Screenshot](../../images/ip-s-link.png)
+<img width="660" height="260" alt="Screenshot 2025-11-14 194403" src="https://github.com/user-attachments/assets/a95ecfad-3556-438a-93f6-4bf72866962d" />
 
-**Step 4: Check Physical Layer Details**
-
-Command:
-```bash
-sudo ethtool enp0s1
-```
-
-The ethtool command displays important information about the network interface including:
-
-- **Speed (Mb/s):** How fast the link is
-- **Duplex:** Whether data flows in both directions (full duplex) or one at a time (half duplex)
-- **Link detected:** yes/no - shows whether the VM is physically connected
-
-These results show how the VM connects at the Physical Layer (Layer 1).
-
-**ethtool Screenshot:**
-![Screenshot](../../images/ethtool-output.png)
-
-**Step 5: Capture Live Network Traffic**
+**Step 4: Capture Live Network Traffic**
 
 Command:
 ```bash
@@ -170,13 +150,13 @@ sudo tcpdump -c 5
 This command captures five live packets traveling through the VM's network interface. The output shows source and destination MAC addresses along with the protocols being used (like ARP, IP, or ICMP). This data is important for troubleshooting and network monitoring because it reveals exactly what type of traffic is moving through the network and where it's going.
 
 **tcpdump Screenshot:**
-![Screenshot](../../images/tcpdump-output.png)
+<img width="656" height="265" alt="Screenshot 2025-11-14 194438" src="https://github.com/user-attachments/assets/f4312aa9-0efe-4dae-a169-3a41e3825931" />
 
 **OSI Layers 1 & 2 Reflection:**
 
-During my network exploration, I learned that a device's network interface identifies itself on a local network using its unique Media Access Control (MAC) address, a hardware identifier "burned into" the Network Interface Card (NIC) by the manufacturer. A key distinction is that a MAC address is a physical address operating at the Data Link Layer (Layer 2) and is only relevant within the local network segment, whereas an Internet Protocol (IP) address is a logical address operating at the Network Layer (Layer 3) and is used for global identification and routing across different networks. The Address Resolution Protocol (ARP) serves as the crucial link between these two layers: when a device needs to communicate with another device on the same local network and it only knows the destination's IP address, it sends a broadcast ARP request asking "Who has this IP address?" The device with the matching IP address then responds with its specific MAC address, which the original device caches for future direct communication. When viewing live packets in tcpdump, the ARP requests and replies were readily visible, showcasing this essential constant background activity of address resolution that facilitates data exchange. Ultimately, the Physical Layer (Layer 1) provides the physical medium (cables or wireless signals) for data transmission, while Layer 2 (Data Link Layer) organizes this raw data into frames and uses MAC addresses to ensure those frames reach the correct local device, demonstrating their combined effort to move data through the network efficiently.
+During the  network exploration, discovered that a device's network interface identifies itself on a local network using its unique Media Access Control (MAC) address, a hardware identifier "burned into" the Network Interface Card (NIC) by the manufacturer. A key distinction is that a MAC address is a physical address operating at the Data Link Layer (Layer 2) and is only relevant within the local network segment, whereas an Internet Protocol (IP) address is a logical address operating at the Network Layer (Layer 3) and is used for global identification and routing across different networks. The Address Resolution Protocol (ARP) serves as the crucial link between these two layers: when a device needs to communicate with another device on the same local network and it only knows the destination's IP address, it sends a broadcast ARP request asking "Who has this IP address?" The device with the matching IP address then responds with its specific MAC address, which the original device caches for future direct communication. When viewing live packets in tcpdump, the ARP requests and replies were readily visible, showcasing this essential constant background activity of address resolution that facilitates data exchange. Ultimately, the Physical Layer (Layer 1) provides the physical medium (cables or wireless signals) for data transmission, while Layer 2 (Data Link Layer) organizes this raw data into frames and uses MAC addresses to ensure those frames reach the correct local device, demonstrating their combined effort to move data through the network efficiently.
 
-### Lab 2: Cable Constructing and Testing
+### Cable Constructing and Testing
 
 This lab involved building and testing Ethernet cables using the T568B wiring standard at the Physical Layer (Layer 1) of the OSI Model. Professional technicians make their own cables to create precise lengths, verify quality, and save on cost.
 
@@ -193,61 +173,59 @@ This lab involved building and testing Ethernet cables using the T568B wiring st
 | 7 | White/Brown | Unused |
 | 8 | Brown | Unused |
 
-**Day 1: Stripping, Arranging, and Crimping**
+**Stripping, Arranging, and Crimping**
 
 **Step 1: Prepare the Cable**
 
-Using the Solsop Pass Through RJ45 Crimp Tool Kit, I measured approximately 12 inches of Cat5e cable, made a clean cut, and used the stripper to remove about one inch of the outer plastic jacket to expose four twisted pairs (eight wires total).
+Using the Solsop Pass Through RJ45 Crimp Tool Kit,measured approximately 12 inches of Cat5e cable, made a clean cut, and used the stripper to remove about one inch of the outer plastic jacket to expose four twisted pairs (eight wires total).
 
 **Stripped Cable Screenshot:**
-![Screenshot](../../images/cable-stripped.png)
+![IMG_2443](https://github.com/user-attachments/assets/2dff8c0b-fc2c-44d1-a5db-71797b720861)
 
 **Step 2: Untwist and Arrange the Wires**
 
-I carefully untwisted the four pairs and arranged them in the T568B color order: White/Orange, Orange, White/Green, Blue, White/Blue, Green, White/Brown, Brown. The wires were straightened until flat and parallel, then trimmed evenly to about ½ inch in length.
+Carefully untwisted the four pairs and arranged them in the T568B color order: White/Orange, Orange, White/Green, Blue, White/Blue, Green, White/Brown, Brown. The wires were straightened until flat and parallel, then trimmed evenly to about ½ inch in length.
 
 **Wires Aligned Screenshot:**
-![Screenshot](../../images/wires-aligned.png)
+![IMG_2444](https://github.com/user-attachments/assets/e89b720a-0c58-43a8-bedd-66b29fdf51ad)
+
 
 **Step 3: Insert Wires into RJ45 Connector**
 
 The eight wires were carefully slid into the RJ45 connector while maintaining the correct color order. Each wire reached the front of the connector and was visible through the clear plastic, with the outer cable jacket extending slightly inside for strength.
 
 **Wires in Connector Screenshot:**
-![Screenshot](../../images/wires-in-connector.png)
+![IMG_2447](https://github.com/user-attachments/assets/3436c222-6b79-4459-b7e0-a53104ecb77f)
+
 
 **Step 4: Crimp the Connector**
 
 The RJ45 connector was inserted into the crimping slot of the Solsop tool and the handles were squeezed firmly until a click was heard. The crimp tool pressed the metal contacts into the wires and cut off the excess ends. Both ends of the cable were completed using this process.
 
-**Both Cable Ends Screenshot:**
-![Screenshot](../../images/both-cable-ends.png)
+**Crimped Cable:**
+![IMG_2445](https://github.com/user-attachments/assets/9ef6ca98-8fe0-44b1-a9a2-2c7de94fb05e)
+
 
 **Stripping Demonstration Video:**
-[Video showing stripping and wire preparation process]
 
-**Day 2: Testing and Troubleshooting**
 
-**Step 1: Test the Cable**
+https://github.com/user-attachments/assets/a34cf7ec-77b1-4a1e-8dba-7a709c5b30c7
+
+
+
+**Testing the Cable**
 
 Both ends of the cable were plugged into the cable tester (main unit and remote unit). The indicator lights labeled 1-8 blinked in order, confirming that all eight wires were properly connected and aligned. The cable passed the test successfully.
 
-**Cable Tester Results Screenshot:**
-![Screenshot](../../images/cable-tester-results.png)
-
 **Cable Testing Demonstration Video:**
-[Video showing cable testing process and results]
 
-**Optional: T568A Comparison**
 
-A second cable was created using the T568A standard for comparison. The T568A color order is: White/Green, Green, White/Orange, Blue, White/Blue, Orange, White/Brown, Brown.
+https://github.com/user-attachments/assets/3b9485df-31d8-487f-a377-8727b906124b
 
-**T568A vs T568B Comparison Screenshot:**
-![Screenshot](../../images/t568a-t568b-comparison.png)
 
 **Cable Construction Reflection:**
 
-The most challenging step in creating my cable was maintaining the correct wire order while inserting them into the RJ45 connector because the wires were very thin and kept moving out of alignment. Maintaining the correct wire order is critical for network reliability because even one incorrect wire will prevent the cable from passing the test and result in failed data transmission since the transmit and receive pairs must match on both ends. Building and testing cables connects directly to the Physical Layer (Layer 1) of the OSI Model because this layer deals with the actual hardware and physical signals that carry data, and the cable is the physical medium that those electrical signals travel through. In a real network, if a cable is built incorrectly but not tested, it could cause intermittent connection failures, slow data transfer speeds, or complete network outages that would be difficult to troubleshoot since the problem is hidden inside the cable. Labeling my cable and using these professional tools mirrored real-world industry practices because network technicians must clearly identify and organize cables in large installations, and using standardized wiring schemes ensures compatibility across different manufacturers and systems.
+The most challenging step in creating the cable was maintaining the correct wire order while inserting them into the RJ45 connector because the wires were very thin and kept moving out of alignment. Maintaining the correct wire order is critical for network reliability because even one incorrect wire will prevent the cable from passing the test and result in failed data transmission since the transmit and receive pairs must match on both ends. Building and testing cables connects directly to the Physical Layer (Layer 1) of the OSI Model because this layer deals with the actual hardware and physical signals that carry data, and the cable is the physical medium that those electrical signals travel through. In a real network, if a cable is built incorrectly but not tested, it could cause intermittent connection failures, slow data transfer speeds, or complete network outages that would be difficult to troubleshoot since the problem is hidden inside the cable. Labeling the cable and using these professional tools mirrored real-world industry practices because network technicians must clearly identify and organize cables in large installations, and use  standardized wiring schemes ensures compatibility across different manufacturers and systems.
 
 ### Lab 3: Exploring IP Addresses in Shared and Bridged Mode
 
@@ -264,7 +242,7 @@ ip a
 
 In Shared (NAT) mode, the VM uses a private IP address from a virtual subnet (for example, 192.168.64.x). The UTM software acts as a translator between the VM and the real internet.
 
-**My Internal IP Address:** 192.168.64.2/24
+**Internal IP Address:** 192.168.64.2/24
 
 **Understanding the Output:**
 
@@ -277,22 +255,19 @@ In Shared (NAT) mode, the VM uses a private IP address from a virtual subnet (fo
 | scope global dynamic enp0s1 | "Global" means this IP can reach outside the VM (through NAT), "dynamic" means it was assigned automatically (DHCP) |
 
 **Shared Mode ip a Screenshot:**
-![Screenshot](../../images/shared-mode-ip.png)
+<img width="668" height="334" alt="Screenshot 2025-11-14 195711" src="https://github.com/user-attachments/assets/309c7871-f152-4414-9afb-4a703f733707" />
+
 
 **Step 2: Find External (Public) IP Address**
 
-Using Firefox, I navigated to https://whatismyipaddress.com and recorded the external IP address.
+Using Firefox, navigated to https://whatismyipaddress.com and recorded the external IP address.
 
-**My External IP Address:** 173.95.44.210
+**External IP Address:** 173.95.44.210
 
 This external (public) IP address represents how the rest of the internet sees the connection, and it's different from the internal IP.
 
 **Shared Mode External IP Screenshot:**
-![Screenshot](../../images/shared-mode-external.png)
-
-**Shared Mode Reflection:**
-
-My internal and external IP addresses are different. My internal IP address that starts with 192.168.64.2 belongs to my local network while the IP address starting with 173.95.44.210 belongs to the internet. The virtual machine uses NAT when connecting to the internet to conserve IP addresses - it allows multiple private IPs to connect to the same public internet IP. Being in shared mode makes it easier to connect multiple VMs on one computer because they will all share the same private IP that is connected to the internet.
+<img width="669" height="329" alt="Screenshot 2025-11-14 195758" src="https://github.com/user-attachments/assets/643c44ad-4215-4094-99f6-4dbac5c3a998" />
 
 **Part 2: Bridged Mode**
 
@@ -307,27 +282,27 @@ Command:
 ip a
 ```
 
-**My New Internal IP Address:** 10.24.0.168
+**New Internal IP Address:** 10.24.0.168
 
-This new address comes directly from the local network's router - the VM is now a separate device on the same network as the Mac.
+This new address comes directly from the local network's router. The VM is now a separate device on the same network as the Mac.
 
 **Bridged Mode ip a Screenshot:**
-![Screenshot](../../images/bridged-mode-ip.png)
+<img width="668" height="290" alt="Screenshot 2025-11-14 195834" src="https://github.com/user-attachments/assets/1fd70d50-dfd1-47c1-a80d-7b9e8ea7338b" />
+
 
 **Step 3: Find External IP in Bridged Mode**
 
-Using Firefox again, I navigated to https://whatismyipaddress.com.
+Using Firefox again, navigated to https://whatismyipaddress.com.
 
 **External IP in Bridged Mode:** 173.95.44.210 (stayed the same)
 
 **Bridged Mode External IP Screenshot:**
-![Screenshot](../../images/bridged-mode-external.png)
+<img width="662" height="403" alt="Screenshot 2025-11-14 195848" src="https://github.com/user-attachments/assets/f6537e5f-9a03-4e1f-8baf-e9ecb94a3b9e" />
 
-**Bridged Mode Reflection:**
 
-My internal IP address changed from 192.168.64.2 in Shared mode to 10.24.0.168 in Bridged mode because the VM was now getting its IP directly from the local network router instead of from UTM's virtual network. My external IP address remained the same at 173.95.44.210 because both modes ultimately connect to the internet through the same physical network connection. In Bridged mode, my virtual machine acts more like a separate computer on the network rather than a computer behind another device because it gets its own IP address directly from the router just like any other device. An organization might choose Bridged mode instead of Shared (NAT) mode when they need VMs to be directly accessible from other devices on the network or when they're running servers that need to be reached from outside. Security or management challenges that could come with using Bridged mode include the VM being more exposed to network attacks since it's directly on the network, and IT administrators need to manage more IP addresses and ensure each VM is properly configured with firewalls.
+**Shared and Bridged Mode Reflection:**
 
-**Part 3: Analysis and Comparison**
+In Shared mode, the internal and external IP addresses are different. The internal IP address that starts with 192.168.64.2 belongs to the local network while the IP address starting with 173.95.44.210 belongs to the internet. The virtual machine uses NAT when connecting to the internet to conserve IP addresses as it allows multiple private IPs to connect to the same public internet IP. Being in shared mode makes it easier to connect multiple VMs on one computer because they will all share the same private IP that is connected to the internet. The internal IP address changed from 192.168.64.2 in Shared mode to 10.24.0.168 in Bridged mode because the VM was now getting its IP directly from the local network router instead of from UTM's virtual network. The external IP address remained the same at 173.95.44.210 because both modes ultimately connect to the internet through the same physical network connection. In Bridged mode, the virtual machine acts more like a separate computer on the network rather than a computer behind another device because it gets its own IP address directly from the router just like any other device. An organization might choose Bridged mode instead of Shared (NAT) mode when they need VMs to be directly accessible from other devices on the network or when they're running servers that need to be reached from outside. Security or management challenges that could come with using Bridged mode include the VM being more exposed to network attacks since it's directly on the network, and IT administrators need to manage more IP addresses and ensure each VM is properly configured with firewalls.
 
 **Comparison Table:**
 
@@ -336,11 +311,7 @@ My internal IP address changed from 192.168.64.2 in Shared mode to 10.24.0.168 i
 | Shared (NAT) | 192.168.64.2 | 173.95.44.210 | VM hidden behind Mac's connection |
 | Bridged | 10.24.0.168 | 173.95.44.210 | VM appears as separate device |
 
-**Analysis:**
-
-Bridged mode made my VM appear as its own device on the local network because it received an IP address directly from the network router (10.24.0.168) instead of being assigned a private address by UTM's virtual network. Shared (NAT) mode provided a safer, more controlled environment because the VM is hidden behind the Mac's IP address, adding an extra layer of protection from direct network access. NAT helps manage limited IPv4 addresses by allowing multiple devices to share a single public IP address, which conserves the limited pool of available IPv4 addresses, and it improves security by hiding internal network structure from the outside world. What I learned about how data travels from a device to the internet is that there are multiple stages of translation and routing - data starts with a private IP on the local network, gets translated to a public IP by the router using NAT, travels through multiple ISP routers, and finally reaches its destination, with each layer of the OSI model playing a specific role in this journey.
-
-### Lab 4: Network Topologies
+### Network Topologies
 
 This activity involved creating labeled drawings for five common network topologies, each showing how devices connect and communicate.
 
@@ -349,41 +320,46 @@ This activity involved creating labeled drawings for five common network topolog
 One central switch or hub in the middle with all computers connecting to that central point. Commonly used in office networks and home Wi-Fi routers.
 
 **Star Topology Diagram:**
-![Screenshot](../../images/star-topology.png)
+![IMG_2470](https://github.com/user-attachments/assets/850f01bd-843e-484a-abd7-064c84ed7179)
+
 
 **Bus Topology:**
 
 A single straight line ("backbone cable") with all computers branching off. This was common in early Ethernet networks but is now outdated.
 
 **Bus Topology Diagram:**
-![Screenshot](../../images/bus-topology.png)
+![IMG_2471](https://github.com/user-attachments/assets/d58ff331-dee6-48e7-8cef-265150ef91db)
+
 
 **Ring Topology:**
 
 Devices form a circle with connections between neighbors, and data travels one way (or both in dual-ring). Used in some legacy fiber networks and token ring systems.
 
 **Ring Topology Diagram:**
-![Screenshot](../../images/ring-topology.png)
+![IMG_2472](https://github.com/user-attachments/assets/0868ea49-7da6-41c0-9ee8-e346b5be5ea9)
+
 
 **Mesh Topology:**
 
-Every device connects to multiple others, showing redundancy - if one path breaks, another can still carry data. Commonly used in data centers and IoT or wireless mesh networks.
+Every device connects to multiple others, showing redundancy. If one path breaks, another can still carry data. Commonly used in data centers and IoT or wireless mesh networks.
 
 **Mesh Topology Diagram:**
-![Screenshot](../../images/mesh-topology.png)
+![IMG_2473](https://github.com/user-attachments/assets/7645e649-7fae-4e57-9244-52e62cb2a3ee)
+
 
 **Hybrid Topology:**
 
-Combines two or more types (for example, multiple Star networks connected in a Bus layout). Used in large organizations with multiple departments or floors.
+Combines two or more types. Used in large organizations with multiple departments or floors.
 
 **Hybrid Topology Diagram:**
-![Screenshot](../../images/hybrid-topology.png)
+![IMG_2474](https://github.com/user-attachments/assets/cd5db95c-a778-4148-8153-2e3abf620790)
+
 
 **Topology Reflection:**
 
-Star topology would be easiest to set up for a small business because it only requires one central switch and individual cables to each device, making installation and troubleshooting straightforward since each connection is independent. Mesh topology would be the most reliable if one connection fails because every device has multiple paths to reach other devices, so if one link goes down the data can automatically reroute through another path. Mesh topology would also be most expensive to implement because it requires the most cables and network interfaces since every device must connect to multiple other devices, dramatically increasing hardware costs. I think my school uses a hybrid topology, most likely combining star topologies on each floor (with switches connecting classroom computers) that are then connected together using a bus or ring backbone between floors, because this approach provides both the simplicity of star topology locally and the scalability needed for a large building. The physical layout of a topology affects speed and reliability because the number of hops data must make impacts latency (fewer hops in star vs. many in ring), and the redundancy of connections determines fault tolerance (single point of failure in star vs. multiple paths in mesh), with more direct connections generally improving speed while more redundant paths improve reliability but increase complexity and cost.
+Star topology would be easiest to set up for a small business because it only requires one central switch and individual cables to each device, making installation and troubleshooting straightforward since each connection is independent. Mesh topology would be the most reliable if one connection fails because every device has multiple paths to reach other devices, so if one link goes down the data can automatically reroute through another path. Mesh topology would also be most expensive to implement because it requires the most cables and network interfaces since every device must connect to multiple other devices, dramatically increasing hardware costs. The school uses a hybrid topology, most likely combining star topologies on each floor (with switches connecting classroom computers) that are then connected together using a bus or ring backbone between floors, because this approach provides both the simplicity of star topology locally and the scalability needed for a large building. The physical layout of a topology affects speed and reliability because the number of hops data must make impacts latency , and the redundancy of connections determines fault tolerance , with more direct connections generally improving speed while more redundant paths improve reliability but increase complexity and cost.
 
-### Lab 5: Building and Testing a SOHO Network
+### Building and Testing a SOHO Network
 
 This lab involved designing a realistic SOHO network and simulating it using Ubuntu virtual machines to test connectivity and understand how devices communicate.
 
@@ -404,7 +380,7 @@ The network was designed for a small office with eight devices including 2 Ubunt
 
 **Design Explanation:**
 
-My SOHO network uses a star topology with the router at the center connecting to a switch for wired devices and an access point for wireless devices. I connected the two Ubuntu computers and printer to the switch using Ethernet cables for reliable, fast connections since these devices frequently transfer large files. The smartphone connects wirelessly through the access point for mobility, and the NAS connects to the switch with a static IP so it's always accessible at the same address for file sharing. The router assigns dynamic IPs to most devices through DHCP but the printer and NAS have static IPs so they don't change and users can always find them on the network.
+The SOHO network uses a star topology with the router at the center connecting to a switch for wired devices and an access point for wireless devices. Connected the two Ubuntu computers and printer to the switch using Ethernet cables for reliable, fast connections since these devices frequently transfer large files. The smartphone connects wirelessly through the access point for mobility, and the NAS connects to the switch with a static IP so it's always accessible at the same address for file sharing. The router assigns dynamic IPs to most devices through DHCP but the printer and NAS have static IPs so they don't change and users can always find them on the network.
 
 **Step 2: Simulate and Test in Ubuntu**
 
@@ -494,7 +470,7 @@ The traceroute showed multiple hops (routers) that data traveled through to reac
 **Traceroute Results Screenshot:**
 ![Screenshot](../../images/soho-traceroute.png)
 
-What I learned from the traceroute results is that data doesn't travel directly to websites but instead goes through many intermediate routers owned by different organizations and ISPs, and the path can vary based on network conditions with some routers not responding but the data still getting through.
+The traceroute results showed that data doesn't travel directly to websites but instead goes through many intermediate routers owned by different organizations and ISPs, and the path can vary based on network conditions with some routers not responding but the data still getting through.
 
 **Step 6: Simple Web Server (Application Layer)**
 
