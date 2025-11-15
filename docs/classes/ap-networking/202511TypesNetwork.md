@@ -367,46 +367,36 @@ This lab involved designing a realistic SOHO network and simulating it using Ubu
 
 The network was designed for a small office with eight devices including 2 Ubuntu computers, 1 printer, 1 smartphone, 1 router, 1 switch, 1 access point, and 1 NAS device. The diagram shows clear labels for each device, IP addresses, and color-coded lines for wired (solid) and wireless (dashed) connections.
 
-**IP Addressing Plan:**
-
-- Network: 192.168.50.0/24
-- Router: 192.168.50.1 (static)
-- Printer: 192.168.50.10 (static)
-- NAS: 192.168.50.20 (static)
-- Other devices: DHCP range 192.168.50.100-200
-
 **SOHO Network Diagram:**
-![Screenshot](../../images/soho-design.png)
+![IMG_2469](https://github.com/user-attachments/assets/9ee018d8-c7a4-4e5c-b39d-4c922ea593ea)
 
-**Design Explanation:**
-
-The SOHO network uses a star topology with the router at the center connecting to a switch for wired devices and an access point for wireless devices. Connected the two Ubuntu computers and printer to the switch using Ethernet cables for reliable, fast connections since these devices frequently transfer large files. The smartphone connects wirelessly through the access point for mobility, and the NAS connects to the switch with a static IP so it's always accessible at the same address for file sharing. The router assigns dynamic IPs to most devices through DHCP but the printer and NAS have static IPs so they don't change and users can always find them on the network.
 
 **Step 2: Simulate and Test in Ubuntu**
 
-**A & B: Set Up and Identify IP Addresses**
+**Set Up and Identify IP Addresses**
 
 Both partner VMs were set to Bridged mode and IP addresses were identified using `ip a`.
 
-**Partner IP Addresses:**
+**IP Addresses:**
 
-- Computer A: 10.133.0.10
-- Computer B: 10.133.0.12
+- Computer A: 10.12.26.47
+- Computer B: 10.12.26.129
 
-**Partner IP Screenshots:**
-![Screenshot](../../images/partner-ips.png)
+**IP -a Screenshot:**
+<img width="727" height="276" alt="Screenshot 2025-11-14 at 8 22 53 AM" src="https://github.com/user-attachments/assets/e638a27c-98b7-4185-b5e0-b4a9c0c5e632" />
 
-**C: Test Connectivity Between Computers**
+
+**Test Connectivity Between Computers**
 
 Command:
 ```bash
-ping 10.133.0.12
+ping 10.12.26.129
 ```
 
-Results showed successful connectivity with responses like "64 bytes from 10.133.0.12: icmp_seq=1 ttl=64 time=0.245 ms" confirming both VMs could communicate on the same network.
+**Successful Ping Screenshot(mine and partners):**
+<img width="700" height="219" alt="Screenshot 2025-11-14 at 8 23 08 AM" src="https://github.com/user-attachments/assets/489e4ef5-2f00-4b65-8276-f5297d52433d" />
+<img width="701" height="437" alt="Screenshot 2025-11-14 at 8 22 37 AM" src="https://github.com/user-attachments/assets/937337ec-ed8f-4f8d-b2a0-6c88c23e091a" />
 
-**Successful Ping Screenshot:**
-![Screenshot](../../images/soho-ping-success.png)
 
 **Step 3: Network Diagnostic Commands**
 
@@ -415,21 +405,13 @@ Results showed successful connectivity with responses like "64 bytes from 10.133
 arp -a
 ```
 
-Shows nearby devices the computer recognizes on the local network with their MAC addresses, demonstrating Layer 2 (Data Link) activity.
 
 **Routing Table:**
 ```bash
 netstat -r
 ```
-
-Displays the routing table showing how data is being sent through the network, demonstrating Layer 3 (Network) activity.
-
-**Network Interface:**
-```bash
-ifconfig
-```
-
-Shows active network interfaces and IP configuration.
+**ARP -a and Neststat -r Screenshot:**
+<img width="743" height="368" alt="Screenshot 2025-11-14 at 8 40 09 AM" src="https://github.com/user-attachments/assets/d57a2d03-a8d4-4af2-8fa1-c9ebb8979c95" />
 
 **Traceroute:**
 ```bash
@@ -438,8 +420,9 @@ sudo traceroute 8.8.8.8
 
 Displays every "hop" packets take to reach Google's DNS server, visualizing how data travels through routers across different networks.
 
-**Diagnostic Commands Screenshot:**
-![Screenshot](../../images/diagnostic-commands.png)
+**Traceroute Screenshot:**
+<img width="735" height="652" alt="Screenshot 2025-11-14 at 8 29 35 AM" src="https://github.com/user-attachments/assets/68122e16-4f38-467e-aee6-c7a7b57f6c23" />
+
 
 These commands reveal how the SOHO network communicates by showing the MAC addresses of local devices (arp), the routing decisions being made (netstat -r), and the path data takes to reach external networks (traceroute). ARP relates to Layer 2 by mapping MAC addresses on the local network, while netstat and traceroute show Layer 3 activity with routing across multiple devices.
 
@@ -452,68 +435,51 @@ sudo ufw enable
 ```
 
 The firewall was enabled to act as a security gate for the network, blocking unwanted connections and allowing safe traffic. Firewalls operate mainly at OSI Layers 3 and 4, filtering packets based on rules.
-
-**Active Firewall Screenshot:**
-![Screenshot](../../images/firewall-active.png)
-
 Enabling a firewall protects the system by only allowing trusted data to pass through, which prevents unauthorized access and potential security threats from reaching the computer.
 
-**Step 5: Traceroute to Google**
 
-Command:
-```bash
-traceroute google.com
-```
+**Active Firewall Screenshot:**
+<img width="878" height="876" alt="Screenshot 2025-11-14 at 8 31 47 AM" src="https://github.com/user-attachments/assets/c602da6b-852b-4f12-9f09-0b68a3cae64e" />
 
-The traceroute showed multiple hops (routers) that data traveled through to reach Google's servers. Each numbered line represents a router along the path, with fewer hops meaning a shorter route.
 
-**Traceroute Results Screenshot:**
-![Screenshot](../../images/soho-traceroute.png)
+**Step 5: Simple Web Server (Application Layer)**
 
-The traceroute results showed that data doesn't travel directly to websites but instead goes through many intermediate routers owned by different organizations and ISPs, and the path can vary based on network conditions with some routers not responding but the data still getting through.
-
-**Step 6: Simple Web Server (Application Layer)**
-
-**Computer A (Server):**
+**Computer B (Server):**
 ```bash
 python3 -m http.server 8080
 ```
 
-**Computer B (Client):**
-Opened Firefox and navigated to `http://10.133.0.10:8080`
+**Computer A (Client):**
+Opened Firefox and navigated to `http://10.12.26.129:8080`
 
-The browser displayed a list of files hosted by Computer A, demonstrating the Application Layer (Layer 7) by showing how one device can serve files to another over HTTP, which is the same protocol that real websites use.
+The browser displayed a list of files hosted by Computer A, demonstrating the Application Layer by showing how one device can serve files to another over HTTP, which is the same protocol that real websites use.
 
 **Web Server Connection Screenshot:**
-![Screenshot](../../images/web-server-connection.png)
+<img width="878" height="876" alt="Screenshot 2025-11-14 at 8 31 47 AM" src="https://github.com/user-attachments/assets/2670b703-0fe2-4b39-a500-cccda4c7a1b0" />
 
 
 
-## 4. Testing & Evaluation – Outdated Software 
+## 4. Testing & Evaluation – Network Verification
 
-All implemented security measures were tested for proper operation.
+All networking concepts were tested and verified through practical lab activities.
 
-| Security Feature | Test Performed |Verification Result | 
-|------------------|---------------|---------------------|
-| Password Strength | `sudo ls /root` (with new password) | Access granted, confirming correct password update and admin rights | 
-| MFA Authentication | SSH login prompt for verification code | Both password and generated 6-digit code required | 
-| Patch Confirmation | `/var/log/apt/history.log` | Show updates installed |
-| Automatic Updates | `ls -l /var/lib/apt/periodic/` | Displays schedule of files automatically updated| 
-
-**Check Automatic Updates:**
-![Screenshot](../../images/automaticUpdates.png)  
-
-### Why Patching Matters/Outdaded Software:
-
-System patching is important because hackers can exploit known vulnerabilities that have already been patched in other systems using exploits in the wild. These unpatched systems could easily allow in data leaks and breaches through many different doors. Additionally, there may be zero-day vulnerabilities, security flaws that aren’t recognized by the user, therefore no patches available. If hackers are able to find these zero-day vulnerabilities they could easily enter the system and the fix would take a while depending on if the user even found the leak. To ensure that patching happens, you could always try to use automatic updates so the computer always stays patched and up to date.
-
+| Concept | Test Performed | Verification Result |
+|---------|---------------|---------------------|
+| OSI Layer 1 | `ethtool enp0s1` | Confirmed physical connection speed, duplex mode, and link status |
+| OSI Layer 2 | `ip link show`, `arp -n` | Identified MAC address and ARP table showing local device mapping |
+| Network Traffic | `tcpdump -c 5` | Captured live packets showing source/destination MAC addresses |
+| Cable Construction | Cable tester with indicator lights | All 8 wires passed test in correct order (T568B standard) |
+| Shared Mode IP | `ip a` and whatismyipaddress.com | Internal: 192.168.64.2, External: 173.95.44.210 |
+| Bridged Mode IP | `ip a` and whatismyipaddress.com | Internal: 10.24.0.168, External: 173.95.44.210 |
+| VM Connectivity | `ping` between partner VMs | Successful replies with <1ms latency, 0% packet loss |
+| Routing | `netstat -r`, `traceroute google.com` | Displayed routing table and multi-hop path to external servers |
+| Firewall | `sudo ufw status` | Confirmed firewall active and protecting system |
+| Application Layer | Python http.server | Successfully served files between VMs over HTTP |
 
 ## 5. Reflection  
 
-Through implementing layered security controls, this unit demonstrated the practical relationship between authentication, authorization, and system maintenance. Secure passwords protect confidentiality and MFA safeguards protect integrity by ensuring that access is verified. Additionally,  consistent patching preserves availability by maintaining a functional and resilient system to both bugs and attacks.
+Through these networking labs, I gained comprehensive hands on experience with the foundational layers of network communication and how physical infrastructure connects to logical addressing and data flow. The OSI Layers 1 and 2 exploration taught me that networking starts with physical hardware and MAC addresses before any IP addressing comes into play. Building and testing Ethernet cables showed me why proper Physical Layer construction is critical because even one misplaced wire completely breaks connectivity. The Shared versus Bridged mode comparison clarified how network address translation works and why organizations use NAT to conserve IPv4 addresses while adding security through network isolation. Shared mode hides the VM behind the host computer's IP address, which is safer but less flexible, while Bridged mode makes the VM appear as its own device with direct network access, which is more exposed but enables server functionality. 
 
-These activities reinforced the principle that cybersecurity requires defense in depth—multiple layers working together rather than relying on a single control. The Ubuntu password algorithm exercise showed how unpredictability and length drastically reduce guessing risk. MFA through Google Authenticator demonstrated real-world two-factor authentication methods used by major organizations, adding an essential safeguard against stolen credentials and hackers.
+Additionally, creating topology diagrams for star, bus, ring, mesh, and hybrid networks illustrated that network design involves tradeoffs between cost, reliability, and scalability. For example, star topology is simple and cheap but has a single point of failure at the central switch, while mesh topology is extremely reliable with redundant paths but expensive due to all the extra cabling and ports required. 
 
-Patching the VM provided insight into how software vulnerabilities are discovered and fixed, highlighting the importance of staying updated against known and zero-day exploits. Regular updates also prevent attackers from using exploits in the wild that target unpatched systems. Patching helps to protect against "open doors" in systems for hackers to break there way into.
-
-Overall, this unit illustrated the importance of proactive protection to ensure cyber attacks don't happen and data isn't lost.
+The SOHO network simulation brought everything together by requiring me to design a complete network with proper IP addressing, then test it using actual Ubuntu commands. Pinging between partner VMs proved Layer 3 connectivity, examining ARP tables showed Layer 2 MAC address mapping, running traceroute demonstrated how data crosses multiple networks to reach the internet, and enabling the firewall added essential security filtering. The Python web server activity was particularly interesting because it showed me how Application Layer protocols like HTTP depend entirely on other layers and the result of connectivity.
