@@ -201,13 +201,120 @@
     <article>
         <p><h1 id="types-of-networks-connections-and-devices">Types of Networks &amp; Connections and Devices</h1>
 <h2 id="1-project-overview">1. Project Overview</h2>
-<p><strong>Problem Statement:</strong>  </p>
+<p><strong>Problem Statement:</strong><br />
+Understand how networks physically connect and communicate by exploring OSI Layers 1-3, building Ethernet cables, comparing network modes, designing topologies, and simulating a SOHO network.</p>
 <p><strong>Objectives:</strong>  </p>
+<ul>
+<li>Explore OSI Layer 1 and Layer 2 using Ubuntu commands</li>
+<li>Build and test Ethernet cables </li>
+<li>Compare shared and bridged network modes and their IP addressing</li>
+<li>Design and label common network topologies (star, bus, ring, mesh, hybrid)</li>
+<li>Create and simulate a SOHO network with proper IP addressing and firewall configuration</li>
+</ul>
 <p><strong>Success Criteria:</strong>  </p>
-<h2 id="2-design-planning-authentication-concepts-password-algorithm">2. Design &amp; Planning – Authentication Concepts &amp; Password Algorithm</h2>
-<h3 id="password-security-foundations">Password Security Foundations</h3>
-<h3 id="designed-password-algorithm">Designed Password Algorithm</h3>
-<p><strong>Algorithm Steps:</strong></p>
+<ul>
+<li>Complete documentation of OSI Layers 1 &amp; 2 exploration with labeled screenshots</li>
+<li>Successfully constructed and tested Ethernet cables with video demonstrations</li>
+<li>Clear comparison table showing Shared vs. Bridged mode IP addressing</li>
+<li>Toplogy diagrams with color-coded connections</li>
+<li>Functional SOHO network simulation with connectivity tests </li>
+</ul>
+<h2 id="2-design-planning-osi-layers-and-network-design">2. Design &amp; Planning – OSI Layers and Network Design</h2>
+<h3 id="understanding-osi-layers-1-and-2">Understanding OSI Layers 1 and 2</h3>
+<p>The OSI Model organizes networking into seven layers, from physical hardware at the bottom to applications at the top. The first two layers form the foundation of all network communication.</p>
+<p><strong>Layer 1: The Physical Layer</strong></p>
+<p>The Physical Layer is the bottom layer of the OSI model and deals with hardware - the actual equipment that sends and receives electrical or optical signals. This layer is like the road system for data and includes:</p>
+<ul>
+<li>Cables (Ethernet, fiber optics, coaxial)</li>
+<li>Connectors and ports</li>
+<li>Wireless signals (Wi-Fi, Bluetooth)</li>
+<li>Network Interface Cards (NICs) or virtual interfaces</li>
+</ul>
+<p>When a computer sends data, it turns it into bits (1s and 0s) and pushes them across these physical pathways.</p>
+<p><strong>Layer 2: The Data Link Layer</strong></p>
+<p>The Data Link Layer sits directly above the Physical Layer and is responsible for making sure that data travels safely and accurately between devices on the same local network. Here, data is packaged into units called frames. Each frame includes:</p>
+<ul>
+<li>The data being sent</li>
+<li>The source MAC address (the sender's unique hardware ID)</li>
+<li>The destination MAC address (the receiver's hardware ID)</li>
+<li>Error-checking information to detect damage during transmission</li>
+</ul>
+<p><strong>How the Two Layers Work Together:</strong></p>
+<p>Layer 1 provides the physical foundation, dealing with the actual hardware (cables, switches, NICs) and converting data into raw electrical, optical, or radio signals for transmission over the physical medium. It has no intelligence and simply moves the signal. Layer 2 operates on top of this functional Layer 1 connection, organizing the raw bits into frames and using MAC addresses for reliable, node-to-node data transfer on the local network segment. Thus, Layer 1 provides the path, while Layer 2 manages access to that path and ensures the data reaches the correct local destination intact, including error detection and control.</p>
+<h3 id="network-topologies">Network Topologies</h3>
+<p>A network topology is the way that computers, devices, and other pieces of technology are arranged and connected within a network. It's like a map or blueprint that shows how data travels from one device to another. The topology you choose affects how well a network performs in terms of speed, cost, reliability, and scalability.</p>
+<p><strong>Common Network Topologies:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Topology Type</th>
+<th>Description</th>
+<th>Common Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star</td>
+<td>One central switch or hub in the middle with all computers connecting to that central point</td>
+<td>Office networks and home Wi-Fi routers</td>
+</tr>
+<tr>
+<td>Bus</td>
+<td>A single straight line ("backbone cable") with all computers branching off</td>
+<td>Early Ethernet networks</td>
+</tr>
+<tr>
+<td>Ring</td>
+<td>Devices form a circle with connections between neighbors, data travels one way (or both in dual-ring)</td>
+<td>Some legacy fiber networks and token ring systems</td>
+</tr>
+<tr>
+<td>Mesh</td>
+<td>Every device connects to multiple others, showing redundancy - if one path breaks, another can still carry data</td>
+<td>Data centers and IoT or wireless mesh networks</td>
+</tr>
+<tr>
+<td>Hybrid</td>
+<td>Combine two or more types (for example, multiple Star networks connected in a Bus layout)</td>
+<td>Large organizations with multiple departments or floors</td>
+</tr>
+</tbody>
+</table>
+<h3 id="soho-network-design">SOHO Network Design</h3>
+<p>A SOHO (Small Office / Home Office) network is the kind of network setup most people use at home or in a small business. It connects multiple devices so they can share internet access, files, and other resources.</p>
+<p><strong>Core SOHO Components:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modem</td>
+<td>Connects your network to your Internet Service Provider (ISP)</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Directs (routes) traffic between your local devices and the internet; assigns IP addresses</td>
+</tr>
+<tr>
+<td>Switch</td>
+<td>Expands the number of wired ports for computers and printers</td>
+</tr>
+<tr>
+<td>Access Point (AP)</td>
+<td>Provides Wi-Fi to laptops, tablets, and phones</td>
+</tr>
+<tr>
+<td>Devices</td>
+<td>Endpoints like computers, printers, and smart TVs that use the network</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SOHO Network Diagram:</strong>
+<img alt="IMG_2469" src="https://github.com/user-attachments/assets/9ee018d8-c7a4-4e5c-b39d-4c922ea593ea" /></p>
 <h2 id="3-technical-development-implementing-authentication-security">3. Technical Development – Implementing Authentication &amp; Security</h2>
 <h3 id="connections-that-share-data-and-resources">Connections that Share Data and Resources</h3>
 <p>In this activity, sort different devices into four different network types: Personal Area Network(PAN), Local Area Network(LAN), Metropolitan Area Network(MAN), Wide Area Network(WAN).
@@ -216,103 +323,361 @@ used in your workplaces or at school. MAN's are used to connect different networ
 Each network scales up and connects with both larger and smaller ones.</p>
 <p><strong>Sorted Devices in Networks:</strong>
 <img alt="Screenshot" src="../../../images/FourNetworks.png" />  </p>
-<p><strong>Successful Password Change:</strong>
-<img alt="Screenshot" src="../../../images/password.png" />  </p>
-<h3 id="enabling-multi-factor-authentication-mfa">Enabling Multi-Factor Authentication (MFA)</h3>
-<h3 id="system-patching-and-updates">System Patching and Updates</h3>
-<p>Software patching was performed to fix vulnerabilities and ensure up-to-date security protection.</p>
+<h3 id="exploring-osi-layers-1-2">Exploring OSI Layers 1 &amp; 2</h3>
+<p><strong>Step 1: Identify Network Interface</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">ip link show
+</code></pre>
+<p>This command shows all network devices on the VM. The active interface (for example, enp0s1 or eth0) was identified along with:</p>
+<ul>
+<li>Interface name: enp0s1</li>
+<li>MAC address: 1a:63:23:39:a4:2c</li>
+<li>Broadcast address: ff:ff:ff:ff:ff:ff</li>
+</ul>
+<p>The MAC address is a unique hardware identifier that identifies the computer on the local network, while the broadcast address sends messages to every device on the network.</p>
+<p><strong>ip link show Screenshot:</strong>
+<img width="664" height="118" alt="link_show" src="https://github.com/user-attachments/assets/fc4c83a1-42ef-4503-9379-0270c5988a5d" /></p>
+<p><strong>Step 2: Explore ARP (Address Resolution Protocol)</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">arp -n
+</code></pre>
+<p>ARP connects IP addresses (Layer 3) to MAC addresses (Layer 2) so that the computer knows where to send data physically. The output shows IP addresses and MAC addresses of devices the VM has communicated with on the local network.</p>
+<p><strong>arp -n Screenshot:</strong>
+<img width="655" height="274" alt="Screenshot 2025-11-14 194316" src="https://github.com/user-attachments/assets/8d00cb9b-b3ae-4466-82a8-e737ef4851a0" /></p>
+<p><strong>Step 3: View Network Traffic Statistics</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">ip -s link
+</code></pre>
+<p>This command shows RX packets (received), TX packets (transmitted), and any errors. The data shows how much information has been sent and received by the VM's network interface, indicating the level of activity on the network.</p>
+<p><strong>ip -s link Screenshot:</strong>
+<img width="660" height="260" alt="Screenshot 2025-11-14 194403" src="https://github.com/user-attachments/assets/a95ecfad-3556-438a-93f6-4bf72866962d" /></p>
+<p><strong>Step 4: Capture Live Network Traffic</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">sudo tcpdump -c 5
+</code></pre>
+<p>This command captures five live packets traveling through the VM's network interface. The output shows source and destination MAC addresses along with the protocols being used (like ARP, IP, or ICMP). This data is important for troubleshooting and network monitoring because it reveals exactly what type of traffic is moving through the network and where it's going.</p>
+<p><strong>tcpdump Screenshot:</strong>
+<img width="656" height="265" alt="Screenshot 2025-11-14 194438" src="https://github.com/user-attachments/assets/f4312aa9-0efe-4dae-a169-3a41e3825931" /></p>
+<p><strong>OSI Layers 1 &amp; 2 Reflection:</strong></p>
+<p>During the  network exploration, discovered that a device's network interface identifies itself on a local network using its unique Media Access Control (MAC) address, a hardware identifier "burned into" the Network Interface Card (NIC) by the manufacturer. A key distinction is that a MAC address is a physical address operating at the Data Link Layer (Layer 2) and is only relevant within the local network segment, whereas an Internet Protocol (IP) address is a logical address operating at the Network Layer (Layer 3) and is used for global identification and routing across different networks. The Address Resolution Protocol (ARP) serves as the crucial link between these two layers: when a device needs to communicate with another device on the same local network and it only knows the destination's IP address, it sends a broadcast ARP request asking "Who has this IP address?" The device with the matching IP address then responds with its specific MAC address, which the original device caches for future direct communication. When viewing live packets in tcpdump, the ARP requests and replies were readily visible, showcasing this essential constant background activity of address resolution that facilitates data exchange. Ultimately, the Physical Layer (Layer 1) provides the physical medium (cables or wireless signals) for data transmission, while Layer 2 (Data Link Layer) organizes this raw data into frames and uses MAC addresses to ensure those frames reach the correct local device, demonstrating their combined effort to move data through the network efficiently.</p>
+<h3 id="cable-constructing-and-testing">Cable Constructing and Testing</h3>
+<p>This lab involved building and testing Ethernet cables using the T568B wiring standard at the Physical Layer (Layer 1) of the OSI Model. Professional technicians make their own cables to create precise lengths, verify quality, and save on cost.</p>
+<p><strong>T568B Wire Order Standard:</strong></p>
 <table>
 <thead>
 <tr>
-<th>Software</th>
-<th>Command Used</th>
-<th>Findings</th>
+<th>Pin</th>
+<th>Wire Color (T568B)</th>
+<th>Pair Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Check for updates</td>
-<td><code>sudo apt update</code></td>
-<td>26 available updates found</td>
+<td>1</td>
+<td>White/Orange</td>
+<td>Transmit +</td>
 </tr>
 <tr>
-<td>Install updates</td>
-<td><code>sudo apt upgrade</code></td>
-<td>Packages updated successfully</td>
+<td>2</td>
+<td>Orange</td>
+<td>Transmit -</td>
 </tr>
 <tr>
-<td>Review update history</td>
-<td><code>cat /var/log/apt/history.log</code></td>
-<td>Listed dates, versions, and installed packages</td>
+<td>3</td>
+<td>White/Green</td>
+<td>Receive +</td>
 </tr>
 <tr>
-<td>Count installation events</td>
-<td><code>grep "Install:" /var/log/apt/history.log</code></td>
-<td>Installation events</td>
+<td>4</td>
+<td>Blue</td>
+<td>Unused / Power</td>
 </tr>
 <tr>
-<td>Identify recent updates</td>
-<td><code>grep -A 2 "Start-Date"</code></td>
-<td>Latest update: October 13, 2025</td>
+<td>5</td>
+<td>White/Blue</td>
+<td>Unused / Power</td>
 </tr>
 <tr>
-<td>Check specific packages</td>
-<td><code>grep "nano", grep "firefox"</code></td>
-<td>Found last updates for each program</td>
+<td>6</td>
+<td>Green</td>
+<td>Receive -</td>
 </tr>
 <tr>
-<td>Inspect recent log</td>
-<td><code>tail -n 20 /var/log/apt/history.log</code></td>
-<td>Confirmed most recent patching session</td>
+<td>7</td>
+<td>White/Brown</td>
+<td>Unused</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Brown</td>
+<td>Unused</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Recent Patch Updates:</strong>
-<img alt="Screenshot" src="../../../images/patchRecent.png" />  </p>
-<p><strong>Firefox Patch Update:</strong>
-<img alt="Screenshot" src="../../../images/firefoxPatch.png" />  </p>
-<h2 id="4-testing-evaluation-outdated-software">4. Testing &amp; Evaluation – Outdated Software</h2>
-<p>All implemented security measures were tested for proper operation.</p>
+<p><strong>Stripping, Arranging, and Crimping</strong></p>
+<p><strong>Step 1: Prepare the Cable</strong></p>
+<p>Using the Solsop Pass Through RJ45 Crimp Tool Kit,measured approximately 12 inches of Cat5e cable, made a clean cut, and used the stripper to remove about one inch of the outer plastic jacket to expose four twisted pairs (eight wires total).</p>
+<p><strong>Stripped Cable Screenshot:</strong>
+<img alt="IMG_2443" src="https://github.com/user-attachments/assets/2dff8c0b-fc2c-44d1-a5db-71797b720861" /></p>
+<p><strong>Step 2: Untwist and Arrange the Wires</strong></p>
+<p>Carefully untwisted the four pairs and arranged them in the T568B color order: White/Orange, Orange, White/Green, Blue, White/Blue, Green, White/Brown, Brown. The wires were straightened until flat and parallel, then trimmed evenly to about ½ inch in length.</p>
+<p><strong>Wires Aligned Screenshot:</strong>
+<img alt="IMG_2444" src="https://github.com/user-attachments/assets/e89b720a-0c58-43a8-bedd-66b29fdf51ad" /></p>
+<p><strong>Step 3: Insert Wires into RJ45 Connector</strong></p>
+<p>The eight wires were carefully slid into the RJ45 connector while maintaining the correct color order. Each wire reached the front of the connector and was visible through the clear plastic, with the outer cable jacket extending slightly inside for strength.</p>
+<p><strong>Wires in Connector Screenshot:</strong>
+<img alt="IMG_2447" src="https://github.com/user-attachments/assets/3436c222-6b79-4459-b7e0-a53104ecb77f" /></p>
+<p><strong>Step 4: Crimp the Connector</strong></p>
+<p>The RJ45 connector was inserted into the crimping slot of the Solsop tool and the handles were squeezed firmly until a click was heard. The crimp tool pressed the metal contacts into the wires and cut off the excess ends. Both ends of the cable were completed using this process.</p>
+<p><strong>Crimped Cable:</strong>
+<img alt="IMG_2445" src="https://github.com/user-attachments/assets/9ef6ca98-8fe0-44b1-a9a2-2c7de94fb05e" /></p>
+<p><strong>Stripping Demonstration Video:</strong></p>
+<p>https://github.com/user-attachments/assets/a34cf7ec-77b1-4a1e-8dba-7a709c5b30c7</p>
+<p><strong>Testing the Cable</strong></p>
+<p>Both ends of the cable were plugged into the cable tester (main unit and remote unit). The indicator lights labeled 1-8 blinked in order, confirming that all eight wires were properly connected and aligned. The cable passed the test successfully.</p>
+<p><strong>Cable Testing Demonstration Video:</strong></p>
+<p>https://github.com/user-attachments/assets/3b9485df-31d8-487f-a377-8727b906124b</p>
+<p><strong>Cable Construction Reflection:</strong></p>
+<p>The most challenging step in creating the cable was maintaining the correct wire order while inserting them into the RJ45 connector because the wires were very thin and kept moving out of alignment. Maintaining the correct wire order is critical for network reliability because even one incorrect wire will prevent the cable from passing the test and result in failed data transmission since the transmit and receive pairs must match on both ends. Building and testing cables connects directly to the Physical Layer (Layer 1) of the OSI Model because this layer deals with the actual hardware and physical signals that carry data, and the cable is the physical medium that those electrical signals travel through. In a real network, if a cable is built incorrectly but not tested, it could cause intermittent connection failures, slow data transfer speeds, or complete network outages that would be difficult to troubleshoot since the problem is hidden inside the cable. Labeling the cable and using these professional tools mirrored real-world industry practices because network technicians must clearly identify and organize cables in large installations, and use  standardized wiring schemes ensures compatibility across different manufacturers and systems.</p>
+<h3 id="lab-3-exploring-ip-addresses-in-shared-and-bridged-mode">Lab 3: Exploring IP Addresses in Shared and Bridged Mode</h3>
+<p>This lab explored how network configuration settings affect IP addressing and how virtual machines connect to the internet by comparing Shared (NAT) and Bridged network modes.</p>
+<p><strong>Part 1: Shared (NAT) Mode</strong></p>
+<p><strong>Step 1: Confirm Shared Mode and Find Internal IP</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">ip a
+</code></pre>
+<p>In Shared (NAT) mode, the VM uses a private IP address from a virtual subnet (for example, 192.168.64.x). The UTM software acts as a translator between the VM and the real internet.</p>
+<p><strong>Internal IP Address:</strong> 192.168.64.2/24</p>
+<p><strong>Understanding the Output:</strong></p>
 <table>
 <thead>
 <tr>
-<th>Security Feature</th>
+<th>Term</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inet</td>
+<td>This line shows the IPv4 address (192.168.64.6)</td>
+</tr>
+<tr>
+<td>192.168.64.6</td>
+<td>Internal (private) IP address assigned by the virtual network inside UTM (the NAT network)</td>
+</tr>
+<tr>
+<td>/24</td>
+<td>Represents the subnet mask (255.255.255.0), meaning the first 24 bits identify the network</td>
+</tr>
+<tr>
+<td>brd 192.168.64.255</td>
+<td>The broadcast address for this subnet</td>
+</tr>
+<tr>
+<td>scope global dynamic enp0s1</td>
+<td>"Global" means this IP can reach outside the VM (through NAT), "dynamic" means it was assigned automatically (DHCP)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Shared Mode ip a Screenshot:</strong>
+<img width="668" height="334" alt="Screenshot 2025-11-14 195711" src="https://github.com/user-attachments/assets/309c7871-f152-4414-9afb-4a703f733707" /></p>
+<p><strong>Step 2: Find External (Public) IP Address</strong></p>
+<p>Using Firefox, navigated to https://whatismyipaddress.com and recorded the external IP address.</p>
+<p><strong>External IP Address:</strong> 173.95.44.210</p>
+<p>This external (public) IP address represents how the rest of the internet sees the connection, and it's different from the internal IP.</p>
+<p><strong>Shared Mode External IP Screenshot:</strong>
+<img width="669" height="329" alt="Screenshot 2025-11-14 195758" src="https://github.com/user-attachments/assets/643c44ad-4215-4094-99f6-4dbac5c3a998" /></p>
+<p><strong>Part 2: Bridged Mode</strong></p>
+<p><strong>Step 1: Switch to Bridged Mode</strong></p>
+<p>In UTM, the network mode was changed from Shared (NAT) to Bridged (Advanced), and the VM was restarted.</p>
+<p><strong>Step 2: Verify Bridged Mode and Find Internal IP</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">ip a
+</code></pre>
+<p><strong>New Internal IP Address:</strong> 10.24.0.168</p>
+<p>This new address comes directly from the local network's router. The VM is now a separate device on the same network as the Mac.</p>
+<p><strong>Bridged Mode ip a Screenshot:</strong>
+<img width="668" height="290" alt="Screenshot 2025-11-14 195834" src="https://github.com/user-attachments/assets/1fd70d50-dfd1-47c1-a80d-7b9e8ea7338b" /></p>
+<p><strong>Step 3: Find External IP in Bridged Mode</strong></p>
+<p>Using Firefox again, navigated to https://whatismyipaddress.com.</p>
+<p><strong>External IP in Bridged Mode:</strong> 173.95.44.210 (stayed the same)</p>
+<p><strong>Bridged Mode External IP Screenshot:</strong>
+<img width="662" height="403" alt="Screenshot 2025-11-14 195848" src="https://github.com/user-attachments/assets/f6537e5f-9a03-4e1f-8baf-e9ecb94a3b9e" /></p>
+<p><strong>Shared and Bridged Mode Reflection:</strong></p>
+<p>In Shared mode, the internal and external IP addresses are different. The internal IP address that starts with 192.168.64.2 belongs to the local network while the IP address starting with 173.95.44.210 belongs to the internet. The virtual machine uses NAT when connecting to the internet to conserve IP addresses as it allows multiple private IPs to connect to the same public internet IP. Being in shared mode makes it easier to connect multiple VMs on one computer because they will all share the same private IP that is connected to the internet. The internal IP address changed from 192.168.64.2 in Shared mode to 10.24.0.168 in Bridged mode because the VM was now getting its IP directly from the local network router instead of from UTM's virtual network. The external IP address remained the same at 173.95.44.210 because both modes ultimately connect to the internet through the same physical network connection. In Bridged mode, the virtual machine acts more like a separate computer on the network rather than a computer behind another device because it gets its own IP address directly from the router just like any other device. An organization might choose Bridged mode instead of Shared (NAT) mode when they need VMs to be directly accessible from other devices on the network or when they're running servers that need to be reached from outside. Security or management challenges that could come with using Bridged mode include the VM being more exposed to network attacks since it's directly on the network, and IT administrators need to manage more IP addresses and ensure each VM is properly configured with firewalls.</p>
+<p><strong>Comparison Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Internal (Private) IP</th>
+<th>External (Public) IP</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shared (NAT)</td>
+<td>192.168.64.2</td>
+<td>173.95.44.210</td>
+<td>VM hidden behind Mac's connection</td>
+</tr>
+<tr>
+<td>Bridged</td>
+<td>10.24.0.168</td>
+<td>173.95.44.210</td>
+<td>VM appears as separate device</td>
+</tr>
+</tbody>
+</table>
+<h3 id="network-topologies_1">Network Topologies</h3>
+<p>This activity involved creating labeled drawings for five common network topologies, each showing how devices connect and communicate.</p>
+<p><strong>Star Topology:</strong></p>
+<p>One central switch or hub in the middle with all computers connecting to that central point. Commonly used in office networks and home Wi-Fi routers.</p>
+<p><strong>Star Topology Diagram:</strong>
+<img alt="IMG_2470" src="https://github.com/user-attachments/assets/850f01bd-843e-484a-abd7-064c84ed7179" /></p>
+<p><strong>Bus Topology:</strong></p>
+<p>A single straight line ("backbone cable") with all computers branching off. This was common in early Ethernet networks but is now outdated.</p>
+<p><strong>Bus Topology Diagram:</strong>
+<img alt="IMG_2471" src="https://github.com/user-attachments/assets/d58ff331-dee6-48e7-8cef-265150ef91db" /></p>
+<p><strong>Ring Topology:</strong></p>
+<p>Devices form a circle with connections between neighbors, and data travels one way (or both in dual-ring). Used in some legacy fiber networks and token ring systems.</p>
+<p><strong>Ring Topology Diagram:</strong>
+<img alt="IMG_2472" src="https://github.com/user-attachments/assets/0868ea49-7da6-41c0-9ee8-e346b5be5ea9" /></p>
+<p><strong>Mesh Topology:</strong></p>
+<p>Every device connects to multiple others, showing redundancy. If one path breaks, another can still carry data. Commonly used in data centers and IoT or wireless mesh networks.</p>
+<p><strong>Mesh Topology Diagram:</strong>
+<img alt="IMG_2473" src="https://github.com/user-attachments/assets/7645e649-7fae-4e57-9244-52e62cb2a3ee" /></p>
+<p><strong>Hybrid Topology:</strong></p>
+<p>Combines two or more types. Used in large organizations with multiple departments or floors.</p>
+<p><strong>Hybrid Topology Diagram:</strong>
+<img alt="IMG_2474" src="https://github.com/user-attachments/assets/cd5db95c-a778-4148-8153-2e3abf620790" /></p>
+<p><strong>Topology Reflection:</strong></p>
+<p>Star topology would be easiest to set up for a small business because it only requires one central switch and individual cables to each device, making installation and troubleshooting straightforward since each connection is independent. Mesh topology would be the most reliable if one connection fails because every device has multiple paths to reach other devices, so if one link goes down the data can automatically reroute through another path. Mesh topology would also be most expensive to implement because it requires the most cables and network interfaces since every device must connect to multiple other devices, dramatically increasing hardware costs. The school uses a hybrid topology, most likely combining star topologies on each floor (with switches connecting classroom computers) that are then connected together using a bus or ring backbone between floors, because this approach provides both the simplicity of star topology locally and the scalability needed for a large building. The physical layout of a topology affects speed and reliability because the number of hops data must make impacts latency , and the redundancy of connections determines fault tolerance , with more direct connections generally improving speed while more redundant paths improve reliability but increase complexity and cost.</p>
+<h3 id="building-and-testing-a-soho-network">Building and Testing a SOHO Network</h3>
+<p>This lab involved designing a realistic SOHO network and simulating it using Ubuntu virtual machines to test connectivity and understand how devices communicate.</p>
+<p><strong>Step 1: SOHO Network Design</strong></p>
+<p>The network was designed for a small office with eight devices including 2 Ubuntu computers, 1 printer, 1 smartphone, 1 router, 1 switch, 1 access point, and 1 NAS device. The diagram shows clear labels for each device, IP addresses, and color-coded lines for wired (solid) and wireless (dashed) connections.</p>
+<p><strong>SOHO Network Diagram:</strong>
+<img alt="IMG_2469" src="https://github.com/user-attachments/assets/9ee018d8-c7a4-4e5c-b39d-4c922ea593ea" /></p>
+<p><strong>Step 2: Simulate and Test in Ubuntu</strong></p>
+<p><strong>Set Up and Identify IP Addresses</strong></p>
+<p>Both partner VMs were set to Bridged mode and IP addresses were identified using <code>ip a</code>.</p>
+<p><strong>IP Addresses:</strong></p>
+<ul>
+<li>Computer A: 10.12.26.47</li>
+<li>Computer B: 10.12.26.129</li>
+</ul>
+<p><strong>IP -a Screenshot:</strong>
+<img width="727" height="276" alt="Screenshot 2025-11-14 at 8 22 53 AM" src="https://github.com/user-attachments/assets/e638a27c-98b7-4185-b5e0-b4a9c0c5e632" /></p>
+<p><strong>Test Connectivity Between Computers</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">ping 10.12.26.129
+</code></pre>
+<p><strong>Successful Ping Screenshot(mine and partners):</strong>
+<img width="700" height="219" alt="Screenshot 2025-11-14 at 8 23 08 AM" src="https://github.com/user-attachments/assets/489e4ef5-2f00-4b65-8276-f5297d52433d" />
+<img width="701" height="437" alt="Screenshot 2025-11-14 at 8 22 37 AM" src="https://github.com/user-attachments/assets/937337ec-ed8f-4f8d-b2a0-6c88c23e091a" /></p>
+<p><strong>Step 3: Network Diagnostic Commands</strong></p>
+<p><strong>ARP Table:</strong></p>
+<pre><code class="language-bash">arp -a
+</code></pre>
+<p><strong>Routing Table:</strong></p>
+<pre><code class="language-bash">netstat -r
+</code></pre>
+<p><strong>ARP -a and Neststat -r Screenshot:</strong>
+<img width="743" height="368" alt="Screenshot 2025-11-14 at 8 40 09 AM" src="https://github.com/user-attachments/assets/d57a2d03-a8d4-4af2-8fa1-c9ebb8979c95" /></p>
+<p><strong>Traceroute:</strong></p>
+<pre><code class="language-bash">sudo traceroute 8.8.8.8
+</code></pre>
+<p>Displays every "hop" packets take to reach Google's DNS server, visualizing how data travels through routers across different networks.</p>
+<p><strong>Traceroute Screenshot:</strong>
+<img width="735" height="652" alt="Screenshot 2025-11-14 at 8 29 35 AM" src="https://github.com/user-attachments/assets/68122e16-4f38-467e-aee6-c7a7b57f6c23" /></p>
+<p>These commands reveal how the SOHO network communicates by showing the MAC addresses of local devices (arp), the routing decisions being made (netstat -r), and the path data takes to reach external networks (traceroute). ARP relates to Layer 2 by mapping MAC addresses on the local network, while netstat and traceroute show Layer 3 activity with routing across multiple devices.</p>
+<p><strong>Step 4: Firewall Configuration</strong></p>
+<p>Command:</p>
+<pre><code class="language-bash">sudo ufw status
+sudo ufw enable
+</code></pre>
+<p>The firewall was enabled to act as a security gate for the network, blocking unwanted connections and allowing safe traffic. Firewalls operate mainly at OSI Layers 3 and 4, filtering packets based on rules.
+Enabling a firewall protects the system by only allowing trusted data to pass through, which prevents unauthorized access and potential security threats from reaching the computer.</p>
+<p><strong>Active Firewall Screenshot:</strong>
+<img width="561" height="138" alt="Screenshot 2025-11-14 201848" src="https://github.com/user-attachments/assets/f51f8fd4-f14e-4f78-ae5b-d3d446e3a94b" /></p>
+<p><strong>Step 5: Simple Web Server (Application Layer)</strong></p>
+<p><strong>Computer B (Server):</strong></p>
+<pre><code class="language-bash">python3 -m http.server 8080
+</code></pre>
+<p><strong>Computer A (Client):</strong>
+Opened Firefox and navigated to <code>http://10.12.26.129:8080</code></p>
+<p>The browser displayed a list of files hosted by Computer A, demonstrating the Application Layer by showing how one device can serve files to another over HTTP, which is the same protocol that real websites use.</p>
+<p><strong>Web Server Connection Screenshot:</strong>
+<img width="878" height="876" alt="Screenshot 2025-11-14 at 8 31 47 AM" src="https://github.com/user-attachments/assets/2670b703-0fe2-4b39-a500-cccda4c7a1b0" /></p>
+<h2 id="4-testing-evaluation-network-verification">4. Testing &amp; Evaluation – Network Verification</h2>
+<p>All networking concepts were tested and verified through practical lab activities.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
 <th>Test Performed</th>
 <th>Verification Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Password Strength</td>
-<td><code>sudo ls /root</code> (with new password)</td>
-<td>Access granted, confirming correct password update and admin rights</td>
+<td>OSI Layer 1</td>
+<td><code>ethtool enp0s1</code></td>
+<td>Confirmed physical connection speed, duplex mode, and link status</td>
 </tr>
 <tr>
-<td>MFA Authentication</td>
-<td>SSH login prompt for verification code</td>
-<td>Both password and generated 6-digit code required</td>
+<td>OSI Layer 2</td>
+<td><code>ip link show</code>, <code>arp -n</code></td>
+<td>Identified MAC address and ARP table showing local device mapping</td>
 </tr>
 <tr>
-<td>Patch Confirmation</td>
-<td><code>/var/log/apt/history.log</code></td>
-<td>Show updates installed</td>
+<td>Network Traffic</td>
+<td><code>tcpdump -c 5</code></td>
+<td>Captured live packets showing source/destination MAC addresses</td>
 </tr>
 <tr>
-<td>Automatic Updates</td>
-<td><code>ls -l /var/lib/apt/periodic/</code></td>
-<td>Displays schedule of files automatically updated</td>
+<td>Cable Construction</td>
+<td>Cable tester with indicator lights</td>
+<td>All 8 wires passed test in correct order (T568B standard)</td>
+</tr>
+<tr>
+<td>Shared Mode IP</td>
+<td><code>ip a</code> and whatismyipaddress.com</td>
+<td>Internal: 192.168.64.2, External: 173.95.44.210</td>
+</tr>
+<tr>
+<td>Bridged Mode IP</td>
+<td><code>ip a</code> and whatismyipaddress.com</td>
+<td>Internal: 10.24.0.168, External: 173.95.44.210</td>
+</tr>
+<tr>
+<td>VM Connectivity</td>
+<td><code>ping</code> between partner VMs</td>
+<td>Successful replies with &lt;1ms latency, 0% packet loss</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td><code>netstat -r</code>, <code>traceroute google.com</code></td>
+<td>Displayed routing table and multi-hop path to external servers</td>
+</tr>
+<tr>
+<td>Firewall</td>
+<td><code>sudo ufw status</code></td>
+<td>Confirmed firewall active and protecting system</td>
+</tr>
+<tr>
+<td>Application Layer</td>
+<td>Python http.server</td>
+<td>Successfully served files between VMs over HTTP</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Check Automatic Updates:</strong>
-<img alt="Screenshot" src="../../../images/automaticUpdates.png" />  </p>
-<h3 id="why-patching-mattersoutdaded-software">Why Patching Matters/Outdaded Software:</h3>
-<p>System patching is important because hackers can exploit known vulnerabilities that have already been patched in other systems using exploits in the wild. These unpatched systems could easily allow in data leaks and breaches through many different doors. Additionally, there may be zero-day vulnerabilities, security flaws that aren’t recognized by the user, therefore no patches available. If hackers are able to find these zero-day vulnerabilities they could easily enter the system and the fix would take a while depending on if the user even found the leak. To ensure that patching happens, you could always try to use automatic updates so the computer always stays patched and up to date.</p>
 <h2 id="5-reflection">5. Reflection</h2>
-<p>Through implementing layered security controls, this unit demonstrated the practical relationship between authentication, authorization, and system maintenance. Secure passwords protect confidentiality and MFA safeguards protect integrity by ensuring that access is verified. Additionally,  consistent patching preserves availability by maintaining a functional and resilient system to both bugs and attacks.</p>
-<p>These activities reinforced the principle that cybersecurity requires defense in depth—multiple layers working together rather than relying on a single control. The Ubuntu password algorithm exercise showed how unpredictability and length drastically reduce guessing risk. MFA through Google Authenticator demonstrated real-world two-factor authentication methods used by major organizations, adding an essential safeguard against stolen credentials and hackers.</p>
-<p>Patching the VM provided insight into how software vulnerabilities are discovered and fixed, highlighting the importance of staying updated against known and zero-day exploits. Regular updates also prevent attackers from using exploits in the wild that target unpatched systems. Patching helps to protect against "open doors" in systems for hackers to break there way into.</p>
-<p>Overall, this unit illustrated the importance of proactive protection to ensure cyber attacks don't happen and data isn't lost.</p></p>
+<p>Through these networking labs, I gained comprehensive hands on experience with the foundational layers of network communication and how physical infrastructure connects to logical addressing and data flow. The OSI Layers 1 and 2 exploration taught me that networking starts with physical hardware and MAC addresses before any IP addressing comes into play. Building and testing Ethernet cables showed me why proper Physical Layer construction is critical because even one misplaced wire completely breaks connectivity. The Shared versus Bridged mode comparison clarified how network address translation works and why organizations use NAT to conserve IPv4 addresses while adding security through network isolation. Shared mode hides the VM behind the host computer's IP address, which is safer but less flexible, while Bridged mode makes the VM appear as its own device with direct network access, which is more exposed but enables server functionality. </p>
+<p>Additionally, creating topology diagrams for star, bus, ring, mesh, and hybrid networks illustrated that network design involves tradeoffs between cost, reliability, and scalability. For example, star topology is simple and cheap but has a single point of failure at the central switch, while mesh topology is extremely reliable with redundant paths but expensive due to all the extra cabling and ports required. </p>
+<p>The SOHO network simulation brought everything together by requiring me to design a complete network with proper IP addressing, then test it using actual Ubuntu commands. Pinging between partner VMs proved Layer 3 connectivity, examining ARP tables showed Layer 2 MAC address mapping, running traceroute demonstrated how data crosses multiple networks to reach the internet, and enabling the firewall added essential security filtering. The Python web server activity was particularly interesting because it showed me how Application Layer protocols like HTTP depend entirely on other layers and the result of connectivity.</p></p>
     </article>
 </section>
             <!-- endblock -->
