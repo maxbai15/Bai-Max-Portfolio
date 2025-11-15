@@ -206,17 +206,14 @@ The RJ45 connector was inserted into the crimping slot of the Solsop tool and th
 ![IMG_2445](https://github.com/user-attachments/assets/9ef6ca98-8fe0-44b1-a9a2-2c7de94fb05e)
 
 **Stripping Demonstration Video:**
-<iframe src="https://drive.google.com/file/d/1-tTdKACN1vwTsymJvSr26JxXThnXaDwM/preview" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-
+[Watch Stripping Demonstration Video](https://drive.google.com/file/d/1-tTdKACN1vwTsymJvSr26JxXThnXaDwM/view?usp=drive_link)
 
 **Testing the Cable**
 
 Both ends of the cable were plugged into the cable tester (main unit and remote unit). The indicator lights labeled 1-8 blinked in order, confirming that all eight wires were properly connected and aligned. The cable passed the test successfully.
 
 **Cable Testing Demonstration Video:**
-
-
-https://github.com/user-attachments/assets/3b9485df-31d8-487f-a377-8727b906124b
+[Watch Stripping Demonstration Video](https://drive.google.com/file/d/1VIbKhOj6Mh3acULylwbgUWajKaUgGylk/view?usp=sharing)
 
 
 **Cable Construction Reflection:**
