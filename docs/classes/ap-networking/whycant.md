@@ -5,6 +5,8 @@
 **Problem Statement:**  
 Learn how devices connect to the internet, diagnose network issues using the 4-step troubleshooting flow, and apply/discover cybersecurity strategies and systems.
 
+
+cant ping because on different subnets.
 **Objectives:**  
 - Use Mac and Ubuntu CLI tools (`ifconfig`, `ip addr`, `ping`, `netstat`, `ufw`) to test connectivity
 - Apply the 4-step troubleshooting flow  
