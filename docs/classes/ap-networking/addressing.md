@@ -87,10 +87,7 @@ A SOHO (Small Office / Home Office) network is the kind of network setup most pe
 
 ### Understanding Physical Addressing
 
-In this activity, sort different devices into four different network types: Personal Area Network(PAN), Local Area Network(LAN), Metropolitan Area Network(MAN), Wide Area Network(WAN).
-Typically, in daily life, all four different networks are used. For the PAN, it is whenever you are connecting or using different personal device, like an iPhone. For LAN's, it is often
-used in your workplaces or at school. MAN's are used to connect different network across city areas, like traffic signals. Finally, WAN's are used to connect the whole world together, like the internet. 
-Each network scales up and connects with both larger and smaller ones.
+In this activity, learn what a MAC address is, how it is structured, and why every networked device depends on it. Look at the physical device where it is located, a NIC, and compare with the different parts of a MAC Address and what they mean.
 
 **Step 1: Physical MAC Addressing**
 
