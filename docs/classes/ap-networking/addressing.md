@@ -152,22 +152,32 @@ because they are designed for local identification, not routing across the broad
 destination MAC addresses and replaces them with the MAC addresses relevant to the next hop on the journey to the destination.
 
 
-### Cable Constructing and Testing
+### Understanding Logical Addressing
 
-This lab involved building and testing Ethernet cables using the T568B wiring standard at the Physical Layer (Layer 1) of the OSI Model. Professional technicians make their own cables to create precise lengths, verify quality, and save on cost.
+use ```ip addr show``` to find IPv4 address and IPv6 link-local address in terminal.
 
-**T568B Wire Order Standard:**
+**ip addr show screenshot:**
+<img width="733" height="412" alt="Screenshot 2025-12-01 at 1 28 49 PM" src="https://github.com/user-attachments/assets/984c45fa-d659-4699-a04c-9d9f5f0c5325" />
 
-| Pin | Wire Color (T568B) | Pair Function |
+**IPv6 Link-Local and the Future of IPv6:**
+
+An IPv6 link-local address is an automatically configured address for communication within a local network segment and always starts with "fe80::". It allows devices to find each other without needing a DHCP server or external configuration because the address is self generated based on the fe80:: prefix. These addresses are crucial for essential network functions, such as router discovery and automatic configuration, and are not routed beyond the local link. 
+
+IPv4 is no longer sufficient because its 32-bit address space provides a theoretical maximum of approximately 4.3 billion unique systems globally. IPv6 solves this address shortage with a massive 128-bit address space that yields a virtually limitless number of addresses, ensuring that every device can have its own public IP. This transition is not just about quantity since IPv6 introduces new capabilities like more efficient routing, built-in security features, and better support for mobility and Quality of Service. During this multi year transition period, modern networks must support both IPv4 and IPv6 concurrently through mechanisms like dual stack operation to ensure seamless communication between existing systems and the new IPv6 infrastructure.
+
+**IPv4 vs IPv6 Comparison Table:**
+
+| Feature | IPv4 | IPv6 |
 |-----|-------------------|---------------|
-| 1 | White/Orange | Transmit + |
-| 2 | Orange | Transmit - |
-| 3 | White/Green | Receive + |
-| 4 | Blue | Unused / Power |
-| 5 | White/Blue | Unused / Power |
-| 6 | Green | Receive - |
-| 7 | White/Brown | Unused |
-| 8 | Brown | Unused |
+| Address Length | Shorter 32-bit identifier | Longer 128-bit identifier |
+| Notation | Uses four groups of Binary (0-255) separated by dots | Uses 8 groups of Hexadecimal separated by colons |
+| Approximate Capacity | around 4.3 billion | Basically limitless (over 18 quintillion) |
+| Example | 192.168.1.1 | fe80::2ffa:dca3:a63d |
+| Where I see it used | More common on older systems and networks | Increasingly seen on new systems and networks along with transitioning from IPv4 |
+
+**Why Logical Addressing Exsits?**
+
+We need logical IP addresses in addition to physical MAC addresses because they serve different functions in the communication hierarchy. MAC addresses operate at the data link layer and are used solely for local communication within a single network segment, like identifying devices connected to the same switch or Wi-Fi router. In contrast, IP addresses operate at the network layer and are essential for global communication across the vast expanse of the internet. Routers are the key devices that use IP addresses to efficiently forward data packets; they inspect the destination IP address in a packet's header and use routing tables to determine the next optimal path toward the destination network, rather than knowing the specific physical address of every single device globally. An example from personal experience involves web browsing: when I request a webpage, my computer uses the website's IP address to send the request out to the internet, and intermediate routers use that IP address to guide the request packet to the correct server thousands of miles away. Without IP addresses, data could never leave the local network boundary.
 
 **Stripping, Arranging, and Crimping**
 
