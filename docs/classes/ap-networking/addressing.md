@@ -181,6 +181,8 @@ Logical addressing exists in addition to physical MAC addresses because they ser
 
 ### Understanding Physical Addressing
 
+Dynamic addressing uses protocols like DHCP to automatically assign IP addresses to devices as they join a network, which is efficient for managing many temporary connections such as mobile phones and laptops. In contrast, static addressing involves a network administrator manually configuring a fixed, permanent IP address for a specific device. Networks require both methods to operate effectively as dynamic addressing handles general client connectivity with minimal overhead, while static addressing ensures that critical resources, such as servers and network gateways, are always reachable at a predictable address. Dynamic addressing is ideal for typical end-user devices that frequently connect and disconnect, while static addressing should be reserved for equipment that must maintain a consistent, unchanging location on the network for other systems to reliably find them.
+
 Use ```ip addr show``` to find IPv4 address and IPv6 link-local address in terminal.
 
 **ip addr show in VM #1**
@@ -207,8 +209,16 @@ On VM #2 use ```sudo cat /etc/netplan/*.yaml``` to find network configuration. I
 
 Two different Linux VMs might employ distinct networking configuration tools, such as netplan on Ubuntu or NetworkManager on Linux, leading to varying configurations. While both can utilize DHCP for IPv4 address assignment, DHCP can only use IPv6 on the linux version. The configuration syntaxes are a bit different since VM#1 uses netplan while VM#2 uses network manager. Netplan uses YAML files for declaring the configuration and NetworkManager relies on command-line tools interfaces. This divergence in configuration approaches stems from different distribution design choices and the specific needs of administrators or automated systems
 
-The two VMs are configured differently and use different network management systems. VM 1 uses Netplan with a YAML syntax. VM 2 uses NetworkManager. Both systems achieve the same result of obtaining IP addresses dynamically using DHCP for IPv4 and an IPv6 mechanism, but the underlying configuration files and management tools (e.g., netplan vs. nmcli) are distinct. 
-Linux systems might configure networking differently because of distribution choices and design choices. For instance, Ubuntu aims for a consistent, declarative approach across different cloud environments via Netplan, while Red Hat/CentOS has historically used ifcfg scripts, transitioning to robust tools like NetworkManager suitable for both server and desktop use cases. These variations allow distributions to cater to specific needs, such as ease of automation (Netplan) or extensive enterprise features (NetworkManager).
+**Scenario Analysis Table:**
+| Device | Static or Dynamic? | Justification (2 sentences) |
+|---------|---------------|---------------------|
+| School Web Server | Static | The web server must maintain a consistent, unchanging IP address so that users can reliably access the website. If its IP address changed frequently, external users would not be able to locate the server on the network. |
+| Classroom Printer | Static | Printers in a networked environment are generally assigned a static IP address to ensure all users can consistently send print jobs to the correct device. |
+| Student Laptops | Dynamic | Laptops are mobile devices that connect to different networks (different classrooms, home, public Wi-Fi). Using dynamic addresses allows the device to automatically obtain a new IP configuration from each new network's DHCP server without manual intervention. |
+| Security Cameras | Static | Security cameras need to be consistently accessible and locatable on the network for monitoring and recording purposes. A static IP ensures that monitoring software and network administrators always know exactly where to find the camera's feed. |
+| Teacher Workstation | Dynamic | Similar to student laptops, teacher workstations may be moved between different classrooms or offices. Using dynamic addressing simplifies network management and connectivity, allowing the device to easily connect with any network segment with a DHCP server. |
+
+
 
 ## 4. Testing & Evaluation – Network Verification
 
