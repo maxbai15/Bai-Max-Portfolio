@@ -104,6 +104,7 @@ destination MAC addresses and replaces them with the MAC addresses relevant to t
 use ```ip addr show``` to find IPv4 address and IPv6 link-local address in terminal.
 
 **ip addr show screenshot:**
+
 <img width="733" height="412" alt="Screenshot 2025-12-01 at 1 28 49 PM" src="https://github.com/user-attachments/assets/984c45fa-d659-4699-a04c-9d9f5f0c5325" />
 
 **IPv6 Link-Local and the Future of IPv6:**
@@ -133,25 +134,31 @@ Dynamic addressing uses protocols like DHCP to automatically assign IP addresses
 Use ```ip addr show``` to find IPv4 address and IPv6 link-local address in terminal.
 
 **ip addr show in VM #1**
+
 <img width="732" height="407" alt="Screenshot 2025-12-02 at 2 24 24 PM" src="https://github.com/user-attachments/assets/ebf88252-553a-4d72-89ab-7f985b019635" />
 
 **ip addr show in VM #2**
+
 <img width="652" height="438" alt="Screenshot 2025-12-02 at 2 16 37 PM" src="https://github.com/user-attachments/assets/cc3b3957-2cff-48ca-a77a-cf282513478a" />
 
 **Network Configuration Files:**
+
 Use ```ls /etc/netplan``` to find which Netplan file is loaded.
 
 **Find Netplan File Screenshot VM #1:**
+
 <img width="312" height="42" alt="Screenshot 2025-12-02 at 2 25 06 PM" src="https://github.com/user-attachments/assets/b0bfa928-5ce1-41b3-80d5-c2ae33951ca0" />
 
 Use ```cat /etc/netplan/*.yaml``` to find whether the file contains dhcp4 or dhcp6.
 
 **Netplan File Screenshot VM #1:**
+
 <img width="537" height="144" alt="Screenshot 2025-12-02 at 2 27 15 PM" src="https://github.com/user-attachments/assets/fae22766-cc77-4055-8f50-20b98cbbbf32" />
 
 On VM #2 use ```sudo cat /etc/netplan/*.yaml``` to find network configuration. If that doesn't work, you can use ```nmcli device show``` to find if it uses Netplan or NetworkManager.
 
 **Netplan File Screenshot VM#2:**
+
 <img width="589" height="286" alt="Screenshot 2025-12-02 at 2 32 07 PM" src="https://github.com/user-attachments/assets/48556283-dfa9-4e4d-8c8b-a5a2d162b69a" />
 
 Two different Linux VMs might employ distinct networking configuration tools, such as netplan on Ubuntu or NetworkManager on Linux, leading to varying configurations. While both can utilize DHCP for IPv4 address assignment, DHCP can only use IPv6 on the linux version. The configuration syntaxes are a bit different since VM#1 uses netplan while VM#2 uses network manager. Netplan uses YAML files for declaring the configuration and NetworkManager relies on command-line tools interfaces. This divergence in configuration approaches stems from different distribution design choices and the specific needs of administrators or automated systems
