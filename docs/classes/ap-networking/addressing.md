@@ -29,59 +29,6 @@ The OSI Model organizes networking into seven layers, from physical hardware at 
 
 **Layer 1: The Physical Layer**
 
-The Physical Layer is the bottom layer of the OSI model and deals with hardware - the actual equipment that sends and receives electrical or optical signals. This layer is like the road system for data and includes:
-
-- Cables (Ethernet, fiber optics, coaxial)
-- Connectors and ports
-- Wireless signals (Wi-Fi, Bluetooth)
-- Network Interface Cards (NICs) or virtual interfaces
-
-When a computer sends data, it turns it into bits (1s and 0s) and pushes them across these physical pathways.
-
-**Layer 2: The Data Link Layer**
-
-The Data Link Layer sits directly above the Physical Layer and is responsible for making sure that data travels safely and accurately between devices on the same local network. Here, data is packaged into units called frames. Each frame includes:
-
-- The data being sent
-- The source MAC address (the sender's unique hardware ID)
-- The destination MAC address (the receiver's hardware ID)
-- Error-checking information to detect damage during transmission
-
-**How the Two Layers Work Together:**
-
-Layer 1 provides the physical foundation, dealing with the actual hardware (cables, switches, NICs) and converting data into raw electrical, optical, or radio signals for transmission over the physical medium. It has no intelligence and simply moves the signal. Layer 2 operates on top of this functional Layer 1 connection, organizing the raw bits into frames and using MAC addresses for reliable, node-to-node data transfer on the local network segment. Thus, Layer 1 provides the path, while Layer 2 manages access to that path and ensures the data reaches the correct local destination intact, including error detection and control.
-
-### Network Topologies
-
-A network topology is the way that computers, devices, and other pieces of technology are arranged and connected within a network. It's like a map or blueprint that shows how data travels from one device to another. The topology you choose affects how well a network performs in terms of speed, cost, reliability, and scalability.
-
-**Common Network Topologies:**
-
-| Topology Type | Description | Common Use |
-|---------------|-------------|------------|
-| Star | One central switch or hub in the middle with all computers connecting to that central point | Office networks and home Wi-Fi routers |
-| Bus | A single straight line ("backbone cable") with all computers branching off | Early Ethernet networks |
-| Ring | Devices form a circle with connections between neighbors, data travels one way (or both in dual-ring) | Some legacy fiber networks and token ring systems |
-| Mesh | Every device connects to multiple others, showing redundancy - if one path breaks, another can still carry data | Data centers and IoT or wireless mesh networks |
-| Hybrid | Combine two or more types (for example, multiple Star networks connected in a Bus layout) | Large organizations with multiple departments or floors |
-
-### SOHO Network Design
-
-A SOHO (Small Office / Home Office) network is the kind of network setup most people use at home or in a small business. It connects multiple devices so they can share internet access, files, and other resources.
-
-**Core SOHO Components:**
-
-| Device | Function |
-|--------|----------|
-| Modem | Connects your network to your Internet Service Provider (ISP) |
-| Router | Directs (routes) traffic between your local devices and the internet; assigns IP addresses |
-| Switch | Expands the number of wired ports for computers and printers |
-| Access Point (AP) | Provides Wi-Fi to laptops, tablets, and phones |
-| Devices | Endpoints like computers, printers, and smart TVs that use the network |
-
-**SOHO Network Diagram:**
-![IMG_2469](https://github.com/user-attachments/assets/9ee018d8-c7a4-4e5c-b39d-4c922ea593ea)
-
 
 ## 3. Technical Development – Implementing Authentication & Security
 
