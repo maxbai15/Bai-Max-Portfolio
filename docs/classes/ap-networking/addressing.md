@@ -205,9 +205,10 @@ On VM #2 use ```sudo cat /etc/netplan/*.yaml``` to find network configuration. I
 **Netplan File Screenshot VM#2:**
 <img width="589" height="286" alt="Screenshot 2025-12-02 at 2 32 07 PM" src="https://github.com/user-attachments/assets/48556283-dfa9-4e4d-8c8b-a5a2d162b69a" />
 
-Two different Linux VMs might employ distinct networking configuration tools, such as netplan on Ubuntu or NetworkManager on Linux, leading to varying configurations. While both can utilize DHCP for IPv4 address assignment, DHCP can only use IPv6 on the linux version. The configuration syntaxes are similar since VM#1 uses netplan while VM#2 can use both netplan and network manager. Both use YAML files for declarative configuration. This divergence in configuration approaches stems from different distribution design choices, target environments (e.g., server vs. desktop), and the specific needs of administrators or automated systems
+Two different Linux VMs might employ distinct networking configuration tools, such as netplan on Ubuntu or NetworkManager on Linux, leading to varying configurations. While both can utilize DHCP for IPv4 address assignment, DHCP can only use IPv6 on the linux version. The configuration syntaxes are a bit different since VM#1 uses netplan while VM#2 uses network manager. Netplan uses YAML files for declaring the configuration and NetworkManager relies on command-line tools interfaces. This divergence in configuration approaches stems from different distribution design choices and the specific needs of administrators or automated systems
 
-
+The two VMs are configured differently and use different network management systems. VM 1 uses Netplan with a YAML syntax. VM 2 uses NetworkManager. Both systems achieve the same result of obtaining IP addresses dynamically using DHCP for IPv4 and an IPv6 mechanism, but the underlying configuration files and management tools (e.g., netplan vs. nmcli) are distinct. 
+Linux systems might configure networking differently because of distribution choices and design choices. For instance, Ubuntu aims for a consistent, declarative approach across different cloud environments via Netplan, while Red Hat/CentOS has historically used ifcfg scripts, transitioning to robust tools like NetworkManager suitable for both server and desktop use cases. These variations allow distributions to cater to specific needs, such as ease of automation (Netplan) or extensive enterprise features (NetworkManager).
 
 ## 4. Testing & Evaluation – Network Verification
 
