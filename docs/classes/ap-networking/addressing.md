@@ -173,6 +173,55 @@ Two different Linux VMs might employ distinct networking configuration tools, su
 | Teacher Workstation | Dynamic | Similar to student laptops, teacher workstations may be moved between different classrooms or offices. Using dynamic addressing simplifies network management and connectivity, allowing the device to easily connect with any network segment with a DHCP server. |
 
 
+### Configuring and  Verifying IP Addresses on a Linux VM
+
+Physical addressing uses a unique, permanent MAC address for local network identification, while logical addressing uses a temporary or permanent IP address for global identification on a network. An IP address can be assigned dynamically, changing over time and managed by a DHCP server for simplicity and efficiency, or assigned statically, remaining fixed for a specific device and used for things like remote access or hosting servers. This activity tests switching from DHCP to static addressing.
+
+Use ```ip link show``` to find active network interfaces.
+
+**ip link show screenshot:**
+
+<img width="648" height="167" alt="Screenshot 2025-12-04 at 8 17 36 AM" src="https://github.com/user-attachments/assets/277faac1-3398-42ee-920c-358d49857204" />
+
+From the screenshot, enp0s1 is the active network.
+
+Next to convert DHCP to Static IP to use sudo nano ```/etc/netplan/<filename>.yaml``` to edit the DHCP status. To find the filename you can use ```ls /etc/netplan``` (e.x. 50-cloud-init.yaml). Once opening the .yaml file, edit dhcp4 to say no and add in you own static addressing.
+
+**Yaml File before Editing:**
+
+<img width="645" height="436" alt="Screenshot 2025-12-04 at 8 22 06 AM" src="https://github.com/user-attachments/assets/bfe14919-1282-43f3-bb8e-524d70e0f4b4" />
+
+**Yaml File after Editing:**
+
+<img width="647" height="439" alt="Screenshot 2025-12-04 at 8 24 07 AM" src="https://github.com/user-attachments/assets/afdbc197-88b2-4776-9c4a-ea2537d7b901" />
+
+Finally after changing the .yaml file, use ```sudo netplan apply``` to change from DHCP to the static IP address personally assigned.
+
+**sudo netplan apply screenshot:**
+
+<img width="653" height="257" alt="Screenshot 2025-12-04 at 8 33 54 AM" src="https://github.com/user-attachments/assets/d97d60df-233f-4572-b4e6-ffe7f59e14b1" />
+
+**Verify Static IP Configuration**
+
+To verify that the static IP configuration worked, use ```ip addr show``` to confirm the IP address is the static address. Also, use ```ip route show``` to see a default gateway like something typed in the .yaml file (ex. default via 192.168.1.1 dev enp0s1). Finally, use ```ping -c 4 8.8.8.8``` to test connectivity.
+
+**ip addr show screenshot:**
+
+<img width="646" height="297" alt="Screenshot 2025-12-04 at 8 34 23 AM" src="https://github.com/user-attachments/assets/560d6cd6-8e3c-4fab-8732-510d01cbf270" />
+
+**ip route show screenshot:**
+
+<img width="645" height="88" alt="Screenshot 2025-12-04 at 8 34 35 AM" src="https://github.com/user-attachments/assets/f3990a43-0a51-4989-bc08-b905199fede3" />
+
+**ping -c 4 8.8.8.8 screenshot:**
+
+<img width="555" height="197" alt="Screenshot 2025-12-04 at 8 40 27 AM" src="https://github.com/user-attachments/assets/68707892-879b-4384-a4fd-003acffaadb4" />
+
+From the testing the ip addr show confirms that the static IP address is the new one for enp0s1 while the ip route show confirms that the routing with the new static ip address is right. Additionall, the ping demonstrates that connections using the new static ip address work.
+
+The most challenging part of IP configuration was likely troubleshooting IP address conflicts caused by manual static assignments. Manually assigning static IP addresses without a centralized management tool or a clear plan makes it easy for two devices to end up with the same address, which disrupts network communication and causes connectivity failures. 
+Additionally, YAML syntax and networking settings are very sensitive. A single, misplaced space or an incorrect value in a YAML configuration file can completely break a network service or prevent a device from connecting. For instance, an incorrect subnet mask, default gateway, or DNS server IP, even if the address format is valid, will cause routing errors and block internet access. 
+
 
 ## 4. Testing & Evaluation – Network Verification
 
