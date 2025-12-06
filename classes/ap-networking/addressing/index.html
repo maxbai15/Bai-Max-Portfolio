@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Physical Addressing and Logical Addressing - My Digital Portfolio</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">My Digital Portfolio</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../about/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    About me
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#classes-collapse" aria-expanded="false">
+                    Classes
+                </a>
+                <div class="collapse" id="classes-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#ap-networking-collapse" aria-expanded="false">
+            AP Networking
+        </a>
+
+        <div class="collapse" id="ap-networking-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509component-cards/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Component Cards
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509CLI/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Command Line Interface
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202509SecurityControls/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Determining Security Controls for Devices
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202510ImplementSecurity/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Implementing Security for Devices
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202511Data/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Data Movement and Types of Networks
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../202511TypesNetwork/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Types of Networks & Connections and Devices
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../whycant/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Why Can't These Two Computers Talk to Each Other?
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="physical-addressing-and-logical-addressing">Physical Addressing and Logical Addressing</h1>
+<h2 id="1-project-overview">1. Project Overview</h2>
+<p><strong>Problem Statement:</strong><br />
+Understand how devices identify themselves on networks through physical (MAC) and logical (IP) addressing, and learn how to configure both dynamic and static IP addresses.</p>
+<p><strong>Objectives:</strong>  </p>
+<ul>
+<li>Identify and understand MAC addresses on physical NICs and virtual machines</li>
+<li>Explain the difference between physical and logical addressing</li>
+<li>Analyze DHCP versus static IP addressing and when to use each</li>
+<li>Configure static IP addresses using Netplan on a Linux VM</li>
+</ul>
+<p><strong>Success Criteria:</strong>  </p>
+<ul>
+<li>Complete NIC labeling with accurate identification</li>
+<li>Successful understanding of MAC addresses and different sections</li>
+<li>DHCP analysis from both VMs showing configuration differences</li>
+<li>Working static IP configuration on VM #2 verified with ip addr, ip route, and ping tests</li>
+</ul>
+<h2 id="2-design-planning-understanding-physical-and-logical-addressing">2. Design &amp; Planning – Understanding Physical and Logical Addressing</h2>
+<h3 id="mac-addresses">MAC Addresses</h3>
+<p>A MAC address (Media Access Control address) is a permanent hardware identifier assigned to every Network Interface Card (NIC) when it is manufactured. This physical address operates at Layer 2 of the OSI Model and is used for local network communication within the same network segment. MAC addresses are considered physical addresses because they are tied directly to physical hardware. A MAC address permanently identifies a specific network interface card. The address is embedded into the hardware at the factory and does not change even if the device moves to a different network.</p>
+<p><strong>MAC Address Structure:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First 3 bytes (OUI)</td>
+<td>Organizationally Unique Identifier - identifies the manufacturer</td>
+<td>78:4f:43</td>
+</tr>
+<tr>
+<td>Last 3 bytes</td>
+<td>Device Identifier - unique to that specific NIC</td>
+<td>91:2a:10</td>
+</tr>
+<tr>
+<td>Full MAC Address</td>
+<td>Complete 48-bit hardware address</td>
+<td>78:4f:43:91:2a:10</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-logical-addressing-exists">Why Logical Addressing Exists?</h3>
+<p>While MAC addresses work perfectly for local communication, they cannot help devices reach destinations outside the local network. This is where logical addressing (IP addresses) becomes essential.</p>
+<h3 id="physical-vs-logical-addressing-comparison">Physical vs Logical Addressing Comparison</h3>
+<p><strong>Venn Diagram of Physical vs Logical Addressing:</strong></p>
+<p><img alt="IMG_2507" src="https://github.com/user-attachments/assets/77838ab6-413a-4db7-acdc-7fd6f4eefb96" /></p>
+<h3 id="ipv4-vs-ipv6">IPv4 vs IPv6</h3>
+<p><strong>IPv4 (Internet Protocol version 4):</strong></p>
+<p>IPv4 was the first widely deployed system for global addressing but is running out of available addresses.</p>
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li><strong>32-bit address:</strong> approximately 4.3 billion possible addresses</li>
+<li><strong>Dotted-decimal notation:</strong> 192.168.1.10</li>
+<li><strong>Problems:</strong> Not enough addresses for billions of modern devices</li>
+</ul>
+<p><strong>IPv6 (Internet Protocol version 6):</strong></p>
+<p>IPv6 was created to solve IPv4's limitations and support long-term Internet growth.</p>
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li><strong>128-bit address:</strong> 340 undecillion addresses, virtually unlimited</li>
+<li><strong>Hexadecimal with colons:</strong> 2001:0db8:85a3::8a2e:0370:7334</li>
+<li><strong>Link-local addresses:</strong> Every IPv6 interface automatically generates an fe80:: address for local communication</li>
+</ul>
+<h2 id="3-technical-development-implementing-authentication-security">3. Technical Development – Implementing Authentication &amp; Security</h2>
+<h3 id="understanding-physical-addressing">Understanding Physical Addressing</h3>
+<p>In this activity, learn what a MAC address is, how it is structured, and why every networked device depends on it. Look at the physical device where it is located, a NIC, and compare with the different parts of a MAC Address and what they mean.</p>
+<p><strong>Step 1: Physical MAC Addressing</strong></p>
+<p><strong>Screenshot of NIC(Ethernet Port, Main Controller Chip, PCIe Connector):</strong></p>
+<p><img alt="IMG_2482" src="https://github.com/user-attachments/assets/510825a5-1674-4937-b88c-b0633757ef2a" /></p>
+<p><strong>Screenshot of NIC(Ethernet Port, Main Controller Chip, PCIe Connector):</strong></p>
+<p><img alt="IMG_2483" src="https://github.com/user-attachments/assets/4cf6a726-5a92-4653-8ce1-f170b1bb68fa" /></p>
+<p>On a local network, MAC addresses provide a unique physical address, allowing data packets be sent to the correct destination. A MAC address is considered a physical address because it is a unique identifier hardcoded into a device's<br />
+ NIC during manufacturing. Seeing a physical NIC shows you this address is tied directly to the hardware itself. </p>
+<p><strong>Step 2: Interpreting MAC Address</strong></p>
+<p><strong>Screenshot MAC Address</strong></p>
+<p><img width="726" height="362" alt="Screenshot 2025-11-19 at 12 47 33 PM" src="https://github.com/user-attachments/assets/f3a12c0b-7d6e-4151-8461-2473a1dac421" /></p>
+<p>Mac Address: <code>fe:9c:d4:b2:67:53</code>
+OUI: <code>fe:9c:d4</code></p>
+<p>Vendor/company information not found, this can happen with virtualization vendors.</p>
+<p>A physical NIC's MAC address comes from the manufacturer, while a virtual NIC's MAC is either generated by the hypervisor or is manually configured. Both use the same structure and are unique 
+identifiers, but physical MACs are tied to hardware, while virtual MACs are software-based and don't need a physical vendor ID. A virtual NIC still needs a MAC address because it's essential for 
+the device to communicate on a local network, where devices use MAC addresses to identify each other at the data link layer. </p>
+<p><strong>MAC Address Table Lookup</strong>
+| Full MAC Address | OUI(first 3 pairs) | Vendor/Company Name | Type of Vendor | Notes |
+|--------------|--------------|---------------------|-------|----|
+| F0:18:98:AA:BB:CC | F0:18:98 | Apple, Inc. | MA-L (Mac Address Block Large) | n/a |
+| 3C:5A:B4:11:22:33 | 3C:5A:B4 | Google, Inc. | MA-L | n/a |
+| 60:45:BD:12:34:56 | 60:45:BD | Microsoft | MA-L | n/a |
+| A4:BA:DB:22:33:44 | A4:BA:DB | Dell Inc. | MA-L | n/a |
+| 04:1A:04:55:66:77 | 04:1A:04 | WaveIP | MA-L | n/a |
+| 00:50:56:AA:BB:CC | 00:50:56 | VMware, INC. | MA-L | n/a |
+| 52:54:00:12:34:56 | 52:54:00 | Not Found | LLA (Locally Administered Addresses) | n/a |</p>
+<p>A VM's MAC address typically reveals the manufacturer of the virtual network interface card (NIC), which corresponds to the hypervisor vendor (ex. VMware, Microsoft). 
+It does not provide information about the specific underlying physical hardware model or its manufacturer, as the address is virtual and can often be manually changed or spoofed. </p>
+<p><strong>Step 3: Connecting Physical and Digital</strong></p>
+<p>Mac Address: <code>fe:9c:d4:b2:67:53</code>
+OUI: <code>fe:9c:d4</code>
+Device Identifier: <code>b2:67:53</code></p>
+<p>The Organizational Unique Identifier (OUI) is a 24-bit globally unique number that serves as the first half of a device's MAC address. It connects a Network Interface Card (NIC) to its 
+manufacturer because the Institute of Electrical and Electronics Engineers (IEEE) assigns specific OUIs to individual vendors.
+Manufacturers must use unique OUIs to ensure that every network-enabled device in the world has a universally unique MAC address, which is essential for network communication protocols 
+(like Ethernet and Wi-Fi) to function correctly and avoid address conflicts.</p>
+<p>Every NIC needs its own unique second half (the device identifier) because, combined with the manufacturer's unique first half (OUI), it creates a globally unique identifier for that 
+specific hardware device. This mechanism, controlled by the IEEE and manufacturers, prevents two devices on the same LAN from having the same MAC address. Uniqueness is important for frame delivery
+because network switches use MAC addresses to build forwarding tables and send data frames to the exact, intended recipient; duplicate addresses would cause confusion, leading to 
+inconsistent communication.</p>
+<p>The Data Link Layer (Layer 2) of the OSI model uses MAC addresses to facilitate communication between devices within the same local network segment. MAC addresses never leave the local network 
+because they are designed for local identification, not routing across the broader internet. When a frame needs to move to a different network, a router strips off the source and 
+destination MAC addresses and replaces them with the MAC addresses relevant to the next hop on the journey to the destination.</p>
+<h3 id="understanding-logical-addressing">Understanding Logical Addressing</h3>
+<p>use <code>ip addr show</code> to find IPv4 address and IPv6 link-local address in terminal.</p>
+<p><strong>ip addr show screenshot:</strong></p>
+<p><img width="733" height="412" alt="Screenshot 2025-12-01 at 1 28 49 PM" src="https://github.com/user-attachments/assets/984c45fa-d659-4699-a04c-9d9f5f0c5325" /></p>
+<p><strong>IPv6 Link-Local and the Future of IPv6:</strong></p>
+<p>An IPv6 link-local address is an automatically configured address for communication within a local network segment and always starts with "fe80::". It allows devices to find each other without needing a DHCP server or external configuration because the address is self generated based on the fe80:: prefix. These addresses are crucial for essential network functions, such as router discovery and automatic configuration, and are not routed beyond the local link. </p>
+<p>IPv4 is no longer sufficient because its 32-bit address space provides a theoretical maximum of approximately 4.3 billion unique systems globally. IPv6 solves this address shortage with a massive 128-bit address space that yields a virtually limitless number of addresses, ensuring that every device can have its own public IP. This transition is not just about quantity since IPv6 introduces new capabilities like more efficient routing, built-in security features, and better support for mobility and Quality of Service. During this multi year transition period, modern networks must support both IPv4 and IPv6 concurrently through mechanisms like dual stack operation to ensure seamless communication between existing systems and the new IPv6 infrastructure.</p>
+<p><strong>IPv4 vs IPv6 Comparison Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>IPv4</th>
+<th>IPv6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Address Length</td>
+<td>Shorter 32-bit identifier</td>
+<td>Longer 128-bit identifier</td>
+</tr>
+<tr>
+<td>Notation</td>
+<td>Uses four groups of Binary (0-255) separated by dots</td>
+<td>Uses 8 groups of Hexadecimal separated by colons</td>
+</tr>
+<tr>
+<td>Approximate Capacity</td>
+<td>around 4.3 billion</td>
+<td>Basically limitless (over 18 quintillion)</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>192.168.1.1</td>
+<td>fe80::2ffa:dca3:a63d</td>
+</tr>
+<tr>
+<td>Where I see it used</td>
+<td>More common on older systems and networks</td>
+<td>Increasingly seen on new systems and networks along with transitioning from IPv4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why Logical Addressing Exists?</strong></p>
+<p>Logical addressing exists in addition to physical MAC addresses because they serve different functions in the communication hierarchy. MAC addresses operate at the data link layer and are used solely for local communication within a single network segment, like identifying devices connected to the same switch or Wi-Fi router. In contrast, IP addresses operate at the network layer and are essential for global communication across the entire internet. Routers are the key devices that use IP addresses to efficiently forward data packets by inspecting the destination IP address in a packet's header and using routing tables to determine the next optimal path toward the destination network, rather than knowing the specific physical address of every single device globally. An example from personal experience involves web browsing, requesting a webpage results in the computer using the website's IP address to send the request out to the internet, and intermediate routers use that IP address to guide the request packet to the correct server thousands of miles away. Without IP addresses, data could never leave the local network boundary.</p>
+<h3 id="understanding-physical-addressing_1">Understanding Physical Addressing</h3>
+<p>Dynamic addressing uses protocols like DHCP to automatically assign IP addresses to devices as they join a network, which is efficient for managing many temporary connections such as mobile phones and laptops. In contrast, static addressing involves a network administrator manually configuring a fixed, permanent IP address for a specific device. Networks require both methods to operate effectively as dynamic addressing handles general client connectivity with minimal overhead, while static addressing ensures that critical resources, such as servers and network gateways, are always reachable at a predictable address. Dynamic addressing is ideal for typical end-user devices that frequently connect and disconnect, while static addressing should be reserved for equipment that must maintain a consistent, unchanging location on the network for other systems to reliably find them.</p>
+<p>Use <code>ip addr show</code> to find IPv4 address and IPv6 link-local address in terminal.</p>
+<p><strong>ip addr show in VM #1</strong></p>
+<p><img width="732" height="407" alt="Screenshot 2025-12-02 at 2 24 24 PM" src="https://github.com/user-attachments/assets/ebf88252-553a-4d72-89ab-7f985b019635" /></p>
+<p><strong>ip addr show in VM #2</strong></p>
+<p><img width="652" height="438" alt="Screenshot 2025-12-02 at 2 16 37 PM" src="https://github.com/user-attachments/assets/cc3b3957-2cff-48ca-a77a-cf282513478a" /></p>
+<p><strong>Network Configuration Files:</strong></p>
+<p>Use <code>ls /etc/netplan</code> to find which Netplan file is loaded.</p>
+<p><strong>Find Netplan File Screenshot VM #1:</strong></p>
+<p><img width="312" height="42" alt="Screenshot 2025-12-02 at 2 25 06 PM" src="https://github.com/user-attachments/assets/b0bfa928-5ce1-41b3-80d5-c2ae33951ca0" /></p>
+<p>Use <code>cat /etc/netplan/*.yaml</code> to find whether the file contains dhcp4 or dhcp6.</p>
+<p><strong>Netplan File Screenshot VM #1:</strong></p>
+<p><img width="537" height="144" alt="Screenshot 2025-12-02 at 2 27 15 PM" src="https://github.com/user-attachments/assets/fae22766-cc77-4055-8f50-20b98cbbbf32" /></p>
+<p>On VM #2 use <code>sudo cat /etc/netplan/*.yaml</code> to find network configuration. If that doesn't work, you can use <code>nmcli device show</code> to find if it uses Netplan or NetworkManager.</p>
+<p><strong>Netplan File Screenshot VM#2:</strong></p>
+<p><img width="589" height="286" alt="Screenshot 2025-12-02 at 2 32 07 PM" src="https://github.com/user-attachments/assets/48556283-dfa9-4e4d-8c8b-a5a2d162b69a" /></p>
+<p>Two different Linux VMs might employ distinct networking configuration tools, such as netplan on Ubuntu or NetworkManager on Linux, leading to varying configurations. While both can utilize DHCP for IPv4 address assignment, DHCP can only use IPv6 on the linux version. The configuration syntaxes are a bit different since VM#1 uses netplan while VM#2 uses network manager. Netplan uses YAML files for declaring the configuration and NetworkManager relies on command-line tools interfaces. This divergence in configuration approaches stems from different distribution design choices and the specific needs of administrators or automated systems</p>
+<p><strong>Scenario Analysis Table:</strong>
+| Device | Static or Dynamic? | Justification (2 sentences) |
+|---------|---------------|---------------------|
+| School Web Server | Static | The web server must maintain a consistent, unchanging IP address so that users can reliably access the website. If its IP address changed frequently, external users would not be able to locate the server on the network. |
+| Classroom Printer | Static | Printers in a networked environment are generally assigned a static IP address to ensure all users can consistently send print jobs to the correct device. |
+| Student Laptops | Dynamic | Laptops are mobile devices that connect to different networks (different classrooms, home, public Wi-Fi). Using dynamic addresses allows the device to automatically obtain a new IP configuration from each new network's DHCP server without manual intervention. |
+| Security Cameras | Static | Security cameras need to be consistently accessible and locatable on the network for monitoring and recording purposes. A static IP ensures that monitoring software and network administrators always know exactly where to find the camera's feed. |
+| Teacher Workstation | Dynamic | Similar to student laptops, teacher workstations may be moved between different classrooms or offices. Using dynamic addressing simplifies network management and connectivity, allowing the device to easily connect with any network segment with a DHCP server. |</p>
+<h3 id="configuring-and-verifying-ip-addresses-on-a-linux-vm">Configuring and  Verifying IP Addresses on a Linux VM</h3>
+<p>Physical addressing uses a unique, permanent MAC address for local network identification, while logical addressing uses a temporary or permanent IP address for global identification on a network. An IP address can be assigned dynamically, changing over time and managed by a DHCP server for simplicity and efficiency, or assigned statically, remaining fixed for a specific device and used for things like remote access or hosting servers. This activity tests switching from DHCP to static addressing.</p>
+<p>Use <code>ip link show</code> to find active network interfaces.</p>
+<p><strong>ip link show screenshot:</strong></p>
+<p><img width="648" height="167" alt="Screenshot 2025-12-04 at 8 17 36 AM" src="https://github.com/user-attachments/assets/277faac1-3398-42ee-920c-358d49857204" /></p>
+<p>From the screenshot, enp0s1 is the active network.</p>
+<p>Next to convert DHCP to Static IP to use sudo nano <code>/etc/netplan/&lt;filename&gt;.yaml</code> to edit the DHCP status. To find the filename you can use <code>ls /etc/netplan</code> (e.x. 50-cloud-init.yaml). Once opening the .yaml file, edit dhcp4 to say no and add in you own static addressing.</p>
+<p><strong>Yaml File before Editing:</strong></p>
+<p><img width="645" height="436" alt="Screenshot 2025-12-04 at 8 22 06 AM" src="https://github.com/user-attachments/assets/bfe14919-1282-43f3-bb8e-524d70e0f4b4" /></p>
+<p><strong>Yaml File after Editing:</strong></p>
+<p><img width="647" height="439" alt="Screenshot 2025-12-04 at 8 24 07 AM" src="https://github.com/user-attachments/assets/afdbc197-88b2-4776-9c4a-ea2537d7b901" /></p>
+<p>Finally after changing the .yaml file, use <code>sudo netplan apply</code> to change from DHCP to the static IP address personally assigned.</p>
+<p><strong>sudo netplan apply screenshot:</strong></p>
+<p><img width="653" height="257" alt="Screenshot 2025-12-04 at 8 33 54 AM" src="https://github.com/user-attachments/assets/d97d60df-233f-4572-b4e6-ffe7f59e14b1" /></p>
+<p><strong>Verify Static IP Configuration</strong></p>
+<p>To verify that the static IP configuration worked, use <code>ip addr show</code> to confirm the IP address is the static address. Also, use <code>ip route show</code> to see a default gateway like something typed in the .yaml file (ex. default via 192.168.1.1 dev enp0s1). Finally, use <code>ping -c 4 8.8.8.8</code> to test connectivity.</p>
+<p><strong>ip addr show screenshot:</strong></p>
+<p><img width="646" height="297" alt="Screenshot 2025-12-04 at 8 34 23 AM" src="https://github.com/user-attachments/assets/560d6cd6-8e3c-4fab-8732-510d01cbf270" /></p>
+<p><strong>ip route show screenshot:</strong></p>
+<p><img width="645" height="88" alt="Screenshot 2025-12-04 at 8 34 35 AM" src="https://github.com/user-attachments/assets/f3990a43-0a51-4989-bc08-b905199fede3" /></p>
+<p><strong>ping -c 4 8.8.8.8 screenshot:</strong></p>
+<p><img width="555" height="197" alt="Screenshot 2025-12-04 at 8 40 27 AM" src="https://github.com/user-attachments/assets/68707892-879b-4384-a4fd-003acffaadb4" /></p>
+<p>From the testing the ip addr show confirms that the static IP address is the new one for enp0s1 while the ip route show confirms that the routing with the new static ip address is right. Additionall, the ping demonstrates that connections using the new static ip address work.</p>
+<p>The most challenging part of IP configuration was likely troubleshooting IP address conflicts caused by manual static assignments. Manually assigning static IP addresses without a centralized management tool or a clear plan makes it easy for two devices to end up with the same address, which disrupts network communication and causes connectivity failures. 
+Additionally, YAML syntax and networking settings are very sensitive. A single, misplaced space or an incorrect value in a YAML configuration file can completely break a network service or prevent a device from connecting. For instance, an incorrect subnet mask, default gateway, or DNS server IP, even if the address format is valid, will cause routing errors and block internet access. </p>
+<h2 id="4-testing-evaluation-network-verification">4. Testing &amp; Evaluation – Network Verification</h2>
+<p>All addressing concepts were tested and verified through hands on activities and cli commands.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Test Performed</th>
+<th>Verification Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VM MAC Address</td>
+<td><code>ip link show</code></td>
+<td>MAC address fe:9c:d4:b2:67:53 successfully identified</td>
+</tr>
+<tr>
+<td>OUI Lookup</td>
+<td>Searched seven MAC addresses on maclookup.app</td>
+<td>Identified vendors</td>
+</tr>
+<tr>
+<td>IPv4 Address</td>
+<td><code>ip addr show</code></td>
+<td>VM #1: DHCP assigned address; VM #2: DHCP then static configuration</td>
+</tr>
+<tr>
+<td>IPv6 Link-Local</td>
+<td><code>ip addr show</code></td>
+<td>Both VMs showed automatically generated IPv6 link-local addresses</td>
+</tr>
+<tr>
+<td>DHCP Configuration (VM #1)</td>
+<td><code>cat /etc/netplan/*.yaml</code></td>
+<td>Confirmed dhcp4: true in 50-cloud-init.yaml</td>
+</tr>
+<tr>
+<td>DHCP Configuration (VM #2)</td>
+<td><code>sudo cat /etc/netplan/*.yaml</code> and <code>nmcli device show</code></td>
+<td>Identified NetworkManager and Netplan</td>
+</tr>
+<tr>
+<td>Static IP Assignment</td>
+<td>Edited YAML file with static address, gateway, and DNS</td>
+<td>Successfully changed dhcp4 to "no" and added static configuration</td>
+</tr>
+<tr>
+<td>Static IP Verification</td>
+<td><code>ip addr show</code></td>
+<td>Confirmed interface shows static address 192.168.1.57 instead of DHCP</td>
+</tr>
+<tr>
+<td>Routing Table</td>
+<td><code>ip route show</code></td>
+<td>Default gateway correctly shows "default via 192.168.1.1 dev enp0s1"</td>
+</tr>
+<tr>
+<td>External Connectivity</td>
+<td><code>ping -c 4 8.8.8.8</code></td>
+<td>Connections confirming static IP configuration allows internet access</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-reflection">5. Reflection</h2>
+<p>Through these addressing labs, I gained comprehensive understanding of how devices identify themselves at both the physical hardware level and the logical network level, and why both types of addressing are essential for modern networking. The physical addressing activities taught me that MAC addresses are permanently embedded into NICs during manufacturing and serve as the fundamental identifier for Layer 2 communication within local networks. I got to understand the physical components of the NIC along with the different identifiers for the MAC address. Additionally, I learned how Logical addressing through IP addresses works alongside MAC Addresses to provide connection since IP addresses complete the transformation of information for global connection.</p>
+<p>I also developed a strong understanding of the difference between DHCP and static addressing, especially how DHCP provides convenience for devices that change networks, while static addressing is required for predictable and stable access to different networks and servers. Comparing VM #1 and VM #2 helped me see how different systems utilize different tools, Netplan and NetworkManager, for managing network configuration. One of the most important lessons I learned was how sensitive YAML files are; even minor mistakes in spacing or indentation can break the entire network configuration. Switching VM #2 from DHCP to a static IP and verifying connectivity made the concepts feel real and connected everything I learned to practical, real-world network administration. Overall, this project strengthened my understanding of how addressing works from the hardware level all the way up to routing across networks, and how essential careful configuration is in any professional networking environment.</p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../..';</script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../assets/js/mkdocs.js"></script>
+			<script src="../../../search/main.js" defer></script>
+
+</body>
+
+</html>
