@@ -3,32 +3,68 @@
 ## 1. Project Overview  
 
 **Problem Statement:**  
-Understand how networks physically connect and communicate by exploring OSI Layers 1-3, building Ethernet cables, comparing network modes, designing topologies, and simulating a SOHO network.
+Understand how devices identify themselves on networks through physical (MAC) and logical (IP) addressing, and learn how to configure both dynamic and static IP addresses.
 
 **Objectives:**  
 
-- Explore OSI Layer 1 and Layer 2 using Ubuntu commands
-- Build and test Ethernet cables 
-- Compare shared and bridged network modes and their IP addressing
-- Design and label common network topologies (star, bus, ring, mesh, hybrid)
-- Create and simulate a SOHO network with proper IP addressing and firewall configuration
+- Identify and understand MAC addresses on physical NICs and virtual machines
+- Explain the difference between physical and logical addressing
+- Analyze DHCP versus static IP addressing and when to use each
+- Configure static IP addresses using Netplan on a Linux VM
 
 **Success Criteria:**  
 
-- Complete documentation of OSI Layers 1 & 2 exploration with labeled screenshots
-- Successfully constructed and tested Ethernet cables with video demonstrations
-- Clear comparison table showing Shared vs. Bridged mode IP addressing
-- Toplogy diagrams with color-coded connections
-- Functional SOHO network simulation with connectivity tests 
+- Complete NIC labeling with accurate identification
+- Successful understanding of MAC addresses and different sections
+- DHCP analysis from both VMs showing configuration differences
+- Working static IP configuration on VM #2 verified with ip addr, ip route, and ping tests
 
-## 2. Design & Planning – OSI Layers and Network Design
+## 2. Design & Planning – Understanding Physical and Logical Addressing
 
-### Understanding OSI Layers 1 and 2
+### MAC Addresses
 
-The OSI Model organizes networking into seven layers, from physical hardware at the bottom to applications at the top. The first two layers form the foundation of all network communication.
+A MAC address (Media Access Control address) is a permanent hardware identifier assigned to every Network Interface Card (NIC) when it is manufactured. This physical address operates at Layer 2 of the OSI Model and is used for local network communication within the same network segment. MAC addresses are considered physical addresses because they are tied directly to physical hardware. A MAC address permanently identifies a specific network interface card. The address is embedded into the hardware at the factory and does not change even if the device moves to a different network.
 
-**Layer 1: The Physical Layer**
+**MAC Address Structure:**
 
+| Component | Description | Example |
+|-----------|-------------|---------|
+| First 3 bytes (OUI) | Organizationally Unique Identifier - identifies the manufacturer | 78:4f:43 |
+| Last 3 bytes | Device Identifier - unique to that specific NIC | 91:2a:10 |
+| Full MAC Address | Complete 48-bit hardware address | 78:4f:43:91:2a:10 |
+
+### Why Logical Addressing Exists?
+
+While MAC addresses work perfectly for local communication, they cannot help devices reach destinations outside the local network. This is where logical addressing (IP addresses) becomes essential.
+
+
+### Physical vs Logical Addressing Comparison
+
+**Venn Diagram of Physical vs Logical Addressing:**
+
+![IMG_2507](https://github.com/user-attachments/assets/77838ab6-413a-4db7-acdc-7fd6f4eefb96)
+
+### IPv4 vs IPv6
+
+**IPv4 (Internet Protocol version 4):**
+
+IPv4 was the first widely deployed system for global addressing but is running out of available addresses.
+
+**Key Characteristics:**
+
+- **32-bit address:** approximately 4.3 billion possible addresses
+- **Dotted-decimal notation:** 192.168.1.10
+- **Problems:** Not enough addresses for billions of modern devices
+
+**IPv6 (Internet Protocol version 6):**
+
+IPv6 was created to solve IPv4's limitations and support long-term Internet growth.
+
+**Key Characteristics:**
+
+- **128-bit address:** 340 undecillion addresses, virtually unlimited
+- **Hexadecimal with colons:** 2001:0db8:85a3::8a2e:0370:7334
+- **Link-local addresses:** Every IPv6 interface automatically generates an fe80:: address for local communication
 
 ## 3. Technical Development – Implementing Authentication & Security
 
@@ -225,25 +261,20 @@ Additionally, YAML syntax and networking settings are very sensitive. A single, 
 
 ## 4. Testing & Evaluation – Network Verification
 
-All networking concepts were tested and verified through practical lab activities.
+All addressing concepts were tested and verified through hands on activities and cli commands.
 
 | Concept | Test Performed | Verification Result |
 |---------|---------------|---------------------|
-| OSI Layer 1 | `ethtool enp0s1` | Confirmed physical connection speed, duplex mode, and link status |
-| OSI Layer 2 | `ip link show`, `arp -n` | Identified MAC address and ARP table showing local device mapping |
-| Network Traffic | `tcpdump -c 5` | Captured live packets showing source/destination MAC addresses |
-| Cable Construction | Cable tester with indicator lights | All 8 wires passed test in correct order (T568B standard) |
-| Shared Mode IP | `ip a` and whatismyipaddress.com | Internal: 192.168.64.2, External: 173.95.44.210 |
-| Bridged Mode IP | `ip a` and whatismyipaddress.com | Internal: 10.24.0.168, External: 173.95.44.210 |
-| VM Connectivity | `ping` between partner VMs | Successful replies with <1ms latency, 0% packet loss |
-| Routing | `netstat -r`, `traceroute google.com` | Displayed routing table and multi-hop path to external servers |
-| Firewall | `sudo ufw status` | Confirmed firewall active and protecting system |
-| Application Layer | Python http.server | Successfully served files between VMs over HTTP |
+| VM MAC Address | ```ip link show``` | MAC address fe:9c:d4:b2:67:53 successfully identified |
+| OUI Lookup | Searched seven MAC addresses on maclookup.app | Identified vendors |
+| IPv4 Address | `ip addr show` | VM #1: DHCP assigned address; VM #2: DHCP then static configuration |
+| IPv6 Link-Local | `ip addr show` | Both VMs showed automatically generated IPv6 link-local addresses |
+| DHCP Configuration (VM #1) | `cat /etc/netplan/*.yaml` | Confirmed dhcp4: true in 50-cloud-init.yaml |
+| DHCP Configuration (VM #2) | `sudo cat /etc/netplan/*.yaml` and `nmcli device show` | Identified NetworkManager and Netplan |
+| Static IP Assignment | Edited YAML file with static address, gateway, and DNS | Successfully changed dhcp4 to "no" and added static configuration |
+| Static IP Verification | `ip addr show` | Confirmed interface shows static address 192.168.1.57 instead of DHCP |
+| Routing Table | `ip route show` | Default gateway correctly shows "default via 192.168.1.1 dev enp0s1" |
+| External Connectivity | `ping -c 4 8.8.8.8` | Connections confirming static IP configuration allows internet access |
 
 ## 5. Reflection  
 
-Through these networking labs, I gained comprehensive hands on experience with the foundational layers of network communication and how physical infrastructure connects to logical addressing and data flow. The OSI Layers 1 and 2 exploration taught me that networking starts with physical hardware and MAC addresses before any IP addressing comes into play. Building and testing Ethernet cables showed me why proper Physical Layer construction is critical because even one misplaced wire completely breaks connectivity. The Shared versus Bridged mode comparison clarified how network address translation works and why organizations use NAT to conserve IPv4 addresses while adding security through network isolation. Shared mode hides the VM behind the host computer's IP address, which is safer but less flexible, while Bridged mode makes the VM appear as its own device with direct network access, which is more exposed but enables server functionality. 
-
-Additionally, creating topology diagrams for star, bus, ring, mesh, and hybrid networks illustrated that network design involves tradeoffs between cost, reliability, and scalability. For example, star topology is simple and cheap but has a single point of failure at the central switch, while mesh topology is extremely reliable with redundant paths but expensive due to all the extra cabling and ports required. 
-
-The SOHO network simulation brought everything together by requiring me to design a complete network with proper IP addressing, then test it using actual Ubuntu commands. Pinging between partner VMs proved Layer 3 connectivity, examining ARP tables showed Layer 2 MAC address mapping, running traceroute demonstrated how data crosses multiple networks to reach the internet, and enabling the firewall added essential security filtering. The Python web server activity was particularly interesting because it showed me how Application Layer protocols like HTTP depend entirely on other layers and the result of connectivity.
