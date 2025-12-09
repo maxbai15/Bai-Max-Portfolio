@@ -100,6 +100,9 @@ Practiced 3D printing by printing a joy fidget toy. Also practiced laser cutting
 10/17:
 Mr.Dubick taught us about setting up Github pages.
 
+12/9:
+Today I started trying to mill my topography graph. I uploaded the file into makeraCam, but it appeared upside down at first, but after going back to the aspire file everythign seemed fine. In the end, the upside down showing up on makeraCam was just an illusion. Additionally, when starting to cut it was in the wrong spot because the machine was set to anchor 2 instead of anchor 1.
+
 
 
 
