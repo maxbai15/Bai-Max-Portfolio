@@ -36,6 +36,20 @@ On a LAN, devices such as misconfigured printers of access points like routers o
 | Scenario A | A device recieves a default gateway that does not match the actual router | DHCP Misconfiguration | The deafult ip is conigured by DCHP, but it doesn't seem to be the right gateway so it was configured incorrectly |
 | Scenario B | The switch CPU spkies many MAC addresses appear on one port | Cyberattack | Many MAC addresses flooding the server would disrupt the transportation of information to the right places, destroying the network |
 
+### Security Controls Common Vulnerabilities
+
+**ip addr and ip route VM#2**
+
+![Image 12-17-25 at 10 32 AM](https://github.com/user-attachments/assets/da4509c6-b2c7-4874-bda5-a8b529692535)
+
+**arping from VM#1**
+
+![Image 12-17-25 at 10 49 AM](https://github.com/user-attachments/assets/f378ea71-d32b-4105-8d7b-3ee805ebdc25)
+
+**tcpdump on VM#2**
+
+![Image 12-17-25 at 10 50 AM](https://github.com/user-attachments/assets/a7fab037-cfcd-4cc4-86b5-d22dbd846552)
+
 
 ## 4. Testing & Evaluation – Network Verification
 
