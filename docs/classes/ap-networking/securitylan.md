@@ -26,6 +26,7 @@ Understand how devices identify themselves on networks through physical (MAC) an
 
 ## 3. Technical Development – Implementing Authentication & Security
 
+
 ### Common Security Controls
 
 On a LAN, devices such as misconfigured printers of access points like routers or switches would be the easiest place for an attacker to compromise since those are usually where the security is the weakest since people have to commonly access those devices. Proximity doesn't equal safety since wireless connections are often more vunerable through open gates/doors through wi-f/network connections. In a LAN devices can often see traffic involving the device and also open doors/ports.
