@@ -50,6 +50,10 @@ On a LAN, devices such as misconfigured printers of access points like routers o
 
 ![Image 12-17-25 at 10 50 AM](https://github.com/user-attachments/assets/a7fab037-cfcd-4cc4-86b5-d22dbd846552)
 
+ARP reveals the Media Access Control (MAC) addresses associated with specific Internet Protocol (IP) addresses of devices on a local area network (LAN). It operates by broadcasting a request asking which device has a particular IP address and expects the corresponding device to respond with its unique hardware address.
+ARP assumes devices are trustworthy because the original design philosophy of early networks, for which ARP was created, often prioritized functionality and efficiency over robust security, operating in what were considered inherently trusted local environments. The protocol has no built-in mechanisms for verification or authentication of responses; it simply accepts the first valid reply it receives as legitimate and caches the information for future use.
+This lack of authentication makes ARP vulnerable to spoofing because a malicious actor can send a false ARP reply, claiming to have the MAC address for a different device's IP address. Legitimate devices on the network will update their ARP caches with this incorrect information, inadvertently sending traffic meant for the legitimate device to the attacker instead.
+Bridged mode was likely required for this lab to work because it places the virtual machine directly onto the physical host's network, giving it a unique IP address on the same LAN as other devices. This configuration allows the virtual machine to participate in the broadcast domain and exchange ARP traffic directly with other physical and virtual hosts, which is essential for observing or performing ARP-related activities like spoofing within a realistic LAN environment.
 
 ## 4. Testing & Evaluation – Network Verification
 
