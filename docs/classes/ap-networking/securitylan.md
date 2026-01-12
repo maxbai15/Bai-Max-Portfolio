@@ -55,9 +55,19 @@ ARP assumes devices are trustworthy because the original design philosophy of ea
 This lack of authentication makes ARP vulnerable to spoofing because a malicious actor can send a false ARP reply, claiming to have the MAC address for a different device's IP address. Legitimate devices on the network will update their ARP caches with this incorrect information, inadvertently sending traffic meant for the legitimate device to the attacker instead.
 Bridged mode was likely required for this lab to work because it places the virtual machine directly onto the physical host's network, giving it a unique IP address on the same LAN as other devices. This configuration allows the virtual machine to participate in the broadcast domain and exchange ARP traffic directly with other physical and virtual hosts, which is essential for observing or performing ARP-related activities like spoofing within a realistic LAN environment.
 
+
+
 **MAC Flooding Attack Diagram**
 
 <img width="1394" height="798" alt="Screenshot 2025-12-18 at 12 47 13 PM" src="https://github.com/user-attachments/assets/2c0ff8fc-85a3-47c6-9979-629a3e0a3e0b" />
+
+### Physical Security Controls
+
+**Physical Security Diagram:**
+
+<img width="1920" height="1080" alt="Screenshot 2026-01-12 at 9 33 42 AM" src="https://github.com/user-attachments/assets/08524d1d-5628-404b-a8ee-ac90ff2a4a51" />
+
+
 
 ## 4. Testing & Evaluation – Network Verification
 
