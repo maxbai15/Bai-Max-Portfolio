@@ -7,7 +7,7 @@
 
 ## 3. Technical Development – Implementing Authentication & Security
 
-## Common LAN Threats
+### Common LAN Threats
 
 ## 4. Testing & Evaluation – Network Verification
 
