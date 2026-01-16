@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Why Can't These Two Computers Talk to Each Other? - My Digital Portfolio</title>
+        <title>Determining Security Controls in a LAN - My Digital Portfolio</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,7 +81,7 @@
             </li>
             <li class="drac-box">
                 <a href="../../.."
-                    class=" active 
+                    class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#classes-collapse" aria-expanded="false">
                     Classes
@@ -148,8 +148,8 @@
     </li>
                     
     <li class="drac-box-ternary">
-        <a href="./"
-            class=" active 
+        <a href="../whycant/"
+            class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Why Can't These Two Computers Talk to Each Other?
         </a>
@@ -201,22 +201,6 @@
                     <!-- block preview -->
                     <li class="nav-item">
                             
-        <div class="container">
-            <div class="row row-preview">
-                <div class="col">
-                    <a href="../202511TypesNetwork/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="../addressing/"
-                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
                     </li>
                     <!--  endblock -->
 
@@ -247,29 +231,99 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><h1 id="why-cant-these-two-computers-talk-to-each-other">Why Can’t These Two Computers Talk to Each Other?</h1>
-<h2 id="digital-portfolio-evidence-1-physical-layer-check-layer-1">Digital Portfolio Evidence #1: Physical Layer Check (Layer 1)</h2>
-<p><strong>Screenshot of ip a for both VM's</strong></p>
-<p><img width="740" height="303" alt="Image 11-18-25 at 10 53 AM" src="https://github.com/user-attachments/assets/cc9ff34c-f7de-46bb-9fef-af39f570f810" />
-<img width="735" height="272" alt="Image 11-18-25 at 11 06 AM" src="https://github.com/user-attachments/assets/c7aac8c3-70c0-4564-8c2b-3864a5fadc2d" /></p>
-<p>The physical layer appears to be functioning correctly. Both virtual machines show the wired interface <code>enp0s1</code> in <code>state UP</code> with valid MAC addresses. The Ethernet cable is properly connected between both Mac desktops, confirming that Layer 1 connectivity is established.</p>
-<h2 id="digital-portfolio-evidence-2-data-link-layer-check-layer-2">Digital Portfolio Evidence #2: Data Link Layer Check (Layer 2)</h2>
-<p><strong>Screenshot of attempted ping</strong></p>
-<p><img width="693" height="293" alt="Image 11-18-25 at 11 07 AM" src="https://github.com/user-attachments/assets/ce607245-da11-464e-916d-1f426519f117" />
-<img width="681" height="76" alt="Image 11-18-25 at 11 06 AM copy" src="https://github.com/user-attachments/assets/ea449ab6-a4b0-45d2-959b-6a4da14ae778" /></p>
-<p>Layer 2 shows evidence of failure. The ping attempt resulted in "Destination Host Unreachable," which indicates that the system cannot resolve the partner's MAC address through ARP, meaning the two VMs are not on the same broadcast domain despite the physical connection.</p>
-<h2 id="digital-portfolio-evidence-3-network-layer-check-layer-3">Digital Portfolio Evidence #3: Network Layer Check (Layer 3)</h2>
-<p><strong>Screenshot of ip addresses for VM's</strong></p>
-<p><img width="646" height="321" alt="Image 11-18-25 at 11 31 AM" src="https://github.com/user-attachments/assets/597a81c9-97e6-4a9a-8bb6-32f4f383e5e9" />
-<img width="826" height="262" alt="Image 11-18-25 at 11 31 AM 2" src="https://github.com/user-attachments/assets/d30904fe-176e-4ed7-842a-ef39ffd852bf" /></p>
-<p>Both virtual machines display identical or similar IP addresses (10.12.xx.xx), which initially suggests they might be on the same subnet. However, this is misleading since even though the IP addresses appear to be in the same subnet, they are actually on completely separate private networks that cannot communicate with each other. Layer 3 addressing cannot function properly because the VMs are fundamentally isolated at the data link layer and are not actually on the same subnet.</p>
-<h2 id="digital-portfolio-evidence-4-ping-failure-confirmation">Digital Portfolio Evidence #4: Ping Failure Confirmation</h2>
-<p><strong>Screenshot of Ping Failure Confirmation</strong></p>
-<p><img width="645" height="205" alt="Image 11-18-25 at 11 37 AM" src="https://github.com/user-attachments/assets/46a6acf0-4611-4c3a-ae66-d5d8a90b3bf4" />
-<img width="612" height="240" alt="Image 11-18-25 at 11 37 AM 2" src="https://github.com/user-attachments/assets/0239aafa-840b-47a3-b163-4c1499f10a7d" /></p>
-<p>The ping failure occurs at Layer 3 (Network Layer) and is a result of Layer 2 not working properly. While Layer 1 is physically functional, the virtual networking architecture prevents Layer 2 broadcast traffic from reaching between the two VMs, and Layer 3 routing cannot occur because the VMs exist in separate virtual networks with no route to find the MAC address of the other.</p>
-<h2 id="reflection-paragraph">Reflection Paragraph</h2>
-<p>The two computers could not communicate despite being connected with a working Ethernet cable because they weren't on the same virtual network. Although Layer 1 was functioning correctly with the cable properly connected and interfaces showing "state UP," the failure occurred primarily at Layer 2, resulting  Layer 3 failure too. Though both VMs had IP addresses in the same apparent subnet (10.12.xx.xx), they were actually on completely different private networks with no Layer 2 broadcast domain connection, resulting in no Layer 3 routing path between them. UTM prevents direct communication in host-only mode to maintain security and isolation between virtual machines. To allow communication, we would need to configure both VMs to use bridged networking mode, allowing MAC addresses to locate each other and result in a routing path between the two VM's. In a real SOHO network, routers provide Layer 3 routing between different subnets and assign devices to the same network, while switches create a Layer 2 broadcast domain, ensuring that devices on the same subnet can discover each other's MAC addresses and communicate directly.</p></p>
+        <p><h1 id="determining-security-controls-in-a-lan">Determining Security Controls in a LAN</h1>
+<h2 id="1-project-overview">1. Project Overview</h2>
+<h2 id="2-design-planning-understanding-physical-and-logical-addressing">2. Design &amp; Planning – Understanding Physical and Logical Addressing</h2>
+<h2 id="3-technical-development-implementing-authentication-security">3. Technical Development – Implementing Authentication &amp; Security</h2>
+<h3 id="common-lan-threats">Common LAN Threats</h3>
+<p>In a switched LAN environment, a standard endpoint device like an unmanaged workstation is arguably the easiest target for an attacker to compromise. These devices often have less  security configurations than critical network infrastructure like firewalls or core switches. This contrasts with infrastructure devices which are generally better hardened and less exposed to direct threats.
+A device being “inside” the network is generally far more dangerous for the entire organization than one outside. Internal positioning bypasses initial perimeter defenses like firewalls and intrusion prevention systems, granting an attacker direct access to internal resources, sensitive data, and the ability to move  across the network to compromise further systems. Outside devices must contend with multiple layers of security designed to detect and block unauthorized access attempts.
+By default, a typical device inside a switched LAN has limited visibility into other devices' traffic. A switch learns which devices are on which ports and only forwards traffic intended for a specific destination to that port. However, an attacker can learn a great deal about the network's structure, the IP addresses and MAC addresses of other devices, open ports, and potentially intercept traffic if they use specific techniques like Address Resolution Protocol (ARP) spoofing or port mirroring. </p>
+<p><strong>Screenshot Showing Evidence of Neighbor Discovery:</strong></p>
+<p><img width="2780" height="1448" alt="Image 1-14-26 at 12 40 PM" src="https://github.com/user-attachments/assets/12f18adf-6e36-4859-836e-97054401a9bd" /></p>
+<p>A attacker could directly utilize the infromation in the screenshot because it can see the default gateway and potentially use that to try and enter the network. Additionally, the arp command demonstrates how once inside the network, attackers would be able to see other devices within the network.</p>
+<p><strong>Scenario Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Symptoms</th>
+<th>Hypothesis</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scenario A</td>
+<td>Multiple device have valid IP addresses but not gateway addresses that match the router, so they can't connect to internet</td>
+<td>DHCP Conflict</td>
+<td>Some devices might be getting assinged IP addresses from another router, causing certain devices to have valid IP addresses but the wrong default</td>
+</tr>
+<tr>
+<td>Scenario B</td>
+<td>High CPU performance because hundreds of MAC addresses appear on a single switch suddenly</td>
+<td>MAC Address Flooding</td>
+<td>Many MAC addresses flooding the server suddenly instead of gradually hints at an attack. Also it results in the slowing dont of the network which is what an attacker may try to do.</td>
+</tr>
+<tr>
+<td>Scenario C</td>
+<td>A few devices have been assigned IP addresses in the wrong subnet. DHCP is up, but the normal network documentation is different.</td>
+<td>DHCP Spoofing</td>
+<td>First, they are assigned the wrong IP addresses which could happen because of DHCP Spoofing. Additionally, the normal documentation differs which hints at this being an attack because it isn't an official assignment</td>
+</tr>
+<tr>
+<td>Scenario D</td>
+<td>An unseen device sunddenly communicates with multiple hosts on a network. Appears to come from a physical jack</td>
+<td>Rogue Network Device</td>
+<td>The unseen device enters during normal hours and is not authorized to be in the network. Assumed to come from a wall jack, it can easily enter the network since the physical ports are loose.</td>
+</tr>
+<tr>
+<td>Scenario E</td>
+<td>A student workstation with no admin rights is communicationg with restricted areas of the network</td>
+<td>No VLAN Segmentation</td>
+<td>Since no firewalls are trigged when the student workstation communicates with admin and server devices, their must be no segmentation since the lower level devices are able to enter restricted data.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="switch-security-controls">Switch Security Controls</h3>
+<table>
+<thead>
+<tr>
+<th>VM Evidence</th>
+<th>Vulnerability</th>
+<th>Control</th>
+<th>Why Mitigates Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img width="819" height="365" alt="Screenshot 2026-01-16 at 9 45 10 AM" src="https://github.com/user-attachments/assets/8d626b08-ae18-4c06-8f6c-870427fdeb26" /></td>
+<td>The first screenshot shows a flat network without vlan segmentation. The network has a switch with two end devices connected to it. With the flat segmentation, any device on the network can see other devices</td>
+<td>VLAN Segmentation</td>
+<td>Creating different VLANs will help to ensure all devices on the network can't see each other, only being split into networks where certain devices can see certain devices</td>
+</tr>
+<tr>
+<td><img width="465" height="264" alt="Screenshot 2026-01-16 at 9 52 17 AM" src="https://github.com/user-attachments/assets/85999a36-5ce7-48b4-b89c-c1a637916bae" />, <img width="444" height="166" alt="Screenshot 2026-01-16 at 9 48 51 AM" src="https://github.com/user-attachments/assets/76dc7fcc-7b09-4e9c-b147-abeed2594d3e" /></td>
+<td>The flat network from above</td>
+<td>The screenshots demonstrate the commands for creating two different VLANs(10 - Students, 20 - Servers). The second screenshot demonstrates the successful VLAN creation with the end devices assigned to different VLANs</td>
+<td>This helps mitigate risk since only devices on the same VLAN can now reach each other, protecting more critical devices like the server from just normal devices at the student level</td>
+</tr>
+<tr>
+<td><img width="254" height="82" alt="Screenshot 2026-01-16 at 9 57 55 AM" src="https://github.com/user-attachments/assets/18cf8fb9-0c1b-4745-979d-2f43ad10491d" />, <img width="285" height="330" alt="Screenshot 2026-01-16 at 9 59 51 AM" src="https://github.com/user-attachments/assets/ee42f0a3-7df0-4676-9e32-e32d65d96e97" /></td>
+<td>Unprotected port security is a vulnerability since any device connecting to a port on the network gains access to the network without any problem</td>
+<td>The fire screenshot demonstrates how to enable this using switchport commands while the second screenshot is evidence of port security being enabled on both end devices for ports fa0/1 and fa0/2</td>
+<td>Port Security helps to mitigate risks because it protects from a rogue device joining the network by simply just plugging in a device to the port. Physical access is important here since an unprotected port is like an open gateway to the network.</td>
+</tr>
+<tr>
+<td><img width="1027" height="925" alt="Screenshot 2026-01-16 at 10 16 59 AM" src="https://github.com/user-attachments/assets/2595ddba-a93d-4397-8228-ab09912b69b8" /></td>
+<td>The show arp and dhcp doesn't work since no requests are being made and ip address isnt setup on devices. Screenshot shows the configuration of the different ports on the switch. From it, doesn't show any rogue network so far</td>
+<td>Can use this to find unknown devices and problems in configuration</td>
+<td>Can help to mitigate risks because a technician can see configuration of devices on the switch and potentially scout out different potential attackers or harms</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-testing-evaluation-network-verification">4. Testing &amp; Evaluation – Network Verification</h2>
+<h2 id="5-reflection">5. Reflection</h2></p>
     </article>
 </section>
             <!-- endblock -->
