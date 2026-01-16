@@ -3,28 +3,43 @@
 ## 1. Project Overview  
 
 **Problem Statement:**  
-Understand how devices identify themselves on networks through physical (MAC) and logical (IP) addressing, and learn how to configure both dynamic and static IP addresses.
+Understand different security vulnerabliites, both logically and physically, and tehcniques to help mitigate risks.
 
 **Objectives:**  
 
-- Identify and understand MAC addresses on physical NICs and virtual machines
-- Explain the difference between physical and logical addressing
-- Analyze DHCP versus static IP addressing and when to use each
-- Configure static IP addresses using Netplan on a Linux VM
+- Observe how ARP functions inside a LAN and what information it exposes
+- Simulate internal LAN traffic between two virtual machines
+- Learn how enterprise LAN security controls mitigate internal attacks
+- Connect specific vulnerabilities to appropriate technical security controls
 
 **Success Criteria:**  
 
-- Complete NIC labeling with accurate identification
-- Successful understanding of MAC addresses and different sections
-- DHCP analysis from both VMs showing configuration differences
-- Working static IP configuration on VM #2 verified with ip addr, ip route, and ping tests
+- Successfully understanding different vulnerabilites, like DHCP snooping MAC Address Flooding.
+- Understanding different security controls, like VLAN segmentation
+- Determining physical vulnerabilties and ways to counteract
 
-## 2. Design & Planning – Understanding Physical and Logical Addressing
+## 2. Design & Planning 
 
-### MAC Addresses
+Before applying security controls, it is necessary to understand why internal LAN attacks are possible in the first place. Many core networking protocols were designed around efficiency and trust rather than security. Once a device gains physical or logical access to a switched LAN it can often observe and influence network behavior unless defensive controls are in place.
+
+### Key LAN Security Concepts & Vocabulary
+
+- **Internal LAN Threats:** Attacks that originate from inside the local network after a device is connected, rather than from an external attacker on the internet. 
+
+- **Broadcast Domain:** A group of devices that receive the same broadcast traffic, such as ARP requests and DHCP discovery messages. Large broadcast domains increase exposure to internal attacks.
+
+- **East–West Traffic:** Network traffic that flows between devices inside the LAN. 
+
+- **Rogue Device:** An unauthorized device connected to the network that may intercept traffic and exploit the network.
+
+#### VLAN Segmentation
+Virtual Local Area Networks (VLANs) divide a physical switch into multiple logical networks, each with its own broadcast domain. This limits exposure to broadcast traffic and isolates sensitive systems.
+
+#### DHCP Snooping
+DHCP Snooping protects the network from rogue DHCP servers that attempt to assign malicious IP configurations. Allows trusted ports to send DHCP offers while unauthorized ones cannot. Keeps a MAC address table that becomes a basis for many different security mechanism
 
 
-## 3. Technical Development – Implementing Authentication & Security
+## 3. Technical Development 
 
 
 ### Common Security Controls
@@ -35,6 +50,9 @@ On a LAN, devices such as misconfigured printers of access points like routers o
 |---------|---------------|---------------------|----------|
 | Scenario A | A device recieves a default gateway that does not match the actual router | DHCP Misconfiguration | The deafult ip is conigured by DCHP, but it doesn't seem to be the right gateway so it was configured incorrectly |
 | Scenario B | The switch CPU spkies many MAC addresses appear on one port | Cyberattack | Many MAC addresses flooding the server would disrupt the transportation of information to the right places, destroying the network |
+| Scenario C | Clients receive IPs from an unexpected source. | DHCP Spoofing | Random unauthorized source assings IP address, meaning that it could potentially be a false DHCP offer |
+| Scenario D | A new unknown device appears inside the broadcast domain | Bad Port Security | If ports don't have security control, any unknown device can easily enter the network and communicate through the broadcast domain |
+| Scenario E | A host begins reaching other internal hosts it should never reach | Flat Network | Since any device can reach other ones, that means the network is flat with no VLAN segmentation. This means any device within the network can communicate with other ones on the same network |
 
 ### Security Controls Common Vulnerabilities
 
@@ -55,8 +73,6 @@ ARP assumes devices are trustworthy because the original design philosophy of ea
 This lack of authentication makes ARP vulnerable to spoofing because a malicious actor can send a false ARP reply, claiming to have the MAC address for a different device's IP address. Legitimate devices on the network will update their ARP caches with this incorrect information, inadvertently sending traffic meant for the legitimate device to the attacker instead.
 Bridged mode was likely required for this lab to work because it places the virtual machine directly onto the physical host's network, giving it a unique IP address on the same LAN as other devices. This configuration allows the virtual machine to participate in the broadcast domain and exchange ARP traffic directly with other physical and virtual hosts, which is essential for observing or performing ARP-related activities like spoofing within a realistic LAN environment.
 
-
-
 **MAC Flooding Attack Diagram**
 
 <img width="1394" height="798" alt="Screenshot 2025-12-18 at 12 47 13 PM" src="https://github.com/user-attachments/assets/2c0ff8fc-85a3-47c6-9979-629a3e0a3e0b" />
@@ -68,8 +84,7 @@ Bridged mode was likely required for this lab to work because it places the virt
 <img width="1920" height="1080" alt="Screenshot 2026-01-12 at 9 33 42 AM" src="https://github.com/user-attachments/assets/08524d1d-5628-404b-a8ee-ac90ff2a4a51" />
 
 
-
-## 4. Testing & Evaluation – Network Verification
+## 4. Testing & Evaluation 
 
 ## 5. Reflection  
 
