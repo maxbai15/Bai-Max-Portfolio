@@ -79,9 +79,53 @@ Bridged mode was likely required for this lab to work because it places the virt
 
 ### Physical Security Controls
 
+#### Enterprise Physical Security Threat Analysis
+
+**1. Unauthorized access to labs**  
+This vulnerability occurs at laboratory entrances that are insufficiently controlled or monitored. If unauthorized individuals gain access to labs, they could steal research data or damage sensitive equipment. 
+
+**2. No restricted zones**  
+This vulnerability exists where public spaces such as lobbies or office areas are not clearly separated from restricted research or data center areas. Without proper zoning, an individual could move easily move from a low-critical area to a extremely-critical area.
+
+**3. Insufficient physical protection of network closets**  
+This vulnerability exists in network closets or server rooms that are unlocked, or poorly secured. Physical access to switches, servers, or patch panels allows attackers to connect rogue devices or disrupt network availability. 
+
+**4. Lack of environmental controls**  
+This vulnerability occurs when temperature and airflow systems are inadequate. Servers and network devices are highly sensitive to environmental conditions such as overheating which may halt research operations and violate regulatory requirements.
+
+**5. Limited surveillance**  
+This vulnerability exists when cameras and alarm systems are missing or insufficient in labs, data centers, or network rooms. Without surveillance, increases the risk of theft, sabotage, and delayed incident response.
+
+**6. Weak visitor and personnel procedures**  
+This vulnerability stems from inconsistent enforcement of visitor policies, resulting in rogue attackers gaining access to the site.
+
+#### Physical Security Plan 
+
+**1. Environmental Controls**
+Redundant cooling systems, humidity control, and air filtration systems to constantly monitor temperature and prevent overheating in data centers. 
+
+**2. Access Control**
+Access to the facility is divided into security zones: public, restricted, and highly restricted. Badge based authentication is required at every door with the critical sections being highly-restricted to only a few staff members necessary.
+
+**3. Surveillance and Detection**
+Cameras are installed all around the facility, inside every room, and at every entrace. All surveillance feeds are monitored from a centralized security operations area, and access logs are retained for auditing and investigations. Alarms alert security staff to unauthorized access attempts. 
+
+**4. Hardware Security**
+All servers and network devices are housed in locked racks within secured rooms. Network closets remain locked, and physical access to switch ports and patch panels is restricted to only a few members.
+
+**5. Personnel and Procedures**
+Strict procedures are gone through to ensure visitors access to the facility. Visitors must be escorted at all times inside the facility and movemnet logged.
+
+
 **Physical Security Diagram:**
 
 <img width="1920" height="1080" alt="Screenshot 2026-01-12 at 9 33 42 AM" src="https://github.com/user-attachments/assets/08524d1d-5628-404b-a8ee-ac90ff2a4a51" />
+
+### Risk Justification and Priority Controls
+
+The highest priority physical controls for this pharmaceutical research facility is access control. Preventing unauthorized physical access to laboratories, data centers, and network infrastructure it extremely important to reduce the changes of unauthorized personnal tampering or stealing data.
+
+Physical security directly supports network segmentation, access control lists, and monitoring systems. When devices are physically protected, technical controls cannot be easily bypassed or disabled. Together, these measures reduce attacks and violations to ensure the integrity and availability of critical research operations.
 
 
 ## 4. Testing & Evaluation 
