@@ -38,6 +38,34 @@ A attacker could directly utilize the infromation in the screenshot because it c
 | <img width="254" height="82" alt="Screenshot 2026-01-16 at 9 57 55 AM" src="https://github.com/user-attachments/assets/18cf8fb9-0c1b-4745-979d-2f43ad10491d" />, <img width="285" height="330" alt="Screenshot 2026-01-16 at 9 59 51 AM" src="https://github.com/user-attachments/assets/ee42f0a3-7df0-4676-9e32-e32d65d96e97" /> | Unprotected port security is a vulnerability since any device connecting to a port on the network gains access to the network without any problem | The fire screenshot demonstrates how to enable this using switchport commands while the second screenshot is evidence of port security being enabled on both end devices for ports fa0/1 and fa0/2 | Port Security helps to mitigate risks because it protects from a rogue device joining the network by simply just plugging in a device to the port. Physical access is important here since an unprotected port is like an open gateway to the network. |
 | <img width="1027" height="925" alt="Screenshot 2026-01-16 at 10 16 59 AM" src="https://github.com/user-attachments/assets/2595ddba-a93d-4397-8228-ab09912b69b8" /> | The show arp and dhcp doesn't work since no requests are being made and ip address isnt setup on devices. Screenshot shows the configuration of the different ports on the switch. From it, doesn't show any rogue network so far | Can use this to find unknown devices and problems in configuration | Can help to mitigate risks because a technician can see configuration of devices on the switch and potentially scout out different potential attackers or harms |
 
+### Explain, Design, Defend
+
+**Scenario B -- The Compromised Teacher Laptop**
+
+A teacher’s laptop is infected with malware after opening a phishing email while connected to the school network.
+
+1. What must the attacker already know or discover?
+The attacker likely needed to discover the teacher's email address and possibly general information about the school or the teacher to craft a convincing phishing email. They must also know that the email system is an unguarded part of the network, making it easy to enter. 
+2. Which device is most directly targeted?
+Another end device is most directly the target since the goal of the attack is to compromise different machines to gain control of the network. Once the main device is compromised, it will try and control the whole network, most likely starting with other devices that are the most easily reachable, like other end devices.
+3. What would legitimate users likely notice (if anything)?
+Legitimate users would likely notice nothing abnormal. Many attacks, like malware, run quietly in the background to avoid detection. The teacher might notice a momentary system slowdown, but the attack itself is designed to be stealthy. 
+4. Which of your virtual machines best resembles the attacker’s perspective?
+The Ubuntu Desktop VM best resembles the attacker's perspective. An attacker often uses a general operating system with a graphical interface  to conduct the initial stages of a complex attack, such as crafting phishing emails and inflitrating the network. 
+
+**Clean Network Sketch**
+
+<img width="1308" height="732" alt="Screenshot 2026-01-20 at 1 41 02 PM" src="https://github.com/user-attachments/assets/4cf35c88-c0c0-48e5-b773-c6ca15d85e34" />
+
+- Students -> Servers: Restricted, students are low privelage and shouldn't be able to communicate with the high access server VLAN unless absolutely necessary and give permission.
+- Students -> Teachers: Allowed, students need to be able to communicate with teacher as both are relatively low privelage VLAN's
+- Students -> Administration: Restricted, only in some cases should students be able to reach admin rights when absolutely necessary. Students don't need to see the critical information in this VLAN
+- Teachers -> Servers: Restricted, requests to access the server should be requested through the admin VLAN to keep the segmentation and protect critical data
+- Administration -> Servers: Allowed, administration should be able to access the whole network in order to change anything needed
+
+In the diagram, the main switch needs protection as it is the entrance to the entire network. Once inside though, Switch 2 should have extra added security as it leads to the admin devices and servers, the backbone and highest privilege data within the network. Switch 1 should be the least trusted within the entire network as it is the easiest to penetrate with lower security for student and teach VLANs.
+
+In the design, VLAN's alone do not fully secure the network since it is still possible to inflitrate the different networks once inside. Additionally, DHCP snooping is necessary as student and teacher VLANs are not that heavily protected which means DHCP spoofing can happen at these levels, slowing down the entire network. With the DHCP snooping implemented, DAI would also be implemented as DHCP snooping would prevent malicious packets from entering the network and messing up the network. Based on what a normal device can communicate with from the mini-threat scenarion, even though VLAN segmentation blocks broadcast traffic, inter layer traffic can still go across VLAN's, making ACL's necessary to help stop attacks from within. In general, the hardest threats to spot are ones that come from within the network. This is the case since they have already breached most of the security procedures, such as DHCP snooping and port security measures. These attacks can usually only be discovered once the network has already slowly started to fail or when data is already being stolen. 
 
 
 ## 4. Testing & Evaluation – Network Verification
