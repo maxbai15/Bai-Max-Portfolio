@@ -45,11 +45,15 @@ A attacker could directly utilize the infromation in the screenshot because it c
 A teacher’s laptop is infected with malware after opening a phishing email while connected to the school network.
 
 1. What must the attacker already know or discover?
+
 The attacker likely needed to discover the teacher's email address and possibly general information about the school or the teacher to craft a convincing phishing email. They must also know that the email system is an unguarded part of the network, making it easy to enter. 
 2. Which device is most directly targeted?
+
 Another end device is most directly the target since the goal of the attack is to compromise different machines to gain control of the network. Once the main device is compromised, it will try and control the whole network, most likely starting with other devices that are the most easily reachable, like other end devices.
 3. What would legitimate users likely notice (if anything)?
+
 Legitimate users would likely notice nothing abnormal. Many attacks, like malware, run quietly in the background to avoid detection. The teacher might notice a momentary system slowdown, but the attack itself is designed to be stealthy. 
+
 4. Which of your virtual machines best resembles the attacker’s perspective?
 The Ubuntu Desktop VM best resembles the attacker's perspective. An attacker often uses a general operating system with a graphical interface  to conduct the initial stages of a complex attack, such as crafting phishing emails and inflitrating the network. 
 
