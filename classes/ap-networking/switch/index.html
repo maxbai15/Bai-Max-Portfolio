@@ -348,28 +348,28 @@ By default, a typical device inside a switched LAN has limited visibility into o
 </thead>
 <tbody>
 <tr>
-<td><img width="819" height="365" alt="Screenshot 2026-01-16 at 9 45 10 AM" src="https://github.com/user-attachments/assets/8d626b08-ae18-4c06-8f6c-870427fdeb26" /></td>
-<td>The first screenshot shows a flat network without vlan segmentation. The network has a switch with two end devices connected to it. With the flat segmentation, any device on the network can see other devices</td>
+<td><img src="https://github.com/user-attachments/assets/8d626b08-ae18-4c06-8f6c-870427fdeb26" alt="Flat network topology" style="width: 100%; min-width: 400px;" /></td>
+<td>The screenshot shows a flat network without VLAN segmentation. With a flat network, any connected device can see and communicate with other devices on the LAN.</td>
 <td>VLAN Segmentation</td>
-<td>Creating different VLANs will help to ensure all devices on the network can't see each other, only being split into networks where certain devices can see certain devices</td>
+<td>VLANs separate devices into different broadcast domains so only authorized devices can communicate, reducing internal attack surface.</td>
 </tr>
 <tr>
-<td><img width="465" height="264" alt="Screenshot 2026-01-16 at 9 52 17 AM" src="https://github.com/user-attachments/assets/85999a36-5ce7-48b4-b89c-c1a637916bae" />, <img width="444" height="166" alt="Screenshot 2026-01-16 at 9 48 51 AM" src="https://github.com/user-attachments/assets/76dc7fcc-7b09-4e9c-b147-abeed2594d3e" /></td>
-<td>The flat network from above</td>
-<td>The screenshots demonstrate the commands for creating two different VLANs(10 - Students, 20 - Servers). The second screenshot demonstrates the successful VLAN creation with the end devices assigned to different VLANs</td>
-<td>This helps mitigate risk since only devices on the same VLAN can now reach each other, protecting more critical devices like the server from just normal devices at the student level</td>
+<td><img src="https://github.com/user-attachments/assets/85999a36-5ce7-48b4-b89c-c1a637916bae" alt="VLAN creation commands" style="width: 100%; min-width: 400px;" /><br><br><img src="https://github.com/user-attachments/assets/76dc7fcc-7b09-4e9c-b147-abeed2594d3e" alt="VLAN verification" style="width: 100%; min-width: 400px;" /></td>
+<td>The original flat network configuration allowed unrestricted communication between devices.</td>
+<td>VLAN Creation and Assignment</td>
+<td>Devices are assigned to different VLANs (Students and Servers), preventing low-privilege devices from accessing critical systems.</td>
 </tr>
 <tr>
-<td><img width="254" height="82" alt="Screenshot 2026-01-16 at 9 57 55 AM" src="https://github.com/user-attachments/assets/18cf8fb9-0c1b-4745-979d-2f43ad10491d" />, <img width="285" height="330" alt="Screenshot 2026-01-16 at 9 59 51 AM" src="https://github.com/user-attachments/assets/ee42f0a3-7df0-4676-9e32-e32d65d96e97" /></td>
-<td>Unprotected port security is a vulnerability since any device connecting to a port on the network gains access to the network without any problem</td>
-<td>The fire screenshot demonstrates how to enable this using switchport commands while the second screenshot is evidence of port security being enabled on both end devices for ports fa0/1 and fa0/2</td>
-<td>Port Security helps to mitigate risks because it protects from a rogue device joining the network by simply just plugging in a device to the port. Physical access is important here since an unprotected port is like an open gateway to the network.</td>
+<td><img src="https://github.com/user-attachments/assets/18cf8fb9-0c1b-4745-979d-2f43ad10491d" alt="Port security configuration" style="width: 100%; min-width: 350px;" /><br><br><img src="https://github.com/user-attachments/assets/ee42f0a3-7df0-4676-9e32-e32d65d96e97" alt="Port security enabled" style="width: 100%; min-width: 350px;" /></td>
+<td>Without port security, any device plugged into a switch port gains immediate access to the network.</td>
+<td>Port Security</td>
+<td>Port security limits which MAC addresses can use a switch port, preventing rogue devices from joining the LAN.</td>
 </tr>
 <tr>
-<td><img width="1027" height="925" alt="Screenshot 2026-01-16 at 10 16 59 AM" src="https://github.com/user-attachments/assets/2595ddba-a93d-4397-8228-ab09912b69b8" /></td>
-<td>The show arp and dhcp doesn't work since no requests are being made and ip address isnt setup on devices. Screenshot shows the configuration of the different ports on the switch. From it, doesn't show any rogue network so far</td>
-<td>Can use this to find unknown devices and problems in configuration</td>
-<td>Can help to mitigate risks because a technician can see configuration of devices on the switch and potentially scout out different potential attackers or harms</td>
+<td><img src="https://github.com/user-attachments/assets/2595ddba-a93d-4397-8228-ab09912b69b8" alt="Switch configuration overview" style="width: 100%; min-width: 450px;" /></td>
+<td>Misconfigurations or unknown devices can go unnoticed without proper visibility into switch settings.</td>
+<td>Switch Monitoring and Review</td>
+<td>Reviewing switch configuration allows administrators to identify unknown devices, misconfigured ports, and potential internal threats.</td>
 </tr>
 </tbody>
 </table>
