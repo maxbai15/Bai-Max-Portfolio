@@ -1,6 +1,25 @@
-# Determining Security Controls in a LAN
+# Switch Security
 
 ## 1. Project Overview  
+
+**Problem Statement:**  
+Switched LANs are designed to efficiently forward traffic between devices, but without proper security controls, they are vulnerable to internal attacks originating from compromised or unauthorized endpoints. This project focuses on understanding how switch-level security mechanisms reduce risk by limiting access, visibility, and trust within a local area network.
+
+**Objectives:**  
+
+- Identify common switch-based attacks and misconfigurations  
+- Understand how logical addressing (IP) and physical addressing (MAC) interact in a LAN  
+- Implement switch security controls such as VLAN segmentation and port security  
+- Analyze how internal threats differ from external threats  
+- Evaluate how switch controls mitigate internal attack scenarios  
+
+**Success Criteria:**  
+
+- Correctly identify LAN-based attack scenarios and their symptoms  
+- Explain how switch security controls mitigate specific vulnerabilities  
+- Demonstrate understanding of VLANs, port security, and internal threat containment  
+- Verify that segmentation and switch controls limit unauthorized communication  
+
 
 ## 2. Design & Planning – Understanding Physical and Logical Addressing
 
