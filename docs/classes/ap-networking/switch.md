@@ -3,19 +3,18 @@
 ## 1. Project Overview  
 
 **Problem Statement:**  
-Switched LANs are designed to efficiently forward traffic between devices, but without proper security controls, they are vulnerable to internal attacks originating from compromised or unauthorized endpoints. This project focuses on understanding how switch-level security mechanisms reduce risk by limiting access, visibility, and trust within a local area network.
+Understand how switch level security mechanisms mitigate risk by limiting access, visibility, and trust within a LAN.
 
 **Objectives:**  
 
-- Identify common switch-based attacks and misconfigurations  
-- Understand how logical addressing (IP) and physical addressing (MAC) interact in a LAN  
+- Identify common switch based attacks   
 - Implement switch security controls such as VLAN segmentation and port security  
-- Analyze how internal threats differ from external threats  
-- Evaluate how switch controls mitigate internal attack scenarios  
+- Analyze potential external threats  
+- Evaluate how switch controls mitigate attacks  
 
 **Success Criteria:**  
 
-- Correctly identify LAN-based attack scenarios and their symptoms  
+- Correctly identify LAN based attack scenarios and their symptoms  
 - Explain how switch security controls mitigate specific vulnerabilities  
 - Demonstrate understanding of VLANs, port security, and internal threat containment  
 - Verify that segmentation and switch controls limit unauthorized communication  
@@ -23,6 +22,23 @@ Switched LANs are designed to efficiently forward traffic between devices, but w
 
 ## 2. Design & Planning – Understanding Physical and Logical Addressing
 
+Before implementing switch security controls, it is necessary to understand how internal threats will be limited using mechanisms directly configured on the switch to reduce implicit trust within the LAN by controlling how traffic is segmented.
+
+### Switch Security Controls  
+
+The following are some controls to help internal security within a switch:
+
+**VLAN Segmentation:**  
+The network will be logically divided into multiple VLANs based on user role and privilege level, such as students, teachers, administration, and servers. This reduces broadcast domain size and limits east–west traffic between devices that should not directly communicate.
+
+**Port Security:**  
+Switch ports connected to endpoint devices will have port security enabled. This limits the number of allowed MAC addresses per port and prevents unauthorized devices from gaining network access simply by plugging into an open jack.
+
+**Monitoring and Visibility:**  
+Switch show commands and configuration reviews will be used to identify misconfigurations, unknown devices, or abnormal behavior. Visibility into VLAN assignments and port states allows administrators to detect and mitigate potential internal threats.
+
+**DHCP and ARP Trust Awareness:**  
+Since DHCP and ARP are trusted by default, the mechanism acknowledges their vulnerabilities. DHCP snooping and Dynamic ARP Inspection are controls to protect against spoofing attacks.
 
 ## 3. Technical Development – Implementing Authentication & Security
 
@@ -96,4 +112,18 @@ In the design, VLAN's alone do not fully secure the network since it is still po
 
 ## 4. Testing & Evaluation – Network Verification
 
+| Concept | Test Performed | Verification Result |
+|-------|---------------|---------------------|
+| Neighbor Discovery | Used `arp` from an internal VM | Confirmed that internal devices can learn gateway and other device information |
+| Flat Network Risk | Observed communication between devices on the same switch without VLANs | Verified unrestricted east–west communication |
+| VLAN Segmentation | Created VLAN 10 (Students) and VLAN 20 (Servers) and assigned ports | Confirmed devices could only communicate within their assigned VLAN |
+| Port Security | Enabled port security on switch interfaces | Verified that only authorized devices could use protected ports |
+| Switch Configuration Review | Used show commands to inspect switch state | Confirmed visibility into port status, VLANs, and potential misconfigurations |
+
 ## 5. Reflection  
+
+This project strengthened my understanding of how critical switch security is in defending a local area network from internal threats. I learned that internal devices pose a greater risk than external attackers because they already exist inside the trust boundary of the network. Observing how much information is available through basic neighbor discovery reinforced why default switch behavior is not secure by design.
+
+Designing and implementing VLAN segmentation helped me see how logical separation limits east–west traffic and protects high-privilege systems such as servers and administrative devices. Port security further emphasized how physical access directly translates into network access if not controlled properly.
+
+The testing phase showed that security controls must be layered. VLANs alone are not enough, and additional protections like DHCP snooping, DAI, and access control lists are necessary to defend against spoofing and lateral movement. Overall, this project demonstrated that switch security is a foundational component of network defense and that effective LAN security depends on limiting trust, enforcing segmentation, and continuously monitoring internal activity.
