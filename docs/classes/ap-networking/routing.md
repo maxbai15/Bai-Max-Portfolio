@@ -55,6 +55,20 @@ In VM#1, the `ip addr` command shows both the IPv4 and network address. `10.12.2
 
 In VM#2, the `ip addr` command shows both the IPv4 and network address. `10.12.17.38/20` is the IPv4 address and `127.0.0.1/8` is the network(same as VM#1). Additionally, the command `ip route` shows the default gate way which is `10.12.16.1`(same as VM#1).
 
+**Loopback Screenshot:**
+
+<img width="1396" height="416" alt="Image 2-24-26 at 9 14 AM" src="https://github.com/user-attachments/assets/57fe8b00-7062-4d18-9fe8-43866c2a6d65" />
+
+**Screenshot of ping sent to another VM(same network):**
+
+<img width="1368" height="426" alt="Image 2-24-26 at 9 17 AM" src="https://github.com/user-attachments/assets/27b91ed5-1485-4f50-b0cb-ef521e8279d5" />
+
+**Screenshot of ping sent outside the network:**
+
+<img width="1564" height="254" alt="Image 2-24-26 at 9 19 AM" src="https://github.com/user-attachments/assets/04cee227-a189-4a27-8b88-780e7656d3b7" />
+
+
+
 ## 4. Testing & Evaluation 
 
 | Concept | Test Performed | Verification Result |
