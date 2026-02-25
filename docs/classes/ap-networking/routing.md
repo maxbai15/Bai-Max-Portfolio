@@ -67,7 +67,17 @@ In VM#2, the `ip addr` command shows both the IPv4 and network address. `10.12.1
 
 <img width="1564" height="254" alt="Image 2-24-26 at 9 19 AM" src="https://github.com/user-attachments/assets/04cee227-a189-4a27-8b88-780e7656d3b7" />
 
+### Who Can See You
 
+**Ubuntu IPv4 Screenshot:**
+
+<img width="2216" height="616" alt="Image 2-25-26 at 10 09 AM" src="https://github.com/user-attachments/assets/50dbbd19-5451-410d-aa49-18497165619f" />
+
+**Display Public IP Screenshot:**
+
+<img width="886" height="94" alt="Image 2-25-26 at 10 13 AM" src="https://github.com/user-attachments/assets/c18f56f2-4fe2-4691-8bcb-dd487ac4d4bb" />
+
+My public IP address is different from my private IP address. They are not the same to shield my device from being seen by random devices when connecting to public spaces like the internet.
 
 ## 4. Testing & Evaluation 
 
