@@ -79,6 +79,15 @@ In VM#2, the `ip addr` command shows both the IPv4 and network address. `10.12.1
 
 My public IP address is different from my private IP address. They are not the same to shield my device from being seen by random devices when connecting to public spaces like the internet.
 
+**Ping Partner Private IP Address Screenshot:**
+
+<img width="1176" height="340" alt="Image 2-25-26 at 10 29 AM" src="https://github.com/user-attachments/assets/fb67258f-1bc9-4c20-924c-636f2915f2a5" />
+
+**Ping Partner Public IP Address Screenshot:**
+
+<img width="1218" height="216" alt="Image 2-25-26 at 10 30 AM" src="https://github.com/user-attachments/assets/39a38eae-c904-4b17-9188-4bd0c17af321" />
+
+
 ## 4. Testing & Evaluation 
 
 | Concept | Test Performed | Verification Result |
