@@ -87,6 +87,42 @@ My public IP address is different from my private IP address. They are not the s
 
 <img width="1218" height="216" alt="Image 2-25-26 at 10 30 AM" src="https://github.com/user-attachments/assets/39a38eae-c904-4b17-9188-4bd0c17af321" />
 
+### Following A Packet Across A Router
+
+**Screenshot of Packet Tracer Devices and Wiring:**
+
+<img width="1083" height="461" alt="Screenshot 2026-02-26 at 12 25 52 PM" src="https://github.com/user-attachments/assets/71d8e7bf-946b-4e21-9a9f-451434be612d" />
+
+The screenshot above shows the setup of the devices with the correct copper-straight through wiring connections. Currently the connectio between the switches and routers is red since nothing has been configured yet(the router or ip addresses on the devices).
+
+**Screenshot of PC Configurations:**
+
+<img width="699" height="708" alt="Screenshot 2026-02-26 at 12 26 36 PM" src="https://github.com/user-attachments/assets/f1c16874-e247-40f0-87cc-948ef0e6972e" />
+
+<img width="699" height="703" alt="Screenshot 2026-02-26 at 12 26 59 PM" src="https://github.com/user-attachments/assets/c39f51b5-f89c-4e00-b461-eeec3cb0a9e9" />
+
+**Screenshot of Router Configurations:**
+
+<img width="644" height="295" alt="Screenshot 2026-02-26 at 12 28 05 PM" src="https://github.com/user-attachments/assets/100f3ee9-a8dd-431c-b0fd-1e3c60c11f0f" />
+
+**Screenshot of Successful Configuration:**
+
+<img width="1296" height="599" alt="Screenshot 2026-02-26 at 12 28 33 PM" src="https://github.com/user-attachments/assets/1163fe76-ef1a-42a2-8fb0-fca2af0f6236" />
+
+The screenshot above demonstrates how the configuration of PC's and Routers was successful as the connection all devices is now up and ready.
+
+#### Observe Network Communications
+
+**PDU PC0 to Router:**
+
+https://github.com/user-attachments/assets/aee4f4b1-50f2-4e47-8b8d-d433d4e5fc78
+
+
+**PDU PC0 to PC1:**
+
+**PDU PC0 to PC1 without Router:**
+
+
 
 ## 4. Testing & Evaluation 
 
