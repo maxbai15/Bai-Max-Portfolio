@@ -115,14 +115,15 @@ The screenshot above demonstrates how the configuration of PC's and Routers was 
 
 **PDU PC0 to Router:**
 
-https://github.com/user-attachments/assets/aee4f4b1-50f2-4e47-8b8d-d433d4e5fc78
-
+https://github.com/user-attachments/assets/1fd84b76-1d03-4b1b-a2cd-867dbec26c3f
 
 **PDU PC0 to PC1:**
 
+https://github.com/user-attachments/assets/b1ae82a5-10d3-4347-862c-e481fdbe39ba
+
 **PDU PC0 to PC1 without Router:**
 
-
+https://github.com/user-attachments/assets/c68fb771-4b2d-4b24-8242-4318f0e9d696
 
 ## 4. Testing & Evaluation 
 
