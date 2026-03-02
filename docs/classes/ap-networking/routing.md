@@ -125,6 +125,46 @@ https://github.com/user-attachments/assets/b1ae82a5-10d3-4347-862c-e481fdbe39ba
 
 https://github.com/user-attachments/assets/c68fb771-4b2d-4b24-8242-4318f0e9d696
 
+
+### Data Using Routing Tool
+
+**Ubuntu IP Route Screenshot:**
+
+<img width="1394" height="302" alt="Image 3-2-26 at 9 43 AM" src="https://github.com/user-attachments/assets/6cdb966d-467f-4a01-8cb9-621715247b84" />
+
+#### Traceroute Predictions
+
+For the traceroute to the other VM, the first hop should go directly to the destination of the other VM as they are on the same network. It would not go through the default gateway since it is not trying to exit the newtork. There should be only one other hop directly to the other VM.
+
+For the traceroute to 8.8.8.8 it is another story since trying to reach 8.8.8.8 would be going outside the network. The first hop should be to the default gateway as the ping is going outside the network. Multiple hops should happen as the ping makes its way to the 8.8.8.8 server with the last hop being 8.8.8.8. I expect the same for a ping to google.com too.
+
+**Traceroute other VM Screenshot:**
+
+<img width="1368" height="146" alt="Image 3-2-26 at 10 00 AM" src="https://github.com/user-attachments/assets/a79bc187-877a-41a3-b4ee-9349391f4390" />
+
+**Traceroute 8.8.8.8 Screenshot:**
+
+<img width="2562" height="568" alt="Image 3-2-26 at 9 59 AM" src="https://github.com/user-attachments/assets/f0b93951-6f85-43bc-bfbd-e6867ba639a6" />
+
+
+**Traceroute google.com Screenshot:**
+
+<img width="2130" height="1150" alt="Image 3-2-26 at 9 57 AM" src="https://github.com/user-attachments/assets/d25c7f4c-651f-448c-9a9f-0cffdeb4e0cd" />
+
+For all the screenshots above, like predicted before, the only hop for the other VM ping is that other VM since the two devices are in the same network. Additionally, both the 8.8.8.8 and google.com traceroute go through the default gateway first to exit the network. A difference beteween the two though is the number of hops since they take different paths to reach the final destination with google.com needing more hops than 8.8.8.8.
+
+Analyzing the traceroute 8.8.8.8 specifically, the first hop is to the deafult gate which is a private IP address. Aditionally, the second hop is still to a private IP address as it still remains within the overall network of Charlotte Latin(this hop is likely to a router or default gateway of the entire Latin network). After that the next IP addresses all become public as it needs to enter different public services to reach all the way to the 8.8.8.8 DNS server(a public server).
+
+**IP route Screenshot:**
+
+<img width="1108" height="256" alt="Image 3-2-26 at 10 07 AM" src="https://github.com/user-attachments/assets/21790da5-0889-4c49-8345-2354d52a1b50" />
+
+**TTL Experiment Screenshot:**
+
+<img width="1734" height="230" alt="Image 3-2-26 at 10 08 AM" src="https://github.com/user-attachments/assets/d9dba17d-cecf-4aee-ba9b-4a96b0a5bbe9" />
+
+In the above, traceroute is ran again to find 8.8.8.8, but it is limited to 3 maxmimum hops. As a result, it only shows the first 3 hops that would normally happen and stops after that since only 3 hops are allowed.
+
 ## 4. Testing & Evaluation 
 
 | Concept | Test Performed | Verification Result |
