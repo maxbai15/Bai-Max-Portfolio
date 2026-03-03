@@ -95,7 +95,9 @@ My public IP address is different from my private IP address as shown by the two
 
 <img width="1218" height="216" alt="Image 2-25-26 at 10 30 AM" src="https://github.com/user-attachments/assets/39a38eae-c904-4b17-9188-4bd0c17af321" />
 
+In this experiment, the success of the private IP ping indicates that both partners are on the same local subnet, allowing the machines to communicate directly. On the other hand, the failure of the public IP ping is because most private networks have routers and firewalls that are configured to block an unwanted external traffic as a security measure to hide the network from potential outside threats. This means that while the public address is valid and active, the device at that address is intentionally filtering the traffic rather than responding to it. This demonstrates that private addresses are for open internal communication, while public addresses are guarded by protective barriers to prevent unauthorized external access to private networks.
 
+Private IPv4 addresses are reused in millions of networks because they are designed for internal identification only, allowing an infinite number of local networks to use the same common ranges without conflict. These addresses are not routed on the public internet because they are not globally unique. If every internal device required its own public IP, the internet would have collapsed years ago because the available IPv4 addresses are insufficient for the amount modern devices. Additionally, businesses typically use one public IP to represent many internal devices to help with the problem of limited address space, relying on a router to translate traffic for an entire network. This drastically simplifies WAN design by allowing large internal infrastructures to connect to the global internet through a single point that masks the private network from outsiders.
 
 ### Following A Packet Across A Router
 
