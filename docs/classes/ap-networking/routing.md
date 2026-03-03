@@ -184,6 +184,8 @@ Analyzing the traceroute 8.8.8.8 specifically, the first hop is to the deafult g
 
 In the above, traceroute is ran again to find 8.8.8.8, but it is limited to 3 maxmimum hops. As a result, it only shows the first 3 hops that would normally happen and stops after that since only 3 hops are allowed.
 
+The path of data from a device can be determined using traceroute. In a network, the first hop represents your default gateway, which is the local router that provides your exit point from the network. Private IPs appear early in the path because your traffic must first navigate the internal LAN. Multiple destinations often share the same first several hops because they all use the same path through the private network before reaching the broader public internet or other networks. A key difference between traceroute and the routing table decision is that the routing table decision only shows one immediate next step whereas the traceroute shows the history of the path taken. For example, in the traceroute 8.8.8.8 screenshot above there are multiple different ip addresses, representing the history of hops taken whereas the IP route screenshot two screenshots above shows one IP address, the next hop.
+
 ## 4. Testing & Evaluation 
 
 | Concept | Test Performed | Verification Result |
