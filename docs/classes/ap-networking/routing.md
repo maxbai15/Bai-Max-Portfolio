@@ -1,42 +1,54 @@
-# Determining Security Controls in a LAN
+# Routers
 
 ## 1. Project Overview  
 
 **Problem Statement:**  
-Understand different security vulnerabliites, both logically and physically, and tehcniques to help mitigate risks.
+Understand how Layer 2 and Layer 3 communication functions inside a LAN and how packets move across routers and networks.
 
 **Objectives:**  
 
-- Observe how ARP functions inside a LAN and what information it exposes
-- Simulate internal LAN traffic between two virtual machines
-- Learn how enterprise LAN security controls mitigate internal attacks
-- Connect specific vulnerabilities to appropriate technical security controls
+- Analyze Layer 3 identity using IP addressing and default gateways  
+- Simulate internal and external traffic between virtual machines on the same and different networks and subnets  
+- Examine how traffic exits a subnet through a default gateway  
+- Use traceroute to analyze packet paths and hop-by-hop routing behavior  
 
 **Success Criteria:**  
 
-- Successfully understanding different vulnerabilites, like DHCP snooping MAC Address Flooding.
-- Understanding different security controls, like VLAN segmentation
-- Determining physical vulnerabilties and ways to counteract
+- Correctly identify IPv4 addresses, subnet masks, and default gateways on multiple devices  
+- Successfully demonstrate transporting of packets between devices
+- Accurately interpret traceroute output
+- Explain how routing tables enables communication within a network
 
 ## 2. Design & Planning 
 
-Before applying security controls, it is necessary to understand why internal LAN attacks are possible in the first place. Many core networking protocols were designed around efficiency and trust rather than security. Once a device gains physical or logical access to a switched LAN it can often observe and influence network behavior unless defensive controls are in place.
+Before performing any technical experiments, it is important to understand the basic information and concepts required for Layer 3 communication. 
 
-### Key LAN Security Concepts & Vocabulary
+### IP Addressing
 
-- **Internal LAN Threats:** Attacks that originate from inside the local network after a device is connected, rather than from an external attacker on the internet. 
+Each device in the network must have a unique IP address.
 
-- **Broadcast Domain:** A group of devices that receive the same broadcast traffic, such as ARP requests and DHCP discovery messages. Large broadcast domains increase exposure to internal attacks.
+- **IPv4 Address** identifies the device on a network
+- Devices on the **same subnet** can communicate directly without using a router  
+- Devices on **different subnets** require a **default gateway** to forward traffic
 
-- **East–West Traffic:** Network traffic that flows between devices inside the LAN. 
+### Private vs Public IP Addresses
 
-- **Rogue Device:** An unauthorized device connected to the network that may intercept traffic and exploit the network.
+- **Private IPs** are used inside the LAN for internal communication and are not globally routable.  
+- **Public IPs** are used to communicate with devices outside the local network.  
+- **NAT** (Network Address Translation) allows multiple devices with private IPs to share a single public IP when accessing the internet.
 
-#### VLAN Segmentation
-Virtual Local Area Networks (VLANs) divide a physical switch into multiple logical networks, each with its own broadcast domain. This limits exposure to broadcast traffic and isolates sensitive systems.
+### MAC Addresses
 
-#### DHCP Snooping
-DHCP Snooping protects the network from rogue DHCP servers that attempt to assign malicious IP configurations. Allows trusted ports to send DHCP offers while unauthorized ones cannot. Keeps a MAC address table that becomes a basis for many different security mechanism
+- Every network interface has a unique **MAC address** used for local delivery of frames.  
+- **ARP** (Address Resolution Protocol) maps IP addresses to MAC addresses on the local subnet.  
+- Before a packet is sent, a device broadcasts an ARP request to find the MAC of the destination.  
+- MAC addresses change at each hop (like PC to router), while the IP address remains constant from source to destination.
+
+### Default Gateway and Routing Tables
+
+- The **default gateway** is the router interface that forwards traffic from the private network to external networks.  
+- A **routing table** is used by each device to determine where to send a packet based on its destination IP
+- **Traceroute** is a tool that tracks the path packets take from the source to a destination.  
 
 
 ## 3. Technical Development 
@@ -190,17 +202,17 @@ The path of data from a device can be determined using traceroute. In a network,
 
 | Concept | Test Performed | Verification Result |
 |-------|---------------|---------------------|
-| ARP Information | Observed ARP requests and replies using `arping` and `tcpdump`  | Confirmed that IP addresses are visible to any device in the same broadcast domain |
-| Devices on Broadcast Domain  | Placed both VMs in bridged mode on the same LAN | Verified that ARP traffic is broadcast and received by other devices on the LAN |
-| MAC Flooding Impact | Reviewed MAC flooding attack diagram and switch behavior | Verified excessive MAC addresses can overwhelm switch tables and disrupt traffic forwarding |
-| VLAN Segmentation | Evaluated flat vs segmented network scenarios | Confirmed VLANs limit east–west traffic and isolate sensitive devices |
-| Port Security | Analyzed scenario of unknown device entering the LAN | Helps port security prevent unauthorized MAC addresses from using switch ports |
+| Direct Delivery | Pinged another VM on the same network/subnet | Verified that traffic was delivered directly without using the default gateway |
+| Routed Traffic via Default Gateway | Pinged external IP (8.8.8.8) and google.com from Ubuntu VM | Confirmed packets were forwarded first to default gateway and multiple hops seen in traceroute including internal private IPs followed by public IPs |
+| Private vs Public IP Communication | Pinged partner private IP and public IP | Private IP succeeded, indicating direct LAN communication. Public IP failed due to firewall/NAT restrictions, confirming isolation of private networks |
+| Routing Table Function | Checked `ip route` and router configuration | Verified correct next hop decisions based on destination IP |
+| Traceroute | Ran traceroute to determine path taken | List of paths, default gateway with many hops for external networks and a single hope for internal pings |
+| TTL Experiment | Limited traceroute to 3 hops for external IP | Verified that TTL successfully restricted the traceroute path and showed only the first 3 hops |
 
 ## 5. Reflection  
 
-This project helped me understand how internal LAN attacks occur and why security controls inside the network are important to help prevent rogue devices and attacks. By observing ARP traffic between two virtual machines, I was able to see firsthand how much information is exposed by default within a broadcast domain. ARP requests and replies revealed how easily devices on a network can connect without security controls
+This project helped me understand how Layer 3 communication functions within a LAN and across routers. By configuring multiple virtual machines and observing traffic between them, I saw firsthand how devices on the same network communicate directly using MAC addresses while devices on different networks rely on a default gateway to forward packets. The experiments with traceroute allowed me to see the hops when trying to reach external vs interal networks..
 
-Analyzing different attack scenarios strengthened my deduction skills to figure out potential vulnerabilities and securities. The physical security portion of the project emphasized that technical controls alone are not sufficient. I learned that physical access often equals full system compromise since attackers can bypass authentication and easily steal data or mess up the network
+Working with private and public IPs reinforced the importance of network addressing and NAT. I learned that private IPs allow unrestricted internal communication, while public IPs are filtered, providing security to private networks. Observing the failure of packets to reach external devices without a router highlighted the critical role of routers in connecting private networks to other servers. This project also emphasized how ARP and MAC addresses are crucial in local navigation.
 
-Overall, this project connected physical security and logical controls to create complete security mindset against vulnerabilities. It showed me that secure networks depend on trust being carefully limited and continuously enforced at every layer.
-
+Overall, this project strengthened my understanding of packet movement, routing, and network design. It demonstrated the practical connections between IP configuration, routing tables, default gateways, and network visibility. By seeing the actual flow of packets, I gained a deeper understanding for how network controls combined with careful addressing and routing creates functional and secure networks.
