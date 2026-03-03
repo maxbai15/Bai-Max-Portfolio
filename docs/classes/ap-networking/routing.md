@@ -113,9 +113,13 @@ The screenshot above shows the setup of the devices with the correct copper-stra
 
 <img width="699" height="703" alt="Screenshot 2026-02-26 at 12 26 59 PM" src="https://github.com/user-attachments/assets/c39f51b5-f89c-4e00-b461-eeec3cb0a9e9" />
 
+The screenshot above shows the IP configuration of the PC's and the default gateway.
+
 **Screenshot of Router Configurations:**
 
 <img width="644" height="295" alt="Screenshot 2026-02-26 at 12 28 05 PM" src="https://github.com/user-attachments/assets/100f3ee9-a8dd-431c-b0fd-1e3c60c11f0f" />
+
+The screenshot above demonstrates the IP configuration of the router.
 
 **Screenshot of Successful Configuration:**
 
@@ -136,7 +140,6 @@ https://github.com/user-attachments/assets/b1ae82a5-10d3-4347-862c-e481fdbe39ba
 **PDU PC0 to PC1 without Router:**
 
 https://github.com/user-attachments/assets/c68fb771-4b2d-4b24-8242-4318f0e9d696
-
 
 ### Data Using Routing Tool
 
