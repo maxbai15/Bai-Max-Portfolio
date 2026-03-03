@@ -59,13 +59,21 @@ In VM#2, the `ip addr` command shows both the IPv4 and network address. `10.12.1
 
 <img width="1396" height="416" alt="Image 2-24-26 at 9 14 AM" src="https://github.com/user-attachments/assets/57fe8b00-7062-4d18-9fe8-43866c2a6d65" />
 
+The traffic does not leave the machine as it is a software loopback to the same machine. It doesn't need a default gateway either as it isn't going outside of the network.
+
 **Screenshot of ping sent to another VM(same network):**
 
 <img width="1368" height="426" alt="Image 2-24-26 at 9 17 AM" src="https://github.com/user-attachments/assets/27b91ed5-1485-4f50-b0cb-ef521e8279d5" />
 
+Because the UTM VM and Ubuntu VM are on the same network a default gateway isn't required as it isn't going outside of the network. Being on the same subnet allows for the two devices to reach each other within the network. To test whether or not a gateway was used, use the traceroute command to see the hops taken to reach the other device.
+
 **Screenshot of ping sent outside the network:**
 
 <img width="1564" height="254" alt="Image 2-24-26 at 9 19 AM" src="https://github.com/user-attachments/assets/04cee227-a189-4a27-8b88-780e7656d3b7" />
+
+When you ping an external address like 8.8.8.8, Ubuntu uses its default gateway because it cannot deliver the packet directly. This direct delivery is impossible because the destination IP address does not match any local subnet masks assigned to the VM's network. The default gateway handles the first step by receiving the packet and forwarding it beyond the local network toward the internet. 
+
+The routing table acts as a network address map that a device consults to determine the  path for any outgoing data packet. When a packet’s destination is not within the local subnet, the default gateway serves as the  exit point, receiving that traffic and forwarding it toward external networks or the internet. Direct delivery is possible only when the destination IP address falls within the sender's own subnet, allowing the devices to communicate directly via their physical MAC addresses. On the other hand, router involvement is required whenever the destination address is on a remote network or different subnet.
 
 ### Who Can See You
 
@@ -77,7 +85,7 @@ In VM#2, the `ip addr` command shows both the IPv4 and network address. `10.12.1
 
 <img width="886" height="94" alt="Image 2-25-26 at 10 13 AM" src="https://github.com/user-attachments/assets/c18f56f2-4fe2-4691-8bcb-dd487ac4d4bb" />
 
-My public IP address is different from my private IP address. They are not the same to shield my device from being seen by random devices when connecting to public spaces like the internet.
+My public IP address is different from my private IP address as shown by the two screenshots above. They are not the same to shield my device from being seen by random devices when connecting to public spaces like the internet or other networks. It also allows multiple devices on a private network to shared one public IP address whenever connecting to the broader web or other networks.
 
 **Ping Partner Private IP Address Screenshot:**
 
@@ -86,6 +94,8 @@ My public IP address is different from my private IP address. They are not the s
 **Ping Partner Public IP Address Screenshot:**
 
 <img width="1218" height="216" alt="Image 2-25-26 at 10 30 AM" src="https://github.com/user-attachments/assets/39a38eae-c904-4b17-9188-4bd0c17af321" />
+
+
 
 ### Following A Packet Across A Router
 
