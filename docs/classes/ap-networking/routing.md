@@ -133,13 +133,17 @@ The screenshot above demonstrates how the configuration of PC's and Routers was 
 
 https://github.com/user-attachments/assets/1fd84b76-1d03-4b1b-a2cd-867dbec26c3f
 
+During this PDU,a packet was sent within the same netwrok  from PC0 to the router. Before the the packet travel an ARP event happend to find where the packet would go. This occurred because PC0 knew the destination IP address but lacked the MAC address. The packet remained at PC0 until the ARP request was broadcast across the local network and the router responded with its MAC address. After the MAC address was found, the packet moved from PC0 to Switch0 and finally to the Router. The packet remained entirely on the left side as it was able to travel exactly where it needed to within its own subnet.
+
 **PDU PC0 to PC1:**
 
 https://github.com/user-attachments/assets/b1ae82a5-10d3-4347-862c-e481fdbe39ba
 
+When sending a packet from PC0 to PC1, the Layer 3 IP header remains constant along with the final destination IP address. Since the destination IP address isn't within the subnet, the packet must travel through the router first, default gateway. When leaving PC0, the destination MAC address is set to the router's interface rather than the final PC, as the router is the necessary exit point for traffic leaving the local subnet. Upon reaching the router, the original frame is stripped away and a new one is created using the router's. This process demonstrates that while IP addresses are preserved from start to finish to identify the original sender and final receiver, MAC addresses must change at different hops to facilitate local delivery across different physical segments.
+
 **PDU PC0 to PC1 without Router:**
 
-https://github.com/user-attachments/assets/c68fb771-4b2d-4b24-8242-4318f0e9d696
+When the packet went, it failed to reach the PC1 because it wasn't properly transported. Without a router, the packet will not be able to exit the local subnet as it has no default gateway to exit, meaning the packet would be stopped before even exiting the local network.
 
 ### Data Using Routing Tool
 
