@@ -69,6 +69,26 @@ Each device in the network must have a unique IP address.
 
 https://github.com/user-attachments/assets/0eca56c9-9a46-4b82-99e7-0942a2639ccb
 
+### Comparing Transmission Types
+
+**View Listening TCP Ports(ss -tln):**
+
+<img width="1842" height="344" alt="Image 3-6-26 at 8 19 AM" src="https://github.com/user-attachments/assets/dbd8b48d-846c-401a-82dc-a05e4608e7a8" />
+
+**Sudo ss -tlpn screenshot:**
+
+<img width="1892" height="306" alt="Image 3-6-26 at 8 20 AM" src="https://github.com/user-attachments/assets/66ecc646-92b1-4c5b-9bd7-c18c2a50a4b1" />
+
+**View Listening UDP Ports (ss -uln):**
+
+<img width="1880" height="322" alt="Image 3-6-26 at 8 22 AM" src="https://github.com/user-attachments/assets/636dc39e-2323-43e8-8a12-2e1c28d052c6" />
+
+**Terminal A Listener screenshot:**
+
+Use the command `nc -l 5000`
+
+<img width="944" height="60" alt="Image 3-6-26 at 8 27 AM" src="https://github.com/user-attachments/assets/422681ee-5196-4ae3-b66b-4ff794e222b5" />
+
 
 ## 4. Testing & Evaluation 
 
