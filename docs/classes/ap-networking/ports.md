@@ -95,13 +95,36 @@ The new port 0.0.0.0:5000 shows that Terminal C can now see the port from Termin
 
 <img width="1442" height="416" alt="Image 3-6-26 at 8 29 AM" src="https://github.com/user-attachments/assets/59a02792-166e-4f4d-a661-10ed24743b8e" />
 
-**Successful Communication between Terminal B and A:**
+**Successful Communication between Terminal B and A(tcp):**
 
 Message from Terminal B:
 <img width="666" height="88" alt="Image 3-6-26 at 8 32 AM" src="https://github.com/user-attachments/assets/be9c0b09-c04f-4e5c-b897-15dcffb77109" />
 
 Terminal A Receieves Message:
+
 <img width="524" height="80" alt="Image 3-6-26 at 8 32 AM (1)" src="https://github.com/user-attachments/assets/3e7ebd4c-43eb-40cd-8cb4-f4947504860c" />
+
+**Observe ESTAB state from Terminal C:**
+
+<img width="1428" height="206" alt="Image 3-6-26 at 8 34 AM" src="https://github.com/user-attachments/assets/c126aaa6-e3e4-42e8-8f76-3d860df6509f" />
+
+**Start UDP Listener Terminal A:**
+
+<img width="694" height="70" alt="Image 3-6-26 at 8 35 AM" src="https://github.com/user-attachments/assets/918b2ed0-21c0-4356-a5c1-c73cc28c7f25" />
+
+**Successful Communication between Terminal B and A(udp):**
+
+Message from Terminal B:
+<img width="752" height="102" alt="Image 3-6-26 at 8 36 AM" src="https://github.com/user-attachments/assets/83a90265-2a04-4b08-bb0a-83605647247d" />
+
+Terminal A Recieves Message:
+
+<img width="618" height="94" alt="Image 3-6-26 at 8 37 AM" src="https://github.com/user-attachments/assets/b632a039-27be-40bf-976f-b19232351739" />
+
+**Observe UDP State from Terminal C:**
+
+<img width="1428" height="332" alt="Image 3-6-26 at 8 38 AM" src="https://github.com/user-attachments/assets/3427efd8-2ced-455b-9a37-4eebd72ebdd1" />
+
 
 ## 4. Testing & Evaluation 
 
