@@ -85,10 +85,23 @@ https://github.com/user-attachments/assets/0eca56c9-9a46-4b82-99e7-0942a2639ccb
 
 **Terminal A Listener screenshot:**
 
-Use the command `nc -l 5000`
+Use the command `nc -l 5000` to have Terminal A be silently listening.
 
 <img width="944" height="60" alt="Image 3-6-26 at 8 27 AM" src="https://github.com/user-attachments/assets/422681ee-5196-4ae3-b66b-4ff794e222b5" />
 
+**Terminal C Shows New Port from Terminal A:**
+
+The new port 0.0.0.0:5000 shows that Terminal C can now see the port from Terminal A.
+
+<img width="1442" height="416" alt="Image 3-6-26 at 8 29 AM" src="https://github.com/user-attachments/assets/59a02792-166e-4f4d-a661-10ed24743b8e" />
+
+**Successful Communication between Terminal B and A:**
+
+Message from Terminal B:
+<img width="666" height="88" alt="Image 3-6-26 at 8 32 AM" src="https://github.com/user-attachments/assets/be9c0b09-c04f-4e5c-b897-15dcffb77109" />
+
+Terminal A Receieves Message:
+<img width="524" height="80" alt="Image 3-6-26 at 8 32 AM (1)" src="https://github.com/user-attachments/assets/3e7ebd4c-43eb-40cd-8cb4-f4947504860c" />
 
 ## 4. Testing & Evaluation 
 
