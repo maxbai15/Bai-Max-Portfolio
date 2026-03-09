@@ -125,6 +125,26 @@ Terminal A Recieves Message:
 
 <img width="1428" height="332" alt="Image 3-6-26 at 8 38 AM" src="https://github.com/user-attachments/assets/3427efd8-2ced-455b-9a37-4eebd72ebdd1" />
 
+### OSI Layer 5
+
+**HTTP Transaction:**
+
+<img width="858" height="480" alt="Image 3-9-26 at 9 04 AM" src="https://github.com/user-attachments/assets/16e4115b-2f3d-40e2-a824-cc1e512c82bb" />
+
+**HTTPS Transaction:**
+
+<img width="940" height="454" alt="Image 3-9-26 at 9 06 AM" src="https://github.com/user-attachments/assets/c04ccf11-1b94-4314-8f77-c63f9b37318b" />
+
+**TLS Handshake:**
+
+<img width="1012" height="452" alt="Screenshot 2026-03-09 at 9 18 03 AM" src="https://github.com/user-attachments/assets/1483d332-1b4e-407e-aa83-da6fda133c59" />
+
+<img width="782" height="815" alt="Screenshot 2026-03-09 at 9 18 16 AM" src="https://github.com/user-attachments/assets/422df5f8-8a35-4876-b171-dbd64f03feb2" />
+
+**Observe Persistent Connection:**
+
+<img width="2044" height="376" alt="Image 3-9-26 at 9 31 AM" src="https://github.com/user-attachments/assets/4e824aee-aafe-4e53-97a8-2b94de61e4a2" />
+
 
 ## 4. Testing & Evaluation 
 
