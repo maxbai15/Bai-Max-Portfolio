@@ -145,6 +145,32 @@ Terminal A Recieves Message:
 
 <img width="2044" height="376" alt="Image 3-9-26 at 9 31 AM" src="https://github.com/user-attachments/assets/4e824aee-aafe-4e53-97a8-2b94de61e4a2" />
 
+### Application and Remote Access Protocols Across the Stack
+
+**HTTP Stack Screenshot:**
+
+<img width="727" height="148" alt="Screenshot 2026-03-11 at 12 43 37 PM" src="https://github.com/user-attachments/assets/db8d8aed-5c57-4cf8-8b7d-af1ac7c80985" />
+
+**HTTPS Stack Screenshot:**
+
+<img width="740" height="115" alt="Screenshot 2026-03-11 at 12 44 32 PM" src="https://github.com/user-attachments/assets/00195c9a-4879-45ea-88c5-9cc2926ddeb3" />
+
+**nslookup Screenshot:**
+
+<img width="388" height="253" alt="Screenshot 2026-03-11 at 12 48 16 PM" src="https://github.com/user-attachments/assets/0263f9e1-05c7-4018-80d1-c090ae4e50c1" />
+
+**Connect via SSH Screenshot:**
+
+<img width="908" height="524" alt="Screenshot 2026-03-11 at 12 49 49 PM" src="https://github.com/user-attachments/assets/4b947a22-29a2-46da-8b31-48e42bea23da" />
+
+**SSH Connection ss -tn Screenshot:**
+
+<img width="731" height="264" alt="Screenshot 2026-03-11 at 12 52 06 PM" src="https://github.com/user-attachments/assets/08bc1213-d9c4-41e5-bcab-05c25bc3a050" />
+
+**Secure File Transer Screenshot:**
+
+<img width="654" height="98" alt="Screenshot 2026-03-11 at 12 53 25 PM" src="https://github.com/user-attachments/assets/0cf0c5ab-234f-43e8-a368-01f611fa12b9" />
+
 
 ## 4. Testing & Evaluation 
 
