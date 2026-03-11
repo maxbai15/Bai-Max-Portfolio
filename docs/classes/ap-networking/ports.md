@@ -61,6 +61,8 @@ Each device in the network must have a unique IP address.
 
 <img width="1914" height="949" alt="Screenshot 2026-03-03 at 1 22 53 PM" src="https://github.com/user-attachments/assets/01e3769e-f0cc-4960-868e-0b654434b96a" />
 
+The internet layer is responsible for the ping command, as it handles logical addressing and routing. Ping does not use TCP or UDP; instead, it uses the ICMP (Internet Control Message Protocol), which is a separate protocol within the IP suite. Consequently, a successful ping does not prove TCP reliability, as ICMP is a connectionless protocol that operates independently of the handshake and error-recovery mechanisms found in TCP
+
 **PC1 ping PC2 Successful:**
 
 <img width="299" height="225" alt="Screenshot 2026-03-03 at 1 27 56 PM" src="https://github.com/user-attachments/assets/6e1da7c8-b90f-46c7-93fa-0828825390d4" />
@@ -68,6 +70,14 @@ Each device in the network must have a unique IP address.
 **PC1 to PC2 PDU Path:**
 
 https://github.com/user-attachments/assets/0eca56c9-9a46-4b82-99e7-0942a2639ccb
+
+| Feature | TCP | UDP | 
+|---|---|---|
+| Connection Setup | Yes, involves a 3 way handshake | No, it is connectionless |
+| Sequence Numbers | Yes, used to reassemble data in the correct order | No, packets are treated individually |
+| Acknowledgment | Yes, the receiver confirms receipt of data segments. | No, the sender never knows if data arrived | 
+| Retransmission | Yes, missing segments are resent automatically | No, lost data is simply lost | 
+| Header Complexity | Contains many control fields | Contains only essential info | 
 
 ### Comparing Transmission Types
 
@@ -171,6 +181,25 @@ Terminal A Recieves Message:
 
 <img width="654" height="98" alt="Screenshot 2026-03-11 at 12 53 25 PM" src="https://github.com/user-attachments/assets/0cf0c5ab-234f-43e8-a368-01f611fa12b9" />
 
+### Understanding HTTP Status Codes
+
+| Status Code Range | Meaning | Example Code | Explanation |
+|---|---|---|---|
+| 1xx | Informational responses that indicate the request has been received and the server is continuing the process. | 100 Continue | This code means the server has received the initial part of the request and the client can continue sending the rest of it. |
+| 2xx | Successful responses that indicate the request was received, understood, and processed correctly. | 200 OK | This code means the request was successful and the server returned the requested resource or response. |
+| 3xx | Redirection messages that tell the client that the resource has moved or another action must be taken to complete the request. | 301 Moved Permanently | This code means the requested resource has been permanently moved to a new URL, and the client should update future requests to use that new address. |
+| 4xx | Client error responses that indicate something was wrong with the request sent by the client. | 404 Not Found | This code means the server could not find the requested resource, usually because the URL is incorrect or the page no longer exists. |
+| 5xx | Server error responses that indicate the server failed to fulfill a valid request. | 500 Internal Server Error | This code means the server encountered an unexpected problem that prevented it from completing the request. |
+
+| Status Code | Name | What It Means | When It Happens |
+|---|---|---|---|
+| 200 | OK | The request was successful and the server returned the requested content. | Happens when a webpage loads correctly and the server delivers the page or data without errors. |
+| 301 | Moved Permanently | The requested resource has been permanently moved to a different URL. | Happens when a website changes its address and automatically redirects users to the new location. |
+| 302 | Found | The resource is temporarily located at a different URL. | Happens when a page temporarily redirects users, such as during maintenance or temporary content changes. |
+| 404 | Not Found | The server cannot find the requested resource. | Happens when a user tries to access a page that does not exist or the URL was typed incorrectly. |
+| 500 | Internal Server Error | The server encountered an unexpected condition that prevented it from completing the request. | Happens when there is a bug, misconfiguration, or failure in the server's software. |
+
+HTTP status codes are handled at the application layer because they describe the result of a web request between a client and a web server. The application layer is responsible for protocols like HTTP that define how web browsers and servers communicate and interpret messages. In contrast, the transport layer is only responsible for reliably delivering data between devices, not interpreting what the data means. Because status codes describe the meaning and outcome of a request, they belong in the application layer where the communication rules of web applications are defined.
 
 ## 4. Testing & Evaluation 
 
