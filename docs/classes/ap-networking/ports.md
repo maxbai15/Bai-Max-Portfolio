@@ -81,6 +81,8 @@ https://github.com/user-attachments/assets/0eca56c9-9a46-4b82-99e7-0942a2639ccb
 
 ### Comparing Transmission Types
 
+A prediction is that TCP is connection oriented because it requires acknowledgement from both parties whereas UDP is connectionless because it doesn't require acknowledgement. Data sent over using UDP that is lost is just lost forever and not resent.
+
 **View Listening TCP Ports(ss -tln):**
 
 <img width="1842" height="344" alt="Image 3-6-26 at 8 19 AM" src="https://github.com/user-attachments/assets/dbd8b48d-846c-401a-82dc-a05e4608e7a8" />
@@ -89,9 +91,13 @@ https://github.com/user-attachments/assets/0eca56c9-9a46-4b82-99e7-0942a2639ccb
 
 <img width="1892" height="306" alt="Image 3-6-26 at 8 20 AM" src="https://github.com/user-attachments/assets/66ecc646-92b1-4c5b-9bd7-c18c2a50a4b1" />
 
+The process using port 22 is typically used for remote logins. If port 22 does not appear in your results, it suggests the SSH service is stopped. While a port exists as a logistical place available in the networking stack, a port is only listening when an active application has opened it to specifically monitor and accept incoming connection requests.
+
 **View Listening UDP Ports (ss -uln):**
 
 <img width="1880" height="322" alt="Image 3-6-26 at 8 22 AM" src="https://github.com/user-attachments/assets/636dc39e-2323-43e8-8a12-2e1c28d052c6" />
+
+UDP sockets do not show a listen state, but above I can see ESTAB which represents that the connection is currently up.
 
 **Terminal A Listener screenshot:**
 
@@ -135,15 +141,29 @@ Terminal A Recieves Message:
 
 <img width="1428" height="332" alt="Image 3-6-26 at 8 38 AM" src="https://github.com/user-attachments/assets/3427efd8-2ced-455b-9a37-4eebd72ebdd1" />
 
+The evidence for the listen state is the output of ss -tln, which explicitly shows the listen status as it indicates the  listener is open and waiting for a connection. After connecting from Terminal B, the evidence for ESTAB appears in the ss -tn output, showing an ESTAB status demonstrates how the ports are connected. The primary change between the two commands is that ss -tln filters for listening sockets while ss -tn displays active connections ). This experiment proves TCP is connection-oriented because the state clearly transitions from a passive wait to a tracked connection between two different endpoints.
+
+| Application | Protocol | Why | 
+|---|---|---|
+| Online Banking | TCP | Requires absolute reliability in data trasnfer when dealing with financial data |
+| Zoom Call | UDP | Prioritizes low latency over reliability for live video calls |
+| Netflix Streaming | TCP | Ensures the video file is transmitted entirely and safely | 
+| File Download | TCP | Ensures files are transmitted entirely and safely | 
+| DNS Query | UDP | Opimitzed for speed and low overhead | 
+
 ### OSI Layer 5
 
 **HTTP Transaction:**
 
 <img width="858" height="480" alt="Image 3-9-26 at 9 04 AM" src="https://github.com/user-attachments/assets/16e4115b-2f3d-40e2-a824-cc1e512c82bb" />
 
+TCP is the protocol used with HTTP as it requires a three way handshake, ensuring all parties understand and recieve the data needed. The "200 OK" is the application layer to have the server confirm that the data is received.
+
 **HTTPS Transaction:**
 
 <img width="940" height="454" alt="Image 3-9-26 at 9 06 AM" src="https://github.com/user-attachments/assets/c04ccf11-1b94-4314-8f77-c63f9b37318b" />
+
+The HTTPS is different as is requires signaling that the TLS (Transport Layer Security) is ready since it shows that this data sent needs extra encryption. This happens at the presentation layer to ensure that the data is secured before the confirmation at the application layer.
 
 **TLS Handshake:**
 
@@ -154,6 +174,16 @@ Terminal A Recieves Message:
 **Observe Persistent Connection:**
 
 <img width="2044" height="376" alt="Image 3-9-26 at 9 31 AM" src="https://github.com/user-attachments/assets/4e824aee-aafe-4e53-97a8-2b94de61e4a2" />
+
+| Protocol | Layer | Purpose | 
+|---|---|---|
+| HTTP | 7(Application) | Provides the structure for web requests and responses, as seen in the 200 OK |
+| HTTPS | 7(Application) | Acts as the secure version of HTTP |
+| TLS | 6(Presentation) | Handles the encryption and decryption of data | 
+| DNS | 7(Application) | Translates human-readable domain names into IP addresses | 
+| TCP | 4(Transport) | Manages end-to-end communication and reliability | 
+
+Layer 5 manages the communication state by establishing and maintaining dialogues between applications to ensure data streams remain organized during a session. Layer 6  is responsible for the formatting, compression, and encryption of the data, acting as a translator to ensure the receiving application can properly read and secure the information. Layer 7 governs specific application behavior and provides the interface for user services, such as interpreting an HTTP "200 OK" status or a DNS query. Layer 4 alone is insufficient because while it handles the reliable delivery of segments, it lacks the logic to understand the data's content and properly manage the data and convey the infromation.
 
 ### Application and Remote Access Protocols Across the Stack
 
@@ -169,6 +199,8 @@ Terminal A Recieves Message:
 
 <img width="388" height="253" alt="Screenshot 2026-03-11 at 12 48 16 PM" src="https://github.com/user-attachments/assets/0263f9e1-05c7-4018-80d1-c090ae4e50c1" />
 
+DNS typically uses port 53 to handle name resolution requests between clients and servers. It primarily utilizes UDP because the small size of standard queries allows for rapid and low overhead communication. DNS does not require guaranteed delivery in most cases. If a packet is lost, the client application simply times out and retries the request, which is more efficient than managing TCP retransmissions. However, DNS will switch to TCP when the response data exceeds a certain limit.
+
 **Connect via SSH Screenshot:**
 
 <img width="908" height="524" alt="Screenshot 2026-03-11 at 12 49 49 PM" src="https://github.com/user-attachments/assets/4b947a22-29a2-46da-8b31-48e42bea23da" />
@@ -180,6 +212,8 @@ Terminal A Recieves Message:
 **Secure File Transer Screenshot:**
 
 <img width="654" height="98" alt="Screenshot 2026-03-11 at 12 53 25 PM" src="https://github.com/user-attachments/assets/0cf0c5ab-234f-43e8-a368-01f611fa12b9" />
+
+SSH requires TCP because remote administrative access demands absolute reliability and error free transmission. A single dropped or out of order packet could corrupt a command and crash a system. Encryption is not handled at Layer 3 because that layer is responsible only for routing packets between IP addresses, whereas encryption must be tied to specific application data to ensure security. Similarly, HTTP does not provide its own reliability because it is a application protocol designed to request content. If port numbers did not exist, a computer with a single IP address would be unable to distinguish between different incoming traffic types, making it impossible to run a web server and an SSH server simultaneously. It is essential to separate remote access from file transfer protocols  because they serve distinct administrative purposes, one for executing live system commands and the other for structured data management with each requiring different session behaviors.
 
 ### Understanding HTTP Status Codes
 
