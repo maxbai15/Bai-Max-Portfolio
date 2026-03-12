@@ -3,53 +3,60 @@
 ## 1. Project Overview  
 
 **Problem Statement:**  
-Understand how Layer 2 and Layer 3 communication functions inside a LAN and how packets move across routers and networks.
+Understand how the transport and application layers manage reliable communication and application sessions.
 
 **Objectives:**  
 
-- Analyze Layer 3 identity using IP addressing and default gateways  
-- Simulate internal and external traffic between virtual machines on the same and different networks and subnets  
-- Examine how traffic exits a subnet through a default gateway  
-- Use traceroute to analyze packet paths and hop-by-hop routing behavior  
+- Compare reliable and unreliable transport protocols (TCP vs UDP)  
+- Observe connection states and listening ports using system networking tools  
+- Demonstrate application communication using TCP and UDP sockets  
+- Analyze how higher layer protocols such as HTTP, HTTPS, and SSH operate 
 
 **Success Criteria:**  
 
-- Correctly identify IPv4 addresses, subnet masks, and default gateways on multiple devices  
-- Successfully demonstrate transporting of packets between devices
-- Accurately interpret traceroute output
-- Explain how routing tables enables communication within a network
+- Correctly identify listening and active ports using networking tools such as `ss -tn`  
+- Successfully demonstrate communication using TCP and UDP with netcat  
+- Accurately interpret connection states such as LISTEN and ESTAB  
 
 ## 2. Design & Planning 
 
-Before performing any technical experiments, it is important to understand the basic information and concepts required for Layer 3 communication. 
+### Transport Layer Protocols
 
-### IP Addressing
+Two primary protocols operate at the transport layer:
 
-Each device in the network must have a unique IP address.
+- **TCP (Transmission Control Protocol)** provides reliable, connection-oriented communication. It establishes a session using a three-way handshake and ensures data is delivered in order with acknowledgments and retransmissions.
+- **UDP (User Datagram Protocol)** is connectionless and sends packets without acknowledgments or guaranteed delivery. It prioritizes speed and low overhead.
 
-- **IPv4 Address** identifies the device on a network
-- Devices on the **same subnet** can communicate directly without using a router  
-- Devices on **different subnets** require a **default gateway** to forward traffic
+These protocols support different types of applications depending on whether reliability or speed is more important.
 
-### Private vs Public IP Addresses
+### Ports and Socket Communication
 
-- **Private IPs** are used inside the LAN for internal communication and are not globally routable.  
-- **Public IPs** are used to communicate with devices outside the local network.  
-- **NAT** (Network Address Translation) allows multiple devices with private IPs to share a single public IP when accessing the internet.
+Applications communicate through **port numbers**, which allow multiple services to run on a single device with the same IP address. Ports enable a system to distinguish between different types of incoming traffic, such as web requests or DNS queries.
 
-### MAC Addresses
+Key socket states include:
 
-- Every network interface has a unique **MAC address** used for local delivery of frames.  
-- **ARP** (Address Resolution Protocol) maps IP addresses to MAC addresses on the local subnet.  
-- Before a packet is sent, a device broadcasts an ARP request to find the MAC of the destination.  
-- MAC addresses change at each hop (like PC to router), while the IP address remains constant from source to destination.
+- **LISTEN** – The port is open and waiting for incoming connections.
+- **ESTAB (Established)** – A TCP connection has been successfully formed between two endpoints.
 
-### Default Gateway and Routing Tables
+### Application and Encryption Protocols
 
-- The **default gateway** is the router interface that forwards traffic from the private network to external networks.  
-- A **routing table** is used by each device to determine where to send a packet based on its destination IP
-- **Traceroute** is a tool that tracks the path packets take from the source to a destination.  
+Other protocols depend on the transport layer to deliver their data.
 
+Examples include:
+
+- **HTTP** – Handles standard web requests and responses.
+- **HTTPS** – Secures HTTP using TLS encryption.
+- **DNS** – Resolves domain names into IP addresses.
+- **SSH** – Provides secure remote access and command execution.
+
+### Network Stack Behavior
+
+Communication across the stack requires multiple layers to work together:
+
+- **Layer 4 (Transport)** ensures data delivery between hosts.
+- **Layer 5 (Session)** manages communication sessions between applications.
+- **Layer 6 (Presentation)** handles encryption and formatting of data.
+- **Layer 7 (Application)** defines how applications request and interpret information.
 
 ## 3. Technical Development 
 
@@ -239,17 +246,18 @@ HTTP status codes are handled at the application layer because they describe the
 
 | Concept | Test Performed | Verification Result |
 |-------|---------------|---------------------|
-| Direct Delivery | Pinged another VM on the same network/subnet | Verified that traffic was delivered directly without using the default gateway |
-| Routed Traffic via Default Gateway | Pinged external IP (8.8.8.8) and google.com from Ubuntu VM | Confirmed packets were forwarded first to default gateway and multiple hops seen in traceroute including internal private IPs followed by public IPs |
-| Private vs Public IP Communication | Pinged partner private IP and public IP | Private IP succeeded, indicating direct LAN communication. Public IP failed due to firewall/NAT restrictions, confirming isolation of private networks |
-| Routing Table Function | Checked `ip route` and router configuration | Verified correct next hop decisions based on destination IP |
-| Traceroute | Ran traceroute to determine path taken | List of paths, default gateway with many hops for external networks and a single hope for internal pings |
-| TTL Experiment | Limited traceroute to 3 hops for external IP | Verified that TTL successfully restricted the traceroute path and showed only the first 3 hops |
+| TCP Listening Ports | Ran `ss -tln` and `ss -tlpn` | Verified that active services create listening sockets and wait for connection requests |
+| UDP Listening Ports | Ran `ss -uln` | Confirmed UDP sockets appear without a traditional LISTEN state because UDP is connectionless |
+| TCP Communication | `nc -l 5000` | Verified connection established and messages successfully transmitted |
+| TCP Connection State | `ss -tn`  | Confirmed TCP transitions from LISTEN to ESTAB during active communication |
+| TLS Encryption | Observed HTTPS transaction | Confirmed encryption occurs before HTTP communication |
+| DNS Resolution | `nslookup` | Verified DNS converts domain names into IP addresses |
+| SSH Remote Access | Established SSH session and monitored connection with `ss -tn` | Confirmed SSH uses TCP to maintain reliable encrypted remote sessions |
 
 ## 5. Reflection  
 
-This project helped me understand how Layer 3 communication functions within a LAN and across routers. By configuring multiple virtual machines and observing traffic between them, I saw firsthand how devices on the same network communicate directly using MAC addresses while devices on different networks rely on a default gateway to forward packets. The experiments with traceroute allowed me to see the hops when trying to reach external vs interal networks..
+This project helped me understand how the transport layer enables reliable and unreliable communication between devices. By comparing TCP and UDP, I observed how different protocols prioritize either reliability or speed depending on the application’s needs. Using tools such as `ss -tn` allowed me to directly observe listening ports and connection states, which demonstrated how applications create sockets and wait for incoming connections. 
 
-Working with private and public IPs reinforced the importance of network addressing and NAT. I learned that private IPs allow unrestricted internal communication, while public IPs are filtered, providing security to private networks. Observing the failure of packets to reach external devices without a router highlighted the critical role of routers in connecting private networks to other servers. This project also emphasized how ARP and MAC addresses are crucial in local navigation.
+The experiments using netcat also demonstrated the practical differences between TCP and UDP communication. TCP connections maintained a tracked state and guaranteed delivery, while UDP allowed data to be sent without establishing a persistent connection. Observing these behaviors helped clarify why certain applications choose one protocol over the other. For example, applications requiring precise and reliable data transfer, such as file downloads or secure remote access, rely on TCP, while applications that prioritize speed and low latency, such as video streaming, often use UDP.
 
-Overall, this project strengthened my understanding of packet movement, routing, and network design. It demonstrated the practical connections between IP configuration, routing tables, default gateways, and network visibility. By seeing the actual flow of packets, I gained a deeper understanding for how network controls combined with careful addressing and routing creates functional and secure networks.
+Overall, this project strengthened my understanding of how multiple layers of the network stack interact during communication.
