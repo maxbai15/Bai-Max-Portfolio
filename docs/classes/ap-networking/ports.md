@@ -222,7 +222,7 @@ DNS typically uses port 53 to handle name resolution requests between clients an
 
 SSH requires TCP because remote administrative access demands absolute reliability and error free transmission. A single dropped or out of order packet could corrupt a command and crash a system. Encryption is not handled at Layer 3 because that layer is responsible only for routing packets between IP addresses, whereas encryption must be tied to specific application data to ensure security. Similarly, HTTP does not provide its own reliability because it is a application protocol designed to request content. If port numbers did not exist, a computer with a single IP address would be unable to distinguish between different incoming traffic types, making it impossible to run a web server and an SSH server simultaneously. It is essential to separate remote access from file transfer protocols  because they serve distinct administrative purposes, one for executing live system commands and the other for structured data management with each requiring different session behaviors.
 
-### Understanding HTTP Status Codes
+### HTTP Status Codes
 
 | Status Code Range | Meaning | Example Code | Explanation |
 |---|---|---|---|
@@ -241,6 +241,20 @@ SSH requires TCP because remote administrative access demands absolute reliabili
 | 500 | Internal Server Error | The server encountered an unexpected condition that prevented it from completing the request. | Happens when there is a bug, misconfiguration, or failure in the server's software. |
 
 HTTP status codes are handled at the application layer because they describe the result of a web request between a client and a web server. The application layer is responsible for protocols like HTTP that define how web browsers and servers communicate and interpret messages. In contrast, the transport layer is only responsible for reliably delivering data between devices, not interpreting what the data means. Because status codes describe the meaning and outcome of a request, they belong in the application layer where the communication rules of web applications are defined.
+
+### HTTPS Status Codes
+
+**Observe HTTPS Screenshot:**
+
+<img width="1218" height="584" alt="Image 3-23-26 at 1 30 PM" src="https://github.com/user-attachments/assets/084d866d-d014-4500-a651-4a876ae461d3" />
+
+**Observe HTTPS Redirect Screenshot:**
+
+<img width="1740" height="782" alt="Image 3-23-26 at 1 32 PM" src="https://github.com/user-attachments/assets/40190a4d-0e79-485f-8b68-e8273859ed4a" />
+
+**Observe ss -tn Screenshot:**
+
+<img width="1580" height="864" alt="Image 3-23-26 at 1 47 PM" src="https://github.com/user-attachments/assets/755fe98b-9c52-464e-a540-4337d494d99a" />
 
 ## 4. Testing & Evaluation 
 
