@@ -248,13 +248,19 @@ HTTP status codes are handled at the application layer because they describe the
 
 <img width="1218" height="584" alt="Image 3-23-26 at 1 30 PM" src="https://github.com/user-attachments/assets/084d866d-d014-4500-a651-4a876ae461d3" />
 
+The HTTP code showing is 301, meaning the web domain was moved permanently. It is trying to redirect. All this happens during Layer 7, the application layer.
+
 **Observe HTTPS Redirect Screenshot:**
 
 <img width="1740" height="782" alt="Image 3-23-26 at 1 32 PM" src="https://github.com/user-attachments/assets/40190a4d-0e79-485f-8b68-e8273859ed4a" />
 
+Compared to 301, 302 means that the web application is only temporarily removed. This 302 code might be used in circumstances where the origin web application needs to undergo some fixes or be developed more.
+
 **Observe ss -tn Screenshot:**
 
 <img width="1580" height="864" alt="Image 3-23-26 at 1 47 PM" src="https://github.com/user-attachments/assets/755fe98b-9c52-464e-a540-4337d494d99a" />
+
+The transport protocol is carried out by TCP while the redirect is handled by HTTP as it is at the web layer. For both those, TLS provides security and encryption for all the communication.
 
 ## 4. Testing & Evaluation 
 
