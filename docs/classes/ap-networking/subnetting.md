@@ -60,31 +60,52 @@ Communication across the stack requires multiple layers to work together:
 
 ## 3. Technical Development 
 
-### Transport Layer Reliability
+### IPv4 Subnetting Mask
 
-**PC1 and PC2 IP Configuration:**
+**IP Configuration:**
 
-<img width="1906" height="957" alt="Screenshot 2026-03-03 at 1 22 26 PM" src="https://github.com/user-attachments/assets/26625a34-9107-4c0c-a70d-7bbfabf25ed2" />
+PC0 - 192.168.1.10, 255.255.255.0
+PC1 - 192.168.1.25, 255.255.255.0
+PC2 - 192.168.2.10, 255.255.255.0
 
-<img width="1914" height="949" alt="Screenshot 2026-03-03 at 1 22 53 PM" src="https://github.com/user-attachments/assets/01e3769e-f0cc-4960-868e-0b654434b96a" />
+**PC0 ping PC1 and PC2:**
 
-The internet layer is responsible for the ping command, as it handles logical addressing and routing. Ping does not use TCP or UDP; instead, it uses the ICMP (Internet Control Message Protocol), which is a separate protocol within the IP suite. Consequently, a successful ping does not prove TCP reliability, as ICMP is a connectionless protocol that operates independently of the handshake and error-recovery mechanisms found in TCP
+<img width="305" height="272" alt="Screenshot 2026-03-26 at 8 16 34 AM" src="https://github.com/user-attachments/assets/2f9c9db1-f434-45eb-afce-f2a42276609c" />
 
-**PC1 ping PC2 Successful:**
+**PC0 ping PC2 diff subnet mask:**
 
-<img width="299" height="225" alt="Screenshot 2026-03-03 at 1 27 56 PM" src="https://github.com/user-attachments/assets/6e1da7c8-b90f-46c7-93fa-0828825390d4" />
+Changed PC2 subnet mask to 255.255.0.0
 
-**PC1 to PC2 PDU Path:**
+<img width="302" height="138" alt="Screenshot 2026-03-26 at 8 18 32 AM" src="https://github.com/user-attachments/assets/94a9bce6-518e-4b8d-8ffe-db481df3c7b9" />
 
-https://github.com/user-attachments/assets/0eca56c9-9a46-4b82-99e7-0942a2639ccb
+**Scenario A:**
 
-| Feature | TCP | UDP | 
-|---|---|---|
-| Connection Setup | Yes, involves a 3 way handshake | No, it is connectionless |
-| Sequence Numbers | Yes, used to reassemble data in the correct order | No, packets are treated individually |
-| Acknowledgment | Yes, the receiver confirms receipt of data segments. | No, the sender never knows if data arrived | 
-| Retransmission | Yes, missing segments are resent automatically | No, lost data is simply lost | 
-| Header Complexity | Contains many control fields | Contains only essential info | 
+Ping PC1 and PC2 from PC0 against whil all subnet masks are 255.0.0.0
+
+<img width="283" height="294" alt="Screenshot 2026-03-26 at 8 20 01 AM" src="https://github.com/user-attachments/assets/8b766a84-14f6-4381-a9bc-3f9d2bac6e40" />
+
+**Scenario B:**
+
+PC0 - 172.16.1.10, 255.255.0.0
+PC1 - 172.16.2.20, 255.255.0.0
+
+<img width="292" height="154" alt="Screenshot 2026-03-26 at 8 21 34 AM" src="https://github.com/user-attachments/assets/658f239f-2f16-4f4a-bcee-32126cda0c97" />
+
+**Scenario C:**
+
+**Look Similar but Different Network:**
+
+PC0 - 172.16.1.10, 255.255.255.0
+PC1 - 172.16.2.20, 255.255.255.0
+
+<img width="357" height="135" alt="Screenshot 2026-03-26 at 8 29 43 AM" src="https://github.com/user-attachments/assets/30c6eace-cedb-4b0a-aac0-ec9d2acafa26" />
+
+**Look Different but Same Network:**
+
+PC0 - 172.56.29.1, 255.0.0.0
+PC1 - 172.16.2.20, 255.0.0.0
+
+<img width="288" height="156" alt="Screenshot 2026-03-26 at 8 31 15 AM" src="https://github.com/user-attachments/assets/cf2fe022-7c07-4610-9bff-27997db86b53" />
 
 ### Comparing Transmission Types
 
