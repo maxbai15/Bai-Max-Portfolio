@@ -72,17 +72,23 @@ PC2 - 192.168.2.10, 255.255.255.0
 
 <img width="305" height="272" alt="Screenshot 2026-03-26 at 8 16 34 AM" src="https://github.com/user-attachments/assets/2f9c9db1-f434-45eb-afce-f2a42276609c" />
 
+Here, the ping to PC1 is successful since the subnet mask 255.255.255.0 means that the first 3 octets must be the same to be on the same network, and for PC0 and PC1 they are. In comparison, PC0 to PC2 fails since the third octect is not the same.
+
 **PC0 ping PC2 diff subnet mask:**
 
 Changed PC2 subnet mask to 255.255.0.0
 
 <img width="302" height="138" alt="Screenshot 2026-03-26 at 8 18 32 AM" src="https://github.com/user-attachments/assets/94a9bce6-518e-4b8d-8ffe-db481df3c7b9" />
 
+Changing only the cubnet mask of PC2 doesn't change much since the subnet mask of PC0 is still 255.255.255.0.
+
 **Scenario A:**
 
 Ping PC1 and PC2 from PC0 against whil all subnet masks are 255.0.0.0
 
 <img width="283" height="294" alt="Screenshot 2026-03-26 at 8 20 01 AM" src="https://github.com/user-attachments/assets/8b766a84-14f6-4381-a9bc-3f9d2bac6e40" />
+
+Changing all subnet masks to 255.0.0.0 allows for all the PC's to be on the same network since the first octect of the IPv4 is the same for all PC's. 
 
 **Scenario B:**
 
@@ -91,14 +97,18 @@ PC1 - 172.16.2.20, 255.255.0.0
 
 <img width="292" height="154" alt="Screenshot 2026-03-26 at 8 21 34 AM" src="https://github.com/user-attachments/assets/658f239f-2f16-4f4a-bcee-32126cda0c97" />
 
+Both PC's are on the same network since the subnet mask shows that the first 2 octects of the IPv4 have to be the same to be in the same network.
+
 **Scenario C:**
 
 **Look Similar but Different Network:**
 
 PC0 - 172.16.1.10, 255.255.255.0
-PC1 - 172.16.2.20, 255.255.255.0
+PC1 - 172.16.2.10, 255.255.255.0
 
 <img width="357" height="135" alt="Screenshot 2026-03-26 at 8 29 43 AM" src="https://github.com/user-attachments/assets/30c6eace-cedb-4b0a-aac0-ec9d2acafa26" />
+
+Here the two IP addresses look similar with only one number differing, but that number is important since the subnet mask shows that the first 3 octects must be the same to be on the same network. Since the 3rd octect differs, PC0 and PC1 are not on the same network.
 
 **Look Different but Same Network:**
 
@@ -106,6 +116,8 @@ PC0 - 172.56.29.1, 255.0.0.0
 PC1 - 172.16.2.20, 255.0.0.0
 
 <img width="288" height="156" alt="Screenshot 2026-03-26 at 8 31 15 AM" src="https://github.com/user-attachments/assets/cf2fe022-7c07-4610-9bff-27997db86b53" />
+
+The two PC's have IPv4 addresses that look different except the 1st octect, but based on the subnet mask, only the 1st octect has to be the same for the PC's to be on the same network.
 
 ### Comparing Transmission Types
 
