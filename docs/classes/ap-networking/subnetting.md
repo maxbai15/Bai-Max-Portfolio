@@ -3,60 +3,45 @@
 ## 1. Project Overview  
 
 **Problem Statement:**  
-Understand how the transport and application layers manage reliable communication and application sessions.
+Understand how subnetting determines communication within and between networks, and how multiple LANs can be designed and maintained.
 
 **Objectives:**  
 
-- Compare reliable and unreliable transport protocols (TCP vs UDP)  
-- Observe connection states and listening ports using system networking tools  
-- Demonstrate application communication using TCP and UDP sockets  
-- Analyze how higher layer protocols such as HTTP, HTTPS, and SSH operate 
+- Analyze how subnet masks determine whether devices are on the same network  
+- Test communication between devices with different IP and subnet configurations  
+- Design a multi LAN network with separate departments 
+- Diagnose and resolve connectivity issues within a network  
 
 **Success Criteria:**  
 
-- Correctly identify listening and active ports using networking tools such as `ss -tn`  
-- Successfully demonstrate communication using TCP and UDP with netcat  
-- Accurately interpret connection states such as LISTEN and ESTAB  
+- Correctly determine whether devices are on the same subnet based on IP and subnet mask  
+- Successfully demonstrate communication within the same subnet 
+- Design a functional LAN network 
+- Identify and fix network issues in a broken network  
 
 ## 2. Design & Planning 
 
-### Transport Layer Protocols
+### IP Addressing and Subnet Masks
 
-Two primary protocols operate at the transport layer:
+Every device on a network has an IP address paired with a subnet mask. The subnet mask determines which portion of the IP address represents the network and which portion represents the host. Devices are on the same network if the network portion of their IP addresses matches. Devices are on different networks if the network portion differs. The subnet mask defines how many octets must match for communication to occur directly.  
 
-- **TCP (Transmission Control Protocol)** provides reliable, connection-oriented communication. It establishes a session using a three-way handshake and ensures data is delivered in order with acknowledgments and retransmissions.
-- **UDP (User Datagram Protocol)** is connectionless and sends packets without acknowledgments or guaranteed delivery. It prioritizes speed and low overhead.
+### Subnetting Logic
 
-These protocols support different types of applications depending on whether reliability or speed is more important.
+Subnetting is based on binary, where subnet masks divide networks into smaller segments. This allows:
 
-### Ports and Socket Communication
+- Separation of devices into different networks  
+- Improved organization and scalability  
+- Control over which devices can communicate directly  
 
-Applications communicate through **port numbers**, which allow multiple services to run on a single device with the same IP address. Ports enable a system to distinguish between different types of incoming traffic, such as web requests or DNS queries.
 
-Key socket states include:
+### Network Design for Multiple LANs
 
-- **LISTEN** – The port is open and waiting for incoming connections.
-- **ESTAB (Established)** – A TCP connection has been successfully formed between two endpoints.
+To support multiple departments, a network must be segmented into separate LANs:
 
-### Application and Encryption Protocols
+- Each department is placed on its own subnet and switch  
+- A central router connects the different LANs  
+- This design improves security and scalability by isolating traffic  
 
-Other protocols depend on the transport layer to deliver their data.
-
-Examples include:
-
-- **HTTP** – Handles standard web requests and responses.
-- **HTTPS** – Secures HTTP using TLS encryption.
-- **DNS** – Resolves domain names into IP addresses.
-- **SSH** – Provides secure remote access and command execution.
-
-### Network Stack Behavior
-
-Communication across the stack requires multiple layers to work together:
-
-- **Layer 4 (Transport)** ensures data delivery between hosts.
-- **Layer 5 (Session)** manages communication sessions between applications.
-- **Layer 6 (Presentation)** handles encryption and formatting of data.
-- **Layer 7 (Application)** defines how applications request and interpret information.
 
 ## 3. Technical Development 
 
@@ -159,120 +144,49 @@ Above shows the good connection between all devices, except wireless for now.
 
 In the final design, a wireless laptop and router were added to allow workers to work outside of the office. In the design there is two different switches for each department, so that they can have seprate networks for scalability and security. Each department has PC's that workers use connected to their respective switches. Ultimately, both switches connect to a central router that is connected to the main server that houses the information for the entire company. I chose a client-server model because it allows for centralized security around the main server, where all the information is stored.
 
-### OSI Layer 5
+### Diagnosing Broken Network
 
-**HTTP Transaction:**
+**Ping Failure:**
 
-<img width="858" height="480" alt="Image 3-9-26 at 9 04 AM" src="https://github.com/user-attachments/assets/16e4115b-2f3d-40e2-a824-cc1e512c82bb" />
+<img width="885" height="705" alt="Screenshot 2026-03-31 at 12 41 12 PM" src="https://github.com/user-attachments/assets/963b530f-c7a2-41c3-a5a6-8da9578dd1d9" />
 
-TCP is the protocol used with HTTP as it requires a three way handshake, ensuring all parties understand and recieve the data needed. The "200 OK" is the application layer to have the server confirm that the data is received.
+First, pinging the IP address across the network tests to see if connectivity is up. Since the ping fails, there is a failed connection somewhere in the network.
 
-**HTTPS Transaction:**
+**Checking Router Configuration:**
 
-<img width="940" height="454" alt="Image 3-9-26 at 9 06 AM" src="https://github.com/user-attachments/assets/c04ccf11-1b94-4314-8f77-c63f9b37318b" />
+<img width="813" height="205" alt="Screenshot 2026-03-31 at 12 42 26 PM" src="https://github.com/user-attachments/assets/77946dcc-6fc1-4d79-b49f-25f69ef32be0" />
 
-The HTTPS is different as is requires signaling that the TLS (Transport Layer Security) is ready since it shows that this data sent needs extra encryption. This happens at the presentation layer to ensure that the data is secured before the confirmation at the application layer.
+Checking the configuration of the router, it shows that the Gigabit connection 0/0/1 is down. This means that the connection problem is with the router and the second switch as the port isn't up.
 
-**TLS Handshake:**
+**Solution:**
 
-<img width="1012" height="452" alt="Screenshot 2026-03-09 at 9 18 03 AM" src="https://github.com/user-attachments/assets/1483d332-1b4e-407e-aa83-da6fda133c59" />
+<img width="878" height="709" alt="Screenshot 2026-03-31 at 12 43 46 PM" src="https://github.com/user-attachments/assets/0878739b-0f31-42ee-8e09-2569a8a66233" />
 
-<img width="782" height="815" alt="Screenshot 2026-03-09 at 9 18 16 AM" src="https://github.com/user-attachments/assets/422df5f8-8a35-4876-b171-dbd64f03feb2" />
+The solution is a simple fix: configure the status of gigabit port 1 on the router to an up state. To do this enter the cli for the router and type the commands `enable` then `config t` to enter global configuration mode. After entering global configuration mode, enter port 1 by typing `int gi0/1` and then the command `no shut` to make the status of port 1 UP.
 
-**Observe Persistent Connection:**
+**Working Network:**
 
-<img width="2044" height="376" alt="Image 3-9-26 at 9 31 AM" src="https://github.com/user-attachments/assets/4e824aee-aafe-4e53-97a8-2b94de61e4a2" />
+<img width="932" height="445" alt="Screenshot 2026-03-31 at 12 44 14 PM" src="https://github.com/user-attachments/assets/b4fbdb74-4a39-43fa-ac14-a5469bea4fcb" />
 
-| Protocol | Layer | Purpose | 
-|---|---|---|
-| HTTP | 7(Application) | Provides the structure for web requests and responses, as seen in the 200 OK |
-| HTTPS | 7(Application) | Acts as the secure version of HTTP |
-| TLS | 6(Presentation) | Handles the encryption and decryption of data | 
-| DNS | 7(Application) | Translates human-readable domain names into IP addresses | 
-| TCP | 4(Transport) | Manages end-to-end communication and reliability | 
-
-Layer 5 manages the communication state by establishing and maintaining dialogues between applications to ensure data streams remain organized during a session. Layer 6  is responsible for the formatting, compression, and encryption of the data, acting as a translator to ensure the receiving application can properly read and secure the information. Layer 7 governs specific application behavior and provides the interface for user services, such as interpreting an HTTP "200 OK" status or a DNS query. Layer 4 alone is insufficient because while it handles the reliable delivery of segments, it lacks the logic to understand the data's content and properly manage the data and convey the infromation.
-
-### Application and Remote Access Protocols Across the Stack
-
-**HTTP Stack Screenshot:**
-
-<img width="727" height="148" alt="Screenshot 2026-03-11 at 12 43 37 PM" src="https://github.com/user-attachments/assets/db8d8aed-5c57-4cf8-8b7d-af1ac7c80985" />
-
-**HTTPS Stack Screenshot:**
-
-<img width="740" height="115" alt="Screenshot 2026-03-11 at 12 44 32 PM" src="https://github.com/user-attachments/assets/00195c9a-4879-45ea-88c5-9cc2926ddeb3" />
-
-**nslookup Screenshot:**
-
-<img width="388" height="253" alt="Screenshot 2026-03-11 at 12 48 16 PM" src="https://github.com/user-attachments/assets/0263f9e1-05c7-4018-80d1-c090ae4e50c1" />
-
-DNS typically uses port 53 to handle name resolution requests between clients and servers. It primarily utilizes UDP because the small size of standard queries allows for rapid and low overhead communication. DNS does not require guaranteed delivery in most cases. If a packet is lost, the client application simply times out and retries the request, which is more efficient than managing TCP retransmissions. However, DNS will switch to TCP when the response data exceeds a certain limit.
-
-**Connect via SSH Screenshot:**
-
-<img width="908" height="524" alt="Screenshot 2026-03-11 at 12 49 49 PM" src="https://github.com/user-attachments/assets/4b947a22-29a2-46da-8b31-48e42bea23da" />
-
-**SSH Connection ss -tn Screenshot:**
-
-<img width="731" height="264" alt="Screenshot 2026-03-11 at 12 52 06 PM" src="https://github.com/user-attachments/assets/08bc1213-d9c4-41e5-bcab-05c25bc3a050" />
-
-**Secure File Transer Screenshot:**
-
-<img width="654" height="98" alt="Screenshot 2026-03-11 at 12 53 25 PM" src="https://github.com/user-attachments/assets/0cf0c5ab-234f-43e8-a368-01f611fa12b9" />
-
-SSH requires TCP because remote administrative access demands absolute reliability and error free transmission. A single dropped or out of order packet could corrupt a command and crash a system. Encryption is not handled at Layer 3 because that layer is responsible only for routing packets between IP addresses, whereas encryption must be tied to specific application data to ensure security. Similarly, HTTP does not provide its own reliability because it is a application protocol designed to request content. If port numbers did not exist, a computer with a single IP address would be unable to distinguish between different incoming traffic types, making it impossible to run a web server and an SSH server simultaneously. It is essential to separate remote access from file transfer protocols  because they serve distinct administrative purposes, one for executing live system commands and the other for structured data management with each requiring different session behaviors.
-
-### HTTP Status Codes
-
-| Status Code Range | Meaning | Example Code | Explanation |
-|---|---|---|---|
-| 1xx | Informational responses that indicate the request has been received and the server is continuing the process. | 100 Continue | This code means the server has received the initial part of the request and the client can continue sending the rest of it. |
-| 2xx | Successful responses that indicate the request was received, understood, and processed correctly. | 200 OK | This code means the request was successful and the server returned the requested resource or response. |
-| 3xx | Redirection messages that tell the client that the resource has moved or another action must be taken to complete the request. | 301 Moved Permanently | This code means the requested resource has been permanently moved to a new URL, and the client should update future requests to use that new address. |
-| 4xx | Client error responses that indicate something was wrong with the request sent by the client. | 404 Not Found | This code means the server could not find the requested resource, usually because the URL is incorrect or the page no longer exists. |
-| 5xx | Server error responses that indicate the server failed to fulfill a valid request. | 500 Internal Server Error | This code means the server encountered an unexpected problem that prevented it from completing the request. |
-
-| Status Code | Name | What It Means | When It Happens |
-|---|---|---|---|
-| 200 | OK | The request was successful and the server returned the requested content. | Happens when a webpage loads correctly and the server delivers the page or data without errors. |
-| 301 | Moved Permanently | The requested resource has been permanently moved to a different URL. | Happens when a website changes its address and automatically redirects users to the new location. |
-| 302 | Found | The resource is temporarily located at a different URL. | Happens when a page temporarily redirects users, such as during maintenance or temporary content changes. |
-| 404 | Not Found | The server cannot find the requested resource. | Happens when a user tries to access a page that does not exist or the URL was typed incorrectly. |
-| 500 | Internal Server Error | The server encountered an unexpected condition that prevented it from completing the request. | Happens when there is a bug, misconfiguration, or failure in the server's software. |
-
-HTTP status codes are handled at the application layer because they describe the result of a web request between a client and a web server. The application layer is responsible for protocols like HTTP that define how web browsers and servers communicate and interpret messages. In contrast, the transport layer is only responsible for reliably delivering data between devices, not interpreting what the data means. Because status codes describe the meaning and outcome of a request, they belong in the application layer where the communication rules of web applications are defined.
-
-### HTTPS Status Codes
-
-**Observe HTTPS Screenshot:**
-
-<img width="1218" height="584" alt="Image 3-23-26 at 1 30 PM" src="https://github.com/user-attachments/assets/084d866d-d014-4500-a651-4a876ae461d3" />
-
-**Observe HTTPS Redirect Screenshot:**
-
-<img width="1740" height="782" alt="Image 3-23-26 at 1 32 PM" src="https://github.com/user-attachments/assets/40190a4d-0e79-485f-8b68-e8273859ed4a" />
-
-**Observe ss -tn Screenshot:**
-
-<img width="1580" height="864" alt="Image 3-23-26 at 1 47 PM" src="https://github.com/user-attachments/assets/755fe98b-9c52-464e-a540-4337d494d99a" />
+To diagnose the breakdown in the network, the first step is to test if there is really a breakdown. To do this, simply ping two different devices across the network to see if they are able to reach each other. After figuring out the devices weren't able to reach each other, the next step was to check the IP configuration of the devices, switches, and router. Checking the router last, the port 1 on the router was down, meaning there was no connectivity to switch 2 and the devices on that side. As a result of this, the fix was to simply go into the cli of router 1 and set the status of port 1 to active.
 
 ## 4. Testing & Evaluation 
 
 | Concept | Test Performed | Verification Result |
 |-------|---------------|---------------------|
-| TCP Listening Ports | Ran `ss -tln` and `ss -tlpn` | Verified that active services create listening sockets and wait for connection requests |
-| UDP Listening Ports | Ran `ss -uln` | Confirmed UDP sockets appear without a traditional LISTEN state because UDP is connectionless |
-| TCP Communication | `nc -l 5000` | Verified connection established and messages successfully transmitted |
-| TCP Connection State | `ss -tn`  | Confirmed TCP transitions from LISTEN to ESTAB during active communication |
-| TLS Encryption | Observed HTTPS transaction | Confirmed encryption occurs before HTTP communication |
-| DNS Resolution | `nslookup` | Verified DNS converts domain names into IP addresses |
-| SSH Remote Access | Established SSH session and monitored connection with `ss -tn` | Confirmed SSH uses TCP to maintain reliable encrypted remote sessions |
+| Same Subnet | Compared IPs with different subnet masks (255.0.0.0, 255.255.0.0, 255.255.255.0) | Verified that required matching octets determine whether devices are on the same network |
+| Same Subnet Communication | Pinged PC1 from PC0 with matching subnet (192.168.1.x /24) | Verified successful communication when network portion matches |
+| Different Subnet Communication | Pinged PC2 from PC0 with different subnet (192.168.2.x /24) | Verified communication fails when devices are on different networks without a router |
+| Subnet Mask Change | Changed subnet mask of one device only | Confirmed communication still fails if both devices do not share the same network mask |
+| Connectivity Testing | Used ping to test network communication | Identified failure in connectivity between devices |
+| Router Troubleshooting | Checked router interface status | Found disabled interface causing network failure |
+| Network Fix | Enabled port on router using `no shut` | Verified full network connectivity restored after interface activation |
+
 
 ## 5. Reflection  
 
-This project helped me understand how the transport layer enables reliable and unreliable communication between devices. By comparing TCP and UDP, I observed how different protocols prioritize either reliability or speed depending on the application’s needs. Using tools such as `ss -tn` allowed me to directly observe listening ports and connection states, which demonstrated how applications create sockets and wait for incoming connections. 
+This project helped me understand how subnetting controls communication within and between networks. By experimenting with different subnet masks, I learned how the network portion of an IP address determines whether devices can communicate directly. I observed that even small changes in an IP address or subnet mask can completely change whether two devices are considered part of the same network. 
 
-The experiments using netcat also demonstrated the practical differences between TCP and UDP communication. TCP connections maintained a tracked state and guaranteed delivery, while UDP allowed data to be sent without establishing a persistent connection. Observing these behaviors helped clarify why certain applications choose one protocol over the other. For example, applications requiring precise and reliable data transfer, such as file downloads or secure remote access, rely on TCP, while applications that prioritize speed and low latency, such as video streaming, often use UDP.
+Designing a network with multiple LANs also showed how subnetting is used in real world scenarios to separate departments for better organization and security. By connecting different LANs through a router, I saw how communication between networks depends entirely on proper routing. This helped me understand why routers are essential in larger networks and how they allow multiple smaller networks to function as part of a larger system.
 
-Overall, this project strengthened my understanding of how multiple layers of the network stack interact during communication.
+The troubleshooting portion of the project was  useful because it demonstrated how to diagnose network problems. By starting with a simple ping test and then checking configurations, I was able to identify that a router interface was down. Fixing the issue by enabling the interface showed how small configuration errors can cause major connectivity problems. Overall, this project strengthened my understanding of subnetting and network design.
