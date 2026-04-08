@@ -19,6 +19,7 @@ nav:
           - Switch Security: classes/ap-networking/switch.md
           - Routing: classes/ap-networking/routing.md
           - Ports and Protocols: classes/ap-networking/ports.md
+          - Subnetting & Maintaining Multiple LAN: classes/ap-networking/subnetting.md
           
 
           
