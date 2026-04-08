@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Subnetting and Maintaining Multiple LANs - My Digital Portfolio</title>
+        <title>Subnetting & Maintaining Multiple LAN - My Digital Portfolio</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,7 +81,7 @@
             </li>
             <li class="drac-box">
                 <a href="../../.."
-                    class="
+                    class=" active 
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#classes-collapse" aria-expanded="false">
                     Classes
@@ -194,6 +194,14 @@
             Ports and Protocols
         </a>
     </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Subnetting & Maintaining Multiple LAN
+        </a>
+    </li>
             </ul>
         </div>
     </li>
@@ -225,6 +233,22 @@
                     <!-- block preview -->
                     <li class="nav-item">
                             
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../ports/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
                     </li>
                     <!--  endblock -->
 
@@ -258,324 +282,104 @@
         <p><h1 id="subnetting-and-maintaining-multiple-lans">Subnetting and Maintaining Multiple LANs</h1>
 <h2 id="1-project-overview">1. Project Overview</h2>
 <p><strong>Problem Statement:</strong><br />
-Understand how the transport and application layers manage reliable communication and application sessions.</p>
+Understand how subnetting determines communication within and between networks, and how multiple LANs can be designed and maintained.</p>
 <p><strong>Objectives:</strong>  </p>
 <ul>
-<li>Compare reliable and unreliable transport protocols (TCP vs UDP)  </li>
-<li>Observe connection states and listening ports using system networking tools  </li>
-<li>Demonstrate application communication using TCP and UDP sockets  </li>
-<li>Analyze how higher layer protocols such as HTTP, HTTPS, and SSH operate </li>
+<li>Analyze how subnet masks determine whether devices are on the same network  </li>
+<li>Test communication between devices with different IP and subnet configurations  </li>
+<li>Design a multi LAN network with separate departments </li>
+<li>Diagnose and resolve connectivity issues within a network  </li>
 </ul>
 <p><strong>Success Criteria:</strong>  </p>
 <ul>
-<li>Correctly identify listening and active ports using networking tools such as <code>ss -tn</code>  </li>
-<li>Successfully demonstrate communication using TCP and UDP with netcat  </li>
-<li>Accurately interpret connection states such as LISTEN and ESTAB  </li>
+<li>Correctly determine whether devices are on the same subnet based on IP and subnet mask  </li>
+<li>Successfully demonstrate communication within the same subnet </li>
+<li>Design a functional LAN network </li>
+<li>Identify and fix network issues in a broken network  </li>
 </ul>
 <h2 id="2-design-planning">2. Design &amp; Planning</h2>
-<h3 id="transport-layer-protocols">Transport Layer Protocols</h3>
-<p>Two primary protocols operate at the transport layer:</p>
+<h3 id="ip-addressing-and-subnet-masks">IP Addressing and Subnet Masks</h3>
+<p>Every device on a network has an IP address paired with a subnet mask. The subnet mask determines which portion of the IP address represents the network and which portion represents the host. Devices are on the same network if the network portion of their IP addresses matches. Devices are on different networks if the network portion differs. The subnet mask defines how many octets must match for communication to occur directly.  </p>
+<h3 id="subnetting">Subnetting</h3>
+<p>Subnetting is based on binary, where subnet masks divide networks into smaller segments. This allows:</p>
 <ul>
-<li><strong>TCP (Transmission Control Protocol)</strong> provides reliable, connection-oriented communication. It establishes a session using a three-way handshake and ensures data is delivered in order with acknowledgments and retransmissions.</li>
-<li><strong>UDP (User Datagram Protocol)</strong> is connectionless and sends packets without acknowledgments or guaranteed delivery. It prioritizes speed and low overhead.</li>
+<li>Separation of devices into different networks  </li>
+<li>Improved organization and scalability  </li>
+<li>Control over which devices can communicate directly  </li>
 </ul>
-<p>These protocols support different types of applications depending on whether reliability or speed is more important.</p>
-<h3 id="ports-and-socket-communication">Ports and Socket Communication</h3>
-<p>Applications communicate through <strong>port numbers</strong>, which allow multiple services to run on a single device with the same IP address. Ports enable a system to distinguish between different types of incoming traffic, such as web requests or DNS queries.</p>
-<p>Key socket states include:</p>
+<h3 id="network-design-for-multiple-lans">Network Design for Multiple LANs</h3>
+<p>To support multiple departments, a network must be segmented into separate LANs:</p>
 <ul>
-<li><strong>LISTEN</strong> – The port is open and waiting for incoming connections.</li>
-<li><strong>ESTAB (Established)</strong> – A TCP connection has been successfully formed between two endpoints.</li>
-</ul>
-<h3 id="application-and-encryption-protocols">Application and Encryption Protocols</h3>
-<p>Other protocols depend on the transport layer to deliver their data.</p>
-<p>Examples include:</p>
-<ul>
-<li><strong>HTTP</strong> – Handles standard web requests and responses.</li>
-<li><strong>HTTPS</strong> – Secures HTTP using TLS encryption.</li>
-<li><strong>DNS</strong> – Resolves domain names into IP addresses.</li>
-<li><strong>SSH</strong> – Provides secure remote access and command execution.</li>
-</ul>
-<h3 id="network-stack-behavior">Network Stack Behavior</h3>
-<p>Communication across the stack requires multiple layers to work together:</p>
-<ul>
-<li><strong>Layer 4 (Transport)</strong> ensures data delivery between hosts.</li>
-<li><strong>Layer 5 (Session)</strong> manages communication sessions between applications.</li>
-<li><strong>Layer 6 (Presentation)</strong> handles encryption and formatting of data.</li>
-<li><strong>Layer 7 (Application)</strong> defines how applications request and interpret information.</li>
+<li>Each department is placed on its own subnet and switch  </li>
+<li>A central router connects the different LANs  </li>
+<li>This design improves security and scalability by isolating traffic  </li>
 </ul>
 <h2 id="3-technical-development">3. Technical Development</h2>
-<h3 id="transport-layer-reliability">Transport Layer Reliability</h3>
-<p><strong>PC1 and PC2 IP Configuration:</strong></p>
-<p><img width="1906" height="957" alt="Screenshot 2026-03-03 at 1 22 26 PM" src="https://github.com/user-attachments/assets/26625a34-9107-4c0c-a70d-7bbfabf25ed2" /></p>
-<p><img width="1914" height="949" alt="Screenshot 2026-03-03 at 1 22 53 PM" src="https://github.com/user-attachments/assets/01e3769e-f0cc-4960-868e-0b654434b96a" /></p>
-<p>The internet layer is responsible for the ping command, as it handles logical addressing and routing. Ping does not use TCP or UDP; instead, it uses the ICMP (Internet Control Message Protocol), which is a separate protocol within the IP suite. Consequently, a successful ping does not prove TCP reliability, as ICMP is a connectionless protocol that operates independently of the handshake and error-recovery mechanisms found in TCP</p>
-<p><strong>PC1 ping PC2 Successful:</strong></p>
-<p><img width="299" height="225" alt="Screenshot 2026-03-03 at 1 27 56 PM" src="https://github.com/user-attachments/assets/6e1da7c8-b90f-46c7-93fa-0828825390d4" /></p>
-<p><strong>PC1 to PC2 PDU Path:</strong></p>
-<p>https://github.com/user-attachments/assets/0eca56c9-9a46-4b82-99e7-0942a2639ccb</p>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>TCP</th>
-<th>UDP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Connection Setup</td>
-<td>Yes, involves a 3 way handshake</td>
-<td>No, it is connectionless</td>
-</tr>
-<tr>
-<td>Sequence Numbers</td>
-<td>Yes, used to reassemble data in the correct order</td>
-<td>No, packets are treated individually</td>
-</tr>
-<tr>
-<td>Acknowledgment</td>
-<td>Yes, the receiver confirms receipt of data segments.</td>
-<td>No, the sender never knows if data arrived</td>
-</tr>
-<tr>
-<td>Retransmission</td>
-<td>Yes, missing segments are resent automatically</td>
-<td>No, lost data is simply lost</td>
-</tr>
-<tr>
-<td>Header Complexity</td>
-<td>Contains many control fields</td>
-<td>Contains only essential info</td>
-</tr>
-</tbody>
-</table>
-<h3 id="comparing-transmission-types">Comparing Transmission Types</h3>
-<p>A prediction is that TCP is connection oriented because it requires acknowledgement from both parties whereas UDP is connectionless because it doesn't require acknowledgement. Data sent over using UDP that is lost is just lost forever and not resent.</p>
-<p><strong>View Listening TCP Ports(ss -tln):</strong></p>
-<p><img width="1842" height="344" alt="Image 3-6-26 at 8 19 AM" src="https://github.com/user-attachments/assets/dbd8b48d-846c-401a-82dc-a05e4608e7a8" /></p>
-<p><strong>Sudo ss -tlpn screenshot:</strong></p>
-<p><img width="1892" height="306" alt="Image 3-6-26 at 8 20 AM" src="https://github.com/user-attachments/assets/66ecc646-92b1-4c5b-9bd7-c18c2a50a4b1" /></p>
-<p>The process using port 22 is typically used for remote logins. If port 22 does not appear in your results, it suggests the SSH service is stopped. While a port exists as a logistical place available in the networking stack, a port is only listening when an active application has opened it to specifically monitor and accept incoming connection requests.</p>
-<p><strong>View Listening UDP Ports (ss -uln):</strong></p>
-<p><img width="1880" height="322" alt="Image 3-6-26 at 8 22 AM" src="https://github.com/user-attachments/assets/636dc39e-2323-43e8-8a12-2e1c28d052c6" /></p>
-<p>UDP sockets do not show a listen state, but above I can see ESTAB which represents that the connection is currently up.</p>
-<p><strong>Terminal A Listener screenshot:</strong></p>
-<p>Use the command <code>nc -l 5000</code> to have Terminal A be silently listening.</p>
-<p><img width="944" height="60" alt="Image 3-6-26 at 8 27 AM" src="https://github.com/user-attachments/assets/422681ee-5196-4ae3-b66b-4ff794e222b5" /></p>
-<p><strong>Terminal C Shows New Port from Terminal A:</strong></p>
-<p>The new port 0.0.0.0:5000 shows that Terminal C can now see the port from Terminal A.</p>
-<p><img width="1442" height="416" alt="Image 3-6-26 at 8 29 AM" src="https://github.com/user-attachments/assets/59a02792-166e-4f4d-a661-10ed24743b8e" /></p>
-<p><strong>Successful Communication between Terminal B and A(tcp):</strong></p>
-<p>Message from Terminal B:
-<img width="666" height="88" alt="Image 3-6-26 at 8 32 AM" src="https://github.com/user-attachments/assets/be9c0b09-c04f-4e5c-b897-15dcffb77109" /></p>
-<p>Terminal A Receieves Message:</p>
-<p><img width="524" height="80" alt="Image 3-6-26 at 8 32 AM (1)" src="https://github.com/user-attachments/assets/3e7ebd4c-43eb-40cd-8cb4-f4947504860c" /></p>
-<p><strong>Observe ESTAB state from Terminal C:</strong></p>
-<p><img width="1428" height="206" alt="Image 3-6-26 at 8 34 AM" src="https://github.com/user-attachments/assets/c126aaa6-e3e4-42e8-8f76-3d860df6509f" /></p>
-<p><strong>Start UDP Listener Terminal A:</strong></p>
-<p><img width="694" height="70" alt="Image 3-6-26 at 8 35 AM" src="https://github.com/user-attachments/assets/918b2ed0-21c0-4356-a5c1-c73cc28c7f25" /></p>
-<p><strong>Successful Communication between Terminal B and A(udp):</strong></p>
-<p>Message from Terminal B:
-<img width="752" height="102" alt="Image 3-6-26 at 8 36 AM" src="https://github.com/user-attachments/assets/83a90265-2a04-4b08-bb0a-83605647247d" /></p>
-<p>Terminal A Recieves Message:</p>
-<p><img width="618" height="94" alt="Image 3-6-26 at 8 37 AM" src="https://github.com/user-attachments/assets/b632a039-27be-40bf-976f-b19232351739" /></p>
-<p><strong>Observe UDP State from Terminal C:</strong></p>
-<p><img width="1428" height="332" alt="Image 3-6-26 at 8 38 AM" src="https://github.com/user-attachments/assets/3427efd8-2ced-455b-9a37-4eebd72ebdd1" /></p>
-<p>The evidence for the listen state is the output of ss -tln, which explicitly shows the listen status as it indicates the  listener is open and waiting for a connection. After connecting from Terminal B, the evidence for ESTAB appears in the ss -tn output, showing an ESTAB status demonstrates how the ports are connected. The primary change between the two commands is that ss -tln filters for listening sockets while ss -tn displays active connections ). This experiment proves TCP is connection-oriented because the state clearly transitions from a passive wait to a tracked connection between two different endpoints.</p>
-<table>
-<thead>
-<tr>
-<th>Application</th>
-<th>Protocol</th>
-<th>Why</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Online Banking</td>
-<td>TCP</td>
-<td>Requires absolute reliability in data trasnfer when dealing with financial data</td>
-</tr>
-<tr>
-<td>Zoom Call</td>
-<td>UDP</td>
-<td>Prioritizes low latency over reliability for live video calls</td>
-</tr>
-<tr>
-<td>Netflix Streaming</td>
-<td>TCP</td>
-<td>Ensures the video file is transmitted entirely and safely</td>
-</tr>
-<tr>
-<td>File Download</td>
-<td>TCP</td>
-<td>Ensures files are transmitted entirely and safely</td>
-</tr>
-<tr>
-<td>DNS Query</td>
-<td>UDP</td>
-<td>Opimitzed for speed and low overhead</td>
-</tr>
-</tbody>
-</table>
-<h3 id="osi-layer-5">OSI Layer 5</h3>
-<p><strong>HTTP Transaction:</strong></p>
-<p><img width="858" height="480" alt="Image 3-9-26 at 9 04 AM" src="https://github.com/user-attachments/assets/16e4115b-2f3d-40e2-a824-cc1e512c82bb" /></p>
-<p>TCP is the protocol used with HTTP as it requires a three way handshake, ensuring all parties understand and recieve the data needed. The "200 OK" is the application layer to have the server confirm that the data is received.</p>
-<p><strong>HTTPS Transaction:</strong></p>
-<p><img width="940" height="454" alt="Image 3-9-26 at 9 06 AM" src="https://github.com/user-attachments/assets/c04ccf11-1b94-4314-8f77-c63f9b37318b" /></p>
-<p>The HTTPS is different as is requires signaling that the TLS (Transport Layer Security) is ready since it shows that this data sent needs extra encryption. This happens at the presentation layer to ensure that the data is secured before the confirmation at the application layer.</p>
-<p><strong>TLS Handshake:</strong></p>
-<p><img width="1012" height="452" alt="Screenshot 2026-03-09 at 9 18 03 AM" src="https://github.com/user-attachments/assets/1483d332-1b4e-407e-aa83-da6fda133c59" /></p>
-<p><img width="782" height="815" alt="Screenshot 2026-03-09 at 9 18 16 AM" src="https://github.com/user-attachments/assets/422df5f8-8a35-4876-b171-dbd64f03feb2" /></p>
-<p><strong>Observe Persistent Connection:</strong></p>
-<p><img width="2044" height="376" alt="Image 3-9-26 at 9 31 AM" src="https://github.com/user-attachments/assets/4e824aee-aafe-4e53-97a8-2b94de61e4a2" /></p>
-<table>
-<thead>
-<tr>
-<th>Protocol</th>
-<th>Layer</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HTTP</td>
-<td>7(Application)</td>
-<td>Provides the structure for web requests and responses, as seen in the 200 OK</td>
-</tr>
-<tr>
-<td>HTTPS</td>
-<td>7(Application)</td>
-<td>Acts as the secure version of HTTP</td>
-</tr>
-<tr>
-<td>TLS</td>
-<td>6(Presentation)</td>
-<td>Handles the encryption and decryption of data</td>
-</tr>
-<tr>
-<td>DNS</td>
-<td>7(Application)</td>
-<td>Translates human-readable domain names into IP addresses</td>
-</tr>
-<tr>
-<td>TCP</td>
-<td>4(Transport)</td>
-<td>Manages end-to-end communication and reliability</td>
-</tr>
-</tbody>
-</table>
-<p>Layer 5 manages the communication state by establishing and maintaining dialogues between applications to ensure data streams remain organized during a session. Layer 6  is responsible for the formatting, compression, and encryption of the data, acting as a translator to ensure the receiving application can properly read and secure the information. Layer 7 governs specific application behavior and provides the interface for user services, such as interpreting an HTTP "200 OK" status or a DNS query. Layer 4 alone is insufficient because while it handles the reliable delivery of segments, it lacks the logic to understand the data's content and properly manage the data and convey the infromation.</p>
-<h3 id="application-and-remote-access-protocols-across-the-stack">Application and Remote Access Protocols Across the Stack</h3>
-<p><strong>HTTP Stack Screenshot:</strong></p>
-<p><img width="727" height="148" alt="Screenshot 2026-03-11 at 12 43 37 PM" src="https://github.com/user-attachments/assets/db8d8aed-5c57-4cf8-8b7d-af1ac7c80985" /></p>
-<p><strong>HTTPS Stack Screenshot:</strong></p>
-<p><img width="740" height="115" alt="Screenshot 2026-03-11 at 12 44 32 PM" src="https://github.com/user-attachments/assets/00195c9a-4879-45ea-88c5-9cc2926ddeb3" /></p>
-<p><strong>nslookup Screenshot:</strong></p>
-<p><img width="388" height="253" alt="Screenshot 2026-03-11 at 12 48 16 PM" src="https://github.com/user-attachments/assets/0263f9e1-05c7-4018-80d1-c090ae4e50c1" /></p>
-<p>DNS typically uses port 53 to handle name resolution requests between clients and servers. It primarily utilizes UDP because the small size of standard queries allows for rapid and low overhead communication. DNS does not require guaranteed delivery in most cases. If a packet is lost, the client application simply times out and retries the request, which is more efficient than managing TCP retransmissions. However, DNS will switch to TCP when the response data exceeds a certain limit.</p>
-<p><strong>Connect via SSH Screenshot:</strong></p>
-<p><img width="908" height="524" alt="Screenshot 2026-03-11 at 12 49 49 PM" src="https://github.com/user-attachments/assets/4b947a22-29a2-46da-8b31-48e42bea23da" /></p>
-<p><strong>SSH Connection ss -tn Screenshot:</strong></p>
-<p><img width="731" height="264" alt="Screenshot 2026-03-11 at 12 52 06 PM" src="https://github.com/user-attachments/assets/08bc1213-d9c4-41e5-bcab-05c25bc3a050" /></p>
-<p><strong>Secure File Transer Screenshot:</strong></p>
-<p><img width="654" height="98" alt="Screenshot 2026-03-11 at 12 53 25 PM" src="https://github.com/user-attachments/assets/0cf0c5ab-234f-43e8-a368-01f611fa12b9" /></p>
-<p>SSH requires TCP because remote administrative access demands absolute reliability and error free transmission. A single dropped or out of order packet could corrupt a command and crash a system. Encryption is not handled at Layer 3 because that layer is responsible only for routing packets between IP addresses, whereas encryption must be tied to specific application data to ensure security. Similarly, HTTP does not provide its own reliability because it is a application protocol designed to request content. If port numbers did not exist, a computer with a single IP address would be unable to distinguish between different incoming traffic types, making it impossible to run a web server and an SSH server simultaneously. It is essential to separate remote access from file transfer protocols  because they serve distinct administrative purposes, one for executing live system commands and the other for structured data management with each requiring different session behaviors.</p>
-<h3 id="http-status-codes">HTTP Status Codes</h3>
-<table>
-<thead>
-<tr>
-<th>Status Code Range</th>
-<th>Meaning</th>
-<th>Example Code</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1xx</td>
-<td>Informational responses that indicate the request has been received and the server is continuing the process.</td>
-<td>100 Continue</td>
-<td>This code means the server has received the initial part of the request and the client can continue sending the rest of it.</td>
-</tr>
-<tr>
-<td>2xx</td>
-<td>Successful responses that indicate the request was received, understood, and processed correctly.</td>
-<td>200 OK</td>
-<td>This code means the request was successful and the server returned the requested resource or response.</td>
-</tr>
-<tr>
-<td>3xx</td>
-<td>Redirection messages that tell the client that the resource has moved or another action must be taken to complete the request.</td>
-<td>301 Moved Permanently</td>
-<td>This code means the requested resource has been permanently moved to a new URL, and the client should update future requests to use that new address.</td>
-</tr>
-<tr>
-<td>4xx</td>
-<td>Client error responses that indicate something was wrong with the request sent by the client.</td>
-<td>404 Not Found</td>
-<td>This code means the server could not find the requested resource, usually because the URL is incorrect or the page no longer exists.</td>
-</tr>
-<tr>
-<td>5xx</td>
-<td>Server error responses that indicate the server failed to fulfill a valid request.</td>
-<td>500 Internal Server Error</td>
-<td>This code means the server encountered an unexpected problem that prevented it from completing the request.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Status Code</th>
-<th>Name</th>
-<th>What It Means</th>
-<th>When It Happens</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>OK</td>
-<td>The request was successful and the server returned the requested content.</td>
-<td>Happens when a webpage loads correctly and the server delivers the page or data without errors.</td>
-</tr>
-<tr>
-<td>301</td>
-<td>Moved Permanently</td>
-<td>The requested resource has been permanently moved to a different URL.</td>
-<td>Happens when a website changes its address and automatically redirects users to the new location.</td>
-</tr>
-<tr>
-<td>302</td>
-<td>Found</td>
-<td>The resource is temporarily located at a different URL.</td>
-<td>Happens when a page temporarily redirects users, such as during maintenance or temporary content changes.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found</td>
-<td>The server cannot find the requested resource.</td>
-<td>Happens when a user tries to access a page that does not exist or the URL was typed incorrectly.</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error</td>
-<td>The server encountered an unexpected condition that prevented it from completing the request.</td>
-<td>Happens when there is a bug, misconfiguration, or failure in the server's software.</td>
-</tr>
-</tbody>
-</table>
-<p>HTTP status codes are handled at the application layer because they describe the result of a web request between a client and a web server. The application layer is responsible for protocols like HTTP that define how web browsers and servers communicate and interpret messages. In contrast, the transport layer is only responsible for reliably delivering data between devices, not interpreting what the data means. Because status codes describe the meaning and outcome of a request, they belong in the application layer where the communication rules of web applications are defined.</p>
-<h3 id="https-status-codes">HTTPS Status Codes</h3>
-<p><strong>Observe HTTPS Screenshot:</strong></p>
-<p><img width="1218" height="584" alt="Image 3-23-26 at 1 30 PM" src="https://github.com/user-attachments/assets/084d866d-d014-4500-a651-4a876ae461d3" /></p>
-<p><strong>Observe HTTPS Redirect Screenshot:</strong></p>
-<p><img width="1740" height="782" alt="Image 3-23-26 at 1 32 PM" src="https://github.com/user-attachments/assets/40190a4d-0e79-485f-8b68-e8273859ed4a" /></p>
-<p><strong>Observe ss -tn Screenshot:</strong></p>
-<p><img width="1580" height="864" alt="Image 3-23-26 at 1 47 PM" src="https://github.com/user-attachments/assets/755fe98b-9c52-464e-a540-4337d494d99a" /></p>
+<h3 id="subnetting-challenges">Subnetting Challenges</h3>
+<p><img width="749" height="196" alt="Screenshot 2026-03-24 at 2 35 30 PM" src="https://github.com/user-attachments/assets/32353a97-31b9-4fe9-b336-8e8340c2b6a4" /></p>
+<p>Two IP addresses with the subnet mask 255.0.0.0 must have the same first octect to be on the same network.</p>
+<p><img width="751" height="212" alt="Screenshot 2026-03-24 at 2 35 39 PM" src="https://github.com/user-attachments/assets/4344c250-56e6-41f3-9a4c-780895bb452b" /></p>
+<p>Two IP addresses with the subnet mask 255.255.0.0 must have the same first two octects to be on the same network.</p>
+<p><img width="757" height="182" alt="Screenshot 2026-03-24 at 2 35 51 PM" src="https://github.com/user-attachments/assets/11785f72-9a77-4e2f-9fe8-e9e9b10f11f2" /></p>
+<p>The structure of the other IP addresses on the network would be 210.58.24.xxx, with the ending octect being from 1-255.</p>
+<p><img width="714" height="102" alt="Screenshot 2026-03-24 at 2 41 06 PM" src="https://github.com/user-attachments/assets/4ce85ff9-8fdc-42ab-b4b6-02db3e1501e8" /></p>
+<p>The pattern is these numbers are based in binary where the bits are added from right to left.</p>
+<h3 id="ipv4-subnetting-mask">IPv4 Subnetting Mask</h3>
+<p><strong>IP Configuration:</strong></p>
+<p>PC0 - 192.168.1.10, 255.255.255.0
+PC1 - 192.168.1.25, 255.255.255.0
+PC2 - 192.168.2.10, 255.255.255.0</p>
+<p><strong>PC0 ping PC1 and PC2:</strong></p>
+<p><img width="305" height="272" alt="Screenshot 2026-03-26 at 8 16 34 AM" src="https://github.com/user-attachments/assets/2f9c9db1-f434-45eb-afce-f2a42276609c" /></p>
+<p>Here, the ping to PC1 is successful since the subnet mask 255.255.255.0 means that the first 3 octets must be the same to be on the same network, and for PC0 and PC1 they are. In comparison, PC0 to PC2 fails since the third octect is not the same.</p>
+<p><strong>PC0 ping PC2 diff subnet mask:</strong></p>
+<p>Changed PC2 subnet mask to 255.255.0.0</p>
+<p><img width="302" height="138" alt="Screenshot 2026-03-26 at 8 18 32 AM" src="https://github.com/user-attachments/assets/94a9bce6-518e-4b8d-8ffe-db481df3c7b9" /></p>
+<p>Changing only the cubnet mask of PC2 doesn't change much since the subnet mask of PC0 is still 255.255.255.0.</p>
+<p><strong>Scenario A:</strong></p>
+<p>Ping PC1 and PC2 from PC0 against whil all subnet masks are 255.0.0.0</p>
+<p><img width="283" height="294" alt="Screenshot 2026-03-26 at 8 20 01 AM" src="https://github.com/user-attachments/assets/8b766a84-14f6-4381-a9bc-3f9d2bac6e40" /></p>
+<p>Changing all subnet masks to 255.0.0.0 allows for all the PC's to be on the same network since the first octect of the IPv4 is the same for all PC's. </p>
+<p><strong>Scenario B:</strong></p>
+<p>PC0 - 172.16.1.10, 255.255.0.0
+PC1 - 172.16.2.20, 255.255.0.0</p>
+<p><img width="292" height="154" alt="Screenshot 2026-03-26 at 8 21 34 AM" src="https://github.com/user-attachments/assets/658f239f-2f16-4f4a-bcee-32126cda0c97" /></p>
+<p>Both PC's are on the same network since the subnet mask shows that the first 2 octects of the IPv4 have to be the same to be in the same network.</p>
+<p><strong>Scenario C:</strong></p>
+<p><strong>Look Similar but Different Network:</strong></p>
+<p>PC0 - 172.16.1.10, 255.255.255.0
+PC1 - 172.16.2.10, 255.255.255.0</p>
+<p><img width="357" height="135" alt="Screenshot 2026-03-26 at 8 29 43 AM" src="https://github.com/user-attachments/assets/30c6eace-cedb-4b0a-aac0-ec9d2acafa26" /></p>
+<p>Here the two IP addresses look similar with only one number differing, but that number is important since the subnet mask shows that the first 3 octects must be the same to be on the same network. Since the 3rd octect differs, PC0 and PC1 are not on the same network.</p>
+<p><strong>Look Different but Same Network:</strong></p>
+<p>PC0 - 172.56.29.1, 255.0.0.0
+PC1 - 172.16.2.20, 255.0.0.0</p>
+<p><img width="288" height="156" alt="Screenshot 2026-03-26 at 8 31 15 AM" src="https://github.com/user-attachments/assets/cf2fe022-7c07-4610-9bff-27997db86b53" /></p>
+<p>The two PC's have IPv4 addresses that look different except the 1st octect, but based on the subnet mask, only the 1st octect has to be the same for the PC's to be on the same network.</p>
+<h3 id="designing-a-real-network">Designing A Real Network</h3>
+<p>Scenario A: Design a network for a company with two departments that must remain seperate.</p>
+<p><strong>Devices before Connections:</strong></p>
+<p><img width="1518" height="516" alt="Screenshot 2026-03-27 at 9 16 19 AM (1)" src="https://github.com/user-attachments/assets/1ce73d5c-7596-4ab6-b53d-14dfac46bfc3" /></p>
+<p>Above is the devices utilized before connections. It is split into two different departments, accounting and marketing. Each department has its own switch and pcs, but they all connect to a central router.</p>
+<p><strong>Devices Connected:</strong></p>
+<p><img width="1204" height="473" alt="Screenshot 2026-03-27 at 9 24 56 AM" src="https://github.com/user-attachments/assets/f3a1d2e4-ef03-4a51-8eef-9a931283c223" /></p>
+<p>Above shows the good connection between all devices, except wireless for now.</p>
+<p><strong>Final Design:</strong></p>
+<p><img width="1221" height="479" alt="Screenshot 2026-03-27 at 9 50 35 AM" src="https://github.com/user-attachments/assets/906ac783-05bc-49ad-96d3-67137e9ee016" /></p>
+<p>In the final design, a wireless laptop and router were added to allow workers to work outside of the office. In the design there is two different switches for each department, so that they can have seprate networks for scalability and security. Each department has PC's that workers use connected to their respective switches. Ultimately, both switches connect to a central router that is connected to the main server that houses the information for the entire company. I chose a client-server model because it allows for centralized security around the main server, where all the information is stored.</p>
+<h3 id="diagnosing-broken-network">Diagnosing Broken Network</h3>
+<p><strong>Ping Failure:</strong></p>
+<p><img width="885" height="705" alt="Screenshot 2026-03-31 at 12 41 12 PM" src="https://github.com/user-attachments/assets/963b530f-c7a2-41c3-a5a6-8da9578dd1d9" /></p>
+<p>First, pinging the IP address across the network tests to see if connectivity is up. Since the ping fails, there is a failed connection somewhere in the network.</p>
+<p><strong>Checking Router Configuration:</strong></p>
+<p><img width="813" height="205" alt="Screenshot 2026-03-31 at 12 42 26 PM" src="https://github.com/user-attachments/assets/77946dcc-6fc1-4d79-b49f-25f69ef32be0" /></p>
+<p>Checking the configuration of the router, it shows that the Gigabit connection 0/0/1 is down. This means that the connection problem is with the router and the second switch as the port isn't up.</p>
+<p><strong>Solution:</strong></p>
+<p><img width="878" height="709" alt="Screenshot 2026-03-31 at 12 43 46 PM" src="https://github.com/user-attachments/assets/0878739b-0f31-42ee-8e09-2569a8a66233" /></p>
+<p>The solution is a simple fix: configure the status of gigabit port 1 on the router to an up state. To do this enter the cli for the router and type the commands <code>enable</code> then <code>config t</code> to enter global configuration mode. After entering global configuration mode, enter port 1 by typing <code>int gi0/1</code> and then the command <code>no shut</code> to make the status of port 1 UP.</p>
+<p><strong>Working Network:</strong></p>
+<p><img width="932" height="445" alt="Screenshot 2026-03-31 at 12 44 14 PM" src="https://github.com/user-attachments/assets/b4fbdb74-4a39-43fa-ac14-a5469bea4fcb" /></p>
+<p>To diagnose the breakdown in the network, the first step is to test if there is really a breakdown. To do this, simply ping two different devices across the network to see if they are able to reach each other. After figuring out the devices weren't able to reach each other, the next step was to check the IP configuration of the devices, switches, and router. Checking the router last, the port 1 on the router was down, meaning there was no connectivity to switch 2 and the devices on that side. As a result of this, the fix was to simply go into the cli of router 1 and set the status of port 1 to active.</p>
 <h2 id="4-testing-evaluation">4. Testing &amp; Evaluation</h2>
 <table>
 <thead>
@@ -587,46 +391,46 @@ Understand how the transport and application layers manage reliable communicatio
 </thead>
 <tbody>
 <tr>
-<td>TCP Listening Ports</td>
-<td>Ran <code>ss -tln</code> and <code>ss -tlpn</code></td>
-<td>Verified that active services create listening sockets and wait for connection requests</td>
+<td>Same Subnet</td>
+<td>Compared IPs with different subnet masks (255.0.0.0, 255.255.0.0, 255.255.255.0)</td>
+<td>Verified that required matching octets determine whether devices are on the same network</td>
 </tr>
 <tr>
-<td>UDP Listening Ports</td>
-<td>Ran <code>ss -uln</code></td>
-<td>Confirmed UDP sockets appear without a traditional LISTEN state because UDP is connectionless</td>
+<td>Same Subnet Communication</td>
+<td>Pinged PC1 from PC0 with matching subnet (192.168.1.x /24)</td>
+<td>Verified successful communication when network portion matches</td>
 </tr>
 <tr>
-<td>TCP Communication</td>
-<td><code>nc -l 5000</code></td>
-<td>Verified connection established and messages successfully transmitted</td>
+<td>Different Subnet Communication</td>
+<td>Pinged PC2 from PC0 with different subnet (192.168.2.x /24)</td>
+<td>Verified communication fails when devices are on different networks without a router</td>
 </tr>
 <tr>
-<td>TCP Connection State</td>
-<td><code>ss -tn</code></td>
-<td>Confirmed TCP transitions from LISTEN to ESTAB during active communication</td>
+<td>Subnet Mask Change</td>
+<td>Changed subnet mask of one device only</td>
+<td>Confirmed communication still fails if both devices do not share the same network mask</td>
 </tr>
 <tr>
-<td>TLS Encryption</td>
-<td>Observed HTTPS transaction</td>
-<td>Confirmed encryption occurs before HTTP communication</td>
+<td>Connectivity Testing</td>
+<td>Used ping to test network communication</td>
+<td>Identified failure in connectivity between devices</td>
 </tr>
 <tr>
-<td>DNS Resolution</td>
-<td><code>nslookup</code></td>
-<td>Verified DNS converts domain names into IP addresses</td>
+<td>Router Troubleshooting</td>
+<td>Checked router interface status</td>
+<td>Found disabled interface causing network failure</td>
 </tr>
 <tr>
-<td>SSH Remote Access</td>
-<td>Established SSH session and monitored connection with <code>ss -tn</code></td>
-<td>Confirmed SSH uses TCP to maintain reliable encrypted remote sessions</td>
+<td>Network Fix</td>
+<td>Enabled port on router using <code>no shut</code></td>
+<td>Verified full network connectivity restored after interface activation</td>
 </tr>
 </tbody>
 </table>
 <h2 id="5-reflection">5. Reflection</h2>
-<p>This project helped me understand how the transport layer enables reliable and unreliable communication between devices. By comparing TCP and UDP, I observed how different protocols prioritize either reliability or speed depending on the application’s needs. Using tools such as <code>ss -tn</code> allowed me to directly observe listening ports and connection states, which demonstrated how applications create sockets and wait for incoming connections. </p>
-<p>The experiments using netcat also demonstrated the practical differences between TCP and UDP communication. TCP connections maintained a tracked state and guaranteed delivery, while UDP allowed data to be sent without establishing a persistent connection. Observing these behaviors helped clarify why certain applications choose one protocol over the other. For example, applications requiring precise and reliable data transfer, such as file downloads or secure remote access, rely on TCP, while applications that prioritize speed and low latency, such as video streaming, often use UDP.</p>
-<p>Overall, this project strengthened my understanding of how multiple layers of the network stack interact during communication.</p></p>
+<p>This project helped me understand how subnetting controls communication within and between networks. By experimenting with different subnet masks, I learned how the network portion of an IP address determines whether devices can communicate directly. I observed that even small changes in an IP address or subnet mask can completely change whether two devices are considered part of the same network. </p>
+<p>Designing a network with multiple LANs also showed how subnetting is used in real world scenarios to separate departments for better organization and security. By connecting different LANs through a router, I saw how communication between networks depends entirely on proper routing. This helped me understand why routers are essential in larger networks and how they allow multiple smaller networks to function as part of a larger system.</p>
+<p>The troubleshooting portion of the project was  useful because it demonstrated how to diagnose network problems. By starting with a simple ping test and then checking configurations, I was able to identify that a router interface was down. Fixing the issue by enabling the interface showed how small configuration errors can cause major connectivity problems. Overall, this project strengthened my understanding of subnetting and network design.</p></p>
     </article>
 </section>
             <!-- endblock -->
