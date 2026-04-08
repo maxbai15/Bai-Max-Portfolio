@@ -25,7 +25,7 @@ Understand how subnetting determines communication within and between networks, 
 
 Every device on a network has an IP address paired with a subnet mask. The subnet mask determines which portion of the IP address represents the network and which portion represents the host. Devices are on the same network if the network portion of their IP addresses matches. Devices are on different networks if the network portion differs. The subnet mask defines how many octets must match for communication to occur directly.  
 
-### Subnetting Logic
+### Subnetting 
 
 Subnetting is based on binary, where subnet masks divide networks into smaller segments. This allows:
 
