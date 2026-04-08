@@ -60,6 +60,24 @@ Communication across the stack requires multiple layers to work together:
 
 ## 3. Technical Development 
 
+### Subnetting Challenges
+
+<img width="749" height="196" alt="Screenshot 2026-03-24 at 2 35 30 PM" src="https://github.com/user-attachments/assets/32353a97-31b9-4fe9-b336-8e8340c2b6a4" />
+
+Two IP addresses with the subnet mask 255.0.0.0 must have the same first octect to be on the same network.
+
+<img width="751" height="212" alt="Screenshot 2026-03-24 at 2 35 39 PM" src="https://github.com/user-attachments/assets/4344c250-56e6-41f3-9a4c-780895bb452b" />
+
+Two IP addresses with the subnet mask 255.255.0.0 must have the same first two octects to be on the same network.
+
+<img width="757" height="182" alt="Screenshot 2026-03-24 at 2 35 51 PM" src="https://github.com/user-attachments/assets/11785f72-9a77-4e2f-9fe8-e9e9b10f11f2" />
+
+The structure of the other IP addresses on the network would be 210.58.24.xxx, with the ending octect being from 1-255.
+
+<img width="714" height="102" alt="Screenshot 2026-03-24 at 2 41 06 PM" src="https://github.com/user-attachments/assets/4ce85ff9-8fdc-42ab-b4b6-02db3e1501e8" />
+
+The pattern is these numbers are based in binary where the bits are added from right to left.
+
 ### IPv4 Subnetting Mask
 
 **IP Configuration:**
@@ -119,7 +137,7 @@ PC1 - 172.16.2.20, 255.0.0.0
 
 The two PC's have IPv4 addresses that look different except the 1st octect, but based on the subnet mask, only the 1st octect has to be the same for the PC's to be on the same network.
 
-### Comparing Transmission Types
+### Designing A Real Network
 
 A prediction is that TCP is connection oriented because it requires acknowledgement from both parties whereas UDP is connectionless because it doesn't require acknowledgement. Data sent over using UDP that is lost is just lost forever and not resent.
 
@@ -164,7 +182,7 @@ Terminal A Receieves Message:
 
 <img width="1428" height="206" alt="Image 3-6-26 at 8 34 AM" src="https://github.com/user-attachments/assets/c126aaa6-e3e4-42e8-8f76-3d860df6509f" />
 
-**Start UDP Listener Terminal A:**
+**Start UDP Listener Terminal A:**z
 
 <img width="694" height="70" alt="Image 3-6-26 at 8 35 AM" src="https://github.com/user-attachments/assets/918b2ed0-21c0-4356-a5c1-c73cc28c7f25" />
 
