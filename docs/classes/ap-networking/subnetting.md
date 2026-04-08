@@ -139,75 +139,25 @@ The two PC's have IPv4 addresses that look different except the 1st octect, but 
 
 ### Designing A Real Network
 
-A prediction is that TCP is connection oriented because it requires acknowledgement from both parties whereas UDP is connectionless because it doesn't require acknowledgement. Data sent over using UDP that is lost is just lost forever and not resent.
+Scenario A: Design a network for a company with two departments that must remain seperate.
 
-**View Listening TCP Ports(ss -tln):**
+**Devices before Connections:**
 
-<img width="1842" height="344" alt="Image 3-6-26 at 8 19 AM" src="https://github.com/user-attachments/assets/dbd8b48d-846c-401a-82dc-a05e4608e7a8" />
+<img width="1518" height="516" alt="Screenshot 2026-03-27 at 9 16 19 AM (1)" src="https://github.com/user-attachments/assets/1ce73d5c-7596-4ab6-b53d-14dfac46bfc3" />
 
-**Sudo ss -tlpn screenshot:**
+Above is the devices utilized before connections. It is split into two different departments, accounting and marketing. Each department has its own switch and pcs, but they all connect to a central router.
 
-<img width="1892" height="306" alt="Image 3-6-26 at 8 20 AM" src="https://github.com/user-attachments/assets/66ecc646-92b1-4c5b-9bd7-c18c2a50a4b1" />
+**Devices Connected:**
 
-The process using port 22 is typically used for remote logins. If port 22 does not appear in your results, it suggests the SSH service is stopped. While a port exists as a logistical place available in the networking stack, a port is only listening when an active application has opened it to specifically monitor and accept incoming connection requests.
+<img width="1204" height="473" alt="Screenshot 2026-03-27 at 9 24 56 AM" src="https://github.com/user-attachments/assets/f3a1d2e4-ef03-4a51-8eef-9a931283c223" />
 
-**View Listening UDP Ports (ss -uln):**
+Above shows the good connection between all devices, except wireless for now.
 
-<img width="1880" height="322" alt="Image 3-6-26 at 8 22 AM" src="https://github.com/user-attachments/assets/636dc39e-2323-43e8-8a12-2e1c28d052c6" />
+**Final Design:**
 
-UDP sockets do not show a listen state, but above I can see ESTAB which represents that the connection is currently up.
+<img width="1221" height="479" alt="Screenshot 2026-03-27 at 9 50 35 AM" src="https://github.com/user-attachments/assets/906ac783-05bc-49ad-96d3-67137e9ee016" />
 
-**Terminal A Listener screenshot:**
-
-Use the command `nc -l 5000` to have Terminal A be silently listening.
-
-<img width="944" height="60" alt="Image 3-6-26 at 8 27 AM" src="https://github.com/user-attachments/assets/422681ee-5196-4ae3-b66b-4ff794e222b5" />
-
-**Terminal C Shows New Port from Terminal A:**
-
-The new port 0.0.0.0:5000 shows that Terminal C can now see the port from Terminal A.
-
-<img width="1442" height="416" alt="Image 3-6-26 at 8 29 AM" src="https://github.com/user-attachments/assets/59a02792-166e-4f4d-a661-10ed24743b8e" />
-
-**Successful Communication between Terminal B and A(tcp):**
-
-Message from Terminal B:
-<img width="666" height="88" alt="Image 3-6-26 at 8 32 AM" src="https://github.com/user-attachments/assets/be9c0b09-c04f-4e5c-b897-15dcffb77109" />
-
-Terminal A Receieves Message:
-
-<img width="524" height="80" alt="Image 3-6-26 at 8 32 AM (1)" src="https://github.com/user-attachments/assets/3e7ebd4c-43eb-40cd-8cb4-f4947504860c" />
-
-**Observe ESTAB state from Terminal C:**
-
-<img width="1428" height="206" alt="Image 3-6-26 at 8 34 AM" src="https://github.com/user-attachments/assets/c126aaa6-e3e4-42e8-8f76-3d860df6509f" />
-
-**Start UDP Listener Terminal A:**z
-
-<img width="694" height="70" alt="Image 3-6-26 at 8 35 AM" src="https://github.com/user-attachments/assets/918b2ed0-21c0-4356-a5c1-c73cc28c7f25" />
-
-**Successful Communication between Terminal B and A(udp):**
-
-Message from Terminal B:
-<img width="752" height="102" alt="Image 3-6-26 at 8 36 AM" src="https://github.com/user-attachments/assets/83a90265-2a04-4b08-bb0a-83605647247d" />
-
-Terminal A Recieves Message:
-
-<img width="618" height="94" alt="Image 3-6-26 at 8 37 AM" src="https://github.com/user-attachments/assets/b632a039-27be-40bf-976f-b19232351739" />
-
-**Observe UDP State from Terminal C:**
-
-<img width="1428" height="332" alt="Image 3-6-26 at 8 38 AM" src="https://github.com/user-attachments/assets/3427efd8-2ced-455b-9a37-4eebd72ebdd1" />
-
-The evidence for the listen state is the output of ss -tln, which explicitly shows the listen status as it indicates the  listener is open and waiting for a connection. After connecting from Terminal B, the evidence for ESTAB appears in the ss -tn output, showing an ESTAB status demonstrates how the ports are connected. The primary change between the two commands is that ss -tln filters for listening sockets while ss -tn displays active connections ). This experiment proves TCP is connection-oriented because the state clearly transitions from a passive wait to a tracked connection between two different endpoints.
-
-| Application | Protocol | Why | 
-|---|---|---|
-| Online Banking | TCP | Requires absolute reliability in data trasnfer when dealing with financial data |
-| Zoom Call | UDP | Prioritizes low latency over reliability for live video calls |
-| Netflix Streaming | TCP | Ensures the video file is transmitted entirely and safely | 
-| File Download | TCP | Ensures files are transmitted entirely and safely | 
-| DNS Query | UDP | Opimitzed for speed and low overhead | 
+In the final design, a wireless laptop and router were added to allow workers to work outside of the office. In the design there is two different switches for each department, so that they can have seprate networks for scalability and security. Each department has PC's that workers use connected to their respective switches. Ultimately, both switches connect to a central router that is connected to the main server that houses the information for the entire company. I chose a client-server model because it allows for centralized security around the main server, where all the information is stored.
 
 ### OSI Layer 5
 
